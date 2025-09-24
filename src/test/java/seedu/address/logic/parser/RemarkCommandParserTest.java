@@ -1,6 +1,8 @@
 package seedu.address.logic.parser;
 
+import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_REMARK;
+import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
 
@@ -26,5 +28,16 @@ public class RemarkCommandParserTest {
         input = targetIndex.getOneBased() + " " + PREFIX_REMARK;
         expected = new RemarkCommand(targetIndex, new Remark(""));
         assertParseSuccess(parser, input, expected);
+    }
+
+    @Test
+    public void parse_missingCompulsoryField_Failure() {
+        String expected = String.format(MESSAGE_INVALID_COMMAND_FORMAT, RemarkCommand.MESSAGE_USAGE);
+
+        // no parameters
+        assertParseFailure(parser, "", expected);
+
+        // no index
+        assertParseFailure(parser, " " + PREFIX_REMARK + nonEmptyRemark, expected);
     }
 }
