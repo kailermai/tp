@@ -11,7 +11,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ### Jarell Liaw
 
-<img src="images/liawjarell.jpg" width="200px">
+<img src="images/liawjarell.png" width="200px">
 
 [[github](https://github.com/liawjarell)]
 
