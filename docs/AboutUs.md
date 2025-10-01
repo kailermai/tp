@@ -53,7 +53,9 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 <img src="images/lqr1019.png" width="200px">
 
 [[github](http://github.com/lqr1019)]
+
 [[portfolio](team/lqr1019.md)]
+
 
 * Role: Developer
 * Responsibilities: Storage, Integration
