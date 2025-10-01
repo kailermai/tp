@@ -18,15 +18,16 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 * Role: Team Lead, Developer
 * Responsibilities: Deliverables and Deadlines
 
-### Jane Doe
+### Mai Kai Ler
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/kailermai.png" width="200px">
 
-[[github](http://github.com/johndoe)]
-[[portfolio](team/lqr1019)]
+[[github](https://github.com/kailermai)]
+[[portfolio](team/johndoe.md)]
 
-* Role: Team Lead
-* Responsibilities: UI
+
+* Role: Developer
+* Responsibilities: Documentation
 
 ### Jarret Phon
 
