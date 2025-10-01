@@ -9,15 +9,14 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ## Project team
 
-### John Doe
+### Jarell Liaw
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/liawjarell.jpg" width="200px">
 
-[[homepage](http://www.comp.nus.edu.sg/~damithch)]
-[[github](https://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+[[github](https://github.com/liawjarell)]
 
-* Role: Project Advisor
+* Role: Team Lead, Developer
+* Responsibilities: Deliverables and Deadlines
 
 ### Jane Doe
 
