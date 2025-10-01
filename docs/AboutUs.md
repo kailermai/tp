@@ -9,15 +9,14 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ## Project team
 
-### John Doe
+### Jarell Liaw
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/liawjarell.jpg" width="200px">
 
-[[homepage](http://www.comp.nus.edu.sg/~damithch)]
-[[github](https://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+[[github](https://github.com/liawjarell)]
 
-* Role: Project Advisor
+* Role: Team Lead, Developer
+* Responsibilities: Deliverables and Deadlines
 
 ### Mai Kai Ler
 
@@ -26,34 +25,39 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 [[github](https://github.com/kailermai)]
 [[portfolio](team/johndoe.md)]
 
+
 * Role: Developer
 * Responsibilities: Documentation
 
-### Johnny Doe
+### Jarret Phon
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/jarretphon.png" width="200px">
 
-[[github](http://github.com/johndoe)] [[portfolio](team/johndoe.md)]
+[[github](http://github.com/jarretphon)] [[portfolio](team/johndoe.md)]
+
 
 * Role: Developer
-* Responsibilities: Data
+* Responsibilities: Testing
 
-### Jean Doe
+### Jerry Toh
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/Jerrytys.jpg" width="200px">
 
-[[github](http://github.com/johndoe)]
+[[github](http://github.com/Jerrytys)]
 [[portfolio](team/johndoe.md)]
 
+
 * Role: Developer
-* Responsibilities: Dev Ops + Threading
+* Responsibilities: Code Quality
 
 ### Li Qingrui
 
 <img src="images/lqr1019.png" width="200px">
 
 [[github](http://github.com/lqr1019)]
-[[portfolio](team/johndoe.md)]
+
+[[portfolio](team/lqr1019.md)]
+
 
 * Role: Developer
-* Responsibilities: UI
+* Responsibilities: Storage, Integration
