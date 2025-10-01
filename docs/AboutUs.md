@@ -41,7 +41,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ### Jerry Toh
 
-<img src="images/Jerrytys.jpg" width="200px">
+<img src="images/jerrytys.png" width="200px">
 
 [[github](http://github.com/Jerrytys)]
 [[portfolio](team/johndoe.md)]
