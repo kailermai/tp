@@ -15,7 +15,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 [[homepage](http://www.comp.nus.edu.sg/~damithch)]
 [[github](https://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+[[portfolio](team/lqr1019)]
 
 * Role: Project Advisor
 
@@ -24,7 +24,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 <img src="images/johndoe.png" width="200px">
 
 [[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+[[portfolio](team/lqr1019)]
 
 * Role: Team Lead
 * Responsibilities: UI
@@ -35,25 +35,29 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 [[github](http://github.com/jarretphon)] [[portfolio](team/johndoe.md)]
 
+
 * Role: Developer
 * Responsibilities: Testing
 
-### Jean Doe
+### Jerry Toh
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/Jerrytys.jpg" width="200px">
 
-[[github](http://github.com/johndoe)]
+[[github](http://github.com/Jerrytys)]
 [[portfolio](team/johndoe.md)]
 
+
 * Role: Developer
-* Responsibilities: Dev Ops + Threading
+* Responsibilities: Code Quality
 
 ### Li Qingrui
 
 <img src="images/lqr1019.png" width="200px">
 
 [[github](http://github.com/lqr1019)]
-[[portfolio](team/johndoe.md)]
+
+[[portfolio](team/lqr1019.md)]
+
 
 * Role: Developer
-* Responsibilities: UI
+* Responsibilities: Storage, Integration
