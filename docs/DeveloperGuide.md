@@ -297,6 +297,40 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 (For all use cases below, the **System** is the `TAHub` and the **Actor** is the `Teaching Assistant(TA)`, unless specified otherwise)
 
+**Use case: UC03 List entries**
+
+**Guarantees:** All student entries will be displayed.
+
+**MSS**
+1. TA enters command to list entries.
+2. TAHub displays a success message.
+   <br>Use case ends.
+
+**Extensions**
+* 1a. TAHub detects an error in the entered command.
+    * 1a1. TAHub displays an error message.
+      <br>Use case ends.
+* 2a. There are no existing students entries in TAHub.
+    * 2a1. TAHub notifies the user that there are no existing entries.
+      <br>Use case ends.
+
+**Use case: UC04 Find student**
+
+**Guarantees:** All student entries with matching names will be displayed.
+
+**MSS**
+1. TA enters command to find students by name.
+2. TAHub displays matching student entries
+   <br>Use case ends.
+
+**Extensions**
+* 1a. TAHub detects an error in the entered command.
+    * 1a1. TAHub displays an error message.
+      <br>Use case ends.
+* 2a. There are no students that match the given name.
+    * 2a1. TAHub notifies the user that no match is found.
+      <br>Use case ends.
+
 **Use case: UC05 Clear Entries**
 
 **Guarantees:** All student entries will be deleted.
@@ -364,40 +398,6 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 1a1. TAHub displays an error message.
 
       Use case ends.
-
-**Use case: UC03 List entries**
-
-**Guarantees:** All student entries will be displayed.
-
-**MSS**
-1. TA enters command to list entries.
-2. TAHub displays a success message.
-   <br>Use case ends.
-
-**Extensions**
-* 1a. TAHub detects an error in the entered command.
-    * 1a1. TAHub displays an error message.
-      <br>Use case ends.
-* 2a. There are no existing students entries in TAHub.
-  * 2a1. TAHub notifies the user that there are no existing entries.
-        <br>Use case ends.
-
-**Use case: UC04 Find student**
-
-**Guarantees:** All student entries with matching names will be displayed.
-
-**MSS**
-1. TA enters command to find students by name.
-2. TAHub displays matching student entries
-   <br>Use case ends.
-
-**Extensions**
-* 1a. TAHub detects an error in the entered command.
-    * 1a1. TAHub displays an error message.
-      <br>Use case ends.
-* 2a. There are no students that match the given name.
-  * 2a1. TAHub notifies the user that no match is found.
-        <br>Use case ends.
 
 **Use case: UC08 Exit TaHub**
 
