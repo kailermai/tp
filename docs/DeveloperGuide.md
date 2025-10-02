@@ -303,15 +303,15 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 1. TA enters command to list entries.
-2. TAHub displays a success message.
+2. TAHub displays the list of students.
    <br>Use case ends.
 
 **Extensions**
 * 1a. TAHub detects an error in the entered command.
     * 1a1. TAHub displays an error message.
       <br>Use case ends.
-* 2a. There are no existing students entries in TAHub.
-    * 2a1. TAHub notifies the user that there are no existing entries.
+* 1b. There are no existing students entries in TAHub.
+    * 1b1. TAHub notifies the user that there are no existing entries.
       <br>Use case ends.
 
 **Use case: UC04 Find student**
@@ -327,8 +327,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * 1a. TAHub detects an error in the entered command.
     * 1a1. TAHub displays an error message.
       <br>Use case ends.
-* 2a. There are no students that match the given name.
-    * 2a1. TAHub notifies the user that no match is found.
+* 1b. There are no students that match the given name.
+    * 1b1. TAHub notifies the user that no match is found.
       <br>Use case ends.
 
 **Use case: UC05 Clear Entries**
@@ -346,14 +346,12 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 * 1a. TAHub detects an error in the entered command.
   * 1a1. TAHub displays an error message.
-
-    Use case ends.
+    <br>Use case ends.
 
 * 1b. There are no existing entries in TAHub.
 
     * 1b1. TAHub notifies the user that there are no existing entries.
-
-      Use case ends.
+      <br>Use case ends.
 
 **Use case: UC06 Edit Student**
 
@@ -366,20 +364,17 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 1.  TA <u>lists entries (UC03)</u>.
 2.  TA enters command to edit a student's entry.
 3.  TAHub edits the student's entry and displays a success message.
-
-    Use case ends.
+    <br>Use case ends.
 
 **Extensions**
 
 * 2a. TAHub detects an error in the entered command.
     * 2a1. TAHub displays an error message.
-
-      Use case ends.
+      <br>Use case ends.
 
 * 2b. TAHub detects a duplicate student entry.
     * 2b1. TAHub notifies TA of duplicate entry.
-
-      Use case ends.
+      <br>Use case ends.
 
 **Use case: UC07 Show Commands**
 
@@ -389,15 +384,13 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 1.  TA enters command to view command guide.
 2.  TAHub displays command guide.
-
-    Use case ends.
+    <br>Use case ends.
 
 **Extensions**
 
 * 1a. TAHub detects an error in the entered command.
     * 1a1. TAHub displays an error message.
-
-      Use case ends.
+      <br>Use case ends.
 
 **Use case: UC08 Exit TaHub**
 
