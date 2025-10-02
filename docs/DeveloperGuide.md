@@ -421,6 +421,65 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 1b1. TAHub overwrites the existing record.
       <br>Use case resumes from step 2.
 
+*Use case: UC11 Record weekly submission for a student**
+
+**Preconditions:** The TA has already added the student into the class.
+
+**Guarantees:** The submission record is updated for the correct student in the class.
+
+**MSS**
+1. TA <u>list entries UC03</u>.
+2. TA enters command to record a student's weekly submission.
+3. TAHub records submission and displays a success message.
+   <br>Use case ends.
+
+**Extensions**
+* 1a. TAHub detects an error in the entered command.
+    * 1a1. TAHub displays an error message.
+      <br>Use case ends.
+* 1b. Submission status was already recorded.
+    * 1b1. TAHub overwrites the existing record.
+      <br>Use case resumes from step 2.
+
+*Use case: UC12 Generate individual student record report**
+
+**Preconditions:** The TA has already added the student into the class.
+
+**Guarantees:** A graphical summary of student records is generated.
+
+**MSS**
+1. TA <u>list entries UC03</u>.
+2. TA enters command to generate an individual student record report.
+3. TAHub displays the individual student record.
+   <br>Use case ends.
+
+**Extensions**
+* 1a. TAHub detects an error in the entered command.
+    * 1a1. TAHub displays an error message.
+      <br>Use case ends.
+* 1b. The student has no existing records.
+    * 1b1. TAHub displays an empty report with a note.
+      <br>Use case ends.
+
+*Use case: UC13 Generate class record report**
+
+**Preconditions:** The TA has students with existing records in the class.
+
+**Guarantees:** A graphical summary of student records is generated.
+
+**MSS**
+1. TA enters command to generate a class record report.
+2. TAHub displays the class record report.
+   <br>Use case ends.
+
+**Extensions**
+* 1a. TAHub detects an error in the entered command.
+    * 1a1. TAHub displays an error message.
+      <br>Use case ends.
+* 1b. The class has no existing records.
+    * 1b1. TaHub displays an empty report with a note.
+      <br>Use case ends.
+
 ### Non-Functional Requirements
 
 1.  Should work on any _mainstream OS_ as long as it has Java `17` or above installed.
