@@ -290,30 +290,53 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 (For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
 
-**Use case: Delete a person**
+**Use case: Add a student**
+
+**Guarantees**: A student’s entry is added to the class.
 
 **MSS**
 
-1.  User requests to list persons
-2.  AddressBook shows a list of persons
-3.  User requests to delete a specific person in the list
-4.  AddressBook deletes the person
+1. TA enters command to add a student to the class.
+2. TAHub adds the student’s entry and displays a success message.
 
-    Use case ends.
+   Use case ends.
 
 **Extensions**
 
-* 2a. The list is empty.
+* 1a.  TAHub detects an error in the entered command.
+    * 1a1. TAHub displays an error message. 
+      
+      Use case ends
 
-  Use case ends.
 
-* 3a. The given index is invalid.
+* 1b. TAHub detects a duplicate entry.
+    * 1b1. TAHub notifies TA of duplicate entry. 
+      
+      Use case ends.
 
-    * 3a1. AddressBook shows an error message.
 
-      Use case resumes at step 2.
+**Use case: Delete a student**
 
-*{More to be added}*
+**Preconditions**: The student to be deleted has an existing entry in TAHub.
+
+**Guarantees**: The student is deleted.
+
+**MSS**
+
+1. TA <u>lists entries (UC03)</u>.
+2. TA enters command to delete a student’s entry.
+3. TAHub removes the student’s entry and displays a success message.
+
+   Use case ends.
+
+**Extensions**
+
+* 1a.  TAHub detects an error in the entered command.
+    * 1a1. TAHub displays an error message.
+     
+      Use case ends
+
+    
 
 ### Non-Functional Requirements
 
