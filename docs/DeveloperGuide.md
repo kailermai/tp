@@ -322,7 +322,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1.  TA <ins>lists entries (UC03)<ins>.
+1.  TA <u>lists entries (UC03)</u>.
 2.  TA enters command to edit a student's entry.
 3.  TAHub edits the student's entry and displays a success message.
 
@@ -416,16 +416,13 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ### Non-Functional Requirements
 
-1.  Should work on any _mainstream OS_ as long as it has Java `17` or above installed. 
-(constraints/ technical requirement)
-2.  Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage. 
-(performance requirement)
+1.  Should work on any _mainstream OS_ as long as it has Java `17` or above installed.
+2.  Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
 3.  A user with above-average typing speed for regular English text (i.e. not code, not system admin commands) should 
 be able to accomplish most of the tasks faster using commands than using the mouse.
-4.  Should be usable by a novice who has never used admin tracking platforms. (quality requirement)
-5.  The product does not cover communicating with contacts and submission/grading of assignments. 
-(notes about project scope)
-6.  The product should not lose any data when the application crashes or exits unexpectedly. (reliability requirement)
+4.  Should be usable by a novice who has never used admin tracking platforms.
+5.  The product does not cover communicating with contacts and submission/grading of assignments.
+6.  The product should not lose any data when the application crashes or exits unexpectedly.
 
 
 ### Glossary
