@@ -275,14 +275,21 @@ _{Explain here how the data archiving feature will be implemented}_
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority | As a …​                                    | I want to …​                     | So that I can…​                                                        |
-| -------- | ------------------------------------------ | ------------------------------ | ---------------------------------------------------------------------- |
-| `* * *`  | new user                                   | see usage instructions         | refer to instructions when I forget how to use the App                 |
-| `* * *`  | user                                       | add a new person               |                                                                        |
-| `* * *`  | user                                       | delete a person                | remove entries that I no longer need                                   |
-| `* * *`  | user                                       | find a person by name          | locate details of persons without having to go through the entire list |
-| `* *`    | user                                       | hide private contact details   | minimize chance of someone else seeing them by accident                |
-| `*`      | user with many persons in the address book | sort persons by name           | locate a person easily                                                 |
+| Priority  | As a …​                                     | I want to …​                                                           | So that I can…​                                                   |
+|-----------|---------------------------------------------|------------------------------------------------------------------------|-------------------------------------------------------------------|
+| `* * *`   | TA who is using this app for the first time | see an overview of all the functionalities of TAHub                    |                                                                   |
+| `* * *`   | TA                                          | add students to TAHub                                                  | start organising them before tutorial starts                      |
+| `* * *`   | TA                                          | keep track of each student's school email                              |                                                                   |
+| `* * *`   | TA                                          | keep track of each student's telegram handle                           |                                                                   |
+| `* * *`   | TA                                          | keep track of each student's year and major                            |                                                                   |
+| `* * *`   | TA                                          | remove students who are not part of the TA’s class                     | see only existing students in my record                           |
+| `* * *`   | TA                                          | record attendance during tutorials                                     | fairly track each student's attendance                            |
+| `* * *`   | TA                                          | record participation during tutorials                                  | fairly track each student's contributions                         |
+| `* * *`   | TA                                          | use short and intuitive commands                                       | update records quickly during a busy tutorial session             |
+| `* * *`   | TA                                          | record whether each student submitted their weekly task                | monitor consistency and identify students who are falling behind  |
+| `* * *`   | TA                                          | view attendance/participation records of each student                  | monitor the participation level of each student over the semester |
+| `* * *`   | TA                                          | view the attendance/participation records of all the students in TAHub | identify students who are lagging behind tutorials                |
+| `* * *`   | TA                                          | mark students who are not present with valid reasons as excused        | track student attendance more easily                              |
 
 *{More to be added}*
 
@@ -290,28 +297,73 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 (For all use cases below, the **System** is the `TAHub` and the **Actor** is the `Teaching Assistant(TA)`, unless specified otherwise)
 
-**Use case: Delete a person**
+**Use case: UC05 Clear Entries**
+
+**Guarantees:** All student entries will be deleted.
 
 **MSS**
 
-1.  User requests to list persons
-2.  AddressBook shows a list of persons
-3.  User requests to delete a specific person in the list
-4.  AddressBook deletes the person
+1.  TA enters command to clear entries.
+2.  TAHub deletes all entries and displays a success message.
 
     Use case ends.
 
 **Extensions**
 
-* 2a. The list is empty.
+* 1a. TAHub detects an error in the entered command.
+  * 1a1. TAHub displays an error message.
 
-  Use case ends.
+    Use case ends.
 
-* 3a. The given index is invalid.
+* 1b. There are no existing entries in TAHub.
 
-    * 3a1. AddressBook shows an error message.
+    * 1b1. TAHub notifies the user that there are no existing entries.
 
-      Use case resumes at step 2.
+      Use case ends.
+
+**Use case: UC06 Edit Student**
+
+**Preconditions:** The student to be edited has an existing entry in TAHub.
+
+**Guarantees:** The student's entry is edited.
+
+**MSS**
+
+1.  TA <u>lists entries (UC03)</u>.
+2.  TA enters command to edit a student's entry.
+3.  TAHub edits the student's entry and displays a success message.
+
+    Use case ends.
+
+**Extensions**
+
+* 2a. TAHub detects an error in the entered command.
+    * 2a1. TAHub displays an error message.
+
+      Use case ends.
+
+* 2b. TAHub detects a duplicate student entry.
+    * 2b1. TAHub notifies TA of duplicate entry.
+
+      Use case ends.
+
+**Use case: UC07 Show Commands**
+
+**Guarantees**: TAHub displays command guide.
+
+**MSS**
+
+1.  TA enters command to view command guide.
+2.  TAHub displays command guide.
+
+    Use case ends.
+
+**Extensions**
+
+* 1a. TAHub detects an error in the entered command.
+    * 1a1. TAHub displays an error message.
+
+      Use case ends.
 
 **Use case: UC03 List entries**
 
@@ -407,14 +459,25 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 1.  Should work on any _mainstream OS_ as long as it has Java `17` or above installed.
 2.  Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
-3.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
+3.  A user with above-average typing speed for regular English text (i.e. not code, not system admin commands) should 
+be able to accomplish most of the tasks faster using commands than using the mouse.
+4.  Should be usable by a novice who has never used admin tracking platforms.
+5.  The product does not cover communicating with contacts and submission/grading of assignments.
+6.  The product should not lose any data when the application crashes or exits unexpectedly.
 
-*{More to be added}*
 
 ### Glossary
 
 * **Mainstream OS**: Windows, Linux, Unix, MacOS
-* **Private contact detail**: A contact detail that is not meant to be shared with others
+* **Command Line Interface (CLI)**: A CLI is a text-based user interface that allows users to interact with the 
+application.
+* **Teaching Assistant (TA)**: A TA is an educational professional who supports a certified teacher in the classroom by 
+helping to deliver lessons, provide individualized student support, and manage classroom tasks.
+* **Entry**: A student entity stored in TAHub. Each entry contains details related to the student, such as name, email,
+telegram handle, year of study, and major.
+* **Record**: A quantifiable piece of information linked to a student within a class. Examples include participation
+score, attendance, and task submission history.
+* **Class**: A class refers to all student entries and their associated records in TAHub.
 
 --------------------------------------------------------------------------------------------------------------------
 
