@@ -407,7 +407,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **Guarantees:** TaHub closes.
 
 **MSS**
-1. TA enters command to exit TAhub.
+1. TA enters command to exit TAHub.
 2. TAHub displays an exit message and closes.
 <br>Use case ends.
 
