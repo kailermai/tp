@@ -301,6 +301,50 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 (For all use cases below, the **System** is the `TAHub` and the **Actor** is the `Teaching Assistant(TA)`, unless specified otherwise)
 
+
+**Use case: UC01 Add a student**
+
+**Guarantees:** A student’s entry is added to the class.
+
+**MSS**
+
+1. TA enters command to add a student to the class.
+2. TAHub adds the student’s entry and displays a success message.
+   <br>Use case ends.
+
+**Extensions**
+
+* 1a.  TAHub detects an error in the entered command.
+    * 1a1. TAHub displays an error message.
+      <br>Use case ends.
+
+
+* 1b. TAHub detects a duplicate entry.
+    * 1b1. TAHub notifies TA of duplicate entry. 
+      <br>Use case ends.
+
+
+**Use case: UC02 Delete a student**
+
+**Preconditions:** The student to be deleted has an existing entry in TAHub.
+
+**Guarantees:** The student is deleted.
+
+**MSS**
+
+1. TA <u>lists entries (UC03)</u>.
+2. TA enters command to delete a student’s entry.
+3. TAHub removes the student’s entry and displays a success message.
+   <br>Use case ends.
+
+**Extensions**
+
+* 1a.  TAHub detects an error in the entered command.
+    * 1a1. TAHub displays an error message.
+      <br>Use case ends.
+
+    
+
 **Use case: UC03 List entries**
 
 **Guarantees:** All student entries will be displayed.
@@ -335,6 +379,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 1b1. TAHub notifies the user that no match is found.
       <br>Use case ends.
 
+
 **Use case: UC05 Clear Entries**
 
 **Guarantees:** All student entries will be deleted.
@@ -343,8 +388,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 1.  TA enters command to clear entries.
 2.  TAHub deletes all entries and displays a success message.
-
-    Use case ends.
+    <br>Use case ends.
 
 **Extensions**
 
@@ -451,6 +495,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * 1b. Participation status is already recorded.
     * 1b1. TAHub overwrites the existing record.
       <br>Use case resumes from step 2.
+
 
 ### Non-Functional Requirements
 
