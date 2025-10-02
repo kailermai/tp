@@ -310,20 +310,17 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 1. TA enters command to add a student to the class.
 2. TAHub adds the student’s entry and displays a success message.
-
    <br>Use case ends.
 
 **Extensions**
 
 * 1a.  TAHub detects an error in the entered command.
-    * 1a1. TAHub displays an error message. 
-      
-      <br>Use case ends
+    * 1a1. TAHub displays an error message.
+      <br>Use case ends.
 
 
 * 1b. TAHub detects a duplicate entry.
     * 1b1. TAHub notifies TA of duplicate entry. 
-      
       <br>Use case ends.
 
 
@@ -338,15 +335,13 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 1. TA <u>lists entries (UC03)</u>.
 2. TA enters command to delete a student’s entry.
 3. TAHub removes the student’s entry and displays a success message.
-
    <br>Use case ends.
 
 **Extensions**
 
 * 1a.  TAHub detects an error in the entered command.
     * 1a1. TAHub displays an error message.
-     
-      <br>Use case ends
+      <br>Use case ends.
 
     
 
@@ -393,6 +388,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 1.  TA enters command to clear entries.
 2.  TAHub deletes all entries and displays a success message.
+    <br>Use case ends.
 
 **Extensions**
 
