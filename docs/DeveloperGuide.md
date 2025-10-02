@@ -320,7 +320,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 1. TA enters command to find students by name.
-2. TAHub displays matching student entries
+2. TAHub displays matching student entries.
    <br>Use case ends.
 
 **Extensions**
