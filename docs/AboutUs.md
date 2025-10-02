@@ -11,7 +11,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ### Jarell Liaw
 
-<img src="images/liawjarell.jpg" width="200px">
+<img src="images/liawjarell.png" width="200px">
 
 [[github](https://github.com/liawjarell)]
 
@@ -23,7 +23,6 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 <img src="images/kailermai.png" width="200px">
 
 [[github](https://github.com/kailermai)]
-[[portfolio](team/johndoe.md)]
 
 
 * Role: Developer
@@ -33,7 +32,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 <img src="images/jarretphon.png" width="200px">
 
-[[github](http://github.com/jarretphon)] [[portfolio](team/johndoe.md)]
+[[github](http://github.com/jarretphon)]
 
 
 * Role: Developer
@@ -41,10 +40,9 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ### Jerry Toh
 
-<img src="images/Jerrytys.jpg" width="200px">
+<img src="images/jerrytys.png" width="200px">
 
 [[github](http://github.com/Jerrytys)]
-[[portfolio](team/johndoe.md)]
 
 
 * Role: Developer
@@ -55,8 +53,6 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 <img src="images/lqr1019.png" width="200px">
 
 [[github](http://github.com/lqr1019)]
-
-[[portfolio](team/lqr1019.md)]
 
 
 * Role: Developer
