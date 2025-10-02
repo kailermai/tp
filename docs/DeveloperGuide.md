@@ -275,31 +275,30 @@ _{Explain here how the data archiving feature will be implemented}_
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority  | As a …​                                       | I want to …​                                                           | So that I can…​                                                   |
-|-----------|-----------------------------------------------|------------------------------------------------------------------------|-------------------------------------------------------------------|
-| `* * *`   | TA who is using this app for the first time   | see an overview of all the functionalities of TAHub                    |                                                                   |
-| `* * *`   | TA                                            | add students to TAHub                                                  | start organising them before tutorial starts                      |
-| `* * *`   | TA                                            | keep track of each student's school email                              |                                                                   |
-| `* * *`   | TA                                            | keep track of each student's telegram handle                           |                                                                   |
-| `* * *`   | TA                                            | keep track of each student's year and major                            |                                                                   |
-| `* * *`   | TA                                            | remove students who are not part of the TA’s class                     | see only existing students in my record                           |
-| `* * *`   | TA                                            | record attendance during tutorials                                     | fairly track each student's attendance                            |
-| `* * *`   | TA                                            | record participation during tutorials                                  | fairly track each student's contributions                         |
-| `* * *`   | TA                                            | use short and intuitive commands                                       | update records quickly during a busy tutorial session             |
-| `* * *`   | TA                                            | record whether each student submitted their weekly task                | monitor consistency and identify students who are falling behind  |
-| `* * *`   | TA                                            | view attendance/participation records of each student                  | monitor the participation level of each student over the semester |
-| `* * *`   | TA                                            | view the attendance/participation records of all the students in TAHub | identify students who are lagging behind tutorials                |
-| `* * *`   | TA                                            | mark students who are not present with valid reasons as excused        | track student attendance more easily                              |
-| `* *`     | TA                                            | view trends                                                            | identify students who need extra support                               |
-| `* *`     | TA                                            | redo/undo recent actions                                               | correct mistakes easily                                                |
-| `* *`     | TA                                            | sort the students displayed by attendance/participation record         | see who are the students who need the most assistance                  |
-| `* *`     | TA                                            | search for students by partial name or email                           | quickly find the right person                                          |
-| `*`       | TA                                            | export data                                                            | provide evidence of student participation for grading                  |
-| `*`       | TA                                            | lock the participation records from further edits                      | accidental edits will not happen after it has been finalised           |
-| `*`       | TA                                            | filter students who have low attendance/participation records          | easily find the students who need extra guidance                       |
-| `*`       | TA                                            | view my students in alphabetical order                                 | browse the list more easily                                            |
+| Priority | As a …​                                     | I want to …​                                                           | So that I can…​                                                   |
+|----------|---------------------------------------------|------------------------------------------------------------------------|-------------------------------------------------------------------|
+| `* * *`  | TA who is using this app for the first time | see an overview of all the functionalities of TAHub                    |                                                                   |
+| `* * *`  | TA                                          | add students to TAHub                                                  | start organising them before tutorial starts                      |
+| `* * *`  | TA                                          | keep track of each student's school email                              |                                                                   |
+| `* * *`  | TA                                          | keep track of each student's telegram handle                           |                                                                   |
+| `* * *`  | TA                                          | keep track of each student's year and major                            |                                                                   |
+| `* * *`  | TA                                          | remove students who are not part of my class                           | see only existing students in my record                           |
+| `* * *`  | TA                                          | record attendance during tutorials                                     | fairly track each student's attendance                            |
+| `* * *`  | TA                                          | record participation during tutorials                                  | fairly track each student's contributions                         |
+| `* * *`  | TA                                          | use short and intuitive commands                                       | update records quickly during a busy tutorial session             |
+| `* * *`  | TA                                          | record whether each student submitted their weekly task                | monitor consistency and identify students who are falling behind  |
+| `* * *`  | TA                                          | view attendance/participation records of each student                  | monitor the participation level of each student over the semester |
+| `* * *`  | TA                                          | view the attendance/participation records of all the students in TAHub | identify students who are lagging behind tutorials                |
+| `* * *`  | TA                                          | mark students who are not present with valid reasons as excused        | track student attendance more easily                              |
+| `* *`    | TA                                          | view trends                                                            | identify students who need extra support                          |
+| `* *`    | TA                                          | redo/undo recent actions                                               | correct mistakes easily                                           |
+| `* *`    | TA                                          | sort the students displayed by attendance/participation record         | see who are the students who need the most assistance             |
+| `* *`    | TA                                          | search for students by partial name or email                           | quickly find the right person                                     |
+| `*`      | TA                                          | export data                                                            | provide evidence of student participation for grading             |
+| `*`      | TA                                          | lock the participation records from further edits                      | accidental edits will not happen after it has been finalised      |
+| `*`      | TA                                          | filter students who have low attendance/participation records          | easily find the students who need extra guidance                  |
+| `*`      | TA                                          | view my students in alphabetical order                                 | browse the list more easily                                       |
 
-*{More to be added}*
 
 ### Use cases
 
