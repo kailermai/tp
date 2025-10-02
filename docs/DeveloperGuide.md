@@ -296,7 +296,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1.  TA enters command to clear entries
+1.  TA enters command to clear entries.
 2.  TAHub deletes all entries and displays a success message.
 
     Use case ends.
