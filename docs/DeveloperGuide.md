@@ -290,16 +290,10 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`   | TA                                          | view attendance/participation records of each student                  | monitor the participation level of each student over the semester |
 | `* * *`   | TA                                          | view the attendance/participation records of all the students in TAHub | identify students who are lagging behind tutorials                |
 | `* * *`   | TA                                          | mark students who are not present with valid reasons as excused        | track student attendance more easily                              |
-| `* * *`  | new user                                   | see usage instructions                                         | refer to instructions when I forget how to use the App                 |
-| `* * *`  | user                                       | add a new person                                               |                                                                        |
-| `* * *`  | user                                       | delete a person                                                | remove entries that I no longer need                                   |
-| `* * *`  | user                                       | find a person by name                                          | locate details of persons without having to go through the entire list |
-| `* *`    | user                                       | hide private contact details                                   | minimize chance of someone else seeing them by accident                |
 | `* *`    | TA                                         | view trends                                                    | identify students who need extra support                               |
 | `* *`    | TA                                         | redo/undo recent actions                                       | correct mistakes easily                                                |
 | `* *`    | TA                                         | sort the students displayed by attendance/participation record | see who are the students who need the most assistance                  |
 | `* *`    | TA                                         | search for students by partial name or email                   | quickly find the right person                                          |
-| `*`      | user with many persons in the address book | sort persons by name                                           | locate a person easily                                                 |
 
 *{More to be added}*
 
