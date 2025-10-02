@@ -308,7 +308,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1. TA enters command to add a student to the class.
+1. TA requests to add a student to the class.
 2. TAHub adds the student’s entry and displays a success message.
    <br>Use case ends.
 
@@ -333,7 +333,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **MSS**
 
 1. TA <u>lists entries (UC03)</u>.
-2. TA enters command to delete a student’s entry.
+2. TA requests to delete a student’s entry.
 3. TAHub removes the student’s entry and displays a success message.
    <br>Use case ends.
 
@@ -350,7 +350,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **Guarantees:** All student entries will be displayed.
 
 **MSS**
-1. TA enters command to list entries.
+1. TA requests to list entries.
 2. TAHub displays the list of students.
    <br>Use case ends.
 
@@ -367,7 +367,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **Guarantees:** All student entries with matching names will be displayed.
 
 **MSS**
-1. TA enters command to find students by name.
+1. TA requests to find students by name.
 2. TAHub displays matching student entries.
    <br>Use case ends.
 
@@ -386,7 +386,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1.  TA enters command to clear entries.
+1.  TA requests to clear entries.
 2.  TAHub deletes all entries and displays a success message.
     <br>Use case ends.
 
@@ -410,7 +410,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **MSS**
 
 1.  TA <u>lists entries (UC03)</u>.
-2.  TA enters command to edit a student's entry.
+2.  TA requests to edit a student's entry.
 3.  TAHub edits the student's entry and displays a success message.
     <br>Use case ends.
 
@@ -430,7 +430,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1.  TA enters command to view command guide.
+1.  TA requests to view command guide.
 2.  TAHub displays command guide.
     <br>Use case ends.
 
@@ -447,7 +447,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **Guarantees:** TaHub closes.
 
 **MSS**
-1. TA enters command to exit TAhub.
+1. TA requests to exit TAhub.
 2. TAHub displays an exit message and closes.
 <br>Use case ends.
 
@@ -464,7 +464,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 1. TA <u>list entries UC03</u>.
-2. TA enters command to record student attendance.
+2. TA requests to record student attendance.
 3. TAHub records attendance and displays a success message. 
 <br>Use case ends.
 
@@ -484,7 +484,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 1. TA <u>list entries UC03</u>.
-2. TA enters command to record student participation.
+2. TA requests to record student participation.
 3. TAHub records participation and displays a success message.
    <br>Use case ends.
 
@@ -504,7 +504,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 1. TA <u>list entries UC03</u>.
-2. TA enters command to record a student's weekly submission.
+2. TA requests to record a student's weekly submission.
 3. TAHub records submission and displays a success message.
    <br>Use case ends.
 
@@ -524,7 +524,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 1. TA <u>list entries UC03</u>.
-2. TA enters command to generate an individual student record report.
+2. TA requests to generate an individual student record report.
 3. TAHub displays the individual student record.
    <br>Use case ends.
 
@@ -543,7 +543,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **Guarantees:** A graphical summary of student records is generated.
 
 **MSS**
-1. TA enters command to generate a class record report.
+1. TA requests to generate a class record report.
 2. TAHub displays the class record report.
    <br>Use case ends.
 
