@@ -440,11 +440,11 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 1a1. TAHub displays an error message.
       <br>Use case ends.
 
-**Use case: UC08 Exit TaHub**
+**Use case: UC08 Exit TAHub**
 
-**Preconditions:** TaHub is currently running.
+**Preconditions:** TAHub is currently running.
 
-**Guarantees:** TaHub closes.
+**Guarantees:** TAHub closes.
 
 **MSS**
 1. TA requests to exit TAhub.
@@ -552,7 +552,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 1a1. TAHub displays an error message.
       <br>Use case ends.
 * 1b. The class has no existing records.
-    * 1b1. TaHub displays an empty report with a note.
+    * 1b1. TAHub displays an empty report with a note.
       <br>Use case ends.
 
 ### Non-Functional Requirements
