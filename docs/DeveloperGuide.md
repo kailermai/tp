@@ -304,12 +304,56 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 (For all use cases below, the **System** is the `TAHub` and the **Actor** is the `Teaching Assistant(TA)`, unless specified otherwise)
 
+
+**Use case: UC01 Add a student**
+
+**Guarantees:** A student’s entry is added to the class.
+
+**MSS**
+
+1. TA requests to add a student to the class.
+2. TAHub adds the student’s entry and displays a success message.
+   <br>Use case ends.
+
+**Extensions**
+
+* 1a. TAHub detects an error in the entered command.
+    * 1a1. TAHub displays an error message.
+      <br>Use case ends.
+
+
+* 1b. TAHub detects a duplicate entry.
+    * 1b1. TAHub notifies TA of duplicate entry. 
+      <br>Use case ends.
+
+
+**Use case: UC02 Delete a student**
+
+**Preconditions:** The student to be deleted has an existing entry in TAHub.
+
+**Guarantees:** The student is deleted.
+
+**MSS**
+
+1. TA <u>lists entries (UC03)</u>.
+2. TA requests to delete a student’s entry.
+3. TAHub removes the student’s entry and displays a success message.
+   <br>Use case ends.
+
+**Extensions**
+
+* 1a.  TAHub detects an error in the entered command.
+    * 1a1. TAHub displays an error message.
+      <br>Use case ends.
+
+    
+
 **Use case: UC03 List entries**
 
 **Guarantees:** All student entries will be displayed.
 
 **MSS**
-1. TA enters command to list entries.
+1. TA requests to list entries.
 2. TAHub displays the list of students.
    <br>Use case ends.
 
@@ -326,7 +370,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **Guarantees:** All student entries with matching names will be displayed.
 
 **MSS**
-1. TA enters command to find students by name.
+1. TA requests to find students by name.
 2. TAHub displays matching student entries.
    <br>Use case ends.
 
@@ -344,10 +388,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1.  TA enters command to clear entries.
+1.  TA requests to clear entries.
 2.  TAHub deletes all entries and displays a success message.
-
-    Use case ends.
+    <br>Use case ends.
 
 **Extensions**
 
@@ -369,7 +412,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **MSS**
 
 1.  TA <u>lists entries (UC03)</u>.
-2.  TA enters command to edit a student's entry.
+2.  TA requests to edit a student's entry.
 3.  TAHub edits the student's entry and displays a success message.
     <br>Use case ends.
 
@@ -389,7 +432,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1.  TA enters command to view command guide.
+1.  TA requests to view command guide.
 2.  TAHub displays command guide.
     <br>Use case ends.
 
@@ -399,14 +442,14 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 1a1. TAHub displays an error message.
       <br>Use case ends.
 
-**Use case: UC08 Exit TaHub**
+**Use case: UC08 Exit TAHub**
 
-**Preconditions:** TaHub is currently running.
+**Preconditions:** TAHub is currently running.
 
-**Guarantees:** TaHub closes.
+**Guarantees:** TAHub closes.
 
 **MSS**
-1. TA enters command to exit TAHub.
+1. TA requests to exit TAhub.
 2. TAHub displays an exit message and closes.
 <br>Use case ends.
 
@@ -423,7 +466,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 1. TA <u>list entries UC03</u>.
-2. TA enters command to record student attendance.
+2. TA requests to record student attendance.
 3. TAHub records attendance and displays a success message. 
 <br>Use case ends.
 
@@ -443,7 +486,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 1. TA <u>list entries UC03</u>.
-2. TA enters command to record student participation.
+2. TA requests to record student participation.
 3. TAHub records participation and displays a success message.
    <br>Use case ends.
 
@@ -454,6 +497,65 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * 1b. Participation status is already recorded.
     * 1b1. TAHub overwrites the existing record.
       <br>Use case resumes from step 2.
+
+**Use case: UC11 Record weekly submission for a student**
+
+**Preconditions:** The TA has already added the student into the class.
+
+**Guarantees:** The submission record is updated for the correct student in the class.
+
+**MSS**
+1. TA <u>list entries UC03</u>.
+2. TA requests to record a student's weekly submission.
+3. TAHub records submission and displays a success message.
+   <br>Use case ends.
+
+**Extensions**
+* 1a. TAHub detects an error in the entered command.
+    * 1a1. TAHub displays an error message.
+      <br>Use case ends.
+* 1b. Submission status was already recorded.
+    * 1b1. TAHub overwrites the existing record.
+      <br>Use case resumes from step 2.
+
+**Use case: UC12 Generate individual student record report**
+
+**Preconditions:** The TA has already added the student into the class.
+
+**Guarantees:** A graphical summary of student records is generated.
+
+**MSS**
+1. TA <u>list entries UC03</u>.
+2. TA requests to generate an individual student record report.
+3. TAHub displays the individual student record.
+   <br>Use case ends.
+
+**Extensions**
+* 1a. TAHub detects an error in the entered command.
+    * 1a1. TAHub displays an error message.
+      <br>Use case ends.
+* 1b. The student has no existing records.
+    * 1b1. TAHub displays an empty report with a note.
+      <br>Use case ends.
+
+**Use case: UC13 Generate class record report**
+
+**Preconditions:** The TA has students with existing records in the class.
+
+**Guarantees:** A graphical summary of student records is generated.
+
+**MSS**
+1. TA requests to generate a class record report.
+2. TAHub displays the class record report.
+   <br>Use case ends.
+
+**Extensions**
+* 1a. TAHub detects an error in the entered command.
+    * 1a1. TAHub displays an error message.
+      <br>Use case ends.
+* 1b. The class has no existing records.
+    * 1b1. TAHub displays an empty report with a note.
+      <br>Use case ends.
 
 ### Non-Functional Requirements
 
