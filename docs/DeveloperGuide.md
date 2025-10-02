@@ -290,6 +290,10 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`   | TA                                          | view attendance/participation records of each student                  | monitor the participation level of each student over the semester |
 | `* * *`   | TA                                          | view the attendance/participation records of all the students in TAHub | identify students who are lagging behind tutorials                |
 | `* * *`   | TA                                          | mark students who are not present with valid reasons as excused        | track student attendance more easily                              |
+| `* *`    | TA                                         | view trends                                                    | identify students who need extra support                               |
+| `* *`    | TA                                         | redo/undo recent actions                                       | correct mistakes easily                                                |
+| `* *`    | TA                                         | sort the students displayed by attendance/participation record | see who are the students who need the most assistance                  |
+| `* *`    | TA                                         | search for students by partial name or email                   | quickly find the right person                                          |
 
 *{More to be added}*
 
