@@ -288,7 +288,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ### Use cases
 
-(For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
+(For all use cases below, the **System** is the `TAHub` and the **Actor** is the `Teaching Assistant(TA)`, unless specified otherwise)
 
 **Use case: Delete a person**
 
@@ -313,7 +313,61 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
       Use case resumes at step 2.
 
-*{More to be added}*
+**Use case: UC08 Exit TaHub**
+
+**Preconditions:** TaHub is currently running.
+
+**Guarantees:** TaHub closes.
+
+**MSS**
+1. TA enters command to exit TAhub.
+2. TAHub displays an exit message and closes.
+<br>Use case ends.
+
+**Extensions**
+* 1a. TAHub detects an error in the entered command.
+    * 1a1. TAHub displays an error message.
+    <br>Use case ends.
+
+**Use case: UC09 Record attendance for a student**
+
+**Preconditions:** The TA has already added the student to the class.
+
+**Guarantees:** The attendance record is updated for the correct student in the class.
+
+**MSS**
+1. TA <u>list entries UC03</u>.
+2. TA enters command to record student attendance.
+3. TAHub records attendance and displays a success message. 
+<br>Use case ends.
+
+**Extensions**
+* 1a. TAHub detects an error in the entered command.
+    * 1a1. TAHub displays an error message.
+    <br>Use case ends.
+* 1b. Attendance status is already recorded.
+    * 1b1. TAHub overwrites the existing record.
+    <br>Use case resumes from step 2.
+
+**Use case: UC10 Record participation for a student**
+
+**Preconditions:** The TA has already added the student to the class.
+
+**Guarantees:** The participation record is updated for the correct student in the class.
+
+**MSS**
+1. TA <u>list entries UC03</u>.
+2. TA enters command to record student participation.
+3. TAHub records participation and displays a success message.
+   <br>Use case ends.
+
+**Extensions**
+* 1a. TAHub detects an error in the entered command.
+    * 1a1. TAHub displays an error message.
+      <br>Use case ends.
+* 1b. Participation status is already recorded.
+    * 1b1. TAHub overwrites the existing record.
+      <br>Use case resumes from step 2.
 
 ### Non-Functional Requirements
 
