@@ -421,7 +421,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 1b1. TAHub overwrites the existing record.
       <br>Use case resumes from step 2.
 
-*Use case: UC11 Record weekly submission for a student**
+**Use case: UC11 Record weekly submission for a student**
 
 **Preconditions:** The TA has already added the student into the class.
 
@@ -441,7 +441,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 1b1. TAHub overwrites the existing record.
       <br>Use case resumes from step 2.
 
-*Use case: UC12 Generate individual student record report**
+**Use case: UC12 Generate individual student record report**
 
 **Preconditions:** The TA has already added the student into the class.
 
@@ -461,7 +461,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 1b1. TAHub displays an empty report with a note.
       <br>Use case ends.
 
-*Use case: UC13 Generate class record report**
+**Use case: UC13 Generate class record report**
 
 **Preconditions:** The TA has students with existing records in the class.
 
