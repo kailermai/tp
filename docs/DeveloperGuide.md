@@ -290,6 +290,10 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`   | TA                                          | view attendance/participation records of each student                  | monitor the participation level of each student over the semester |
 | `* * *`   | TA                                          | view the attendance/participation records of all the students in TAHub | identify students who are lagging behind tutorials                |
 | `* * *`   | TA                                          | mark students who are not present with valid reasons as excused        | track student attendance more easily                              |
+| `* *`    | TA                                         | view trends                                                    | identify students who need extra support                               |
+| `* *`    | TA                                         | redo/undo recent actions                                       | correct mistakes easily                                                |
+| `* *`    | TA                                         | sort the students displayed by attendance/participation record | see who are the students who need the most assistance                  |
+| `* *`    | TA                                         | search for students by partial name or email                   | quickly find the right person                                          |
 
 *{More to be added}*
 
@@ -300,34 +304,34 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **Use case: UC01 Add a student**
 
-**Guarantees**: A student’s entry is added to the class.
+**Guarantees:** A student’s entry is added to the class.
 
 **MSS**
 
 1. TA enters command to add a student to the class.
 2. TAHub adds the student’s entry and displays a success message.
 
-   Use case ends.
+   <br>Use case ends.
 
 **Extensions**
 
 * 1a.  TAHub detects an error in the entered command.
     * 1a1. TAHub displays an error message. 
       
-      Use case ends
+      <br>Use case ends
 
 
 * 1b. TAHub detects a duplicate entry.
     * 1b1. TAHub notifies TA of duplicate entry. 
       
-      Use case ends.
+      <br>Use case ends.
 
 
 **Use case: UC02 Delete a student**
 
-**Preconditions**: The student to be deleted has an existing entry in TAHub.
+**Preconditions:** The student to be deleted has an existing entry in TAHub.
 
-**Guarantees**: The student is deleted.
+**Guarantees:** The student is deleted.
 
 **MSS**
 
@@ -335,16 +339,52 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 2. TA enters command to delete a student’s entry.
 3. TAHub removes the student’s entry and displays a success message.
 
-   Use case ends.
+   <br>Use case ends.
 
 **Extensions**
 
 * 1a.  TAHub detects an error in the entered command.
     * 1a1. TAHub displays an error message.
      
-      Use case ends
+      <br>Use case ends
 
     
+
+**Use case: UC03 List entries**
+
+**Guarantees:** All student entries will be displayed.
+
+**MSS**
+1. TA enters command to list entries.
+2. TAHub displays the list of students.
+   <br>Use case ends.
+
+**Extensions**
+* 1a. TAHub detects an error in the entered command.
+    * 1a1. TAHub displays an error message.
+      <br>Use case ends.
+* 1b. There are no existing students entries in TAHub.
+    * 1b1. TAHub notifies the user that there are no existing entries.
+      <br>Use case ends.
+
+**Use case: UC04 Find student**
+
+**Guarantees:** All student entries with matching names will be displayed.
+
+**MSS**
+1. TA enters command to find students by name.
+2. TAHub displays matching student entries.
+   <br>Use case ends.
+
+**Extensions**
+* 1a. TAHub detects an error in the entered command.
+    * 1a1. TAHub displays an error message.
+      <br>Use case ends.
+* 1b. There are no students that match the given name.
+    * 1b1. TAHub notifies the user that no match is found.
+      <br>Use case ends.
+
+
 **Use case: UC05 Clear Entries**
 
 **Guarantees:** All student entries will be deleted.
@@ -358,14 +398,12 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 * 1a. TAHub detects an error in the entered command.
   * 1a1. TAHub displays an error message.
-
-    Use case ends.
+    <br>Use case ends.
 
 * 1b. There are no existing entries in TAHub.
 
     * 1b1. TAHub notifies the user that there are no existing entries.
-
-      Use case ends.
+      <br>Use case ends.
 
 **Use case: UC06 Edit Student**
 
@@ -378,20 +416,17 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 1.  TA <u>lists entries (UC03)</u>.
 2.  TA enters command to edit a student's entry.
 3.  TAHub edits the student's entry and displays a success message.
-
-    Use case ends.
+    <br>Use case ends.
 
 **Extensions**
 
 * 2a. TAHub detects an error in the entered command.
     * 2a1. TAHub displays an error message.
-
-      Use case ends.
+      <br>Use case ends.
 
 * 2b. TAHub detects a duplicate student entry.
     * 2b1. TAHub notifies TA of duplicate entry.
-
-      Use case ends.
+      <br>Use case ends.
 
 **Use case: UC07 Show Commands**
 
@@ -401,15 +436,13 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 1.  TA enters command to view command guide.
 2.  TAHub displays command guide.
-
-    Use case ends.
+    <br>Use case ends.
 
 **Extensions**
 
 * 1a. TAHub detects an error in the entered command.
     * 1a1. TAHub displays an error message.
-
-      Use case ends.
+      <br>Use case ends.
 
 **Use case: UC08 Exit TaHub**
 
