@@ -292,7 +292,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **Use case: UC05 Clear Entries**
 
-**Guarantees**: All student entries will be deleted.
+**Guarantees:** All student entries will be deleted.
 
 **MSS**
 
@@ -316,8 +316,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **Use case: UC06 Edit Student**
 
-**Preconditions**: The student to be edited has an existing entry in TAHub.
-**Guarantees**: The student's entry is edited.
+**Preconditions:** The student to be edited has an existing entry in TAHub.
+
+**Guarantees:** The student's entry is edited.
 
 **MSS**
 
