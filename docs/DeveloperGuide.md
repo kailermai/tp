@@ -290,30 +290,72 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 (For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
 
-**Use case: Delete a person**
+**Use case: UC05 Clear Entries**
+
+**Guarantees**: All student entries will be deleted.
 
 **MSS**
 
-1.  User requests to list persons
-2.  AddressBook shows a list of persons
-3.  User requests to delete a specific person in the list
-4.  AddressBook deletes the person
+1.  TA enters command to clear entries
+2.  TAHub deletes all entries and displays a success message.
 
     Use case ends.
 
 **Extensions**
 
-* 2a. The list is empty.
+* 1a. TAHub detects an error in the entered command.
+  * 1a1. TAHub displays an error message.
 
-  Use case ends.
+    Use case ends.
 
-* 3a. The given index is invalid.
+* 1b. There are no existing entries in TAHub.
 
-    * 3a1. AddressBook shows an error message.
+    * 1b1. TAHub notifies the user that there are no existing entries.
 
-      Use case resumes at step 2.
+      Use case ends.
 
-*{More to be added}*
+**Use case: UC06 Edit Student**
+
+**Preconditions**: The student to be edited has an existing entry in TAHub.
+**Guarantees**: The student's entry is edited.
+
+**MSS**
+
+1.  TA <ins>lists entries (UC03)<ins>.
+2.  TA enters command to edit a student's entry.
+3.  TAHub edits the student's entry and displays a success message.
+
+    Use case ends.
+
+**Extensions**
+
+* 2a. TAHub detects an error in the entered command.
+    * 2a1. TAHub displays an error message.
+
+      Use case ends.
+
+* 2b. TAHub detects a duplicate student entry.
+    * 2b1. TAHub notifies TA of duplicate entry.
+
+      Use case ends.
+
+**Use case: UC07 Show Commands**
+
+**Guarantees**: TAHub displays command guide.
+
+**MSS**
+
+1.  TA enters command to view command guide.
+2.  TAHub displays command guide.
+
+    Use case ends.
+
+**Extensions**
+
+* 1a. TAHub detects an error in the entered command.
+    * 1a1. TAHub displays an error message.
+
+      Use case ends.
 
 ### Non-Functional Requirements
 
