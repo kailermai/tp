@@ -360,18 +360,23 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ### Non-Functional Requirements
 
-1.  Should work on any _mainstream OS_ as long as it has Java `17` or above installed. (constraints/ technical requirement)
-2.  Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage. (performance requirement)
-3.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
+1.  Should work on any _mainstream OS_ as long as it has Java `17` or above installed. 
+(constraints/ technical requirement)
+2.  Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage. 
+(performance requirement)
+3.  A user with above-average typing speed for regular English text (i.e. not code, not system admin commands) should 
+be able to accomplish most of the tasks faster using commands than using the mouse.
 4.  Should be usable by a novice who has never used admin tracking platforms. (quality requirement)
-5.  The product does not cover communicating with contacts and submission/grading of assignments. (notes about project scope)
+5.  The product does not cover communicating with contacts and submission/grading of assignments. 
+(notes about project scope)
 6.  The product should not lose any data when the application crashes or exits unexpectedly. (reliability requirement)
 
 
 ### Glossary
 
 * **Mainstream OS**: Windows, Linux, Unix, MacOS
-* **Command Line Interface (CLI)**: A CLI is a text-based user interface that allows users to interact with the application.
+* **Command Line Interface (CLI)**: A CLI is a text-based user interface that allows users to interact with the 
+application.
 * **Teaching Assistant (TA)**: A TA is an educational professional who supports a certified teacher in the classroom by 
 helping to deliver lessons, provide individualized student support, and manage classroom tasks.
 * **Entry**: A student entity stored in TAHub. Each entry contains details related to the student, such as name, email,
