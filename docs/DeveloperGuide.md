@@ -260,15 +260,17 @@ _{Explain here how the data archiving feature will be implemented}_
 
 ### Product scope
 
-**Target user profile**:
+**Target user profile**: Computer Science (CS) Teaching Assistants (TA) who are managing a small tutorial group, 
+with many student related components to keep track of.
 
-* has a need to manage a significant number of contacts
+* has a need to manage a small number of students
 * prefer desktop apps over other types
 * can type fast
 * prefers typing to mouse interactions
 * is reasonably comfortable using CLI apps
 
-**Value proposition**: manage contacts faster than a typical mouse/GUI driven app
+**Value proposition**: Help TAs efficiently manage student contacts, track participation, and monitor submissions, 
+providing a simple text based interface optimised for users to prefer Command Line Interface (CLI).
 
 
 ### User stories
