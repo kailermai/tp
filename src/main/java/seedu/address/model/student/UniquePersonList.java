@@ -19,7 +19,7 @@ import seedu.address.model.student.exceptions.PersonNotFoundException;
  * as to ensure that the student with exactly the same fields will be removed.
  * Supports a minimal set of list operations.
  *
- * @see Student#isSamePerson(Student)
+ * @see Student#isSameStudent(Student)
  */
 public class UniquePersonList implements Iterable<Student> {
 
@@ -32,7 +32,7 @@ public class UniquePersonList implements Iterable<Student> {
      */
     public boolean contains(Student toCheck) {
         requireNonNull(toCheck);
-        return internalList.stream().anyMatch(toCheck::isSamePerson);
+        return internalList.stream().anyMatch(toCheck::isSameStudent);
     }
 
     /**
@@ -60,7 +60,7 @@ public class UniquePersonList implements Iterable<Student> {
             throw new PersonNotFoundException();
         }
 
-        if (!target.isSamePerson(editedStudent) && contains(editedStudent)) {
+        if (!target.isSameStudent(editedStudent) && contains(editedStudent)) {
             throw new DuplicatePersonException();
         }
 
@@ -139,7 +139,7 @@ public class UniquePersonList implements Iterable<Student> {
     private boolean personsAreUnique(List<Student> students) {
         for (int i = 0; i < students.size() - 1; i++) {
             for (int j = i + 1; j < students.size(); j++) {
-                if (students.get(i).isSamePerson(students.get(j))) {
+                if (students.get(i).isSameStudent(students.get(j))) {
                     return false;
                 }
             }
