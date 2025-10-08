@@ -5,7 +5,7 @@ package seedu.address.model.record;
  */
 public class AttendanceRecord {
 
-    private int score;
+    private AttendanceScore score;
     private String absenceReason;
 
     /**
@@ -14,7 +14,7 @@ public class AttendanceRecord {
      * @param score The attendance score of the student. 1 for present, 0 for absent.
      * @param absenceReason The reason for the student's absence, if applicable. This field is optional.
      */
-    public AttendanceRecord(int score, String absenceReason) {
+    public AttendanceRecord(AttendanceScore score, String absenceReason) {
         this.score = score;
         this.absenceReason = absenceReason;
     }
