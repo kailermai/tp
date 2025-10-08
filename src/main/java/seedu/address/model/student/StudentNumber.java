@@ -2,11 +2,15 @@ package seedu.address.model.student;
 
 import static java.util.Objects.requireNonNull;
 
+/**
+ * Represents a Student's student number in the address book.
+ * Guarantees: immutable; is valid as declared in {@link #isValidStudentNumber(String)}
+ */
 public class StudentNumber {
 
     public static final String MESSAGE_CONSTRAINTS =
             "Student numbers should be in the following format: A1234567X";
-    public static final String VALIDATION_regex = "[a-zA-Z]\\d{7}[a-zA-Z]";
+    public static final String VALIDATION_REGEX = "[a-zA-Z]\\d{7}[a-zA-Z]";
     public final String value;
 
     /**
@@ -20,7 +24,7 @@ public class StudentNumber {
     }
 
     public static boolean isValidStudentNumber(String test) {
-        return test.matches(VALIDATION_regex);
+        return test.matches(VALIDATION_REGEX);
     }
 
     @Override

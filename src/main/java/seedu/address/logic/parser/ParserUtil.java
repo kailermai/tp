@@ -108,6 +108,12 @@ public class ParserUtil {
         return new Phone(trimmedPhone);
     }
 
+    /**
+     * Parses a {@code String studentNumber} into a {@code StudentNumber}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code studentNumber} is invalid.
+     */
     public static StudentNumber parseStudentNumber(String studentNumber) throws ParseException {
         requireNonNull(studentNumber);
         String trimmedStudentNumber = studentNumber.trim();
