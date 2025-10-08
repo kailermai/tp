@@ -37,7 +37,7 @@ public class Student {
         this.email = email;
         this.address = address;
         this.tags.addAll(tags);
-        this.studentNumber = null;
+        this.studentNumber = new StudentNumber("A0123456Z");
     }
 
     public Student(Name name, Phone phone, Email email, Address address, Set<Tag> tags, StudentNumber studentNumber) {
@@ -108,6 +108,7 @@ public class Student {
 
         Student otherStudent = (Student) other;
         return name.equals(otherStudent.name)
+                && studentNumber.equals(otherStudent.studentNumber)
                 && phone.equals(otherStudent.phone)
                 && email.equals(otherStudent.email)
                 && address.equals(otherStudent.address)
@@ -117,7 +118,7 @@ public class Student {
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, address, tags);
+        return Objects.hash(name, studentNumber, email, address, tags);
     }
 
     @Override
