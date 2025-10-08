@@ -7,7 +7,10 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_WEEK_NUMBER;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
+import seedu.address.logic.parser.AttendanceCommandParser;
 import seedu.address.model.Model;
+import seedu.address.model.record.AttendanceRecord;
+import seedu.address.model.record.WeekNumber;
 
 /**
  * Records the attendance of an existing student in TAHub.
@@ -37,25 +40,22 @@ public class AttendanceCommand extends Command {
             "Reason for absence must contain alphanumeric characters and spaces only.";
 
     private final Index targetIndex;
-    private final String weekNumber;
-    private final String attendanceScore;
-    private final String reason;
+    private final WeekNumber weekNumber;
+    private final AttendanceRecord attendanceRecord;
 
     /**
      * @param targetIndex of the student in the filtered student list to record attendance for
      * @param weekNumber the week number of the attendance to be recorded
-     * @param attendanceScore the score of the attendance to be recorded. 1 for present, 0 for absent.
-     * @param reason the reason for the absence to be recorded. This field is optional.
+     * @param attendanceRecord the attendance record to be recorded
      */
-    public AttendanceCommand(Index targetIndex, String weekNumber, String attendanceScore, String reason) {
+    public AttendanceCommand(Index targetIndex, WeekNumber weekNumber, AttendanceRecord attendanceRecord) {
         requireNonNull(targetIndex);
         requireNonNull(weekNumber);
-        requireNonNull(attendanceScore);
+        requireNonNull(attendanceRecord);
 
         this.targetIndex = targetIndex;
         this.weekNumber = weekNumber;
-        this.attendanceScore = attendanceScore;
-        this.reason = reason;
+        this.attendanceRecord = attendanceRecord;
     }
 
     @Override
