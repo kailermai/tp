@@ -51,7 +51,7 @@ public class StudentBuilder {
         email = studentToCopy.getEmail();
         address = studentToCopy.getAddress();
         tags = new HashSet<>(studentToCopy.getTags());
-        StudentNumber studentNumber = studentToCopy.getStudentNumber();
+        studentNumber = studentToCopy.getStudentNumber();
     }
 
     /**
