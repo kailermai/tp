@@ -6,7 +6,7 @@ import seedu.address.model.record.AttendanceRecord;
  * Represents the list of all types of records, namely Attendance, Submission and Participation records.
  */
 public class RecordList {
-    private final static int WEEKS = 13;
+    private static final int WEEKS = 13;
     private AttendanceRecord[] attendanceRecords;
     // private SubmissionRecord[] submissionRecords;
     // private ParticipationRecord[] participationRecords;
