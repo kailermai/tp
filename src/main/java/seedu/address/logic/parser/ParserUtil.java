@@ -9,6 +9,8 @@ import java.util.Set;
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.record.AttendanceScore;
+import seedu.address.model.record.WeekNumber;
 import seedu.address.model.student.Address;
 import seedu.address.model.student.Email;
 import seedu.address.model.student.Name;
@@ -33,6 +35,46 @@ public class ParserUtil {
             throw new ParseException(MESSAGE_INVALID_INDEX);
         }
         return Index.fromOneBased(Integer.parseInt(trimmedIndex));
+    }
+
+    /**
+    * Parses {@code number} into a {@code WeekNumber} and returns it. Leading and trailing whitespaces will be trimmed.
+    * @throws ParseException if the specified number is invalid (negative/NaN/out of range)
+    */
+    public static WeekNumber parseWeekNumber(String number) throws ParseException {
+        String trimmedNumber = number.trim();
+        int parsedInt;
+
+        try {
+            parsedInt = Integer.parseInt(trimmedNumber);
+        } catch (NumberFormatException nfe) {
+            throw new ParseException(WeekNumber.MESSAGE_CONSTRAINTS);
+        }
+
+        if (!WeekNumber.isValidWeekNumber(parsedInt)) {
+            throw new ParseException(WeekNumber.MESSAGE_CONSTRAINTS);
+        }
+        return new WeekNumber(parsedInt);
+    }
+
+    /**
+     * Parses {@code attendanceScore} into an {@code AttendanceScore} and returns it.
+     * Leading and trailing whitespaces will be trimmed.
+     * @throws ParseException if the specified number is invalid (negative/NaN/out of range)
+     */
+    public static AttendanceScore parseAttendanceScore(String attendanceScore) throws ParseException {
+        String trimmedScore = attendanceScore.trim();
+        int parsedInt;
+        try {
+            parsedInt = Integer.parseInt(trimmedScore);
+        } catch (NumberFormatException nfe) {
+            throw new ParseException(AttendanceScore.MESSAGE_CONSTRAINTS);
+        }
+
+        if (!AttendanceScore.isValidAttendanceScore(parsedInt)) {
+            throw new ParseException(AttendanceScore.MESSAGE_CONSTRAINTS);
+        }
+        return new AttendanceScore(parsedInt);
     }
 
     /**

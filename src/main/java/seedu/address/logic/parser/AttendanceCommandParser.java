@@ -10,6 +10,9 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.logic.commands.AttendanceCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.record.AttendanceRecord;
+import seedu.address.model.record.AttendanceScore;
+import seedu.address.model.record.WeekNumber;
 
 /**
  * Parses input arguments and creates a new {@code AttendanceCommand} object
@@ -36,10 +39,10 @@ public class AttendanceCommandParser implements Parser<AttendanceCommand> {
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, AttendanceCommand.MESSAGE_USAGE), ive);
         }
 
-        String weekNumber = argMultimap.getValue(PREFIX_WEEK_NUMBER).orElse("");
-        String score = argMultimap.getValue(PREFIX_SCORE).orElse("");
+        WeekNumber weekNumber = ParserUtil.parseWeekNumber(argMultimap.getValue(PREFIX_WEEK_NUMBER).orElse(""));
+        AttendanceScore score = ParserUtil.parseAttendanceScore(argMultimap.getValue(PREFIX_SCORE).orElse(""));
         String absenceReason = argMultimap.getValue(PREFIX_ABSENCE_REASON).orElse("");
 
-        return new AttendanceCommand(index, weekNumber, score, absenceReason);
+        return new AttendanceCommand(index, weekNumber, new AttendanceRecord(score, absenceReason));
     }
 }
