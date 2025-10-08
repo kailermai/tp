@@ -1,7 +1,5 @@
 package seedu.address.model.record;
 
-import seedu.address.commons.core.index.Index;
-
 /**
  * Represents a student's submission record for weekly assessments.
  */
