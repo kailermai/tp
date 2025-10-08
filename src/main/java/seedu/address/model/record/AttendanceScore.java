@@ -10,7 +10,7 @@ public class AttendanceScore {
     public static final int MIN_SCORE = 0;
     public static final int MAX_SCORE = 1;
     public static final String MESSAGE_CONSTRAINTS = "Only values from "
-            + MIN_SCORE + " to " + MAX_SCORE + "are allowed.";
+            + MIN_SCORE + " to " + MAX_SCORE + " are allowed.";
 
     public final int score;
 
