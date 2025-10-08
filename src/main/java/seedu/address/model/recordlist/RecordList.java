@@ -17,7 +17,7 @@ public class RecordList {
      * Constructs a {@code RecordList} object with specified maximum size.
      */
     public RecordList() {
-        attendanceRecords = new ArrayList<>(WEEKS);
+        attendanceRecords = new ArrayList<>();
         // instantiate submissionRecords
         // instantiate participationRecords
     }
