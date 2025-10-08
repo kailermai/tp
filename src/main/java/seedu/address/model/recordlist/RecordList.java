@@ -1,5 +1,7 @@
 package seedu.address.model.recordlist;
 
+import java.util.ArrayList;
+
 import seedu.address.model.record.AttendanceRecord;
 
 /**
@@ -7,15 +9,15 @@ import seedu.address.model.record.AttendanceRecord;
  */
 public class RecordList {
     private static final int WEEKS = 13;
-    private AttendanceRecord[] attendanceRecords;
-    // private SubmissionRecord[] submissionRecords;
-    // private ParticipationRecord[] participationRecords;
+    private ArrayList<AttendanceRecord> attendanceRecords;
+    // private ArrayList<SubmissionRecord> submissionRecords;
+    // private ParticipationList<ParticipationRecord> participationRecords;
 
     /**
      * Constructs a {@code RecordList} object with specified maximum size.
      */
     public RecordList() {
-        attendanceRecords = new AttendanceRecord[WEEKS];
+        attendanceRecords = new ArrayList<>(WEEKS);
         // instantiate submissionRecords
         // instantiate participationRecords
     }
