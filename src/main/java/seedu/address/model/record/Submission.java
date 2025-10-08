@@ -5,7 +5,7 @@ import seedu.address.commons.core.index.Index;
 /**
  * Represents a student's submission record for weekly assessments.
  */
-public class Submission extends Record{
+public class Submission extends Record {
     /**
      * Constructs a {@code Submission} instance with the specified maximum score.
      * @param maxScore The maximum score that can be recorded for any week.
