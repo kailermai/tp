@@ -8,6 +8,7 @@ import java.util.Objects;
 import java.util.Set;
 
 import seedu.address.commons.util.ToStringBuilder;
+import seedu.address.model.student.exceptions.StudentNotFoundException;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -20,6 +21,7 @@ public class Student {
     private final Name name;
     private final Phone phone;
     private final Email email;
+    private final StudentNumber studentNumber;
 
     // Data fields
     private final Address address;
@@ -35,6 +37,17 @@ public class Student {
         this.email = email;
         this.address = address;
         this.tags.addAll(tags);
+        this.studentNumber = null;
+    }
+
+    public Student(Name name, Phone phone, Email email, Address address, Set<Tag> tags, StudentNumber studentNumber) {
+        requireAllNonNull(name, phone, email, address, tags);
+        this.name = name;
+        this.phone = phone;
+        this.email = email;
+        this.address = address;
+        this.tags.addAll(tags);
+        this.studentNumber = studentNumber;
     }
 
     public Name getName() {
@@ -51,6 +64,10 @@ public class Student {
 
     public Address getAddress() {
         return address;
+    }
+
+    public StudentNumber getStudentNumber() {
+        return studentNumber;
     }
 
     /**
