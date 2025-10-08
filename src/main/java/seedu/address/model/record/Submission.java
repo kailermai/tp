@@ -6,10 +6,8 @@ package seedu.address.model.record;
 public class Submission extends Record {
     /**
      * Constructs a {@code Submission} instance with the specified maximum score.
-     * @param maxScore The maximum score that can be recorded for any week.
      */
-    public Submission(int maxScore) {
-        super(maxScore);
+    public Submission() {
     }
 
 }
