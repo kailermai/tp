@@ -30,7 +30,7 @@ public class PersonListPanel extends UiPart<Region> {
     }
 
     /**
-     * Custom {@code ListCell} that displays the graphics of a {@code Student} using a {@code PersonCard}.
+     * Custom {@code ListCell} that displays the graphics of a {@code Student} using a {@code StudentCard}.
      */
     class PersonListViewCell extends ListCell<Student> {
         @Override
@@ -41,7 +41,7 @@ public class PersonListPanel extends UiPart<Region> {
                 setGraphic(null);
                 setText(null);
             } else {
-                setGraphic(new PersonCard(student, getIndex() + 1).getRoot());
+                setGraphic(new StudentCard(student, getIndex() + 1).getRoot());
             }
         }
     }
