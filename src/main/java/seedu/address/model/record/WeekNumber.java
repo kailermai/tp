@@ -7,11 +7,12 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  * A valid week number is a positive integer between {@value MIN_WEEK_NUMBER} and {@value MAX_WEEK_NUMBER}, inclusive.
  */
 public class WeekNumber {
-    public static final String MESSAGE_CONSTRAINTS =
-            "Week number should be a positive integer within the range [1, 13].";
 
     public static final int MIN_WEEK_NUMBER = 1;
     public static final int MAX_WEEK_NUMBER = 13;
+
+    public static final String MESSAGE_CONSTRAINTS = "Week number should be a positive integer within the range"
+            + "[" + MIN_WEEK_NUMBER + "," + MAX_WEEK_NUMBER + "].";
 
     public final int weekNumber;
 
