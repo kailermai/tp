@@ -6,7 +6,7 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  * Represents an attendance score for an attendance record..
  * A valid week number is a positive integer between {@value MIN_SCORE} and {@value MAX_SCORE}, inclusive.
  */
-public class AttendanceScore extends Record {
+public class AttendanceScore {
     public static final int MIN_SCORE = 0;
     public static final int MAX_SCORE = 1;
     public static final String MESSAGE_CONSTRAINTS = "Only values from "
