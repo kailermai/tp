@@ -30,6 +30,12 @@ public class AttendanceCommand extends Command {
             + PREFIX_SCORE + "0 "
             + PREFIX_ABSENCE_REASON + "MC";
 
+    public static final String MESSAGE_HELP = "Attendance tracking:\n"
+            + COMMAND_WORD + " INDEX "
+            + PREFIX_WEEK_NUMBER + "WEEK_NUMBER "
+            + PREFIX_SCORE + "ATTENDANCE "
+            + PREFIX_ABSENCE_REASON + "REASON_FOR_ABSENCE ";
+
     public static final String MESSAGE_STUDENT_ATTENDANCE_RECORDED_SUCCESS = "Attendance recorded for student: %1$s";
     public static final String MESSAGE_INVALID_INDEX = "Invalid index. Only positive integers are allowed.";
     public static final String MESSAGE_STUDENT_NOT_FOUND = "The student at %d does not exist.";
