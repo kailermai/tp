@@ -9,7 +9,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_WEEK_NUMBER;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
-import seedu.address.model.record.AttendanceRecord;
+import seedu.address.model.record.Record;
 import seedu.address.model.record.WeekNumber;
 
 /**
@@ -47,21 +47,21 @@ public class RecordCommand extends Command {
 
     private final Index targetIndex;
     private final WeekNumber weekNumber;
-    private final AttendanceRecord attendanceRecord;
+    private final Record record;
 
     /**
      * @param targetIndex of the student in the filtered student list to record attendance for
      * @param weekNumber the week number of the attendance to be recorded
-     * @param attendanceRecord the attendance record to be recorded
+     * @param record the attendance record to be recorded
      */
-    public RecordCommand(Index targetIndex, WeekNumber weekNumber, AttendanceRecord attendanceRecord) {
+    public RecordCommand(Index targetIndex, WeekNumber weekNumber, Record record) {
         requireNonNull(targetIndex);
         requireNonNull(weekNumber);
-        requireNonNull(attendanceRecord);
+        requireNonNull(record);
 
         this.targetIndex = targetIndex;
         this.weekNumber = weekNumber;
-        this.attendanceRecord = attendanceRecord;
+        this.record = record;
     }
 
     @Override
