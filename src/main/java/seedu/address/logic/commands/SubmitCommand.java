@@ -82,8 +82,6 @@ public class SubmitCommand extends Command{
         model.updateFilteredStudentList(PREDICATE_SHOW_ALL_STUDENTS);
         return new CommandResult(String.format(MESSAGE_STUDENT_SUBMISSION_RECORDED_SUCCESS, Messages.format(editedStudent)));
 
-
-
     }
 
     /**
@@ -108,7 +106,11 @@ public class SubmitCommand extends Command{
         Set<Tag> tags = targetStudent.getTags();
         RecordList recordList = targetStudent.getRecordList();
         ArrayList<SubmissionRecord> submissionRecords = recordList.getSubmissionRecords();
-        submissionRecords.add(weekNumber.getWeekNumber() - 1, submissionRecord);
+        int index = weekNumber.getWeekNumber() - 1;
+        while (submissionRecords.size() <= index) {
+            submissionRecords.add(null);
+        }
+        submissionRecords.set(index, submissionRecord);
 
         return new Student(name, phone, email, address, tags, recordList);
     }
