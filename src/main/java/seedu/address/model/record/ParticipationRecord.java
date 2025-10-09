@@ -1,6 +1,8 @@
 package seedu.address.model.record;
 
-
+/**
+ * Represents a student's participation record.
+ */
 public class ParticipationRecord {
 
     static final int MAX_SCORE = 5;

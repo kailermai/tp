@@ -2,7 +2,11 @@ package seedu.address.model.record;
 
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
-public class ParticipationScore extends Record{
+/**
+ * Represents a participation score for a participation record.
+ * A valid participation score is an integer between {@value MIN_SCORE} and {@value MAX_SCORE}, inclusive.
+ */
+public class ParticipationScore extends Record {
     static final int MIN_SCORE = 0;
     static final int MAX_SCORE = 5;
     static final String MESSAGE_CONSTRAINTS = "Only values from "
