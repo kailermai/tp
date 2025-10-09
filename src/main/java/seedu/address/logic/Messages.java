@@ -37,6 +37,8 @@ public class Messages {
     public static String format(Student student) {
         final StringBuilder builder = new StringBuilder();
         builder.append(student.getName())
+                .append("; Student Number: ")
+                .append(student.getStudentNumber())
                 .append("; Phone: ")
                 .append(student.getPhone())
                 .append("; Email: ")
