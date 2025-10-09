@@ -8,6 +8,7 @@ import java.util.Objects;
 import java.util.Set;
 
 import seedu.address.commons.util.ToStringBuilder;
+import seedu.address.model.recordlist.RecordList;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -25,6 +26,7 @@ public class Student {
     // Data fields
     private final Address address;
     private final Set<Tag> tags = new HashSet<>();
+    private RecordList recordList;
 
     /**
      * Every field must be present and not null.
@@ -37,6 +39,22 @@ public class Student {
         this.address = address;
         this.tags.addAll(tags);
         this.studentNumber = studentNumber;
+        this.recordList = new RecordList();
+    }
+
+    /**
+     * Alternative constructor including recordList. Every field must be present and not null.
+     */
+    public Student(Name name, Phone phone, Email email, Address address, Set<Tag> tags, StudentNumber studentNumber,
+                   RecordList recordlist) {
+        requireAllNonNull(name, phone, email, address, tags);
+        this.name = name;
+        this.phone = phone;
+        this.email = email;
+        this.address = address;
+        this.tags.addAll(tags);
+        this.studentNumber = studentNumber;
+        this.recordList = recordlist;
     }
 
     public Name getName() {
@@ -65,6 +83,13 @@ public class Student {
      */
     public Set<Tag> getTags() {
         return Collections.unmodifiableSet(tags);
+    }
+
+    /**
+     * Returns the record list of the student.
+     */
+    public RecordList getRecordList() {
+        return recordList;
     }
 
     /**
