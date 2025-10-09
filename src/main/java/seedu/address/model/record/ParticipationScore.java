@@ -10,10 +10,9 @@ public class ParticipationScore extends Record{
     private final int score;
 
     /**
-     * Constructs a {@code ParticipationScore} object with the specified score.
+     * Constructs a ParticipationScore object with the given score.
      *
-     * @param score The participation score of the student. Must be between 0 and 5, inclusive.
-     * @throws IllegalArgumentException if the score is not between 0 and 5, inclusive.
+     * @param score The participation score to be assigned.
      */
     public ParticipationScore(int score) {
         this.score = score;
