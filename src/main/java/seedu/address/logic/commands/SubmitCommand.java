@@ -5,15 +5,25 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.logic.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
+import seedu.address.model.record.Record;
 import seedu.address.model.record.SubmissionRecord;
 import seedu.address.model.record.SubmissionScore;
 import seedu.address.model.record.WeekNumber;
+import seedu.address.model.recordlist.RecordList;
+import seedu.address.model.student.Address;
+import seedu.address.model.student.Email;
+import seedu.address.model.student.Name;
+import seedu.address.model.student.Phone;
 import seedu.address.model.student.Student;
+import seedu.address.model.tag.Tag;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import static seedu.address.logic.parser.CliSyntax.PREFIX_SCORE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_WEEK_NUMBER;
+import static seedu.address.model.Model.PREDICATE_SHOW_ALL_STUDENTS;
 
 public class SubmitCommand extends Command{
     public static final String COMMAND_WORD = "sub";
@@ -60,6 +70,11 @@ public class SubmitCommand extends Command{
         }
 
         Student targetStudent = lastShownList.get(targetIndex.getZeroBased());
+        Student editedStudent = createEditedStudent(targetStudent, weekNumber, submissionRecord);
+        model.setStudent(targetStudent, editedStudent);
+        model.updateFilteredStudentList(PREDICATE_SHOW_ALL_STUDENTS);
+        return new CommandResult(String.format(MESSAGE_STUDENT_SUBMISSION_RECORDED_SUCCESS, Messages.format(editedStudent)));
+
 
 
     }
@@ -68,6 +83,19 @@ public class SubmitCommand extends Command{
     public static boolean isValidIndex(Index index) {
         int num = index.getOneBased();
         return num > 0;
+    }
+
+    private static Student createEditedStudent(Student targetStudent, WeekNumber weekNumber, SubmissionRecord submissionRecord ) {
+        Name name = targetStudent.getName();
+        Phone phone = targetStudent.getPhone();
+        Email email = targetStudent.getEmail();
+        Address address = targetStudent.getAddress();
+        Set<Tag> tags = targetStudent.getTags();
+        RecordList recordList = targetStudent.getRecordList();
+        ArrayList<SubmissionRecord> submissionRecords = recordList.getSubmissionRecords();
+        submissionRecords.add(weekNumber.getWeekNumber() - 1, submissionRecord);
+
+        return new Student(name, phone, email, address, tags, recordList);
     }
 
 }
