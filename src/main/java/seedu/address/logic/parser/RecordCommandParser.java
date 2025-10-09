@@ -4,7 +4,6 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ATTENDANCE_SCORE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PARTICIPATION_SCORE;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_SCORE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_SUBMISSION_SCORE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_WEEK_NUMBER;
 
