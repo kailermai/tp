@@ -16,6 +16,7 @@ import seedu.address.model.student.Email;
 import seedu.address.model.student.Name;
 import seedu.address.model.student.Phone;
 import seedu.address.model.student.Student;
+import seedu.address.model.student.StudentNumber;
 import seedu.address.model.tag.Tag;
 
 import static java.util.Objects.requireNonNull;
@@ -105,6 +106,7 @@ public class SubmitCommand extends Command {
         Email email = targetStudent.getEmail();
         Address address = targetStudent.getAddress();
         Set<Tag> tags = targetStudent.getTags();
+        StudentNumber studentNumber = targetStudent.getStudentNumber();
         RecordList recordList = targetStudent.getRecordList();
         ArrayList<SubmissionRecord> submissionRecords = recordList.getSubmissionRecords();
         int index = weekNumber.getWeekNumber() - 1;
@@ -113,7 +115,7 @@ public class SubmitCommand extends Command {
         }
         submissionRecords.set(index, submissionRecord);
 
-        return new Student(name, phone, email, address, tags, recordList);
+        return new Student(name, phone, email, address, tags, studentNumber, recordList);
     }
 
 }
