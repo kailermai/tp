@@ -1,5 +1,10 @@
 package seedu.address.logic.commands;
 
+import static java.util.Objects.requireNonNull;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_SCORE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_WEEK_NUMBER;
+import static seedu.address.model.Model.PREDICATE_SHOW_ALL_STUDENTS;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -18,11 +23,6 @@ import seedu.address.model.student.Phone;
 import seedu.address.model.student.Student;
 import seedu.address.model.student.StudentNumber;
 import seedu.address.model.tag.Tag;
-
-import static java.util.Objects.requireNonNull;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_SCORE;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_WEEK_NUMBER;
-import static seedu.address.model.Model.PREDICATE_SHOW_ALL_STUDENTS;
 
 /**
  * Records the submission of an existing student in TAHub.
