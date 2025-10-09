@@ -6,6 +6,8 @@ import seedu.address.logic.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.record.SubmissionRecord;
+import seedu.address.model.record.SubmissionScore;
+import seedu.address.model.record.WeekNumber;
 import seedu.address.model.student.Student;
 
 import java.util.List;
@@ -28,23 +30,20 @@ public class SubmitCommand extends Command{
 
     public static final String MESSAGE_STUDENT_SUBMISSION_RECORDED_SUCCESS = "Submission recorded for student: %1$s";
     public static final String MESSAGE_INVALID_INDEX = "Invalid index. Only positive integers are allowed.";
-    public static final String MESSAGE_INVALID_WEEK_NUMBER = "Invalid week number."
-            + "Only positive integers in the range [1, 13] are allowed.";
-    public static final String MESSAGE_INVALID_SCORE = "Invalid score."
-            + "";
+
 
     private final Index targetIndex;
-    private final String weekNumber;
-    private final String submissionScore;
+    private final WeekNumber weekNumber;
+    private final SubmissionRecord submissionRecord;
 
-    public SubmitCommand(Index targetIndex, String weekNumber, String submissionScore) {
+    public SubmitCommand(Index targetIndex, WeekNumber weekNumber, SubmissionRecord submissionRecord) {
         requireNonNull(targetIndex);
         requireNonNull(weekNumber);
-        requireNonNull(submissionScore);
+        requireNonNull(submissionRecord);
 
         this.targetIndex = targetIndex;
         this.weekNumber = weekNumber;
-        this.submissionScore = submissionScore;
+        this.submissionRecord = submissionRecord;
     }
 
     @Override
@@ -62,40 +61,13 @@ public class SubmitCommand extends Command{
 
         Student targetStudent = lastShownList.get(targetIndex.getZeroBased());
 
-        if (!isValidWeekNumber(weekNumber)) {
-            throw new CommandException(MESSAGE_INVALID_WEEK_NUMBER);
-        }
-
-        if (!isValidScore(submissionScore)) {
-            throw new CommandException(ME)
-        }
 
     }
 
-    public static boolean isValidWeekNumber(String weekNumber) {
-        try {
-            int num = Integer.parseInt(weekNumber);
-            return num >= 1 && num <= 13;
-        } catch (NumberFormatException e) {
-            return false;
-        }
-    }
-
-    public static boolean isValidScore(String submissionScore) {
-        try {
-            int num = Integer.parseInt(submissionScore);
-            return num >= 0 && num <= SubmissionRecord.
-        } catch (NumberFormatException e) {
-            return false;
-        }
-    }
 
     public static boolean isValidIndex(Index index) {
         int num = index.getOneBased();
         return num > 0;
     }
 
-    public static boolean existStudent(Index index) {
-
-    }
 }
