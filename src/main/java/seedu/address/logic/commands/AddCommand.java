@@ -38,6 +38,14 @@ public class AddCommand extends Command {
             + PREFIX_TAG + "friends "
             + PREFIX_TAG + "owesMoney";
 
+    public static final String MESSAGE_HELP = "Add a student:\n"
+            + COMMAND_WORD + " "
+            + PREFIX_NAME + "NAME "
+            + PREFIX_STUDENT_NUMBER + "STUDENT_NUMBER "
+            + PREFIX_PHONE + "PHONE "
+            + PREFIX_EMAIL + "EMAIL "
+            + "tele/TELEGRAM_HANDLE";
+
     public static final String MESSAGE_SUCCESS = "New student added: %1$s";
     public static final String MESSAGE_DUPLICATE_STUDENT = "This student already exists in the address book";
 
