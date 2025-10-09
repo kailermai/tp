@@ -25,6 +25,9 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_SCORE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_WEEK_NUMBER;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_STUDENTS;
 
+/**
+ * Records the submission of an existing student in TAHub.
+ */
 public class SubmitCommand extends Command{
     public static final String COMMAND_WORD = "sub";
 
@@ -41,11 +44,15 @@ public class SubmitCommand extends Command{
     public static final String MESSAGE_STUDENT_SUBMISSION_RECORDED_SUCCESS = "Submission recorded for student: %1$s";
     public static final String MESSAGE_INVALID_INDEX = "Invalid index. Only positive integers are allowed.";
 
-
     private final Index targetIndex;
     private final WeekNumber weekNumber;
     private final SubmissionRecord submissionRecord;
 
+    /**
+     * @param targetIndex of the student in the filtered student list to record submission for
+     * @param weekNumber the week number of the submission to be recorded
+     * @param submissionRecord the submission record to be recorded
+     */
     public SubmitCommand(Index targetIndex, WeekNumber weekNumber, SubmissionRecord submissionRecord) {
         requireNonNull(targetIndex);
         requireNonNull(weekNumber);
@@ -79,12 +86,20 @@ public class SubmitCommand extends Command{
 
     }
 
-
+    /**
+     * Check whether the index is valid
+     * @param index the index input
+     * @return whether the index is valid
+     */
     public static boolean isValidIndex(Index index) {
         int num = index.getOneBased();
         return num > 0;
     }
 
+    /**
+     * Creates and returns a {@code Student} with the details of {@code targetStudeny}
+     * edited with {@code weekNumber and submissionRecord}.
+     */
     private static Student createEditedStudent(Student targetStudent, WeekNumber weekNumber, SubmissionRecord submissionRecord ) {
         Name name = targetStudent.getName();
         Phone phone = targetStudent.getPhone();
