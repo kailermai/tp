@@ -30,4 +30,8 @@ public class WeekNumber {
     public static boolean isValidWeekNumber(int weekNumber) {
         return weekNumber >= MIN_WEEK_NUMBER && weekNumber <= MAX_WEEK_NUMBER;
     }
+
+    public int getWeekNumber() {
+        return this.weekNumber;
+    }
 }
