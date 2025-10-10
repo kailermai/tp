@@ -32,6 +32,7 @@ class JsonAdaptedStudent {
     private final String address;
     private final List<JsonAdaptedTag> tags = new ArrayList<>();
     private final String studentNumber;
+    private final List<Record> recordList = new ArrayList<>();
 
     /**
      * Constructs a {@code JsonAdaptedStudent} with the given student details.
@@ -40,7 +41,8 @@ class JsonAdaptedStudent {
     public JsonAdaptedStudent(@JsonProperty("name") String name, @JsonProperty("phone") String phone,
                               @JsonProperty("email") String email, @JsonProperty("address") String address,
                               @JsonProperty("tags") List<JsonAdaptedTag> tags,
-                              @JsonProperty("studentNumber") String studentNumber) {
+                              @JsonProperty("studentNumber") String studentNumber,
+                              @JsonProperty("recordList") List<Record> recordList) {
         this.name = name;
         this.phone = phone;
         this.email = email;
@@ -49,6 +51,9 @@ class JsonAdaptedStudent {
             this.tags.addAll(tags);
         }
         this.studentNumber = studentNumber;
+        if (recordList != null) {
+            this.recordList.addAll(recordList);
+        }
     }
 
     /**
@@ -63,6 +68,7 @@ class JsonAdaptedStudent {
                 .map(JsonAdaptedTag::new)
                 .collect(Collectors.toList()));
         studentNumber = source.getStudentNumber().value;
+        recordList.addAll(source.getRecordList().records);
     }
 
     /**
@@ -75,6 +81,9 @@ class JsonAdaptedStudent {
         for (JsonAdaptedTag tag : tags) {
             studentTags.add(tag.toModelType());
         }
+
+        final List<Record> studentRecords = new ArrayList<>();
+        studentRecords.addAll(recordList);
 
         if (name == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Name.class.getSimpleName()));
@@ -116,8 +125,9 @@ class JsonAdaptedStudent {
             throw new IllegalValueException(StudentNumber.MESSAGE_CONSTRAINTS);
         }
         final StudentNumber modelStudentNumber = new StudentNumber(studentNumber);
-        final RecordList modelRecordList = new RecordList();
+        final RecordList modelRecordList = new RecordList(studentRecords);
         final Set<Tag> modelTags = new HashSet<>(studentTags);
+
         return new Student(modelName, modelPhone, modelEmail, modelAddress, modelTags, modelStudentNumber,
                 modelRecordList);
     }
