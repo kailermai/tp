@@ -47,8 +47,6 @@ public class RecordCommand extends Command {
             + PREFIX_SUBMISSION_SCORE + "SUBMISSION ";
 
     public static final String MESSAGE_RECORDED_SUCCESS = "Record updated for student: %1$s";
-    public static final String MESSAGE_INVALID_INDEX = "Invalid index. Only positive integers are allowed.";
-    public static final String MESSAGE_STUDENT_NOT_FOUND = "The student at %d does not exist.";
 
     private final Index targetIndex;
     private final WeekNumber weekNumber;
