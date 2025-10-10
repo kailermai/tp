@@ -10,18 +10,8 @@ public class ViewWindow extends UiPart<Stage> {
     private static final String FXML = "ViewWindow.fxml";
 
     private static final Logger logger = LogsCenter.getLogger(ViewWindow.class);
-    private final Student student;
 
-    /**
-     * Creates a new ViewWindow.
-     *
-     * @param root Stage to use as the root of the ViewWindow.
-     * @param student Student whose details are to be displayed.
-     */
-    public ViewWindow(Stage root, Student student) {
-        super(FXML, root);
-        this.student = student;
-    }
+
     /**
      * Creates a new ViewWindow.
      *
@@ -29,7 +19,6 @@ public class ViewWindow extends UiPart<Stage> {
      */
     public ViewWindow(Stage root) {
         super(FXML, root);
-        student = null;
     }
     /**
      * Creates a new TrendWindow.
@@ -42,7 +31,7 @@ public class ViewWindow extends UiPart<Stage> {
      * Creates a new ViewWindow.
      */
     public void show() {
-        logger.fine("Showing help page about the application.");
+        logger.fine("Viewing student trend.");
         getRoot().show();
         getRoot().centerOnScreen();
     }
