@@ -34,6 +34,7 @@ public class MainWindow extends UiPart<Stage> {
     private StudentListPanel studentListPanel;
     private ResultDisplay resultDisplay;
     private HelpWindow helpWindow;
+    private ViewWindow viewWindow;
 
     @FXML
     private StackPane commandBoxPlaceholder;
@@ -66,6 +67,7 @@ public class MainWindow extends UiPart<Stage> {
         setAccelerators();
 
         helpWindow = new HelpWindow();
+        viewWindow = new ViewWindow();
     }
 
     public Stage getPrimaryStage() {
@@ -162,6 +164,17 @@ public class MainWindow extends UiPart<Stage> {
         helpWindow.hide();
         primaryStage.hide();
     }
+    /**
+     * Opens the view window or focuses on it if it's already opened.
+     */
+    @FXML
+    private void handleViewStudent() {
+        if (!viewWindow.isShowing()) {
+            viewWindow.show();
+        } else {
+            viewWindow.focus();
+        }
+    }
 
     public StudentListPanel getStudentListPanel() {
         return studentListPanel;
@@ -181,7 +194,9 @@ public class MainWindow extends UiPart<Stage> {
             if (commandResult.isShowHelp()) {
                 handleHelp();
             }
-
+            if (commandResult.isShowStudent()) {
+                handleViewStudent();
+            }
             if (commandResult.isExit()) {
                 handleExit();
             }
@@ -193,4 +208,6 @@ public class MainWindow extends UiPart<Stage> {
             throw e;
         }
     }
+
+
 }
