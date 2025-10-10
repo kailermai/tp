@@ -6,11 +6,16 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_PARTICIPATION_SCORE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_SUBMISSION_SCORE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_WEEK_NUMBER;
 
+import java.util.List;
+
 import seedu.address.commons.core.index.Index;
+import seedu.address.logic.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.record.Record;
 import seedu.address.model.record.WeekNumber;
+import seedu.address.model.recordlist.RecordList;
+import seedu.address.model.student.Student;
 
 /**
  * Records the quantifiable data of an existing student in TAHub.
@@ -41,7 +46,7 @@ public class RecordCommand extends Command {
             + PREFIX_PARTICIPATION_SCORE + "REASON_FOR_ABSENCE "
             + PREFIX_SUBMISSION_SCORE + "SUBMISSION ";
 
-    public static final String MESSAGE_STUDENT_ATTENDANCE_RECORDED_SUCCESS = "Record updated for student: %1$s";
+    public static final String MESSAGE_RECORDED_SUCCESS = "Record updated for student: %1$s";
     public static final String MESSAGE_INVALID_INDEX = "Invalid index. Only positive integers are allowed.";
     public static final String MESSAGE_STUDENT_NOT_FOUND = "The student at %d does not exist.";
 
@@ -67,6 +72,29 @@ public class RecordCommand extends Command {
     @Override
     public CommandResult execute(Model model) throws CommandException {
         // TODO: Implement attendance logic
-        return new CommandResult("Hello from record");
+        List<Student> lastShownList = model.getFilteredStudentList();
+
+        if (targetIndex.getZeroBased() >= lastShownList.size()) {
+            throw new CommandException(String.format(Messages.MESSAGE_INVALID_STUDENT_DISPLAYED_INDEX));
+        }
+
+        Index weekIdx = Index.fromOneBased(weekNumber.getWeekNumber());
+
+        Student studentToEdit = lastShownList.get(targetIndex.getZeroBased());
+
+        RecordList studentRecords = studentToEdit.getRecordList();
+        studentRecords.setRecord(weekIdx, record);
+
+        Student editedStudent = new Student(studentToEdit.getName(), studentToEdit.getPhone(), studentToEdit.getEmail(),
+                studentToEdit.getAddress(), studentToEdit.getTags(), studentToEdit.getStudentNumber(), studentRecords);
+
+        model.setStudent(studentToEdit, editedStudent);
+        model.updateFilteredStudentList(Model.PREDICATE_SHOW_ALL_STUDENTS);
+
+        return new CommandResult(generateSuccessMessage(editedStudent));
+    }
+
+    private String generateSuccessMessage(Student studentToEdit) {
+        return String.format(MESSAGE_RECORDED_SUCCESS, Messages.format(studentToEdit));
     }
 }

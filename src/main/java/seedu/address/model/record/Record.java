@@ -22,4 +22,10 @@ public class Record {
         this.submissionScore = submissionScore;
         this.participationScore = participationScore;
     }
+
+    @Override
+    public String toString() {
+        return String.format("Attendance: %s, Submission: %s, Participation: %s",
+                attendanceScore, submissionScore, participationScore);
+    }
 }

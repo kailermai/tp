@@ -27,4 +27,9 @@ public class AttendanceScore extends Score {
     public static boolean isValidAttendanceScore(int attendanceScore) {
         return attendanceScore >= MIN_SCORE && attendanceScore <= MAX_SCORE;
     }
+
+    @Override
+    public String toString() {
+        return String.valueOf(this.score);
+    }
 }

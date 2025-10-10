@@ -27,4 +27,9 @@ public class SubmissionScore extends Score {
     public static boolean isValidSubmissionScore(int score) {
         return score >= MIN_SCORE && score <= MAX_SCORE;
     }
+
+    @Override
+    public String toString() {
+        return String.valueOf(this.score);
+    }
 }
