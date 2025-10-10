@@ -1,5 +1,7 @@
 package seedu.address.logic.commands;
 
+import static java.util.Objects.requireNonNull;
+
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
@@ -27,6 +29,7 @@ public class TrendCommand extends Command {
      * @param index of the student in the filtered student list to show the trend of
      */
     public TrendCommand(Index index) {
+        requireNonNull(index);
         this.index = index;
     }
 
