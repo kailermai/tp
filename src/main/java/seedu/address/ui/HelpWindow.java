@@ -8,7 +8,6 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.logic.commands.AddCommand;
-import seedu.address.logic.commands.AttendanceCommand;
 import seedu.address.logic.commands.ClearCommand;
 import seedu.address.logic.commands.DeleteCommand;
 import seedu.address.logic.commands.EditCommand;
@@ -30,8 +29,7 @@ public class HelpWindow extends UiPart<Stage> {
             + FindCommand.MESSAGE_HELP + "\n\n"
             + EditCommand.MESSAGE_HELP + "\n\n"
             + HelpCommand.MESSAGE_HELP + "\n\n"
-            + ExitCommand.MESSAGE_HELP + "\n\n"
-            + AttendanceCommand.MESSAGE_HELP + "\n\n";
+            + ExitCommand.MESSAGE_HELP + "\n\n";
 
     private static final Logger logger = LogsCenter.getLogger(HelpWindow.class);
     private static final String FXML = "HelpWindow.fxml";

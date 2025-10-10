@@ -12,7 +12,8 @@ public class CliSyntax {
     public static final Prefix PREFIX_ADDRESS = new Prefix("a/");
     public static final Prefix PREFIX_TAG = new Prefix("t/");
     public static final Prefix PREFIX_WEEK_NUMBER = new Prefix("week/");
-    public static final Prefix PREFIX_SCORE = new Prefix("score/");
-    public static final Prefix PREFIX_ABSENCE_REASON = new Prefix("reason/");
+    public static final Prefix PREFIX_ATTENDANCE_SCORE = new Prefix("att/");
+    public static final Prefix PREFIX_PARTICIPATION_SCORE = new Prefix("part/");
+    public static final Prefix PREFIX_SUBMISSION_SCORE = new Prefix("sub/");
     public static final Prefix PREFIX_STUDENT_NUMBER = new Prefix("sn/");
 }
