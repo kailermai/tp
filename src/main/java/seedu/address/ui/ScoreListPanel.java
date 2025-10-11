@@ -8,6 +8,9 @@ import seedu.address.commons.core.LogsCenter;
 
 import javafx.scene.layout.Region;
 import javafx.scene.control.ListView;
+import seedu.address.model.record.AttendanceScore;
+import seedu.address.model.record.ParticipationScore;
+import seedu.address.model.record.SubmissionScore;
 import seedu.address.model.recordlist.RecordList;
 import seedu.address.model.record.Record;
 import seedu.address.model.student.Student;
@@ -41,7 +44,12 @@ public class ScoreListPanel extends UiPart<Region> {
         ObservableList<Record> items = FXCollections.observableArrayList();
         List<Record> records = recordList.records;
         for (int i = 0; i < records.size(); i++) {
-            items.add(records.get(i));
+            // Add a default record if the record is null TODO: to be improved on
+            if (records.get(i) == null) {
+                items.add(new Record(new AttendanceScore(0), new SubmissionScore(0), new ParticipationScore(0)));
+            } else {
+                items.add(records.get(i));
+            }
         }
         recordListView.setItems(items);
         recordListView.setCellFactory(listView -> new ScoreListPanel.ScoreListViewCell());
