@@ -7,6 +7,8 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_PARTICIPATION_SCORE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_SUBMISSION_SCORE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_WEEK_NUMBER;
 
+import java.util.stream.Stream;
+
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.logic.commands.RecordCommand;
@@ -41,6 +43,14 @@ public class RecordCommandParser implements Parser<RecordCommand> {
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, RecordCommand.MESSAGE_USAGE), ive);
         }
 
+        argMultimap.verifyNoDuplicatePrefixesFor(
+                PREFIX_WEEK_NUMBER, PREFIX_ATTENDANCE_SCORE, PREFIX_PARTICIPATION_SCORE, PREFIX_SUBMISSION_SCORE);
+
+        if (!arePrefixesPresent(argMultimap,
+                PREFIX_WEEK_NUMBER, PREFIX_ATTENDANCE_SCORE, PREFIX_SUBMISSION_SCORE, PREFIX_PARTICIPATION_SCORE)) {
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, RecordCommand.MESSAGE_USAGE));
+        }
+
         WeekNumber weekNumber = ParserUtil.parseWeekNumber(argMultimap.getValue(PREFIX_WEEK_NUMBER).orElse(""));
         AttendanceScore attendanceScore = ParserUtil.parseAttendanceScore(
                 argMultimap.getValue(PREFIX_ATTENDANCE_SCORE).orElse(""));
@@ -51,4 +61,13 @@ public class RecordCommandParser implements Parser<RecordCommand> {
 
         return new RecordCommand(index, weekNumber, new Record(attendanceScore, submissionScore, participationScore));
     }
+
+    /**
+     * Returns true if none of the prefixes contains empty {@code Optional} values in the given
+     * {@code ArgumentMultimap}.
+     */
+    private static boolean arePrefixesPresent(ArgumentMultimap argumentMultimap, Prefix... prefixes) {
+        return Stream.of(prefixes).allMatch(prefix -> argumentMultimap.getValue(prefix).isPresent());
+    }
+
 }
