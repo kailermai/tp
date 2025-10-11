@@ -32,4 +32,18 @@ public class SubmissionScore extends Score {
     public String toString() {
         return String.valueOf(this.score);
     }
+
+    @Override
+    public boolean equals(Object other) {
+        if (other == this) {
+            return true;
+        }
+
+        if (!(other instanceof SubmissionScore)) {
+            return false;
+        }
+
+        SubmissionScore otherScore = (SubmissionScore) other;
+        return otherScore.score == this.score;
+    }
 }

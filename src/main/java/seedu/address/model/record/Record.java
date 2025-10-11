@@ -23,9 +23,35 @@ public class Record {
         this.participationScore = participationScore;
     }
 
+    public AttendanceScore getAttendanceScore() {
+        return this.attendanceScore;
+    }
+
+    public SubmissionScore getSubmissionScore() {
+        return this.submissionScore;
+    }
+
+    public ParticipationScore getParticipationScore() {
+        return this.participationScore;
+    }
+
     @Override
     public String toString() {
         return String.format("Attendance: %s, Submission: %s, Participation: %s",
                 attendanceScore, submissionScore, participationScore);
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        return other == this
+                || (other instanceof Record
+                && attendanceScore.equals(((Record) other).attendanceScore)
+                && submissionScore.equals(((Record) other).submissionScore)
+                && participationScore.equals(((Record) other).participationScore));
+    }
+
+    @Override
+    public int hashCode() {
+        return attendanceScore.hashCode() + submissionScore.hashCode() + participationScore.hashCode();
     }
 }

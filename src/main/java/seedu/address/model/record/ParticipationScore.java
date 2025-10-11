@@ -10,7 +10,7 @@ public class ParticipationScore extends Score {
     public static final int MAX_SCORE = 5;
     public static final String MESSAGE_CONSTRAINTS = "Only values from "
             + MIN_SCORE + " to " + MAX_SCORE + " are allowed.";
-    private final int score;
+    public final int score;
 
     /**
      * Constructs a ParticipationScore object with the given score.
@@ -33,5 +33,19 @@ public class ParticipationScore extends Score {
     @Override
     public String toString() {
         return String.valueOf(this.score);
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        if (other == this) {
+            return true;
+        }
+
+        if (!(other instanceof ParticipationScore)) {
+            return false;
+        }
+
+        ParticipationScore otherParticipationScore = (ParticipationScore) other;
+        return otherParticipationScore.score == this.score;
     }
 }

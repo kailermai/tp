@@ -32,4 +32,18 @@ public class AttendanceScore extends Score {
     public String toString() {
         return String.valueOf(this.score);
     }
+
+    @Override
+    public boolean equals(Object other) {
+        if (other == this) {
+            return true;
+        }
+
+        if (!(other instanceof AttendanceScore)) {
+            return false;
+        }
+
+        AttendanceScore otherScore = (AttendanceScore) other;
+        return otherScore.score == this.score;
+    }
 }
