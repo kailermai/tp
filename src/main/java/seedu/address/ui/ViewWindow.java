@@ -1,5 +1,7 @@
 package seedu.address.ui;
 
+import javafx.fxml.FXML;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.student.Student;
@@ -11,7 +13,16 @@ public class ViewWindow extends UiPart<Stage> {
 
     private static final Logger logger = LogsCenter.getLogger(ViewWindow.class);
 
+    private ScoreListPanel scoreListPanel;
+    private StudentCard studentCard;
 
+    private Student student;
+
+    @FXML
+    public StackPane scoreListPanelPlaceholder;
+
+    @FXML
+    public StackPane studentCardPlaceholder;
     /**
      * Creates a new ViewWindow.
      *
@@ -53,5 +64,19 @@ public class ViewWindow extends UiPart<Stage> {
      */
     public void focus() {
         getRoot().requestFocus();
+    }
+    /**
+     * Sets the student to be displayed in the view window.
+     */
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+
+    public void fillInnerPart() {
+        scoreListPanel = new ScoreListPanel(student);
+        scoreListPanelPlaceholder.getChildren().add(scoreListPanel.getRoot());
+
+        studentCard = new StudentCard(student, 1);
+        studentCardPlaceholder.getChildren().add(studentCard.getRoot());
     }
 }
