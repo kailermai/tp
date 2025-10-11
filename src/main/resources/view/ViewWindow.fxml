@@ -1,40 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
-<?import javafx.geometry.Insets?>
 <?import java.net.URL?>
-
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Scene?>
 <?import javafx.scene.image.Image?>
-<fx:root resizable="false" title="View Student" type="javafx.stage.Stage" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.stage.Stage?>
+
+<fx:root minHeight="500" minWidth="500" resizable="true" title="View Student" type="javafx.stage.Stage" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <icons>
-        <Image url="@/images/help_icon.png" />
+        <Image url="@/images/student_icon.jpg" />
     </icons>
     <scene>
         <Scene>
             <stylesheets>
-                <URL value="@HelpWindow.css" />
                 <URL value="@DarkTheme.css" />
+                <URL value="@Extensions.css" />
+                <URL value="@ViewWindow.css" />
             </stylesheets>
             <VBox>
-                <StackPane VBox.vgrow="NEVER" fx:id="studentCardPlaceholder" styleClass="pane-with-border"
-                           minHeight="100" prefHeight="100" maxHeight="100">
+                <StackPane fx:id="studentCardPlaceholder"
+                           styleClass="pane-with-border" VBox.vgrow="ALWAYS">
                     <padding>
-                        <Insets top="5" right="10" bottom="5" left="10" />
+                        <Insets bottom="5" left="10" right="10" top="5" />
                     </padding>
                 </StackPane>
-                <HBox alignment="CENTER" fx:id="helpMessageContainer">
+                <HBox fx:id="studentReportContainer" alignment="TOP_CENTER" VBox.vgrow="ALWAYS">
                     <children>
                         <!-- Placeholder for score list panel -->
-                        <StackPane fx:id="scoreListPanelPlaceholder" VBox.vgrow="ALWAYS" />
+                        <StackPane fx:id="scoreListPanelPlaceholder" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS" />
                     </children>
                 </HBox>
             </VBox>
-
         </Scene>
     </scene>
 </fx:root>

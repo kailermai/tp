@@ -30,6 +30,9 @@ public class ViewWindow extends UiPart<Stage> {
      */
     public ViewWindow(Stage root) {
         super(FXML, root);
+        root.setWidth(500);
+        root.setHeight(500);
+        root.setResizable(true);
     }
     /**
      * Creates a new TrendWindow.
