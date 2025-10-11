@@ -10,7 +10,7 @@
 <?import java.net.URL?>
 
 <?import javafx.scene.image.Image?>
-<fx:root resizable="false" title="Help" type="javafx.stage.Stage" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root resizable="false" title="View Student" type="javafx.stage.Stage" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
     <icons>
         <Image url="@/images/help_icon.png" />
     </icons>
@@ -18,23 +18,23 @@
         <Scene>
             <stylesheets>
                 <URL value="@HelpWindow.css" />
+                <URL value="@DarkTheme.css" />
             </stylesheets>
+            <VBox>
+                <StackPane VBox.vgrow="NEVER" fx:id="studentCardPlaceholder" styleClass="pane-with-border"
+                           minHeight="100" prefHeight="100" maxHeight="100">
+                    <padding>
+                        <Insets top="5" right="10" bottom="5" left="10" />
+                    </padding>
+                </StackPane>
+                <HBox alignment="CENTER" fx:id="helpMessageContainer">
+                    <children>
+                        <!-- Placeholder for score list panel -->
+                        <StackPane fx:id="scoreListPanelPlaceholder" VBox.vgrow="ALWAYS" />
+                    </children>
+                </HBox>
+            </VBox>
 
-            <HBox alignment="CENTER" fx:id="helpMessageContainer">
-                <children>
-                    <Label fx:id="helpMessage" text="Label">
-                        <HBox.margin>
-                            <Insets left="5.0" right="5.0" />
-                        </HBox.margin>
-                    </Label>
-                </children>
-                <opaqueInsets>
-                    <Insets bottom="10.0" left="5.0" right="10.0" top="5.0" />
-                </opaqueInsets>
-                <padding>
-                    <Insets bottom="10.0" left="5.0" right="10.0" top="5.0" />
-                </padding>
-            </HBox>
         </Scene>
     </scene>
 </fx:root>
