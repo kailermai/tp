@@ -71,6 +71,10 @@ public class CommandResult {
         return showStudent;
     }
 
+    public Student getStudent() {
+        return student;
+    }
+
     @Override
     public boolean equals(Object other) {
         if (other == this) {
