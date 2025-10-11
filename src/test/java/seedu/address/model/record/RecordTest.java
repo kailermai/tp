@@ -2,7 +2,7 @@ package seedu.address.model.record;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_RECORD;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_RECORD_AMY;
 
 import org.junit.jupiter.api.Test;
 
@@ -27,6 +27,6 @@ public class RecordTest {
         assertFalse(record.equals(null));
 
         // different record -> returns false
-        assertFalse(record.equals(VALID_RECORD));
+        assertFalse(record.equals(VALID_RECORD_AMY));
     }
 }

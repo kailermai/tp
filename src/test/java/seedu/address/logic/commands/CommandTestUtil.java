@@ -26,6 +26,7 @@ import seedu.address.model.record.AttendanceScore;
 import seedu.address.model.record.ParticipationScore;
 import seedu.address.model.record.Record;
 import seedu.address.model.record.SubmissionScore;
+import seedu.address.model.record.WeekNumber;
 import seedu.address.model.recordlist.RecordList;
 import seedu.address.model.student.NameContainsKeywordsPredicate;
 import seedu.address.model.student.Student;
@@ -48,18 +49,20 @@ public class CommandTestUtil {
     public static final String VALID_TAG_FRIEND = "friend";
     public static final String VALID_STUDENT_NUMBER_AMY = "A0123456Z";
     public static final String VALID_STUDENT_NUMBER_BOB = "A1234567Z";
-    public static final String VALID_WEEK_NUMBER = "1";
+    public static final String VALID_WEEK_NUMBER = Integer.toString(WeekNumber.MIN_WEEK_NUMBER);
     public static final String VALID_ATTENDANCE_SCORE = Integer.toString(AttendanceScore.MAX_SCORE);
     public static final String VALID_SUBMISSION_SCORE = Integer.toString(SubmissionScore.MAX_SCORE);
     public static final String VALID_PARTICIPATION_SCORE = Integer.toString(ParticipationScore.MAX_SCORE);
 
-    public static final Record VALID_RECORD = new Record(new AttendanceScore(AttendanceScore.MAX_SCORE),
+    public static final Record VALID_RECORD_AMY = new Record(new AttendanceScore(AttendanceScore.MIN_SCORE),
+            new SubmissionScore(SubmissionScore.MIN_SCORE), new ParticipationScore(ParticipationScore.MIN_SCORE));
+    public static final Record VALID_RECORD_BOB = new Record(new AttendanceScore(AttendanceScore.MAX_SCORE),
             new SubmissionScore(SubmissionScore.MAX_SCORE), new ParticipationScore(ParticipationScore.MAX_SCORE));
 
-    public static final RecordList VALID_RECORD_LIST_AMY = new RecordList(Arrays.asList(VALID_RECORD, VALID_RECORD,
-            VALID_RECORD));
-    public static final RecordList VALID_RECORD_LIST_BOB = new RecordList(Arrays.asList(VALID_RECORD, VALID_RECORD,
-            VALID_RECORD));
+    public static final RecordList VALID_RECORD_LIST_AMY = new RecordList(Arrays.asList(VALID_RECORD_AMY,
+            VALID_RECORD_AMY, VALID_RECORD_AMY));
+    public static final RecordList VALID_RECORD_LIST_BOB = new RecordList(Arrays.asList(VALID_RECORD_BOB,
+            VALID_RECORD_BOB, VALID_RECORD_BOB));
 
     public static final String NAME_DESC_AMY = " " + PREFIX_NAME + VALID_NAME_AMY;
     public static final String NAME_DESC_BOB = " " + PREFIX_NAME + VALID_NAME_BOB;
