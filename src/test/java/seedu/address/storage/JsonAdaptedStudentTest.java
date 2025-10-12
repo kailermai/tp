@@ -12,7 +12,6 @@ import java.util.stream.Collectors;
 import org.junit.jupiter.api.Test;
 
 import seedu.address.commons.exceptions.IllegalValueException;
-import seedu.address.model.record.Record;
 import seedu.address.model.student.Address;
 import seedu.address.model.student.Email;
 import seedu.address.model.student.Name;
@@ -35,7 +34,9 @@ public class JsonAdaptedStudentTest {
             .map(JsonAdaptedTag::new)
             .collect(Collectors.toList());
     private static final String VALID_STUDENT_NUMBER = BENSON.getStudentNumber().toString();
-    private static final List<Record> VALID_RECORD_LIST = BENSON.getRecordList().records;
+    private static final List<JsonAdaptedRecord> VALID_RECORD_LIST = BENSON.getRecordList().records.stream()
+            .map(JsonAdaptedRecord::new)
+            .collect(Collectors.toList());
 
     @Test
     public void toModelType_validStudentDetails_returnsStudent() throws Exception {

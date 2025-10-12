@@ -99,18 +99,20 @@ public class AddressBookParserTest {
 
     @Test
     public void parseCommand_record() throws Exception {
-        final String weekNumber = "1";
-        final String attendanceScore = "1";
-        final String submissionScore = "1";
-        final String participationScore = "3";
+        final String weekNumber = Integer.toString(WeekNumber.MIN_WEEK_NUMBER);
+        final String attendanceScore = Integer.toString(AttendanceScore.MAX_SCORE);
+        final String submissionScore = Integer.toString(SubmissionScore.MAX_SCORE);
+        final String participationScore = Integer.toString(ParticipationScore.MAX_SCORE);
         final String recordCommandString = RecordCommand.COMMAND_WORD + " " + INDEX_FIRST_STUDENT.getOneBased() + " "
                 + PREFIX_WEEK_NUMBER + weekNumber + " " + PREFIX_ATTENDANCE_SCORE + attendanceScore + " "
                 + PREFIX_SUBMISSION_SCORE + submissionScore + " " + PREFIX_PARTICIPATION_SCORE + participationScore;
 
         RecordCommand recordCommand = (RecordCommand) parser.parseCommand(recordCommandString);
 
-        Record expectedRecord = new Record(new AttendanceScore(1), new SubmissionScore(1), new ParticipationScore(3));
-        assertEquals(new RecordCommand(INDEX_FIRST_STUDENT, new WeekNumber(1), expectedRecord), recordCommand);
+        Record expectedRecord = new Record(new AttendanceScore(AttendanceScore.MAX_SCORE),
+                new SubmissionScore(SubmissionScore.MAX_SCORE), new ParticipationScore(ParticipationScore.MAX_SCORE));
+        assertEquals(new RecordCommand(INDEX_FIRST_STUDENT, new WeekNumber(WeekNumber.MIN_WEEK_NUMBER), expectedRecord),
+                recordCommand);
     }
 
     @Test
