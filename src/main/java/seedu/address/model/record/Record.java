@@ -5,9 +5,13 @@ package seedu.address.model.record;
  */
 public class Record {
 
-    private AttendanceScore attendanceScore;
-    private SubmissionScore submissionScore;
-    private ParticipationScore participationScore;
+    public static final String MESSAGE_CONSTRAINTS = AttendanceScore.MESSAGE_CONSTRAINTS + "\n"
+            + SubmissionScore.MESSAGE_CONSTRAINTS + "\n"
+            + ParticipationScore.MESSAGE_CONSTRAINTS;
+
+    private final AttendanceScore attendanceScore;
+    private final SubmissionScore submissionScore;
+    private final ParticipationScore participationScore;
 
     /**
      * Constructs a {@code Record} object with the specified scores.
@@ -21,6 +25,15 @@ public class Record {
         this.attendanceScore = attendanceScore;
         this.submissionScore = submissionScore;
         this.participationScore = participationScore;
+    }
+
+    /**
+     * Returns true if the given attendance, submission and participation scores are valid.
+     */
+    public static boolean isValidRecord(Record record) {
+        return AttendanceScore.isValidAttendanceScore(record.attendanceScore.getScore())
+                && SubmissionScore.isValidSubmissionScore(record.submissionScore.getScore())
+                && ParticipationScore.isValidParticipationScore(record.participationScore.getScore());
     }
 
     public AttendanceScore getAttendanceScore() {

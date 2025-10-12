@@ -8,10 +8,8 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  */
 public class SubmissionScore extends Score {
     public static final int MAX_SCORE = 1;
-    public static final String MESSAGE_CONSTRAINTS = "Only values from "
-            + MIN_SCORE + " to " + MAX_SCORE + " are allowed.";
-
-    public final int score;
+    public static final String MESSAGE_CONSTRAINTS = "Submission scores can only be integers between "
+            + MIN_SCORE + " to " + MAX_SCORE + " inclusive.";
 
     /**
      * Constructs an {@code SubmissionScore} object with the given score.
@@ -20,8 +18,8 @@ public class SubmissionScore extends Score {
      * @throws IllegalArgumentException If the provided week number is not within the valid range.
      */
     public SubmissionScore(int submissionScore) {
-        this.score = submissionScore;
-        checkArgument(isValidSubmissionScore(score), MESSAGE_CONSTRAINTS);
+        super(submissionScore);
+        checkArgument(isValidSubmissionScore(submissionScore), MESSAGE_CONSTRAINTS);
     }
 
     public static boolean isValidSubmissionScore(int score) {
@@ -30,7 +28,7 @@ public class SubmissionScore extends Score {
 
     @Override
     public String toString() {
-        return String.valueOf(this.score);
+        return String.valueOf(this.value);
     }
 
     @Override
@@ -39,11 +37,10 @@ public class SubmissionScore extends Score {
             return true;
         }
 
-        if (!(other instanceof SubmissionScore)) {
+        if (!(other instanceof SubmissionScore otherScore)) {
             return false;
         }
 
-        SubmissionScore otherScore = (SubmissionScore) other;
-        return otherScore.score == this.score;
+        return otherScore.value == this.value;
     }
 }
