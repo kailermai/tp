@@ -8,6 +8,8 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_RECORD_LIST_AMY;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_RECORD_LIST_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_FRIEND;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 
@@ -31,7 +33,7 @@ public class TypicalStudents {
     public static final Student BENSON = new StudentBuilder().withName("Benson Meier")
             .withAddress("311, Clementi Ave 2, #02-25")
             .withEmail("johnd@example.com").withPhone("98765432").withStudentNumber("A3456789Z")
-            .withTags("owesMoney", "friends").withRecordList(new RecordList()).build();
+            .withTags("owesMoney", "friends").withRecordList(VALID_RECORD_LIST_BOB).build();
     public static final Student CARL = new StudentBuilder().withName("Carl Kurz").withPhone("95352563")
             .withStudentNumber("A4567890Z").withEmail("heinz@example.com").withAddress("wall street")
             .withRecordList(new RecordList()).build();
@@ -59,7 +61,7 @@ public class TypicalStudents {
     // Manually added - Student's details found in {@code CommandTestUtil}
     public static final Student AMY = new StudentBuilder().withName(VALID_NAME_AMY).withPhone(VALID_PHONE_AMY)
             .withEmail(VALID_EMAIL_AMY).withAddress(VALID_ADDRESS_AMY).withTags(VALID_TAG_FRIEND)
-            .withStudentNumber("A0123456Z").withRecordList(new RecordList()).build();
+            .withStudentNumber("A0123456Z").withRecordList(VALID_RECORD_LIST_AMY).build();
     public static final Student BOB = new StudentBuilder().withName(VALID_NAME_BOB).withPhone(VALID_PHONE_BOB)
             .withEmail(VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND)
             .withStudentNumber("A1234567Z").withRecordList(new RecordList()).build();

@@ -5,5 +5,15 @@ package seedu.address.model.record;
  */
 public abstract class Score {
     public static final int MIN_SCORE = 0;
-    public static final String MESSAGE_CONSTRAINTS = "";
+
+    public final int value;
+
+    protected Score(int value) {
+        this.value = value;
+    }
+
+    public int getScore() {
+        return value;
+    }
+
 }

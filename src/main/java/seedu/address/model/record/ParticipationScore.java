@@ -8,22 +8,17 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  */
 public class ParticipationScore extends Score {
     public static final int MAX_SCORE = 5;
-    public static final String MESSAGE_CONSTRAINTS = "Only values from "
-            + MIN_SCORE + " to " + MAX_SCORE + " are allowed.";
-    private final int score;
+    public static final String MESSAGE_CONSTRAINTS = "Participation scores can only be integers between "
+            + MIN_SCORE + " to " + MAX_SCORE + " inclusive.";
 
     /**
      * Constructs a ParticipationScore object with the given score.
      *
-     * @param score The participation score to be assigned.
+     * @param participationScore The participation score to be assigned.
      */
-    public ParticipationScore(int score) {
-        this.score = score;
-        checkArgument(isValidParticipationScore(score), MESSAGE_CONSTRAINTS);
-    }
-
-    public int getScore() {
-        return score;
+    public ParticipationScore(int participationScore) {
+        super(participationScore);
+        checkArgument(isValidParticipationScore(participationScore), MESSAGE_CONSTRAINTS);
     }
 
     public static boolean isValidParticipationScore(int score) {
@@ -32,6 +27,19 @@ public class ParticipationScore extends Score {
 
     @Override
     public String toString() {
-        return String.valueOf(this.score);
+        return String.valueOf(this.value);
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        if (other == this) {
+            return true;
+        }
+
+        if (!(other instanceof ParticipationScore otherParticipationScore)) {
+            return false;
+        }
+
+        return otherParticipationScore.value == this.value;
     }
 }

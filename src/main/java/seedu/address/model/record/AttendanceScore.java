@@ -8,10 +8,8 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  */
 public class AttendanceScore extends Score {
     public static final int MAX_SCORE = 1;
-    public static final String MESSAGE_CONSTRAINTS = "Only values from "
-            + MIN_SCORE + " to " + MAX_SCORE + " are allowed.";
-
-    public final int score;
+    public static final String MESSAGE_CONSTRAINTS = "Attendance scores can only be integers between "
+            + MIN_SCORE + " to " + MAX_SCORE + " inclusive.";
 
     /**
      * Constructs an {@code AttendanceScore} object with the given score.
@@ -20,8 +18,8 @@ public class AttendanceScore extends Score {
      * @throws IllegalArgumentException If the provided week number is not within the valid range.
      */
     public AttendanceScore(int attendanceScore) {
-        this.score = attendanceScore;
-        checkArgument(isValidAttendanceScore(score), MESSAGE_CONSTRAINTS);
+        super(attendanceScore);
+        checkArgument(isValidAttendanceScore(attendanceScore), MESSAGE_CONSTRAINTS);
     }
 
     public static boolean isValidAttendanceScore(int attendanceScore) {
@@ -30,6 +28,19 @@ public class AttendanceScore extends Score {
 
     @Override
     public String toString() {
-        return String.valueOf(this.score);
+        return String.valueOf(this.value);
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        if (other == this) {
+            return true;
+        }
+
+        if (!(other instanceof AttendanceScore otherScore)) {
+            return false;
+        }
+
+        return otherScore.value == this.value;
     }
 }

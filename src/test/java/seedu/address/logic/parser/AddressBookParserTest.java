@@ -4,6 +4,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.Messages.MESSAGE_UNKNOWN_COMMAND;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_ATTENDANCE_SCORE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_PARTICIPATION_SCORE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_SUBMISSION_SCORE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_WEEK_NUMBER;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_STUDENT;
 
@@ -21,7 +25,13 @@ import seedu.address.logic.commands.ExitCommand;
 import seedu.address.logic.commands.FindCommand;
 import seedu.address.logic.commands.HelpCommand;
 import seedu.address.logic.commands.ListCommand;
+import seedu.address.logic.commands.RecordCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.record.AttendanceScore;
+import seedu.address.model.record.ParticipationScore;
+import seedu.address.model.record.Record;
+import seedu.address.model.record.SubmissionScore;
+import seedu.address.model.record.WeekNumber;
 import seedu.address.model.student.NameContainsKeywordsPredicate;
 import seedu.address.model.student.Student;
 import seedu.address.testutil.EditStudentDescriptorBuilder;
@@ -85,6 +95,24 @@ public class AddressBookParserTest {
     public void parseCommand_list() throws Exception {
         assertTrue(parser.parseCommand(ListCommand.COMMAND_WORD) instanceof ListCommand);
         assertTrue(parser.parseCommand(ListCommand.COMMAND_WORD + " 3") instanceof ListCommand);
+    }
+
+    @Test
+    public void parseCommand_record() throws Exception {
+        final String weekNumber = Integer.toString(WeekNumber.MIN_WEEK_NUMBER);
+        final String attendanceScore = Integer.toString(AttendanceScore.MAX_SCORE);
+        final String submissionScore = Integer.toString(SubmissionScore.MAX_SCORE);
+        final String participationScore = Integer.toString(ParticipationScore.MAX_SCORE);
+        final String recordCommandString = RecordCommand.COMMAND_WORD + " " + INDEX_FIRST_STUDENT.getOneBased() + " "
+                + PREFIX_WEEK_NUMBER + weekNumber + " " + PREFIX_ATTENDANCE_SCORE + attendanceScore + " "
+                + PREFIX_SUBMISSION_SCORE + submissionScore + " " + PREFIX_PARTICIPATION_SCORE + participationScore;
+
+        RecordCommand recordCommand = (RecordCommand) parser.parseCommand(recordCommandString);
+
+        Record expectedRecord = new Record(new AttendanceScore(AttendanceScore.MAX_SCORE),
+                new SubmissionScore(SubmissionScore.MAX_SCORE), new ParticipationScore(ParticipationScore.MAX_SCORE));
+        assertEquals(new RecordCommand(INDEX_FIRST_STUDENT, new WeekNumber(WeekNumber.MIN_WEEK_NUMBER), expectedRecord),
+                recordCommand);
     }
 
     @Test
