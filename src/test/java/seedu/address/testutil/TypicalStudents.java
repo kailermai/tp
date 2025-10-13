@@ -25,7 +25,7 @@ import seedu.address.model.student.Student;
 public class TypicalStudents {
 
     public static final Student ALICE = new StudentBuilder().withName("Alice Pauline")
-            .withPhone("94351253").withStudentNumber("A2345678Z")
+            .withEmail("alice@example.com").withPhone("94351253").withStudentNumber("A2345678Z")
             .withTags("friends").withRecordList(new RecordList()).build();
     public static final Student BENSON = new StudentBuilder().withName("Benson Meier")
             .withEmail("johnd@example.com").withPhone("98765432").withStudentNumber("A3456789Z")
