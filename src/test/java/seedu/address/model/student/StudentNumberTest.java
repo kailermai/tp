@@ -30,6 +30,7 @@ public class StudentNumberTest {
         assertFalse(StudentNumber.isValidStudentNumber("ABCDEFGHZ")); // contains only alphabetical characters
         assertFalse(StudentNumber.isValidStudentNumber("123456789")); // contains only numbers
         assertFalse(StudentNumber.isValidStudentNumber("A01234B56")); // wrong format
+        assertFalse(StudentNumber.isValidStudentNumber("B0123456Z")); // doesn't start with A
 
         // valid student number
         assertTrue(StudentNumber.isValidStudentNumber("A0123456Z")); // right format
