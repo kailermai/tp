@@ -24,19 +24,17 @@ public class Student {
     private final StudentNumber studentNumber;
 
     // Data fields
-    private final Address address;
     private final Set<Tag> tags = new HashSet<>();
     private RecordList recordList;
 
     /**
      * Every field must be present and not null.
      */
-    public Student(Name name, Phone phone, Email email, Address address, Set<Tag> tags, StudentNumber studentNumber) {
-        requireAllNonNull(name, phone, email, address, tags);
+    public Student(Name name, Phone phone, Email email, Set<Tag> tags, StudentNumber studentNumber) {
+        requireAllNonNull(name, phone, email, tags);
         this.name = name;
         this.phone = phone;
         this.email = email;
-        this.address = address;
         this.tags.addAll(tags);
         this.studentNumber = studentNumber;
         this.recordList = new RecordList();
@@ -45,13 +43,12 @@ public class Student {
     /**
      * Alternative constructor including recordList. Every field must be present and not null.
      */
-    public Student(Name name, Phone phone, Email email, Address address, Set<Tag> tags, StudentNumber studentNumber,
+    public Student(Name name, Phone phone, Email email, Set<Tag> tags, StudentNumber studentNumber,
                    RecordList recordlist) {
-        requireAllNonNull(name, phone, email, address, tags);
+        requireAllNonNull(name, phone, email, tags);
         this.name = name;
         this.phone = phone;
         this.email = email;
-        this.address = address;
         this.tags.addAll(tags);
         this.studentNumber = studentNumber;
         this.recordList = recordlist;
@@ -67,10 +64,6 @@ public class Student {
 
     public Email getEmail() {
         return email;
-    }
-
-    public Address getAddress() {
-        return address;
     }
 
     public StudentNumber getStudentNumber() {
@@ -125,14 +118,13 @@ public class Student {
                 && studentNumber.equals(otherStudent.studentNumber)
                 && phone.equals(otherStudent.phone)
                 && email.equals(otherStudent.email)
-                && address.equals(otherStudent.address)
                 && tags.equals(otherStudent.tags);
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, studentNumber, email, address, tags);
+        return Objects.hash(name, studentNumber, email, tags);
     }
 
     @Override
@@ -141,7 +133,6 @@ public class Student {
                 .add("name", name)
                 .add("phone", phone)
                 .add("email", email)
-                .add("address", address)
                 .add("tags", tags)
                 .toString();
     }
