@@ -39,14 +39,15 @@ public class RecordCommand extends Command {
             + PREFIX_PARTICIPATION_SCORE + "5 "
             + PREFIX_SUBMISSION_SCORE + "1 ";
 
-    public static final String MESSAGE_HELP = "Attendance tracking:\n"
+    public static final String MESSAGE_HELP = "Create a data record:\n"
             + COMMAND_WORD + " INDEX "
             + PREFIX_WEEK_NUMBER + "WEEK_NUMBER "
             + PREFIX_ATTENDANCE_SCORE + "ATTENDANCE "
             + PREFIX_PARTICIPATION_SCORE + "REASON_FOR_ABSENCE "
             + PREFIX_SUBMISSION_SCORE + "SUBMISSION ";
 
-    public static final String MESSAGE_RECORDED_SUCCESS = "Record updated for student: %1$s";
+    public static final String MESSAGE_ADD_RECORD_SUCCESS = "Record added for student: %1$s";
+    public static final String MESSAGE_UPDATE_RECORDED_SUCCESS = "Record updated for student: %1$s";
 
     private final Index targetIndex;
     private final WeekNumber weekNumber;
@@ -69,30 +70,54 @@ public class RecordCommand extends Command {
 
     @Override
     public CommandResult execute(Model model) throws CommandException {
-        // TODO: Implement attendance logic
+
         List<Student> lastShownList = model.getFilteredStudentList();
 
         if (targetIndex.getZeroBased() >= lastShownList.size()) {
             throw new CommandException(String.format(Messages.MESSAGE_INVALID_STUDENT_DISPLAYED_INDEX));
         }
 
+        boolean hasExistingRecord;
         Index weekIdx = Index.fromOneBased(weekNumber.getWeekNumber());
 
         Student studentToEdit = lastShownList.get(targetIndex.getZeroBased());
 
         RecordList studentRecords = studentToEdit.getRecordList();
+        hasExistingRecord = studentRecords.getRecord(weekIdx) != null;
+
         studentRecords.setRecord(weekIdx, record);
 
         Student editedStudent = new Student(studentToEdit.getName(), studentToEdit.getPhone(), studentToEdit.getEmail(),
-                studentToEdit.getAddress(), studentToEdit.getTags(), studentToEdit.getStudentNumber(), studentRecords);
+                studentToEdit.getTags(), studentToEdit.getStudentNumber(), studentRecords);
 
         model.setStudent(studentToEdit, editedStudent);
         model.updateFilteredStudentList(Model.PREDICATE_SHOW_ALL_STUDENTS);
 
-        return new CommandResult(generateSuccessMessage(editedStudent));
+        return new CommandResult(generateSuccessMessage(editedStudent, hasExistingRecord));
     }
 
-    private String generateSuccessMessage(Student studentToEdit) {
-        return String.format(MESSAGE_RECORDED_SUCCESS, Messages.format(studentToEdit));
+    private String generateSuccessMessage(Student studentToEdit, boolean hasExistingRecord) {
+        return hasExistingRecord
+                ? String.format(MESSAGE_UPDATE_RECORDED_SUCCESS, Messages.format(studentToEdit))
+                : String.format(MESSAGE_ADD_RECORD_SUCCESS, Messages.format(studentToEdit));
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        // short circuit if it is the same object
+        if (other == this) {
+            return true;
+        }
+
+        // instanceof handles nulls
+        if (!(other instanceof RecordCommand)) {
+            return false;
+        }
+
+        // state check
+        RecordCommand e = (RecordCommand) other;
+        return targetIndex.equals(e.targetIndex)
+                && weekNumber.equals(e.weekNumber)
+                && record.equals(e.record);
     }
 }

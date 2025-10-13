@@ -33,6 +33,10 @@ public class RecordList {
         this.records = records;
     }
 
+    public Record getRecord(Index index) {
+        return records.get(index.getZeroBased());
+    }
+
     public void setRecord(Index index, Record record) {
         records.set(index.getZeroBased(), record);
     }
