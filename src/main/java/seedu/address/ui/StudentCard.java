@@ -56,4 +56,18 @@ public class StudentCard extends UiPart<Region> {
                 .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
         studentNumber.setText(student.getStudentNumber().toString());
     }
+    /**
+     * Creates a {@code StudentCode} with the given {@code Student} to display.
+     */
+    public StudentCard(Student student) {
+        super(FXML);
+        this.student = student;
+        name.setText(student.getName().fullName);
+        phone.setText(student.getPhone().value);
+        email.setText(student.getEmail().value);
+        student.getTags().stream()
+                .sorted(Comparator.comparing(tag -> tag.tagName))
+                .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
+        studentNumber.setText(student.getStudentNumber().toString());
+    }
 }

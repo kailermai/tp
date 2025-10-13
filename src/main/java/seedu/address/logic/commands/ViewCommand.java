@@ -2,9 +2,13 @@ package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 
+import java.util.List;
+
 import seedu.address.commons.core.index.Index;
+import seedu.address.logic.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
+import seedu.address.model.student.Student;
 
 /**
  * Shows the trend of a student's performance over weeks.
@@ -22,6 +26,8 @@ public class ViewCommand extends Command {
 
     public static final String MESSAGE_ARGUMENTS = "INDEX: %1$d";
 
+    public static final String MESSAGE_VIEW_STUDENT_SUCCESS = "Showing trend for student: %1$s";
+
     private final Index index;
 
     /**
@@ -35,7 +41,18 @@ public class ViewCommand extends Command {
 
     @Override
     public CommandResult execute(Model model) throws CommandException {
-        return new CommandResult("Hello from view");
+        List<Student> lastShownList = model.getFilteredStudentList();
+
+        if (index.getZeroBased() >= lastShownList.size()) {
+            throw new CommandException(String.format(Messages.MESSAGE_INVALID_STUDENT_DISPLAYED_INDEX));
+        }
+
+        Student studentToShow = lastShownList.get(index.getZeroBased());
+        return new CommandResult(generateSuccessMessage(studentToShow), true, studentToShow);
+    }
+
+    private String generateSuccessMessage(Student studentToShow) {
+        return String.format(MESSAGE_VIEW_STUDENT_SUCCESS, studentToShow.getName());
     }
 
     @Override
