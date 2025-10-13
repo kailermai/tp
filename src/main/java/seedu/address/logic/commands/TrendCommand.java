@@ -17,7 +17,7 @@ public class TrendCommand extends Command {
 
     @Override
     public CommandResult execute(Model model) throws CommandException {
-        return new CommandResult("Trend window opened");
+        return new CommandResult(MESSAGE_SUCCESS);
     }
 
     @Override
