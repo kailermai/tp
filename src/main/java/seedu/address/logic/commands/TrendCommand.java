@@ -22,13 +22,7 @@ public class TrendCommand extends Command {
 
     @Override
     public boolean equals(Object other) {
-        if (other == this) {
-            return true;
-        }
-        if (!(other instanceof TrendCommand)) {
-            return false;
-        }
-        return true;
+        return other instanceof TrendCommand;
     }
 
 }
