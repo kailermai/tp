@@ -474,7 +474,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **MSS**
 1. TA <u>list entries UC03</u>.
 2. TA requests to add a student record.
-3. TAHub adds the record 
+3. TAHub adds the record. 
 4. TAHub displays a success message. 
 <br>Use case ends.
 
