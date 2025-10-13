@@ -328,7 +328,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 1b1. TAHub notifies TA of duplicate entry. 
       <br>Use case ends.
 
-
+<br>
 **Use case: UC02 Delete a student**
 
 **Preconditions:** The student to be deleted has an existing entry in TAHub.
@@ -348,8 +348,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 1a1. TAHub displays an error message.
       <br>Use case ends.
 
-    
-
+<br>
 **Use case: UC03 List entries**
 
 **Guarantees:** All student entries will be displayed.
@@ -367,6 +366,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 1b1. TAHub notifies the user that there are no existing entries.
       <br>Use case ends.
 
+<br>
 **Use case: UC04 Find student**
 
 **Guarantees:** All student entries with matching names will be displayed.
@@ -384,6 +384,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 1b1. TAHub notifies the user that no match is found.
       <br>Use case ends.
 
+<br>
 **Use case: UC05 Clear Entries**
 
 **Guarantees:** All student entries will be deleted.
@@ -405,6 +406,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 1b1. TAHub notifies the user that there are no existing entries.
       <br>Use case ends.
 
+<br>
 **Use case: UC06 Edit Student**
 
 **Preconditions:** The student to be edited has an existing entry in TAHub.
@@ -428,6 +430,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 2b1. TAHub notifies TA of duplicate entry.
       <br>Use case ends.
 
+<br>
 **Use case: UC07 Show Commands**
 
 **Guarantees**: TAHub displays command guide.
@@ -444,6 +447,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 1a1. TAHub displays an error message.
       <br>Use case ends.
 
+<br>
 **Use case: UC08 Exit TAHub**
 
 **Preconditions:** TAHub is currently running.
@@ -451,7 +455,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **Guarantees:** TAHub closes.
 
 **MSS**
-1. TA requests to exit TAhub.
+1. TA requests to exit TAHub.
 2. TAHub displays an exit message and closes.
 <br>Use case ends.
 
@@ -460,67 +464,30 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 1a1. TAHub displays an error message.
     <br>Use case ends.
 
-**Use case: UC09 Record attendance for a student**
+<br>
+**Use case: UC09 Add student record**
 
 **Preconditions:** The TA has already added the student to the class.
 
-**Guarantees:** The attendance record is updated for the correct student in the class.
+**Guarantees:** The record is updated for the correct student in the class.
 
 **MSS**
 1. TA <u>list entries UC03</u>.
-2. TA requests to record student attendance.
-3. TAHub records attendance and displays a success message. 
+2. TA requests to add a student record.
+3. TAHub adds the record. 
+4. TAHub displays a success message. 
 <br>Use case ends.
 
 **Extensions**
-* 1a. TAHub detects an error in the entered command.
-    * 1a1. TAHub displays an error message.
+* 2a. TAHub detects an error in the entered command.
+    * 2a1. TAHub displays an error message.
     <br>Use case ends.
-* 1b. Attendance status is already recorded.
-    * 1b1. TAHub overwrites the existing record.
-    <br>Use case resumes from step 2.
+* 2b. Student record already exists.
+    * 2b1. TAHub overwrites the existing record.
+    <br>Use case resumes from step 4.
 
-**Use case: UC10 Record participation for a student**
-
-**Preconditions:** The TA has already added the student to the class.
-
-**Guarantees:** The participation record is updated for the correct student in the class.
-
-**MSS**
-1. TA <u>list entries UC03</u>.
-2. TA requests to record student participation.
-3. TAHub records participation and displays a success message.
-   <br>Use case ends.
-
-**Extensions**
-* 1a. TAHub detects an error in the entered command.
-    * 1a1. TAHub displays an error message.
-      <br>Use case ends.
-* 1b. Participation status is already recorded.
-    * 1b1. TAHub overwrites the existing record.
-      <br>Use case resumes from step 2.
-
-**Use case: UC11 Record weekly submission for a student**
-
-**Preconditions:** The TA has already added the student into the class.
-
-**Guarantees:** The submission record is updated for the correct student in the class.
-
-**MSS**
-1. TA <u>list entries UC03</u>.
-2. TA requests to record a student's weekly submission.
-3. TAHub records submission and displays a success message.
-   <br>Use case ends.
-
-**Extensions**
-* 1a. TAHub detects an error in the entered command.
-    * 1a1. TAHub displays an error message.
-      <br>Use case ends.
-* 1b. Submission status was already recorded.
-    * 1b1. TAHub overwrites the existing record.
-      <br>Use case resumes from step 2.
-
-**Use case: UC12 Generate individual student record report**
+<br>
+**Use case: UC10 Generate individual student record report**
 
 **Preconditions:** The TA has already added the student into the class.
 
@@ -540,7 +507,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 1b1. TAHub displays an empty report with a note.
       <br>Use case ends.
 
-**Use case: UC13 Generate class record report**
+<br>
+**Use case: UC11 Generate class record report**
 
 **Preconditions:** The TA has students with existing records in the class.
 
