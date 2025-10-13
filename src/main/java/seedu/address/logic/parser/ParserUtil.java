@@ -13,7 +13,6 @@ import seedu.address.model.record.AttendanceScore;
 import seedu.address.model.record.ParticipationScore;
 import seedu.address.model.record.SubmissionScore;
 import seedu.address.model.record.WeekNumber;
-import seedu.address.model.student.Address;
 import seedu.address.model.student.Email;
 import seedu.address.model.student.Name;
 import seedu.address.model.student.Phone;

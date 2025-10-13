@@ -43,7 +43,6 @@ public class Messages {
                 .append(student.getPhone())
                 .append("; Email: ")
                 .append(student.getEmail())
-                .append("; Address: ")
                 .append("; Tags: ");
         student.getTags().forEach(builder::append);
         return builder.toString();
