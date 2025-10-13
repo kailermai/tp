@@ -8,6 +8,7 @@ import java.util.Objects;
 import java.util.Set;
 
 import seedu.address.commons.util.ToStringBuilder;
+import seedu.address.model.recordlist.RecordList;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -20,21 +21,40 @@ public class Student {
     private final Name name;
     private final Phone phone;
     private final Email email;
+    private final StudentNumber studentNumber;
 
     // Data fields
     private final Address address;
     private final Set<Tag> tags = new HashSet<>();
+    private RecordList recordList;
 
     /**
      * Every field must be present and not null.
      */
-    public Student(Name name, Phone phone, Email email, Address address, Set<Tag> tags) {
+    public Student(Name name, Phone phone, Email email, Address address, Set<Tag> tags, StudentNumber studentNumber) {
         requireAllNonNull(name, phone, email, address, tags);
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.address = address;
         this.tags.addAll(tags);
+        this.studentNumber = studentNumber;
+        this.recordList = new RecordList();
+    }
+
+    /**
+     * Alternative constructor including recordList. Every field must be present and not null.
+     */
+    public Student(Name name, Phone phone, Email email, Address address, Set<Tag> tags, StudentNumber studentNumber,
+                   RecordList recordlist) {
+        requireAllNonNull(name, phone, email, address, tags);
+        this.name = name;
+        this.phone = phone;
+        this.email = email;
+        this.address = address;
+        this.tags.addAll(tags);
+        this.studentNumber = studentNumber;
+        this.recordList = recordlist;
     }
 
     public Name getName() {
@@ -53,12 +73,23 @@ public class Student {
         return address;
     }
 
+    public StudentNumber getStudentNumber() {
+        return studentNumber;
+    }
+
     /**
      * Returns an immutable tag set, which throws {@code UnsupportedOperationException}
      * if modification is attempted.
      */
     public Set<Tag> getTags() {
         return Collections.unmodifiableSet(tags);
+    }
+
+    /**
+     * Returns the record list of the student.
+     */
+    public RecordList getRecordList() {
+        return recordList;
     }
 
     /**
@@ -91,6 +122,7 @@ public class Student {
 
         Student otherStudent = (Student) other;
         return name.equals(otherStudent.name)
+                && studentNumber.equals(otherStudent.studentNumber)
                 && phone.equals(otherStudent.phone)
                 && email.equals(otherStudent.email)
                 && address.equals(otherStudent.address)
@@ -100,7 +132,7 @@ public class Student {
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, address, tags);
+        return Objects.hash(name, studentNumber, email, address, tags);
     }
 
     @Override

@@ -30,4 +30,21 @@ public class WeekNumber {
     public static boolean isValidWeekNumber(int weekNumber) {
         return weekNumber >= MIN_WEEK_NUMBER && weekNumber <= MAX_WEEK_NUMBER;
     }
+
+    public int getWeekNumber() {
+        return this.weekNumber;
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        if (other == this) {
+            return true;
+        }
+
+        if (!(other instanceof WeekNumber otherWeekNumber)) {
+            return false;
+        }
+
+        return otherWeekNumber.weekNumber == this.weekNumber;
+    }
 }

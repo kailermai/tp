@@ -10,11 +10,14 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.address.commons.exceptions.IllegalValueException;
+import seedu.address.model.record.Record;
+import seedu.address.model.recordlist.RecordList;
 import seedu.address.model.student.Address;
 import seedu.address.model.student.Email;
 import seedu.address.model.student.Name;
 import seedu.address.model.student.Phone;
 import seedu.address.model.student.Student;
+import seedu.address.model.student.StudentNumber;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -29,6 +32,8 @@ class JsonAdaptedStudent {
     private final String email;
     private final String address;
     private final List<JsonAdaptedTag> tags = new ArrayList<>();
+    private final String studentNumber;
+    private final List<JsonAdaptedRecord> recordList = new ArrayList<>();
 
     /**
      * Constructs a {@code JsonAdaptedStudent} with the given student details.
@@ -36,13 +41,19 @@ class JsonAdaptedStudent {
     @JsonCreator
     public JsonAdaptedStudent(@JsonProperty("name") String name, @JsonProperty("phone") String phone,
                               @JsonProperty("email") String email, @JsonProperty("address") String address,
-                              @JsonProperty("tags") List<JsonAdaptedTag> tags) {
+                              @JsonProperty("tags") List<JsonAdaptedTag> tags,
+                              @JsonProperty("studentNumber") String studentNumber,
+                              @JsonProperty("recordList") List<JsonAdaptedRecord> recordList) {
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.address = address;
         if (tags != null) {
             this.tags.addAll(tags);
+        }
+        this.studentNumber = studentNumber;
+        if (recordList != null) {
+            this.recordList.addAll(recordList);
         }
     }
 
@@ -57,6 +68,10 @@ class JsonAdaptedStudent {
         tags.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
                 .collect(Collectors.toList()));
+        studentNumber = source.getStudentNumber().value;
+        recordList.addAll(source.getRecordList().records.stream()
+                .map(JsonAdaptedRecord::new)
+                .collect(Collectors.toList()));
     }
 
     /**
@@ -68,6 +83,11 @@ class JsonAdaptedStudent {
         final List<Tag> studentTags = new ArrayList<>();
         for (JsonAdaptedTag tag : tags) {
             studentTags.add(tag.toModelType());
+        }
+
+        final List<Record> studentRecords = new ArrayList<>();
+        for (JsonAdaptedRecord record : recordList) {
+            studentRecords.add(record.toModelType());
         }
 
         if (name == null) {
@@ -102,8 +122,19 @@ class JsonAdaptedStudent {
         }
         final Address modelAddress = new Address(address);
 
+        if (studentNumber == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+                    StudentNumber.class.getSimpleName()));
+        }
+        if (!StudentNumber.isValidStudentNumber(studentNumber)) {
+            throw new IllegalValueException(StudentNumber.MESSAGE_CONSTRAINTS);
+        }
+        final StudentNumber modelStudentNumber = new StudentNumber(studentNumber);
+        final RecordList modelRecordList = new RecordList(studentRecords);
         final Set<Tag> modelTags = new HashSet<>(studentTags);
-        return new Student(modelName, modelPhone, modelEmail, modelAddress, modelTags);
+
+        return new Student(modelName, modelPhone, modelEmail, modelAddress, modelTags, modelStudentNumber,
+                modelRecordList);
     }
 
 }

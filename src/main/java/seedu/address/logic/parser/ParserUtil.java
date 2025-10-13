@@ -10,11 +10,14 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.record.AttendanceScore;
+import seedu.address.model.record.ParticipationScore;
+import seedu.address.model.record.SubmissionScore;
 import seedu.address.model.record.WeekNumber;
 import seedu.address.model.student.Address;
 import seedu.address.model.student.Email;
 import seedu.address.model.student.Name;
 import seedu.address.model.student.Phone;
+import seedu.address.model.student.StudentNumber;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -78,6 +81,46 @@ public class ParserUtil {
     }
 
     /**
+     * Parses {@code participationScore} into an {@code ParticipationScore} and returns it.
+     * Leading and trailing whitespaces will be trimmed.
+     * @throws ParseException if the specified number is invalid (negative/NaN/out of range)
+     */
+    public static ParticipationScore parseParticipationScore(String participationScore) throws ParseException {
+        String trimmedScore = participationScore.trim();
+        int parsedInt;
+        try {
+            parsedInt = Integer.parseInt(trimmedScore);
+        } catch (NumberFormatException nfe) {
+            throw new ParseException(ParticipationScore.MESSAGE_CONSTRAINTS);
+        }
+
+        if (!ParticipationScore.isValidParticipationScore(parsedInt)) {
+            throw new ParseException(ParticipationScore.MESSAGE_CONSTRAINTS);
+        }
+        return new ParticipationScore(parsedInt);
+    }
+
+    /**
+     * Parses {@code submissionScore} into an {@code SubmissionScore} and returns it.
+     * Leading and trailing whitespaces will be trimmed.
+     * @throws ParseException if the specified number is invalid (negative/NaN/out of range)
+     */
+    public static SubmissionScore parseSubmissionScore(String submissionScore) throws ParseException {
+        String trimmedScore = submissionScore.trim();
+        int parsedInt;
+        try {
+            parsedInt = Integer.parseInt(trimmedScore);
+        } catch (NumberFormatException nfe) {
+            throw new ParseException(SubmissionScore.MESSAGE_CONSTRAINTS);
+        }
+
+        if (!SubmissionScore.isValidSubmissionScore(parsedInt)) {
+            throw new ParseException(SubmissionScore.MESSAGE_CONSTRAINTS);
+        }
+        return new SubmissionScore(parsedInt);
+    }
+
+    /**
      * Parses a {@code String name} into a {@code Name}.
      * Leading and trailing whitespaces will be trimmed.
      *
@@ -105,6 +148,21 @@ public class ParserUtil {
             throw new ParseException(Phone.MESSAGE_CONSTRAINTS);
         }
         return new Phone(trimmedPhone);
+    }
+
+    /**
+     * Parses a {@code String studentNumber} into a {@code StudentNumber}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code studentNumber} is invalid.
+     */
+    public static StudentNumber parseStudentNumber(String studentNumber) throws ParseException {
+        requireNonNull(studentNumber);
+        String trimmedStudentNumber = studentNumber.trim();
+        if (!StudentNumber.isValidStudentNumber(trimmedStudentNumber)) {
+            throw new ParseException(StudentNumber.MESSAGE_CONSTRAINTS);
+        }
+        return new StudentNumber(trimmedStudentNumber);
     }
 
     /**
@@ -163,4 +221,6 @@ public class ParserUtil {
         }
         return tagSet;
     }
+
+
 }
