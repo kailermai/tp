@@ -4,7 +4,7 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 
 /**
- * Shows the trend of the entire class across weeks.g
+ * Shows the trend of the entire class across weeks.
  */
 public class TrendCommand extends Command {
 
