@@ -211,6 +211,4 @@ public class MainWindow extends UiPart<Stage> {
             throw e;
         }
     }
-
-
 }

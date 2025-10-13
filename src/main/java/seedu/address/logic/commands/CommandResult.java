@@ -20,8 +20,10 @@ public class CommandResult {
     /** The application should exit. */
     private final boolean exit;
 
+    /** The student detail should be shown to user*/
     private final boolean showStudent;
 
+    /** The student whose details are to be shown. */
     private final Student student;
 
 

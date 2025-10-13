@@ -53,9 +53,11 @@ public class ScoreListPanel extends UiPart<Region> {
         ObservableList<Record> items = FXCollections.observableArrayList();
         List<Record> records = recordList.records;
         for (int i = 0; i < records.size(); i++) {
-            // Add a default record if the record is null TODO: to be improved on
+            // Add a default record if the record is null
             if (records.get(i) == null) {
-                items.add(new Record(new AttendanceScore(0), new SubmissionScore(0), new ParticipationScore(0)));
+                items.add(new Record(new AttendanceScore(AttendanceScore.MIN_SCORE),
+                        new SubmissionScore(SubmissionScore.MIN_SCORE),
+                        new ParticipationScore(ParticipationScore.MIN_SCORE)));
             } else {
                 items.add(records.get(i));
             }
