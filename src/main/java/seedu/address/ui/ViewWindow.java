@@ -82,7 +82,7 @@ public class ViewWindow extends UiPart<Stage> {
         scoreListPanel = new ScoreListPanel(student);
         scoreListPanelPlaceholder.getChildren().add(scoreListPanel.getRoot());
 
-        studentCard = new StudentCard(student, 1);
+        studentCard = new StudentCard(student);
         studentCardPlaceholder.getChildren().add(studentCard.getRoot());
     }
 }
