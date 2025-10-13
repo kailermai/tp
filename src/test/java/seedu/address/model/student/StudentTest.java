@@ -7,8 +7,8 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_STUDENT_NUMBER_AMY;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_STUDENT_NUMBER_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalStudents.ALICE;
 import static seedu.address.testutil.TypicalStudents.AMY;
@@ -40,8 +40,8 @@ public class StudentTest {
         assertFalse(ALICE.isSameStudent(editedAlice));
 
         // same student number, all other attributes different -> returns true
-        editedAlice = new StudentBuilder(ALICE).withName(VALID_NAME_BOB).withPhone(VALID_PHONE_BOB).withEmail(VALID_EMAIL_BOB)
-                .withTags(VALID_TAG_HUSBAND).build();
+        editedAlice = new StudentBuilder(ALICE).withName(VALID_NAME_BOB).withPhone(VALID_PHONE_BOB)
+                .withEmail(VALID_EMAIL_BOB).withTags(VALID_TAG_HUSBAND).build();
         assertTrue(ALICE.isSameStudent(editedAlice));
 
         // different student number, all other attributes same -> returns false
