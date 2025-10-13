@@ -86,16 +86,13 @@ public class Student {
     }
 
     /**
-     * Returns true if both students have the same name.
+     * Returns true if both students have the same student number.
      * This defines a weaker notion of equality between two students.
      */
     public boolean isSameStudent(Student otherStudent) {
         if (otherStudent == this) {
             return true;
         }
-//
-//        return otherStudent != null
-//                && otherStudent.getName().equals(getName());
         return otherStudent != null
                 && otherStudent.getStudentNumber().equals(getStudentNumber());
     }
@@ -133,6 +130,7 @@ public class Student {
     public String toString() {
         return new ToStringBuilder(this)
                 .add("name", name)
+                .add("studentNumber", studentNumber)
                 .add("phone", phone)
                 .add("email", email)
                 .add("tags", tags)
