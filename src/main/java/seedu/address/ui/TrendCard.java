@@ -31,21 +31,26 @@ public class TrendCard extends UiPart<Region> {
     }
 
     public String getOverallRecord(Student student) {
-        RecordList recordList = student.getRecordList();
+        int maxWeek = 0;
         int attendanceTotal = 0;
-        int participationTotal = 0;
+        double participationTotal = 0;
         int submissionTotal = 0;
 
         for (int i = 0; i < WeekNumber.MAX_WEEK_NUMBER; i++) {
             Index currentIndex = Index.fromZeroBased(i);
             Record record = this.recordList.getRecord(currentIndex);
-            if (record != null) {
-                attendanceTotal += record.getAttendanceScore().getScore();
-                participationTotal += record.getParticipationScore().getScore();
-                submissionTotal += record.getSubmissionScore().getScore();
+            if (record == null) {
+                continue;
             }
+            maxWeek = i + 1;
+            attendanceTotal += record.getAttendanceScore().getScore();
+            participationTotal += record.getParticipationScore().getScore();
+            submissionTotal += record.getSubmissionScore().getScore();
         }
-        return "Attendance: " + attendanceTotal + "/13 | Participation: " + participationTotal + "/65 | Submission: "
-                + submissionTotal + "/13";
+
+        double participationAverage = maxWeek == 0 ? 0 : participationTotal / maxWeek;
+
+        return "Attendance: " + attendanceTotal + "/" + maxWeek + " | Average participation: "
+                + String.format("%.2f", participationAverage) + "/5 | Submission: " + submissionTotal + "/" + maxWeek;
     }
 }

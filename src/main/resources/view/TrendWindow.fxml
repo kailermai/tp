@@ -10,6 +10,9 @@
 <?import javafx.stage.Stage?>
 
 <fx:root minHeight="500" minWidth="500" resizable="true" title="Trend" type="javafx.stage.Stage" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <icons>
+        <Image url="@/images/trend_icon.png" />
+    </icons>
     <scene>
         <Scene>
             <stylesheets>
