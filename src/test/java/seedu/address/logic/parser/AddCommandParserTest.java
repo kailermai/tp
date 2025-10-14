@@ -24,7 +24,6 @@ import static seedu.address.logic.commands.CommandTestUtil.TELEGRAM_DESC_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_STUDENT_NUMBER_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_STUDENT_NUMBER_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_FRIEND;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
@@ -184,7 +183,7 @@ public class AddCommandParserTest {
 
         // all prefixes missing
         assertParseFailure(parser, VALID_NAME_BOB + VALID_STUDENT_NUMBER_BOB + VALID_PHONE_BOB
-                + VALID_EMAIL_BOB +  VALID_TELEGRAM_BOB, expectedMessage);
+                + VALID_EMAIL_BOB + VALID_TELEGRAM_BOB, expectedMessage);
     }
 
     @Test
@@ -199,7 +198,8 @@ public class AddCommandParserTest {
 
         // invalid email
         assertParseFailure(parser, NAME_DESC_BOB + STUDENT_NUMBER_DESC_BOB + PHONE_DESC_BOB
-                + INVALID_EMAIL_DESC + TELEGRAM_DESC_BOB + TAG_DESC_HUSBAND + TAG_DESC_FRIEND, Email.MESSAGE_CONSTRAINTS);
+                + INVALID_EMAIL_DESC + TELEGRAM_DESC_BOB + TAG_DESC_HUSBAND + TAG_DESC_FRIEND,
+                Email.MESSAGE_CONSTRAINTS);
 
         // invalid tag
         assertParseFailure(parser, NAME_DESC_BOB + STUDENT_NUMBER_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB

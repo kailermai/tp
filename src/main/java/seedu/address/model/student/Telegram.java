@@ -3,8 +3,12 @@ package seedu.address.model.student;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
+/**
+ * Represents a Student's Telegram handle in the address book.
+ * Guarantees: immutable; is valid as declared in {@link #isValidTelegram(String)}
+ */
 public class Telegram {
-    public static final String MESSAGE_CONSTRAINTS=
+    public static final String MESSAGE_CONSTRAINTS =
             "Telegram handles should only contain alphanumeric characters and underscores, must not be blank, "
             + "and should be less than 100 characters long";
 
@@ -12,6 +16,11 @@ public class Telegram {
 
     public final String value;
 
+    /**
+     * Constructs a {@code Telegram}.
+     *
+     * @param telegram A valid telegram handle.
+     */
     public Telegram(String telegram) {
         requireNonNull(telegram);
         checkArgument(isValidTelegram(telegram), MESSAGE_CONSTRAINTS);

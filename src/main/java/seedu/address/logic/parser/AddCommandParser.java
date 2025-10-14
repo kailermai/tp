@@ -53,7 +53,6 @@ public class AddCommandParser implements Parser<AddCommand> {
         RecordList recordList = new RecordList();
         StudentNumber studentNumber = ParserUtil.parseStudentNumber(argMultimap.getValue(PREFIX_STUDENT_NUMBER).get());
 
-//        Student student = new Student(name, phone, email, tagList, studentNumber, recordList);
         Student student = new Student(name, phone, email, tagList, studentNumber, recordList, telegram);
         return new AddCommand(student);
     }
