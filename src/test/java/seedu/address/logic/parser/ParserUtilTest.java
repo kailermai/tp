@@ -17,6 +17,7 @@ import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.student.Email;
 import seedu.address.model.student.Name;
 import seedu.address.model.student.Phone;
+import seedu.address.model.student.StudentNumber;
 import seedu.address.model.tag.Tag;
 
 public class ParserUtilTest {
@@ -24,12 +25,14 @@ public class ParserUtilTest {
     private static final String INVALID_PHONE = "+651234";
     private static final String INVALID_EMAIL = "example.com";
     private static final String INVALID_TAG = "#friend";
+    private static final String INVALID_STUDENT_NUMBER = "A0123456Z1";
 
     private static final String VALID_NAME = "Rachel Walker";
     private static final String VALID_PHONE = "123456";
     private static final String VALID_EMAIL = "rachel@example.com";
     private static final String VALID_TAG_1 = "friend";
     private static final String VALID_TAG_2 = "neighbour";
+    private static final String VALID_STUDENT_NUMBER = "A0123456Z";
 
     private static final String WHITESPACE = " \t\r\n";
 
@@ -120,6 +123,29 @@ public class ParserUtilTest {
         String emailWithWhitespace = WHITESPACE + VALID_EMAIL + WHITESPACE;
         Email expectedEmail = new Email(VALID_EMAIL);
         assertEquals(expectedEmail, ParserUtil.parseEmail(emailWithWhitespace));
+    }
+
+    @Test
+    public void parseStudentNumber_null_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> ParserUtil.parseStudentNumber((String) null));
+    }
+
+    @Test
+    public void parseStudentNumber_invalidValue_throwsParseException() {
+        assertThrows(ParseException.class, () -> ParserUtil.parseStudentNumber(INVALID_STUDENT_NUMBER));
+    }
+
+    @Test
+    public void parseStudentNumber_validValueWithoutWhitespace_returnsStudentNumber() throws Exception {
+        StudentNumber expectedStudentNumber = new StudentNumber(VALID_STUDENT_NUMBER);
+        assertEquals(expectedStudentNumber, ParserUtil.parseStudentNumber(VALID_STUDENT_NUMBER));
+    }
+
+    @Test
+    public void parseStudentNumber_validValueWithWhitespace_returnsTrimmedStudentNumber() throws Exception {
+        String studentNumberWithWhitespace = WHITESPACE + VALID_STUDENT_NUMBER + WHITESPACE;
+        StudentNumber expectedStudentNumber = new StudentNumber(VALID_STUDENT_NUMBER);
+        assertEquals(expectedStudentNumber, ParserUtil.parseStudentNumber(studentNumberWithWhitespace));
     }
 
     @Test
