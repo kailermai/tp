@@ -21,6 +21,9 @@ public class NameTest {
 
     @Test
     public void isValidName() {
+        String tooLongName = "This name is way too long and should definitely not be accepted by the validation check "
+                + "because it exceeds the maximum length of one hundred characters which is quite a lot for a name";
+
         // null name
         assertThrows(NullPointerException.class, () -> Name.isValidName(null));
 
@@ -29,6 +32,7 @@ public class NameTest {
         assertFalse(Name.isValidName(" ")); // spaces only
         assertFalse(Name.isValidName("^")); // only non-alphanumeric characters
         assertFalse(Name.isValidName("peter*")); // contains non-alphanumeric characters
+        assertFalse(Name.isValidName(tooLongName)); // name is too long
 
         // valid name
         assertTrue(Name.isValidName("peter jack")); // alphabets only
