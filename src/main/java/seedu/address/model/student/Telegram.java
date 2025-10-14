@@ -5,9 +5,10 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 
 public class Telegram {
     public static final String MESSAGE_CONSTRAINTS=
-            "Telegram handles should only contain alphanumeric characters and underscores, and it should not be blank.";
+            "Telegram handles should only contain alphanumeric characters and underscores, must not be blank, "
+            + "and should be less than 100 characters long";
 
-    public static final String VALIDATION_REGEX = "[a-zA-Z0-9_]+";
+    public static final String VALIDATION_REGEX = "[a-zA-Z0-9_]{1,100}";
 
     public final String value;
 
