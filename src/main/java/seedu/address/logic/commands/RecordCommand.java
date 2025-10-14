@@ -88,7 +88,7 @@ public class RecordCommand extends Command {
         studentRecords.setRecord(weekIdx, record);
 
         Student editedStudent = new Student(studentToEdit.getName(), studentToEdit.getPhone(), studentToEdit.getEmail(),
-                studentToEdit.getTags(), studentToEdit.getStudentNumber(), studentRecords);
+                studentToEdit.getTags(), studentToEdit.getStudentNumber(), studentRecords, studentToEdit.getTelegram());
 
         model.setStudent(studentToEdit, editedStudent);
         model.updateFilteredStudentList(Model.PREDICATE_SHOW_ALL_STUDENTS);

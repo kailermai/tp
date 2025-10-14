@@ -57,10 +57,11 @@ public class EditStudentDescriptorTest {
     public void toStringMethod() {
         EditCommand.EditStudentDescriptor editStudentDescriptor = new EditCommand.EditStudentDescriptor();
         String expected = EditCommand.EditStudentDescriptor.class.getCanonicalName() + "{name="
+                + editStudentDescriptor.getStudentNumber().orElse(null) + ", studentNumber="
                 + editStudentDescriptor.getName().orElse(null) + ", phone="
                 + editStudentDescriptor.getPhone().orElse(null) + ", email="
+                + editStudentDescriptor.getTelegram().orElse(null) + ", telegram="
                 + editStudentDescriptor.getEmail().orElse(null) + ", tags="
-                + editStudentDescriptor.getStudentNumber().orElse(null) + ", studentNumber="
                 + editStudentDescriptor.getTags().orElse(null) + "}";
         assertEquals(expected, editStudentDescriptor.toString());
     }

@@ -15,5 +15,5 @@ public class CliSyntax {
     public static final Prefix PREFIX_PARTICIPATION_SCORE = new Prefix("part/");
     public static final Prefix PREFIX_SUBMISSION_SCORE = new Prefix("sub/");
     public static final Prefix PREFIX_STUDENT_NUMBER = new Prefix("sn/");
-    public static final Prefix PREFIX_TELEGRAM_HANDLE = new Prefix("tele/");
+    public static final Prefix PREFIX_TELEGRAM = new Prefix("tele/");
 }
