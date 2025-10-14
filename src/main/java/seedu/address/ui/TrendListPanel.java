@@ -15,13 +15,13 @@ import seedu.address.model.student.Student;
  */
 public class TrendListPanel extends UiPart<Region> {
     private static final String FXML = "TrendListPanel.fxml";
-    private final Logger logger = LogsCenter.getLogger(StudentListPanel.class);
+    private final Logger logger = LogsCenter.getLogger(TrendListPanel.class);
 
     @FXML
     private ListView<Student> recordsListView;
 
     /**
-     * Creates a {@code StudentListPanel} with the given {@code ObservableList}.
+     * Creates a {@code TrendListPanel} with the given {@code ObservableList}.
      */
     public TrendListPanel(ObservableList<Student> studentList) {
         super(FXML);
@@ -30,7 +30,7 @@ public class TrendListPanel extends UiPart<Region> {
     }
 
     /**
-     * Custom {@code ListCell} that displays the graphics of a {@code Student} using a {@code StudentCard}.
+     * Custom {@code ListCell} that displays the graphics of a {@code Student} using a {@code TrendCard}.
      */
     class TrendListViewCell extends ListCell<Student> {
         @Override

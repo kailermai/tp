@@ -10,7 +10,7 @@ import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.student.Student;
 
 /**
- * Controller for a help page
+ * Controller for a trend page
  */
 public class TrendWindow extends UiPart<Stage> {
 
@@ -39,7 +39,7 @@ public class TrendWindow extends UiPart<Stage> {
     }
 
     /**
-     * Shows the help window.
+     * Shows the trend window.
      */
     public void show() {
         logger.fine("Showing trend page.");

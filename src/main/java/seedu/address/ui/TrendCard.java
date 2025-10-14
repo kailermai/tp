@@ -10,6 +10,9 @@ import seedu.address.model.record.WeekNumber;
 import seedu.address.model.recordlist.RecordList;
 import seedu.address.model.student.Student;
 
+/**
+ * A UI component that displays the overall record information of a {@code Student}.
+ */
 public class TrendCard extends UiPart<Region> {
     private static final String FXML = "TrendCard.fxml";
     private final RecordList recordList;
@@ -21,7 +24,7 @@ public class TrendCard extends UiPart<Region> {
     private Label trend;
 
     /**
-     * Creates a {@code ScoreCard} with the given {@code Record} to display.
+     * Creates a {@code TrendCard} with the given {@code student} to display.
      */
     public TrendCard(Student student) {
         super(FXML);
@@ -30,7 +33,7 @@ public class TrendCard extends UiPart<Region> {
         trend.setText(getOverallRecord(student));
     }
 
-    public String getOverallRecord(Student student) {
+    private String getOverallRecord(Student student) {
         int maxWeek = 0;
         int attendanceTotal = 0;
         double participationTotal = 0;
