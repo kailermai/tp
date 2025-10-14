@@ -33,6 +33,8 @@ public class NameTest {
         assertFalse(Name.isValidName("^")); // only non-alphanumeric characters
         assertFalse(Name.isValidName("peter*")); // contains non-alphanumeric characters
         assertFalse(Name.isValidName(tooLongName)); // name is too long
+        assertFalse(Name.isValidName("/peter")); // name starts with a slash
+        assertFalse(Name.isValidName("/")); // name is just a slash
 
         // valid name
         assertTrue(Name.isValidName("peter jack")); // alphabets only
@@ -40,6 +42,8 @@ public class NameTest {
         assertTrue(Name.isValidName("peter the 2nd")); // alphanumeric characters
         assertTrue(Name.isValidName("Capital Tan")); // with capital letters
         assertTrue(Name.isValidName("David Roger Jackson Ray Jr 2nd")); // long names
+        assertTrue(Name.isValidName("David s/o Jackson")); // name with slash
+        assertTrue(Name.isValidName("David s/o Jackson s/o ")); // name with multiple slashes
     }
 
     @Test
