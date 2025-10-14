@@ -28,7 +28,7 @@ public class ViewWindow extends UiPart<Stage> {
     /**
      * Creates a new ViewWindow.
      *
-     * @param root Stage to use as the root of the TrendWindow.
+     * @param root Stage to use as the root of the ViewWindow.
      */
     public ViewWindow(Stage root) {
         super(FXML, root);
@@ -37,7 +37,7 @@ public class ViewWindow extends UiPart<Stage> {
         root.setResizable(true);
     }
     /**
-     * Creates a new TrendWindow.
+     * Creates a new ViewWindow.
      */
     public ViewWindow() {
         this(new Stage());
@@ -47,7 +47,7 @@ public class ViewWindow extends UiPart<Stage> {
      * Creates a new ViewWindow.
      */
     public void show() {
-        logger.fine("Viewing student trend.");
+        logger.fine("Viewing student.");
         getRoot().show();
         getRoot().centerOnScreen();
     }
