@@ -22,6 +22,7 @@ public class Student {
     private final Phone phone;
     private final Email email;
     private final StudentNumber studentNumber;
+    private final Telegram telegram;
 
     // Data fields
     private final Set<Tag> tags = new HashSet<>();
@@ -30,21 +31,8 @@ public class Student {
     /**
      * Every field must be present and not null.
      */
-    public Student(Name name, Phone phone, Email email, Set<Tag> tags, StudentNumber studentNumber) {
-        requireAllNonNull(name, phone, email, tags);
-        this.name = name;
-        this.phone = phone;
-        this.email = email;
-        this.tags.addAll(tags);
-        this.studentNumber = studentNumber;
-        this.recordList = new RecordList();
-    }
-
-    /**
-     * Alternative constructor including recordList. Every field must be present and not null.
-     */
     public Student(Name name, Phone phone, Email email, Set<Tag> tags, StudentNumber studentNumber,
-                   RecordList recordlist) {
+                   RecordList recordlist, Telegram telegram) {
         requireAllNonNull(name, phone, email, tags);
         this.name = name;
         this.phone = phone;
@@ -52,6 +40,7 @@ public class Student {
         this.tags.addAll(tags);
         this.studentNumber = studentNumber;
         this.recordList = recordlist;
+        this.telegram = telegram;
     }
 
     public Name getName() {
@@ -68,6 +57,10 @@ public class Student {
 
     public StudentNumber getStudentNumber() {
         return studentNumber;
+    }
+
+    public Telegram getTelegram() {
+        return telegram;
     }
 
     /**
@@ -117,13 +110,14 @@ public class Student {
                 && studentNumber.equals(otherStudent.studentNumber)
                 && phone.equals(otherStudent.phone)
                 && email.equals(otherStudent.email)
+                && telegram.equals(otherStudent.telegram)
                 && tags.equals(otherStudent.tags);
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, studentNumber, email, tags);
+        return Objects.hash(name, studentNumber, email, tags, telegram);
     }
 
     @Override
@@ -133,6 +127,7 @@ public class Student {
                 .add("studentNumber", studentNumber)
                 .add("phone", phone)
                 .add("email", email)
+                .add("telegram", telegram)
                 .add("tags", tags)
                 .toString();
     }

@@ -10,14 +10,18 @@ public class TrendCommand extends Command {
 
     public static final String COMMAND_WORD = "trend";
 
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Shows trend of all students.\n"
+            + "Example: " + COMMAND_WORD;
+
     public static final String MESSAGE_HELP = "Shows the trend of all students:\n"
             + COMMAND_WORD;
 
-    public static final String MESSAGE_SUCCESS = "Trend window opened";
+    public static final String MESSAGE_SUCCESS = "Opened trend window";
 
     @Override
     public CommandResult execute(Model model) throws CommandException {
-        return new CommandResult(MESSAGE_SUCCESS);
+        model.updateFilteredStudentList(Model.PREDICATE_SHOW_ALL_STUDENTS);
+        return new CommandResult(MESSAGE_SUCCESS, true);
     }
 
     @Override
