@@ -52,13 +52,14 @@ public class EditCommand extends Command {
             + PREFIX_PHONE + "91234567 "
             + PREFIX_EMAIL + "johndoe@example.com";
 
-    public static final String MESSAGE_HELP = "Edit student record:\n"
+    public static final String MESSAGE_HELP = "Edit student entry:\n"
             + COMMAND_WORD + " INDEX "
-            + PREFIX_NAME + "NAME "
-            + PREFIX_STUDENT_NUMBER + "STUDENT_NUMBER "
-            + PREFIX_PHONE + "PHONE "
-            + PREFIX_EMAIL + "EMAIL "
-            + PREFIX_TELEGRAM + "TELEGRAM ";
+            + "[" + PREFIX_NAME + "NAME] "
+            + "[" + PREFIX_STUDENT_NUMBER + "STUDENT_NUMBER] "
+            + "[" + PREFIX_PHONE + "PHONE] "
+            + "[" + PREFIX_EMAIL + "EMAIL] "
+            + "[" + PREFIX_TELEGRAM + "TELEGRAM] "
+            + "[" + PREFIX_TAG + "TAG]";
 
     public static final String MESSAGE_EDIT_STUDENT_SUCCESS = "Edited Student: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
