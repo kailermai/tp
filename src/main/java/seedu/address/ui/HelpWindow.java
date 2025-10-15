@@ -30,15 +30,15 @@ public class HelpWindow extends UiPart<Stage> {
     public static final String USERGUIDE_TEXT = "More can be found in our user guide: " + USERGUIDE_URL;
 
     public static final String HELP_MESSAGE = "Command list: \n"
-            + AddCommand.MESSAGE_HELP + "\n\n"
-            + DeleteCommand.MESSAGE_HELP + "\n\n"
-            + ListCommand.MESSAGE_HELP + "\n\n"
-            + ClearCommand.MESSAGE_HELP + "\n\n"
-            + FindCommand.MESSAGE_HELP + "\n\n"
-            + EditCommand.MESSAGE_HELP + "\n\n"
             + HelpCommand.MESSAGE_HELP + "\n\n"
-            + ExitCommand.MESSAGE_HELP + "\n\n"
+            + AddCommand.MESSAGE_HELP + "\n\n"
+            + ListCommand.MESSAGE_HELP + "\n\n"
+            + EditCommand.MESSAGE_HELP + "\n\n"
+            + FindCommand.MESSAGE_HELP + "\n\n"
+            + DeleteCommand.MESSAGE_HELP + "\n\n"
             + RecordCommand.MESSAGE_HELP + "\n\n"
+            + ClearCommand.MESSAGE_HELP + "\n\n"
+            + ExitCommand.MESSAGE_HELP + "\n\n"
             + ViewCommand.MESSAGE_HELP + "\n\n"
             + TrendCommand.MESSAGE_HELP + "\n\n\n"
             + USERGUIDE_TEXT;
