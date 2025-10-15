@@ -5,6 +5,7 @@ import static java.util.Objects.requireNonNull;
 import java.util.Objects;
 
 import seedu.address.commons.util.ToStringBuilder;
+import seedu.address.model.student.Student;
 
 /**
  * Represents the result of a command execution.
@@ -19,6 +20,16 @@ public class CommandResult {
     /** The application should exit. */
     private final boolean exit;
 
+    /** The student detail should be shown to user*/
+    private final boolean showStudent;
+
+    /** The student whose details are to be shown. */
+    private final Student student;
+
+    /** Trend information should be shown to the user */
+    private final boolean showTrend;
+
+
     /**
      * Constructs a {@code CommandResult} with the specified fields.
      */
@@ -26,6 +37,33 @@ public class CommandResult {
         this.feedbackToUser = requireNonNull(feedbackToUser);
         this.showHelp = showHelp;
         this.exit = exit;
+        this.showStudent = false;
+        this.student = null;
+        this.showTrend = false;
+    }
+
+    /**
+     * Constructs a {@code CommandResult} with the specified fields.
+     */
+    public CommandResult(String feedbackToUser, boolean showStudent, Student student) {
+        this.feedbackToUser = requireNonNull(feedbackToUser);
+        this.showStudent = showStudent;
+        this.student = student;
+        this.showHelp = false;
+        this.exit = false;
+        this.showTrend = false;
+    }
+
+    /**
+     * Constructs a {@code CommandResult} with the specified fields.
+     */
+    public CommandResult(String feedbackToUser, boolean showTrend) {
+        this.feedbackToUser = requireNonNull(feedbackToUser);
+        this.showHelp = false;
+        this.exit = false;
+        this.showStudent = false;
+        this.student = null;
+        this.showTrend = showTrend;
     }
 
     /**
@@ -46,6 +84,18 @@ public class CommandResult {
 
     public boolean isExit() {
         return exit;
+    }
+
+    public boolean isShowStudent() {
+        return showStudent;
+    }
+
+    public boolean isShowTrend() {
+        return showTrend;
+    }
+
+    public Student getStudent() {
+        return student;
     }
 
     @Override
