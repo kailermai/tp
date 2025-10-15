@@ -344,8 +344,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **Extensions**
 
-* 1a.  TAHub detects an error in the entered command.
-    * 1a1. TAHub displays an error message.
+* 2a.  TAHub detects an error in the entered command.
+    * 2a1. TAHub displays an error message.
       <br>Use case ends.
 
 <br>
@@ -500,11 +500,11 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
    <br>Use case ends.
 
 **Extensions**
-* 1a. TAHub detects an error in the entered command.
-    * 1a1. TAHub displays an error message.
+* 2a. TAHub detects an error in the entered command.
+    * 2a1. TAHub displays an error message.
       <br>Use case ends.
-* 1b. The student has no existing records.
-    * 1b1. TAHub displays an empty report with a note.
+* 2b. The student has no existing records.
+    * 2b1. TAHub displays an empty report with a note.
       <br>Use case ends.
 
 <br>
