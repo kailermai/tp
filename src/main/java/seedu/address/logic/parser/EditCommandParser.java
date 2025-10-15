@@ -7,6 +7,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_STUDENT_NUMBER;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_TELEGRAM;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -33,7 +34,7 @@ public class EditCommandParser implements Parser<EditCommand> {
         requireNonNull(args);
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_TAG,
-                        PREFIX_STUDENT_NUMBER);
+                        PREFIX_STUDENT_NUMBER, PREFIX_TELEGRAM);
 
         Index index;
 
@@ -44,7 +45,7 @@ public class EditCommandParser implements Parser<EditCommand> {
         }
 
         argMultimap.verifyNoDuplicatePrefixesFor(PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL,
-                PREFIX_STUDENT_NUMBER);
+                PREFIX_STUDENT_NUMBER, PREFIX_TELEGRAM);
 
         EditStudentDescriptor editStudentDescriptor = new EditStudentDescriptor();
 
@@ -60,6 +61,10 @@ public class EditCommandParser implements Parser<EditCommand> {
         if (argMultimap.getValue(PREFIX_STUDENT_NUMBER).isPresent()) {
             editStudentDescriptor.setStudentNumber(ParserUtil.parseStudentNumber(
                     argMultimap.getValue(PREFIX_STUDENT_NUMBER).get()));
+        }
+        if (argMultimap.getValue(PREFIX_TELEGRAM).isPresent()) {
+            editStudentDescriptor.setTelegram(ParserUtil.parseTelegram(
+                    argMultimap.getValue(PREFIX_TELEGRAM).get()));
         }
         parseTagsForEdit(argMultimap.getAllValues(PREFIX_TAG)).ifPresent(editStudentDescriptor::setTags);
 

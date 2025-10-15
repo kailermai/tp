@@ -18,13 +18,15 @@ import seedu.address.model.student.Email;
 import seedu.address.model.student.Name;
 import seedu.address.model.student.Phone;
 import seedu.address.model.student.StudentNumber;
+import seedu.address.model.student.Telegram;
 import seedu.address.model.tag.Tag;
 
 public class ParserUtilTest {
     private static final String INVALID_NAME = "R@chel";
-    private static final String INVALID_PHONE = "+651234";
+    private static final String INVALID_PHONE = "65+1234";
     private static final String INVALID_EMAIL = "example.com";
     private static final String INVALID_TAG = "#friend";
+    private static final String INVALID_TELEGRAM = "rachel walker";
     private static final String INVALID_STUDENT_NUMBER = "A0123456Z1";
 
     private static final String VALID_NAME = "Rachel Walker";
@@ -32,6 +34,7 @@ public class ParserUtilTest {
     private static final String VALID_EMAIL = "rachel@example.com";
     private static final String VALID_TAG_1 = "friend";
     private static final String VALID_TAG_2 = "neighbour";
+    private static final String VALID_TELEGRAM = "rachel_walker";
     private static final String VALID_STUDENT_NUMBER = "A0123456Z";
 
     private static final String WHITESPACE = " \t\r\n";
@@ -123,6 +126,29 @@ public class ParserUtilTest {
         String emailWithWhitespace = WHITESPACE + VALID_EMAIL + WHITESPACE;
         Email expectedEmail = new Email(VALID_EMAIL);
         assertEquals(expectedEmail, ParserUtil.parseEmail(emailWithWhitespace));
+    }
+
+    @Test
+    public void parseTelegram_null_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> ParserUtil.parseTelegram((String) null));
+    }
+
+    @Test
+    public void parseTelegram_invalidValue_throwsParseException() {
+        assertThrows(ParseException.class, () -> ParserUtil.parseTelegram(INVALID_TELEGRAM));
+    }
+
+    @Test
+    public void parseTelegram_validValueWithoutWhitespace_returnsTelegram() throws Exception {
+        Telegram expectedTelegram = new Telegram(VALID_TELEGRAM);
+        assertEquals(expectedTelegram, ParserUtil.parseTelegram(VALID_TELEGRAM));
+    }
+
+    @Test
+    public void parseTelegram_validValueWithWhitespace_returnsTrimmedTelegram() throws Exception {
+        String telegramWithWhitespace = WHITESPACE + VALID_TELEGRAM + WHITESPACE;
+        Telegram expectedTelegram = new Telegram(VALID_TELEGRAM);
+        assertEquals(expectedTelegram, ParserUtil.parseTelegram(telegramWithWhitespace));
     }
 
     @Test

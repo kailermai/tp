@@ -12,6 +12,7 @@ import seedu.address.model.student.Name;
 import seedu.address.model.student.Phone;
 import seedu.address.model.student.Student;
 import seedu.address.model.student.StudentNumber;
+import seedu.address.model.student.Telegram;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -21,17 +22,23 @@ public class SampleDataUtil {
     public static Student[] getSampleStudents() {
         return new Student[] {
             new Student(new Name("Alex Yeoh"), new Phone("87438807"), new Email("alexyeoh@example.com"),
-                getTagSet("friends"), new StudentNumber("A0123456Z"), new RecordList()),
+                getTagSet("friends"), new StudentNumber("A0123456Z"), new RecordList(),
+                    new Telegram("alex_yeoh")),
             new Student(new Name("Bernice Yu"), new Phone("99272758"), new Email("berniceyu@example.com"),
-                getTagSet("colleagues", "friends"), new StudentNumber("A1234567Z"), new RecordList()),
+                getTagSet("colleagues", "friends"), new StudentNumber("A1234567Z"), new RecordList(),
+                    new Telegram("bernice_yu")),
             new Student(new Name("Charlotte Oliveiro"), new Phone("93210283"), new Email("charlotte@example.com"),
-                getTagSet("neighbours"), new StudentNumber("A2345678Z"), new RecordList()),
+                getTagSet("neighbours"), new StudentNumber("A2345678Z"), new RecordList(),
+                    new Telegram("charlotte_oliveiro")),
             new Student(new Name("David Li"), new Phone("91031282"), new Email("lidavid@example.com"),
-                getTagSet("family"), new StudentNumber("A3456789Z"), new RecordList()),
+                getTagSet("family"), new StudentNumber("A3456789Z"), new RecordList(),
+                    new Telegram("david_li")),
             new Student(new Name("Irfan Ibrahim"), new Phone("92492021"), new Email("irfan@example.com"),
-                getTagSet("classmates"), new StudentNumber("A4567890Z"), new RecordList()),
+                getTagSet("classmates"), new StudentNumber("A4567890Z"), new RecordList(),
+                    new Telegram("irfan_ibrahim")),
             new Student(new Name("Roy Balakrishnan"), new Phone("92624417"), new Email("royb@example.com"),
-                getTagSet("colleagues"), new StudentNumber("A5678901Z"), new RecordList()),
+                getTagSet("colleagues"), new StudentNumber("A5678901Z"), new RecordList(),
+                    new Telegram("roy_balakrishnan")),
         };
     }
 

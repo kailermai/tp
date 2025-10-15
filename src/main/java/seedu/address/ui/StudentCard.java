@@ -40,6 +40,8 @@ public class StudentCard extends UiPart<Region> {
     private FlowPane tags;
     @FXML
     private Label studentNumber;
+    @FXML
+    private Label telegram;
 
     /**
      * Creates a {@code StudentCode} with the given {@code Student} and index to display.
@@ -55,6 +57,7 @@ public class StudentCard extends UiPart<Region> {
                 .sorted(Comparator.comparing(tag -> tag.tagName))
                 .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
         studentNumber.setText(student.getStudentNumber().toString());
+        telegram.setText(student.getTelegram().toString());
     }
     /**
      * Creates a {@code StudentCode} with the given {@code Student} to display.
