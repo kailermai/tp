@@ -5,6 +5,8 @@ import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.Clipboard;
+import javafx.scene.input.ClipboardContent;
 import javafx.stage.Stage;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.logic.commands.AddCommand;
@@ -24,6 +26,9 @@ import seedu.address.logic.commands.ViewCommand;
  */
 public class HelpWindow extends UiPart<Stage> {
 
+    public static final String USERGUIDE_URL = "https://ay2526s1-cs2103t-t16-2.github.io/tp/UserGuide.html";
+    public static final String USERGUIDE_TEXT = "More can be found in our user guide: " + USERGUIDE_URL;
+
     public static final String HELP_MESSAGE = "Command list: \n"
             + AddCommand.MESSAGE_HELP + "\n\n"
             + DeleteCommand.MESSAGE_HELP + "\n\n"
@@ -35,7 +40,8 @@ public class HelpWindow extends UiPart<Stage> {
             + ExitCommand.MESSAGE_HELP + "\n\n"
             + RecordCommand.MESSAGE_HELP + "\n\n"
             + ViewCommand.MESSAGE_HELP + "\n\n"
-            + TrendCommand.MESSAGE_HELP + "\n\n";
+            + TrendCommand.MESSAGE_HELP + "\n\n\n"
+            + USERGUIDE_TEXT;
 
     private static final Logger logger = LogsCenter.getLogger(HelpWindow.class);
     private static final String FXML = "HelpWindow.fxml";
@@ -106,5 +112,16 @@ public class HelpWindow extends UiPart<Stage> {
      */
     public void focus() {
         getRoot().requestFocus();
+    }
+
+    /**
+     * Copies the URL to the user guide to the clipboard.
+     */
+    @FXML
+    private void copyUrl() {
+        final Clipboard clipboard = Clipboard.getSystemClipboard();
+        final ClipboardContent url = new ClipboardContent();
+        url.putString(USERGUIDE_URL);
+        clipboard.setContent(url);
     }
 }
