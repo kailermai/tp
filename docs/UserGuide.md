@@ -28,7 +28,7 @@ TAHub is a **desktop app for Teaching Assistants to manage students, optimized f
 
    * `list` : Lists all students.
 
-   * `add n/John Doe sn/A1234567J p/98765432 e/johnd@example.com` : Adds a student named `John Doe` to TAHub.
+   * `add n/John Doe sn/A1234567J p/98765432 e/johnd@example.com tele/john_doe` : Adds a student named `John Doe` to TAHub.
 
    * `delete 3` : Deletes the 3rd student shown in the current list.
 
@@ -77,15 +77,15 @@ Format: `help`
 
 Adds a person to TAHub.
 
-Format: `add n/NAME sn/STUDENT_NUMBER p/PHONE_NUMBER e/EMAIL [t/TAG]…​`
+Format: `add n/NAME sn/STUDENT_NUMBER p/PHONE_NUMBER e/EMAIL tele/TELEGRAM [t/TAG]…​`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 A person can have any number of tags (including 0)
 </div>
 
 Examples:
-* `add n/John Doe sn/A0123456Z p/98765432 e/johnd@example.com`
-* `add n/Betsy Crowe t/friend e/betsycrowe@example.com sn/A1234567G p/1234567 t/criminal`
+* `add n/John Doe sn/A0123456Z p/98765432 e/johnd@example.com tele/john_doe`
+* `add n/Betsy Crowe t/friend e/betsycrowe@example.com tele/betsy_crowe sn/A1234567G p/1234567 t/criminal`
 
 ### Listing all students : `list`
 
@@ -97,7 +97,7 @@ Format: `list`
 
 Edits an existing student in TAHub.
 
-Format: `edit INDEX [n/NAME] [sn/STUDENT_NUMBER] [p/PHONE] [e/EMAIL] [t/TAG]…​`
+Format: `edit INDEX [n/NAME] [sn/STUDENT_NUMBER] [p/PHONE] [e/EMAIL] [tele/TELEGRAM] [t/TAG]…​`
 
 * Edits the student at the specified `INDEX`. The index refers to the index number shown in the displayed student list. The index **must be a positive integer** 1, 2, 3, …​
 * At least one of the optional fields must be provided.
@@ -191,10 +191,10 @@ _Details coming soon ..._
 
 Action | Format, Examples
 --------|------------------
-**Add** | `add n/NAME sn/STUDENT_NUMBER p/PHONE_NUMBER e/EMAIL [t/TAG]…​` <br> e.g., `add n/James Ho sn/A1234567z p/22224444 e/jamesho@example.com t/friend t/colleague`
+**Add** | `add n/NAME sn/STUDENT_NUMBER p/PHONE_NUMBER e/EMAIL tele/TELEGRAM [t/TAG]…​` <br> e.g., `add n/James Ho sn/A1234567z p/22224444 e/jamesho@example.com tele/hames_ho t/friend t/colleague`
 **Clear** | `clear`
 **Delete** | `delete INDEX`<br> e.g., `delete 3`
-**Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [sn/STUDENT_NUMBER] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
+**Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [sn/STUDENT_NUMBER] [tele/TELEGRAM] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
 **Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
 **List** | `list`
 **Help** | `help`
