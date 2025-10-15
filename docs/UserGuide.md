@@ -28,7 +28,7 @@ TAHub is a **desktop app for Teaching Assistants to manage students, optimized f
 
    * `list` : Lists all students.
 
-   * `add n/John Doe sn/A1234567J p/98765432 e/johnd@example.com` : Adds a student named `John Doe` to TAHub.
+   * `add n/John Doe sn/A1234567J p/98765432 e/johnd@example.com tele/john_doe` : Adds a student named `John Doe` to TAHub.
 
    * `delete 3` : Deletes the 3rd student shown in the current list.
 
@@ -77,15 +77,15 @@ Format: `help`
 
 Adds a person to TAHub.
 
-Format: `add n/NAME sn/STUDENT_NUMBER p/PHONE_NUMBER e/EMAIL [t/TAG]…​`
+Format: `add n/NAME sn/STUDENT_NUMBER p/PHONE_NUMBER e/EMAIL tele/TELEGRAM [t/TAG]…​`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 A person can have any number of tags (including 0)
 </div>
 
 Examples:
-* `add n/John Doe sn/A0123456Z p/98765432 e/johnd@example.com`
-* `add n/Betsy Crowe t/friend e/betsycrowe@example.com sn/A1234567G p/1234567 t/criminal`
+* `add n/John Doe sn/A0123456Z p/98765432 e/johnd@example.com tele/john_doe`
+* `add n/Betsy Crowe t/friend e/betsycrowe@example.com tele/betsy_crowe sn/A1234567G p/1234567 t/criminal`
 
 ### Listing all students : `list`
 
@@ -97,7 +97,7 @@ Format: `list`
 
 Edits an existing student in TAHub.
 
-Format: `edit INDEX [n/NAME] [sn/STUDENT_NUMBER] [p/PHONE] [e/EMAIL] [t/TAG]…​`
+Format: `edit INDEX [n/NAME] [sn/STUDENT_NUMBER] [p/PHONE] [e/EMAIL] [tele/TELEGRAM] [t/TAG]…​`
 
 * Edits the student at the specified `INDEX`. The index refers to the index number shown in the displayed student list. The index **must be a positive integer** 1, 2, 3, …​
 * At least one of the optional fields must be provided.
@@ -141,6 +141,37 @@ Format: `delete INDEX`
 Examples:
 * `list` followed by `delete 2` deletes the 2nd student in TAHub.
 * `find Betsy` followed by `delete 1` deletes the 1st student in the results of the `find` command.
+
+### Adding a student record: `record`
+Creates or updates the weekly record for a specific student.
+
+Format: `record INDEX week/WEEK_NUMBER att/ATTENDANCE_SCORE sub/SUBMISSION_SCORE part/PARTICIPATION_SCORE`
+
+- Creates a record for the student at the specified `INDEX`. The index refers to the index number shown in the displayed
+student list. The index **must be a positive integer** 1, 2, 3, …​
+- `WEEK_NUMBER` is an integer from **1** to **13** (inclusive).
+- `ATTENDANCE_SCORE` is **0** (absent) or **1** (present).
+- `SUBMISSION_SCORE` is **0** (not submitted) or **1** (submitted).
+- `PARTICIPATION_SCORE` is an integer from **0** to **5** (inclusive).
+- All fields are required.
+- 
+<div markdown="span" class="alert alert-primary">:bulb: **Note:**
+Running the command again for the same WEEK_NUMBER overwrites that week’s record for the selected student.
+</div>
+
+Examples:
+* `record 1 week/1 att/1 sub/0 part/4`
+* `record 2 week/5 att/0 sub/1 part/5`
+
+### View student record: `view`
+
+Displays the weekly records of a specific student.
+
+Format: `view INDEX`
+
+Examples:
+* `list` followed by `view 2` views the 2nd student in TAHub.
+* `find Betsy` followed by `view 1` views the 1st student in the results of the `find` command.
 
 ### Clearing all entries : `clear`
 
@@ -191,10 +222,13 @@ _Details coming soon ..._
 
 Action | Format, Examples
 --------|------------------
-**Add** | `add n/NAME sn/STUDENT_NUMBER p/PHONE_NUMBER e/EMAIL [t/TAG]…​` <br> e.g., `add n/James Ho sn/A1234567z p/22224444 e/jamesho@example.com t/friend t/colleague`
+**Add** | `add n/NAME sn/STUDENT_NUMBER p/PHONE_NUMBER e/EMAIL tele/TELEGRAM [t/TAG]…​` <br> e.g., `add n/James Ho sn/A1234567z p/22224444 e/jamesho@example.com tele/hames_ho t/friend t/colleague`
 **Clear** | `clear`
 **Delete** | `delete INDEX`<br> e.g., `delete 3`
-**Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [sn/STUDENT_NUMBER] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
+**Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [sn/STUDENT_NUMBER] [tele/TELEGRAM] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
+**Record** | `record INDEX week/WEEK_NUMBER att/ATTENDANCE_SCORE sub/SUBMISSION_SCORE part/PARTICIPATION_SCORE`<br> e.g., `record 1 att/1 sub/0 part/4`
 **Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
 **List** | `list`
+**View** | `view INDEX`<br> e.g., `view 2`
+**Exit** | `exit`
 **Help** | `help`

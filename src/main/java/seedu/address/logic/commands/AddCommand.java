@@ -42,9 +42,10 @@ public class AddCommand extends Command {
             + COMMAND_WORD + " "
             + PREFIX_NAME + "NAME "
             + PREFIX_STUDENT_NUMBER + "STUDENT_NUMBER "
-            + PREFIX_PHONE + "PHONE "
+            + PREFIX_PHONE + "PHONE_NUMBER "
             + PREFIX_EMAIL + "EMAIL "
-            + PREFIX_TELEGRAM + "TELEGRAM_HANDLE ";
+            + PREFIX_TELEGRAM + "TELEGRAM "
+            + "[" + PREFIX_TAG + "TAG]";
 
     public static final String MESSAGE_SUCCESS = "New student added: %1$s";
     public static final String MESSAGE_DUPLICATE_STUDENT = "A student with the same student number already exists in "
