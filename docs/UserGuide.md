@@ -163,6 +163,16 @@ Examples:
 * `record 1 week/1 att/1 sub/0 part/4`
 * `record 2 week/5 att/0 sub/1 part/5`
 
+### View student record: `view`
+
+Displays the weekly records of a specific student.
+
+Format: `view INDEX`
+
+Examples:
+* `list` followed by `view 2` views the 2nd student in TAHub.
+* `find Betsy` followed by `view 1` views the 1st student in the results of the `find` command.
+
 ### Clearing all entries : `clear`
 
 Clears all entries from TAHub.
@@ -217,7 +227,8 @@ Action | Format, Examples
 **Delete** | `delete INDEX`<br> e.g., `delete 3`
 **Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [sn/STUDENT_NUMBER] [tele/TELEGRAM] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
 **Record** | `record INDEX week/WEEK_NUMBER att/ATTENDANCE_SCORE sub/SUBMISSION_SCORE part/PARTICIPATION_SCORE`<br> e.g., `record 1 att/1 sub/0 part/4`
-**Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
 **Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
 **List** | `list`
+**View** | `view INDEX`<br> e.g., `view 2`
+**Exit** | `exit`
 **Help** | `help`
