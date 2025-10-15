@@ -117,7 +117,8 @@ public class EditCommand extends Command {
                 .orElse(studentToEdit.getStudentNumber());
         Telegram updatedTelegram = editStudentDescriptor.getTelegram().orElse(studentToEdit.getTelegram());
 
-        return new Student(updatedName, updatedPhone, updatedEmail, updatedTags, updatedStudentNumber, updatedTelegram);
+        return new Student(updatedName, updatedPhone, updatedEmail, updatedTags, updatedStudentNumber,
+                updatedRecordList, updatedTelegram);
     }
 
     @Override

@@ -29,22 +29,7 @@ public class Student {
     private RecordList recordList;
 
     /**
-     * Alternative constructor without recordList. Every field must be present and not null.
-     */
-    public Student(Name name, Phone phone, Email email, Set<Tag> tags, StudentNumber studentNumber,
-                   Telegram telegram) {
-        requireAllNonNull(name, phone, email, tags);
-        this.name = name;
-        this.phone = phone;
-        this.email = email;
-        this.tags.addAll(tags);
-        this.studentNumber = studentNumber;
-        this.recordList = new RecordList();
-        this.telegram = telegram;
-    }
-
-    /**
-     * Constructor including recordList. Every field must be present and not null.
+     * Every field must be present and not null.
      */
     public Student(Name name, Phone phone, Email email, Set<Tag> tags, StudentNumber studentNumber,
                    RecordList recordlist, Telegram telegram) {
