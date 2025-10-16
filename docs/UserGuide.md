@@ -154,7 +154,7 @@ student list. The index **must be a positive integer** 1, 2, 3, …​
 - `SUBMISSION_SCORE` is **0** (not submitted) or **1** (submitted).
 - `PARTICIPATION_SCORE` is an integer from **0** to **5** (inclusive).
 - All fields are required.
-- 
+
 <div markdown="span" class="alert alert-primary">:bulb: **Note:**
 Running the command again for the same WEEK_NUMBER overwrites that week’s record for the selected student.
 </div>
