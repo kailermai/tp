@@ -79,6 +79,10 @@ public class ViewWindow extends UiPart<Stage> {
      * Fills the inner parts of the view window.
      */
     public void fillInnerPart() {
+        // Clear previous content if any so no overlapping occurs
+        studentCardPlaceholder.getChildren().clear();
+        scoreListPanelPlaceholder.getChildren().clear();
+
         scoreListPanel = new ScoreListPanel(student);
         scoreListPanelPlaceholder.getChildren().add(scoreListPanel.getRoot());
 
