@@ -17,6 +17,7 @@ import seedu.address.model.student.Name;
 import seedu.address.model.student.Phone;
 import seedu.address.model.student.Student;
 import seedu.address.model.student.StudentNumber;
+import seedu.address.model.student.Telegram;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -32,6 +33,7 @@ class JsonAdaptedStudent {
     private final List<JsonAdaptedTag> tags = new ArrayList<>();
     private final String studentNumber;
     private final List<JsonAdaptedRecord> recordList = new ArrayList<>();
+    private final String telegram;
 
     /**
      * Constructs a {@code JsonAdaptedStudent} with the given student details.
@@ -41,6 +43,7 @@ class JsonAdaptedStudent {
                               @JsonProperty("email") String email,
                               @JsonProperty("tags") List<JsonAdaptedTag> tags,
                               @JsonProperty("studentNumber") String studentNumber,
+                              @JsonProperty("telegram") String telegram,
                               @JsonProperty("recordList") List<JsonAdaptedRecord> recordList) {
         this.name = name;
         this.phone = phone;
@@ -52,6 +55,7 @@ class JsonAdaptedStudent {
         if (recordList != null) {
             this.recordList.addAll(recordList);
         }
+        this.telegram = telegram;
     }
 
     /**
@@ -68,6 +72,7 @@ class JsonAdaptedStudent {
         recordList.addAll(source.getRecordList().records.stream()
                 .map(JsonAdaptedRecord::new)
                 .collect(Collectors.toList()));
+        telegram = source.getTelegram().value;
     }
 
     /**
@@ -118,11 +123,19 @@ class JsonAdaptedStudent {
             throw new IllegalValueException(StudentNumber.MESSAGE_CONSTRAINTS);
         }
         final StudentNumber modelStudentNumber = new StudentNumber(studentNumber);
+        if (telegram == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+                    Telegram.class.getSimpleName()));
+        }
+        if (!Telegram.isValidTelegram(telegram)) {
+            throw new IllegalValueException(Telegram.MESSAGE_CONSTRAINTS);
+        }
+        final Telegram modelTelegram = new Telegram(telegram);
         final RecordList modelRecordList = new RecordList(studentRecords);
         final Set<Tag> modelTags = new HashSet<>(studentTags);
 
         return new Student(modelName, modelPhone, modelEmail, modelTags, modelStudentNumber,
-                modelRecordList);
+                modelRecordList, modelTelegram);
     }
 
 }

@@ -9,6 +9,7 @@ import seedu.address.model.student.Name;
 import seedu.address.model.student.Phone;
 import seedu.address.model.student.Student;
 import seedu.address.model.student.StudentNumber;
+import seedu.address.model.student.Telegram;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.util.SampleDataUtil;
 
@@ -21,6 +22,7 @@ public class StudentBuilder {
     public static final String DEFAULT_PHONE = "85355255";
     public static final String DEFAULT_EMAIL = "amy@gmail.com";
     public static final String DEFAULT_STUDENT_NUMBER = "A0123456Z";
+    public static final String DEFAULT_TELEGRAM = "amy_bee";
 
     private Name name;
     private Phone phone;
@@ -28,6 +30,7 @@ public class StudentBuilder {
     private Set<Tag> tags;
     private StudentNumber studentNumber;
     private RecordList recordList;
+    private Telegram telegram;
 
     /**
      * Creates a {@code StudentBuilder} with the default details.
@@ -39,6 +42,7 @@ public class StudentBuilder {
         tags = new HashSet<>();
         studentNumber = new StudentNumber(DEFAULT_STUDENT_NUMBER);
         recordList = new RecordList();
+        telegram = new Telegram(DEFAULT_TELEGRAM);
     }
 
     /**
@@ -51,6 +55,7 @@ public class StudentBuilder {
         tags = new HashSet<>(studentToCopy.getTags());
         studentNumber = studentToCopy.getStudentNumber();
         recordList = studentToCopy.getRecordList();
+        telegram = studentToCopy.getTelegram();
     }
 
     /**
@@ -101,8 +106,18 @@ public class StudentBuilder {
         return this;
     }
 
+    /**
+     * Sets the {@code Telegram} of the {@code Student} that we are building.
+     * @param telegram
+     * @return
+     */
+    public StudentBuilder withTelegram(String telegram) {
+        this.telegram = new Telegram(telegram);
+        return this;
+    }
+
     public Student build() {
-        return new Student(name, phone, email, tags, studentNumber, recordList);
+        return new Student(name, phone, email, tags, studentNumber, recordList, telegram);
     }
 
 }

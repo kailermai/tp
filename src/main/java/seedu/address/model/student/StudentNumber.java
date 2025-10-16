@@ -1,6 +1,7 @@
 package seedu.address.model.student;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.commons.util.AppUtil.checkArgument;
 
 /**
  * Represents a Student's student number in the address book.
@@ -10,7 +11,7 @@ public class StudentNumber {
 
     public static final String MESSAGE_CONSTRAINTS =
             "Student numbers should be in the following format: A1234567X";
-    public static final String VALIDATION_REGEX = "[a-zA-Z]\\d{7}[a-zA-Z]";
+    public static final String VALIDATION_REGEX = "[aA]\\d{7}[a-zA-Z]";
     public final String value;
 
     /**
@@ -20,7 +21,8 @@ public class StudentNumber {
      */
     public StudentNumber(String studentNumber) {
         requireNonNull(studentNumber);
-        value = studentNumber;
+        checkArgument(isValidStudentNumber(studentNumber), MESSAGE_CONSTRAINTS);
+        value = studentNumber.toUpperCase();
     }
 
     public static boolean isValidStudentNumber(String test) {

@@ -36,6 +36,7 @@ public class MainWindow extends UiPart<Stage> {
     private ResultDisplay resultDisplay;
     private HelpWindow helpWindow;
     private ViewWindow viewWindow;
+    private TrendWindow trendWindow;
 
     @FXML
     private StackPane commandBoxPlaceholder;
@@ -69,6 +70,7 @@ public class MainWindow extends UiPart<Stage> {
 
         helpWindow = new HelpWindow();
         viewWindow = new ViewWindow();
+        trendWindow = new TrendWindow();
     }
 
     public Stage getPrimaryStage() {
@@ -179,6 +181,19 @@ public class MainWindow extends UiPart<Stage> {
         }
     }
 
+    /**
+     * Opens the trend window or focuses on it if it's already opened
+     */
+    @FXML
+    private void handleTrend() {
+        if (!trendWindow.isShowing()) {
+            trendWindow.fillInnerPart(logic.getFilteredStudentList());
+            trendWindow.show();
+        } else {
+            trendWindow.focus();
+        }
+    }
+
     public StudentListPanel getStudentListPanel() {
         return studentListPanel;
     }
@@ -199,6 +214,9 @@ public class MainWindow extends UiPart<Stage> {
             }
             if (commandResult.isShowStudent()) {
                 handleViewStudent(commandResult.getStudent());
+            }
+            if (commandResult.isShowTrend()) {
+                handleTrend();
             }
             if (commandResult.isExit()) {
                 handleExit();
