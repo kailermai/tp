@@ -72,5 +72,6 @@ public class StudentCard extends UiPart<Region> {
                 .sorted(Comparator.comparing(tag -> tag.tagName))
                 .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
         studentNumber.setText(student.getStudentNumber().toString());
+        telegram.setText(student.getTelegram().toString());
     }
 }
