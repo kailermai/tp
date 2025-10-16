@@ -173,6 +173,12 @@ Examples:
 * `list` followed by `view 2` views the 2nd student in TAHub.
 * `find Betsy` followed by `view 1` views the 1st student in the results of the `find` command.
 
+### View overall trend of all student records: `trend`
+
+Displays the trend overview of records for all students.
+
+Format: `trend`
+
 ### Clearing all entries : `clear`
 
 Clears all entries from TAHub.
@@ -230,5 +236,6 @@ Action | Format, Examples
 **Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
 **List** | `list`
 **View** | `view INDEX`<br> e.g., `view 2`
+**Trend** | `trend`
 **Exit** | `exit`
 **Help** | `help`
