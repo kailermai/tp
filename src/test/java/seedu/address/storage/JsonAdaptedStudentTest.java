@@ -6,6 +6,7 @@ import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalStudents.BENSON;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -33,7 +34,7 @@ public class JsonAdaptedStudentTest {
             .map(JsonAdaptedTag::new)
             .collect(Collectors.toList());
     private static final String VALID_STUDENT_NUMBER = BENSON.getStudentNumber().toString();
-    private static final List<JsonAdaptedRecord> VALID_RECORD_LIST = BENSON.getRecordList().records.stream()
+    private static final List<JsonAdaptedRecord> VALID_RECORD_LIST = Arrays.stream(BENSON.getRecordList().records)
             .map(JsonAdaptedRecord::new)
             .collect(Collectors.toList());
     private static final String VALID_TELEGRAM = BENSON.getTelegram().toString();

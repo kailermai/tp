@@ -1,6 +1,5 @@
 package seedu.address.ui;
 
-import java.util.List;
 import java.util.logging.Logger;
 
 import javafx.collections.FXCollections;
@@ -51,15 +50,15 @@ public class ScoreListPanel extends UiPart<Region> {
      */
     private void setRecordList(RecordList recordList) {
         ObservableList<Record> items = FXCollections.observableArrayList();
-        List<Record> records = recordList.records;
-        for (int i = 0; i < records.size(); i++) {
+        Record[] records = recordList.records;
+        for (int i = 0; i < records.length; i++) {
             // Add a default record if the record is null
-            if (records.get(i) == null) {
+            if (records[i] == null) {
                 items.add(new Record(new AttendanceScore(AttendanceScore.MIN_SCORE),
                         new SubmissionScore(SubmissionScore.MIN_SCORE),
                         new ParticipationScore(ParticipationScore.MIN_SCORE)));
             } else {
-                items.add(records.get(i));
+                items.add(records[i]);
             }
         }
         recordListView.setItems(items);
