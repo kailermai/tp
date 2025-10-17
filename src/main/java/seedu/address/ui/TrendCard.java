@@ -46,9 +46,9 @@ public class TrendCard extends UiPart<Region> {
                 continue;
             }
             maxWeek = i + 1;
-            attendanceTotal += record.getAttendanceScore().getScore();
-            participationTotal += record.getParticipationScore().getScore();
-            submissionTotal += record.getSubmissionScore().getScore();
+            attendanceTotal += record.getAttendanceScore();
+            participationTotal += record.getParticipationScore();
+            submissionTotal += record.getSubmissionScore();
         }
 
         double participationAverage = maxWeek == 0 ? 0 : participationTotal / maxWeek;
