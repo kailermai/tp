@@ -44,9 +44,9 @@ public class JsonAdaptedRecord {
             return;
         }
 
-        this.attendanceScore = source.getAttendanceScore().getScore();
-        this.submissionScore = source.getSubmissionScore().getScore();
-        this.participationScore = source.getParticipationScore().getScore();
+        this.attendanceScore = source.getAttendanceScore();
+        this.submissionScore = source.getSubmissionScore();
+        this.participationScore = source.getParticipationScore();
     }
 
     /**

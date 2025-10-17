@@ -6,9 +6,9 @@ package seedu.address.model.record;
 public abstract class Score {
     public static final int MIN_SCORE = 0;
 
-    public final int value;
+    protected final int value;
 
-    protected Score(int value) {
+    public Score(int value) {
         this.value = value;
     }
 

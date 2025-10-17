@@ -1,6 +1,7 @@
 package seedu.address.storage;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -11,6 +12,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.record.Record;
+import seedu.address.model.record.WeekNumber;
 import seedu.address.model.recordlist.RecordList;
 import seedu.address.model.student.Email;
 import seedu.address.model.student.Name;
@@ -69,7 +71,7 @@ class JsonAdaptedStudent {
                 .map(JsonAdaptedTag::new)
                 .collect(Collectors.toList()));
         studentNumber = source.getStudentNumber().value;
-        recordList.addAll(source.getRecordList().records.stream()
+        recordList.addAll(Arrays.stream(source.getRecordList().records)
                 .map(JsonAdaptedRecord::new)
                 .collect(Collectors.toList()));
         telegram = source.getTelegram().value;
@@ -86,9 +88,10 @@ class JsonAdaptedStudent {
             studentTags.add(tag.toModelType());
         }
 
-        final List<Record> studentRecords = new ArrayList<>();
-        for (JsonAdaptedRecord record : recordList) {
-            studentRecords.add(record.toModelType());
+        final Record[] studentRecords = new Record[WeekNumber.MAX_WEEK_NUMBER];
+        for (int i = 0; i < recordList.size(); i++) {
+            JsonAdaptedRecord record = recordList.get(i);
+            studentRecords[i] = record.toModelType();
         }
 
         if (name == null) {

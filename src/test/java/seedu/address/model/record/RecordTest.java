@@ -10,14 +10,16 @@ public class RecordTest {
 
     @Test
     public void equals() {
-        Record record = new Record(new AttendanceScore(1), new SubmissionScore(1), new ParticipationScore(3));
+        Record record = new Record(new AttendanceScore(AttendanceScore.MIN_SCORE),
+                new SubmissionScore(SubmissionScore.MIN_SCORE), new ParticipationScore(ParticipationScore.MAX_SCORE));
 
         // same object -> returns true
         assertTrue(record.equals(record));
 
         // same values -> returns true
-        Record recordCopy = new Record(record.getAttendanceScore(), record.getSubmissionScore(),
-                record.getParticipationScore());
+        Record recordCopy = new Record(new AttendanceScore(record.getAttendanceScore()),
+                new SubmissionScore(record.getSubmissionScore()),
+                new ParticipationScore(record.getParticipationScore()));
         assertTrue(record.equals(recordCopy));
 
         // different types -> returns false

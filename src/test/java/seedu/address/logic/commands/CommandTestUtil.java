@@ -59,10 +59,10 @@ public class CommandTestUtil {
     public static final Record VALID_RECORD_BOB = new Record(new AttendanceScore(AttendanceScore.MAX_SCORE),
             new SubmissionScore(SubmissionScore.MAX_SCORE), new ParticipationScore(ParticipationScore.MAX_SCORE));
 
-    public static final RecordList VALID_RECORD_LIST_AMY = new RecordList(Arrays.asList(VALID_RECORD_AMY,
-            VALID_RECORD_AMY, VALID_RECORD_AMY));
-    public static final RecordList VALID_RECORD_LIST_BOB = new RecordList(Arrays.asList(VALID_RECORD_BOB,
-            VALID_RECORD_BOB, VALID_RECORD_BOB));
+    public static final RecordList VALID_RECORD_LIST_AMY = new RecordList(new Record[] {VALID_RECORD_AMY,
+        VALID_RECORD_AMY, VALID_RECORD_AMY});
+    public static final RecordList VALID_RECORD_LIST_BOB = new RecordList(new Record[]{VALID_RECORD_BOB,
+        VALID_RECORD_BOB, VALID_RECORD_BOB});
 
     public static final String NAME_DESC_AMY = " " + PREFIX_NAME + VALID_NAME_AMY;
     public static final String NAME_DESC_BOB = " " + PREFIX_NAME + VALID_NAME_BOB;
