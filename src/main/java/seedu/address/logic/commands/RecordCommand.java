@@ -46,8 +46,10 @@ public class RecordCommand extends Command {
             + PREFIX_SUBMISSION_SCORE + "SUBMISSION_SCORE "
             + PREFIX_PARTICIPATION_SCORE + "PARTICIPATION_SCORE";
 
-    public static final String MESSAGE_ADD_RECORD_SUCCESS = "Record added for student: %1$s";
-    public static final String MESSAGE_UPDATE_RECORDED_SUCCESS = "Record updated for student: %1$s";
+    public static final String MESSAGE_ADD_RECORD_SUCCESS = "Record added for student: %1$s\n\n"
+            + "Record details: %2$s";
+    public static final String MESSAGE_UPDATE_RECORDED_SUCCESS = "Record updated for student: %1$s\n\n"
+            + "Record details: %2$s";
 
     private final Index targetIndex;
     private final WeekNumber weekNumber;
@@ -98,8 +100,8 @@ public class RecordCommand extends Command {
 
     private String generateSuccessMessage(Student studentToEdit, boolean hasExistingRecord) {
         return hasExistingRecord
-                ? String.format(MESSAGE_UPDATE_RECORDED_SUCCESS, Messages.format(studentToEdit))
-                : String.format(MESSAGE_ADD_RECORD_SUCCESS, Messages.format(studentToEdit));
+                ? String.format(MESSAGE_UPDATE_RECORDED_SUCCESS, Messages.format(studentToEdit), record)
+                : String.format(MESSAGE_ADD_RECORD_SUCCESS, Messages.format(studentToEdit), record);
     }
 
     @Override

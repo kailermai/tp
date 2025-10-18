@@ -40,7 +40,7 @@ public class RecordCommandTest {
         RecordCommand recordCommand = new RecordCommand(INDEX_FIRST_STUDENT, WEEK_NUMBER_STUB, VALID_RECORD_AMY);
 
         String expectedMessage = String.format(
-                RecordCommand.MESSAGE_ADD_RECORD_SUCCESS, Messages.format(editedStudent));
+                RecordCommand.MESSAGE_ADD_RECORD_SUCCESS, Messages.format(editedStudent), VALID_RECORD_AMY);
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
         expectedModel.setStudent(firstStudent, editedStudent);
@@ -60,7 +60,7 @@ public class RecordCommandTest {
         RecordCommand recordCommand = new RecordCommand(INDEX_FIRST_STUDENT, WEEK_NUMBER_STUB, VALID_RECORD_AMY);
 
         String expectedMessage = String.format(
-                RecordCommand.MESSAGE_ADD_RECORD_SUCCESS, Messages.format(editedStudent));
+                RecordCommand.MESSAGE_ADD_RECORD_SUCCESS, Messages.format(editedStudent), VALID_RECORD_AMY);
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
         expectedModel.setStudent(firstStudent, editedStudent);
@@ -98,7 +98,7 @@ public class RecordCommandTest {
         RecordCommand recordCommand = new RecordCommand(INDEX_FIRST_STUDENT, WEEK_NUMBER_STUB, VALID_RECORD_BOB);
 
         String expectedMessage = String.format(
-                RecordCommand.MESSAGE_UPDATE_RECORDED_SUCCESS, Messages.format(editedStudent));
+                RecordCommand.MESSAGE_UPDATE_RECORDED_SUCCESS, Messages.format(editedStudent), VALID_RECORD_BOB);
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
         expectedModel.setStudent(firstStudent, editedStudent);
@@ -117,7 +117,7 @@ public class RecordCommandTest {
         RecordCommand recordCommand = new RecordCommand(INDEX_FIRST_STUDENT, WEEK_NUMBER_STUB, VALID_RECORD_BOB);
 
         String expectedMessage = String.format(
-                RecordCommand.MESSAGE_UPDATE_RECORDED_SUCCESS, Messages.format(editedStudent));
+                RecordCommand.MESSAGE_UPDATE_RECORDED_SUCCESS, Messages.format(editedStudent), VALID_RECORD_BOB);
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
         expectedModel.setStudent(firstStudent, editedStudent);
