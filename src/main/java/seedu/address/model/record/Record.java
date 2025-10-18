@@ -1,13 +1,11 @@
 package seedu.address.model.record;
 
+import static java.util.Objects.requireNonNull;
+
 /**
  * Represents a record of student scores over a period of weeks.
  */
 public class Record {
-
-    public static final String MESSAGE_CONSTRAINTS = AttendanceScore.MESSAGE_CONSTRAINTS + "\n"
-            + SubmissionScore.MESSAGE_CONSTRAINTS + "\n"
-            + ParticipationScore.MESSAGE_CONSTRAINTS;
 
     private final AttendanceScore attendanceScore;
     private final SubmissionScore submissionScore;
@@ -22,18 +20,12 @@ public class Record {
      */
     public Record(AttendanceScore attendanceScore, SubmissionScore submissionScore,
                   ParticipationScore participationScore) {
+        requireNonNull(attendanceScore);
+        requireNonNull(submissionScore);
+        requireNonNull(participationScore);
         this.attendanceScore = attendanceScore;
         this.submissionScore = submissionScore;
         this.participationScore = participationScore;
-    }
-
-    /**
-     * Returns true if the given attendance, submission and participation scores are valid.
-     */
-    public static boolean isValidRecord(Record record) {
-        return AttendanceScore.isValidAttendanceScore(record.attendanceScore.getScore())
-                && SubmissionScore.isValidSubmissionScore(record.submissionScore.getScore())
-                && ParticipationScore.isValidParticipationScore(record.participationScore.getScore());
     }
 
     public int getAttendanceScore() {

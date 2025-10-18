@@ -16,4 +16,8 @@ public abstract class Score {
         return value;
     }
 
+    @Override
+    public int hashCode() {
+        return value;
+    }
 }
