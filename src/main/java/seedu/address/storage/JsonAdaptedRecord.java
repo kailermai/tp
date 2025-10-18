@@ -64,13 +64,7 @@ public class JsonAdaptedRecord {
             return null;
         }
 
-        Record targetRecord = new Record(new AttendanceScore(attendanceScore),
-                new SubmissionScore(submissionScore), new ParticipationScore(participationScore));
-
-        if (!Record.isValidRecord(targetRecord)) {
-            throw new IllegalValueException(Record.MESSAGE_CONSTRAINTS);
-        }
-
-        return targetRecord;
+        return new Record(new AttendanceScore(attendanceScore), new SubmissionScore(submissionScore),
+                new ParticipationScore(participationScore));
     }
 }
