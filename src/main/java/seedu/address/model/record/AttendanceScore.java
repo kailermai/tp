@@ -27,11 +27,6 @@ public class AttendanceScore extends Score {
     }
 
     @Override
-    public String toString() {
-        return String.valueOf(this.value);
-    }
-
-    @Override
     public boolean equals(Object other) {
         if (other == this) {
             return true;
