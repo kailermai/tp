@@ -22,6 +22,19 @@ public class RecordTest {
                 new ParticipationScore(record.getParticipationScore()));
         assertTrue(record.equals(recordCopy));
 
+        // different values -> returns false
+        Record differentAttendanceRecord = new Record(new AttendanceScore(AttendanceScore.MAX_SCORE),
+                new SubmissionScore(SubmissionScore.MIN_SCORE), new ParticipationScore(ParticipationScore.MAX_SCORE));
+        assertFalse(record.equals(differentAttendanceRecord));
+
+        Record differentSubmissionRecord = new Record(new AttendanceScore(AttendanceScore.MIN_SCORE),
+                new SubmissionScore(SubmissionScore.MAX_SCORE), new ParticipationScore(ParticipationScore.MAX_SCORE));
+        assertFalse(record.equals(differentSubmissionRecord));
+
+        Record differentParticipationRecord = new Record(new AttendanceScore(AttendanceScore.MIN_SCORE),
+                new SubmissionScore(SubmissionScore.MIN_SCORE), new ParticipationScore(ParticipationScore.MIN_SCORE));
+        assertFalse(record.equals(differentParticipationRecord));
+
         // different types -> returns false
         assertFalse(record.equals(1));
 
