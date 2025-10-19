@@ -36,6 +36,13 @@ public class RecordDisplay extends HBox {
 
     private final StackPane[] scoreBoxes;
 
+    /**
+     * Creates a {@code RecordDisplay} made up of {@code StackPanes}.
+     * The number of {@code StackPanes} is equal to the number of weeks in a typical semester,
+     * as defined by {@code WeekNumber.MAX_WEEK_NUMBER}.
+     * Each {@code StackPane} contains a {@code Rectangle} and a {@code Label}.
+     * The {@code Rectangle} is colored according to the score, and the {@code Label} displays the score.
+     */
     public RecordDisplay() {
         this.scoreBoxes = new StackPane[WeekNumber.MAX_WEEK_NUMBER];
 
@@ -167,20 +174,20 @@ public class RecordDisplay extends HBox {
         }
 
         switch (scoreType) {
-            case ATTENDANCE:
-                return score == AttendanceScore.MAX_SCORE ? COLOR_SCORE_HIGH : COLOR_SCORE_LOW;
-            case SUBMISSION:
-                return score == SubmissionScore.MAX_SCORE ? COLOR_SCORE_HIGH : COLOR_SCORE_LOW;
-            case PARTICIPATION:
-                if (score == ParticipationScore.MAX_SCORE) {
-                    return COLOR_SCORE_HIGH;
-                } else if (score == ParticipationScore.MIN_SCORE) {
-                    return COLOR_SCORE_LOW;
-                } else {
-                    return COLOR_SCORE_MEDIUM;
-                }
-            default:
-                return COLOR_DEFAULT;
+        case ATTENDANCE:
+            return score == AttendanceScore.MAX_SCORE ? COLOR_SCORE_HIGH : COLOR_SCORE_LOW;
+        case SUBMISSION:
+            return score == SubmissionScore.MAX_SCORE ? COLOR_SCORE_HIGH : COLOR_SCORE_LOW;
+        case PARTICIPATION:
+            if (score == ParticipationScore.MAX_SCORE) {
+                return COLOR_SCORE_HIGH;
+            } else if (score == ParticipationScore.MIN_SCORE) {
+                return COLOR_SCORE_LOW;
+            } else {
+                return COLOR_SCORE_MEDIUM;
+            }
+        default:
+            return COLOR_DEFAULT;
         }
     }
 }
