@@ -32,7 +32,7 @@ public class ViewWindow extends UiPart<Stage> {
      */
     public ViewWindow(Stage root) {
         super(FXML, root);
-        root.setWidth(620);
+        root.setWidth(400);
         root.setHeight(500);
         root.setResizable(true);
     }
