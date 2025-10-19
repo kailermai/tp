@@ -15,6 +15,8 @@ public class ViewWindow extends UiPart<Stage> {
     private static final String FXML = "ViewWindow.fxml";
 
     private static final Logger logger = LogsCenter.getLogger(ViewWindow.class);
+    private static final double HEIGHT = 500;
+    private static final double WIDTH = 400;
 
     private ScoreListPanel scoreListPanel;
     private StudentCard studentCard;
@@ -32,8 +34,8 @@ public class ViewWindow extends UiPart<Stage> {
      */
     public ViewWindow(Stage root) {
         super(FXML, root);
-        root.setWidth(400);
-        root.setHeight(500);
+        root.setWidth(WIDTH);
+        root.setHeight(HEIGHT);
         root.setResizable(true);
     }
     /**

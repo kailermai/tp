@@ -18,6 +18,9 @@ import seedu.address.ui.RecordDisplay.ScoreType;
 public class ScoreCard extends UiPart<Region> {
 
     private static final String FXML = "ScoreCard.fxml";
+    private static final String ATTENDANCE_LABEL = "Attendance Scores";
+    private static final String PARTICIPATION_LABEL = "Participation Scores";
+    private static final String SUBMISSION_LABEL = "Submission Scores";
 
     private RecordList recordList;
     private ScoreType scoreType;
@@ -54,15 +57,15 @@ public class ScoreCard extends UiPart<Region> {
         switch (scoreType) {
         case ATTENDANCE:
             scores = recordList.getScores(Record::getAttendanceScore);
-            scoreTypeLabel.setText("Attendance Scores");
+            scoreTypeLabel.setText(ATTENDANCE_LABEL);
             break;
         case PARTICIPATION:
             scores = recordList.getScores(Record::getParticipationScore);
-            scoreTypeLabel.setText("Participation Scores");
+            scoreTypeLabel.setText(PARTICIPATION_LABEL);
             break;
         case SUBMISSION:
             scores = recordList.getScores(Record::getSubmissionScore);
-            scoreTypeLabel.setText("Submission Scores");
+            scoreTypeLabel.setText(SUBMISSION_LABEL);
             break;
         default:
             scores = new Integer[WeekNumber.MAX_WEEK_NUMBER];

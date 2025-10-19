@@ -31,6 +31,7 @@ public class RecordDisplay extends HBox {
     private static final double MAX_BOX_HEIGHT = 36;
     private static final double MIN_BOX_WIDTH = 10;
     private static final double MIN_BOX_HEIGHT = 8;
+    private static final double OFFSET = 4; // offset to account for stroke width
 
     private static final Color COLOR_BORDER = Color.DIMGRAY;
     private static final Color COLOR_DEFAULT = Color.DARKGRAY;
@@ -91,9 +92,9 @@ public class RecordDisplay extends HBox {
             boxPane.prefWidthProperty().bind(perBoxPref);
 
             // bind rectangle size safely (never negative)
-            DoubleBinding rectW = Bindings.createDoubleBinding(() -> Math.max(0, boxPane.getWidth() - 4),
+            DoubleBinding rectW = Bindings.createDoubleBinding(() -> Math.max(0, boxPane.getWidth() - OFFSET),
                     boxPane.widthProperty());
-            DoubleBinding rectH = Bindings.createDoubleBinding(() -> Math.max(0, boxPane.getHeight() - 4),
+            DoubleBinding rectH = Bindings.createDoubleBinding(() -> Math.max(0, boxPane.getHeight() - OFFSET),
                     boxPane.heightProperty());
 
             box.widthProperty().bind(rectW);
@@ -129,21 +130,41 @@ public class RecordDisplay extends HBox {
     }
 
     private void scheduleLayout() {
-        Platform.runLater(() -> {
-            try {
-                requestLayout();
-                if (getScene() != null && getScene().getRoot() != null) {
-                    getScene().getRoot().requestLayout();
-                }
-                for (StackPane sp : scoreBoxes) {
-                    if (sp != null) {
-                        sp.requestLayout();
-                    }
-                }
-            } catch (Exception ignored) {
-                // defensive: avoid throwing during resize callbacks
+        Platform.runLater(this::performLayoutRequests);
+    }
+
+    private void performLayoutRequests() {
+        try {
+            requestLayout();
+            requestSceneRootLayout();
+            requestChildLayouts();
+        } catch (Exception ignored) {
+            // defensive: avoid throwing during resize callbacks
+        }
+    }
+
+    /**
+     * Requests layout on the scene root, if available.
+     */
+    private void requestSceneRootLayout() {
+        if (getScene() == null) {
+            return;
+        }
+        if (getScene().getRoot() == null) {
+            return;
+        }
+        getScene().getRoot().requestLayout();
+    }
+    /**
+     * Requests layout on all child StackPanes.
+     */
+    private void requestChildLayouts() {
+        for (StackPane sp : scoreBoxes) {
+            if (sp == null) {
+                continue;
             }
-        });
+            sp.requestLayout();
+        }
     }
 
     /**
