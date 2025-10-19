@@ -3,7 +3,9 @@
     "name": "Valid Student",
     "phone": "9482424",
     "email": "hans@example.com",
-    "address": "4th street"
+    "student number": "A0123456A",
+    "telegram": "valid_student",
+    "tags": [ "friends" ]
   }, {
     "name": "Student With Invalid Phone Field",
     "phone": "948asdf2424",

@@ -36,16 +36,16 @@ public class Record {
                 && ParticipationScore.isValidParticipationScore(record.participationScore.getScore());
     }
 
-    public AttendanceScore getAttendanceScore() {
-        return this.attendanceScore;
+    public int getAttendanceScore() {
+        return this.attendanceScore.getScore();
     }
 
-    public SubmissionScore getSubmissionScore() {
-        return this.submissionScore;
+    public int getSubmissionScore() {
+        return this.submissionScore.getScore();
     }
 
-    public ParticipationScore getParticipationScore() {
-        return this.participationScore;
+    public int getParticipationScore() {
+        return this.participationScore.getScore();
     }
 
     @Override

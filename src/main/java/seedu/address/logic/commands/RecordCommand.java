@@ -42,12 +42,14 @@ public class RecordCommand extends Command {
     public static final String MESSAGE_HELP = "Create a data record:\n"
             + COMMAND_WORD + " INDEX "
             + PREFIX_WEEK_NUMBER + "WEEK_NUMBER "
-            + PREFIX_ATTENDANCE_SCORE + "ATTENDANCE "
-            + PREFIX_PARTICIPATION_SCORE + "REASON_FOR_ABSENCE "
-            + PREFIX_SUBMISSION_SCORE + "SUBMISSION ";
+            + PREFIX_ATTENDANCE_SCORE + "ATTENDANCE_SCORE "
+            + PREFIX_SUBMISSION_SCORE + "SUBMISSION_SCORE "
+            + PREFIX_PARTICIPATION_SCORE + "PARTICIPATION_SCORE";
 
-    public static final String MESSAGE_ADD_RECORD_SUCCESS = "Record added for student: %1$s";
-    public static final String MESSAGE_UPDATE_RECORDED_SUCCESS = "Record updated for student: %1$s";
+    public static final String MESSAGE_ADD_RECORD_SUCCESS = "Record added for student: %1$s\n\n"
+            + "Record details: %2$s";
+    public static final String MESSAGE_UPDATE_RECORDED_SUCCESS = "Record updated for student: %1$s\n\n"
+            + "Record details: %2$s";
 
     private final Index targetIndex;
     private final WeekNumber weekNumber;
@@ -88,7 +90,7 @@ public class RecordCommand extends Command {
         studentRecords.setRecord(weekIdx, record);
 
         Student editedStudent = new Student(studentToEdit.getName(), studentToEdit.getPhone(), studentToEdit.getEmail(),
-                studentToEdit.getAddress(), studentToEdit.getTags(), studentToEdit.getStudentNumber(), studentRecords);
+                studentToEdit.getTags(), studentToEdit.getStudentNumber(), studentRecords, studentToEdit.getTelegram());
 
         model.setStudent(studentToEdit, editedStudent);
         model.updateFilteredStudentList(Model.PREDICATE_SHOW_ALL_STUDENTS);
@@ -98,8 +100,8 @@ public class RecordCommand extends Command {
 
     private String generateSuccessMessage(Student studentToEdit, boolean hasExistingRecord) {
         return hasExistingRecord
-                ? String.format(MESSAGE_UPDATE_RECORDED_SUCCESS, Messages.format(studentToEdit))
-                : String.format(MESSAGE_ADD_RECORD_SUCCESS, Messages.format(studentToEdit));
+                ? String.format(MESSAGE_UPDATE_RECORDED_SUCCESS, Messages.format(studentToEdit), record)
+                : String.format(MESSAGE_ADD_RECORD_SUCCESS, Messages.format(studentToEdit), record);
     }
 
     @Override

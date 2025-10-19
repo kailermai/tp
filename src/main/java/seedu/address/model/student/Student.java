@@ -22,39 +22,25 @@ public class Student {
     private final Phone phone;
     private final Email email;
     private final StudentNumber studentNumber;
+    private final Telegram telegram;
 
     // Data fields
-    private final Address address;
     private final Set<Tag> tags = new HashSet<>();
     private RecordList recordList;
 
     /**
      * Every field must be present and not null.
      */
-    public Student(Name name, Phone phone, Email email, Address address, Set<Tag> tags, StudentNumber studentNumber) {
-        requireAllNonNull(name, phone, email, address, tags);
+    public Student(Name name, Phone phone, Email email, Set<Tag> tags, StudentNumber studentNumber,
+                   RecordList recordlist, Telegram telegram) {
+        requireAllNonNull(name, phone, email, tags);
         this.name = name;
         this.phone = phone;
         this.email = email;
-        this.address = address;
-        this.tags.addAll(tags);
-        this.studentNumber = studentNumber;
-        this.recordList = new RecordList();
-    }
-
-    /**
-     * Alternative constructor including recordList. Every field must be present and not null.
-     */
-    public Student(Name name, Phone phone, Email email, Address address, Set<Tag> tags, StudentNumber studentNumber,
-                   RecordList recordlist) {
-        requireAllNonNull(name, phone, email, address, tags);
-        this.name = name;
-        this.phone = phone;
-        this.email = email;
-        this.address = address;
         this.tags.addAll(tags);
         this.studentNumber = studentNumber;
         this.recordList = recordlist;
+        this.telegram = telegram;
     }
 
     public Name getName() {
@@ -69,12 +55,12 @@ public class Student {
         return email;
     }
 
-    public Address getAddress() {
-        return address;
-    }
-
     public StudentNumber getStudentNumber() {
         return studentNumber;
+    }
+
+    public Telegram getTelegram() {
+        return telegram;
     }
 
     /**
@@ -93,16 +79,15 @@ public class Student {
     }
 
     /**
-     * Returns true if both students have the same name.
+     * Returns true if both students have the same student number.
      * This defines a weaker notion of equality between two students.
      */
     public boolean isSameStudent(Student otherStudent) {
         if (otherStudent == this) {
             return true;
         }
-
         return otherStudent != null
-                && otherStudent.getName().equals(getName());
+                && otherStudent.getStudentNumber().equals(getStudentNumber());
     }
 
     /**
@@ -125,23 +110,24 @@ public class Student {
                 && studentNumber.equals(otherStudent.studentNumber)
                 && phone.equals(otherStudent.phone)
                 && email.equals(otherStudent.email)
-                && address.equals(otherStudent.address)
+                && telegram.equals(otherStudent.telegram)
                 && tags.equals(otherStudent.tags);
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, studentNumber, email, address, tags);
+        return Objects.hash(name, studentNumber, email, tags, telegram);
     }
 
     @Override
     public String toString() {
         return new ToStringBuilder(this)
                 .add("name", name)
+                .add("studentNumber", studentNumber)
                 .add("phone", phone)
                 .add("email", email)
-                .add("address", address)
+                .add("telegram", telegram)
                 .add("tags", tags)
                 .toString();
     }

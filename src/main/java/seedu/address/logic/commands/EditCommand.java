@@ -1,12 +1,12 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_STUDENT_NUMBER;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_TELEGRAM;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_STUDENTS;
 
 import java.util.Collections;
@@ -23,12 +23,12 @@ import seedu.address.logic.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.recordlist.RecordList;
-import seedu.address.model.student.Address;
 import seedu.address.model.student.Email;
 import seedu.address.model.student.Name;
 import seedu.address.model.student.Phone;
 import seedu.address.model.student.Student;
 import seedu.address.model.student.StudentNumber;
+import seedu.address.model.student.Telegram;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -46,23 +46,25 @@ public class EditCommand extends Command {
             + "[" + PREFIX_STUDENT_NUMBER + "STUDENT NUMBER] "
             + "[" + PREFIX_PHONE + "PHONE] "
             + "[" + PREFIX_EMAIL + "EMAIL] "
-            + "[" + PREFIX_ADDRESS + "ADDRESS] "
+            + "[" + PREFIX_TELEGRAM + "TELEGRAM] "
             + "[" + PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_PHONE + "91234567 "
             + PREFIX_EMAIL + "johndoe@example.com";
 
-    public static final String MESSAGE_HELP = "Edit student record:\n"
+    public static final String MESSAGE_HELP = "Edit student entry:\n"
             + COMMAND_WORD + " INDEX "
-            + PREFIX_NAME + "NAME "
-            + PREFIX_STUDENT_NUMBER + "STUDENT_NUMBER "
-            + PREFIX_PHONE + "PHONE "
-            + PREFIX_EMAIL + "EMAIL "
-            + "tele/TELEGRAM_HANDLE";
+            + "[" + PREFIX_NAME + "NAME] "
+            + "[" + PREFIX_STUDENT_NUMBER + "STUDENT_NUMBER] "
+            + "[" + PREFIX_PHONE + "PHONE] "
+            + "[" + PREFIX_EMAIL + "EMAIL] "
+            + "[" + PREFIX_TELEGRAM + "TELEGRAM] "
+            + "[" + PREFIX_TAG + "TAG]";
 
     public static final String MESSAGE_EDIT_STUDENT_SUCCESS = "Edited Student: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
-    public static final String MESSAGE_DUPLICATE_STUDENT = "This student already exists in the address book.";
+    public static final String MESSAGE_DUPLICATE_STUDENT = "A student with the same student number already exists in "
+            + "TAHub.";
 
     private final Index index;
     private final EditStudentDescriptor editStudentDescriptor;
@@ -110,13 +112,14 @@ public class EditCommand extends Command {
         Name updatedName = editStudentDescriptor.getName().orElse(studentToEdit.getName());
         Phone updatedPhone = editStudentDescriptor.getPhone().orElse(studentToEdit.getPhone());
         Email updatedEmail = editStudentDescriptor.getEmail().orElse(studentToEdit.getEmail());
-        Address updatedAddress = editStudentDescriptor.getAddress().orElse(studentToEdit.getAddress());
         Set<Tag> updatedTags = editStudentDescriptor.getTags().orElse(studentToEdit.getTags());
         RecordList updatedRecordList = studentToEdit.getRecordList();
         StudentNumber updatedStudentNumber = editStudentDescriptor.getStudentNumber()
                 .orElse(studentToEdit.getStudentNumber());
+        Telegram updatedTelegram = editStudentDescriptor.getTelegram().orElse(studentToEdit.getTelegram());
 
-        return new Student(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedTags, updatedStudentNumber);
+        return new Student(updatedName, updatedPhone, updatedEmail, updatedTags, updatedStudentNumber,
+                updatedRecordList, updatedTelegram);
     }
 
     @Override
@@ -151,9 +154,9 @@ public class EditCommand extends Command {
         private Name name;
         private Phone phone;
         private Email email;
-        private Address address;
         private Set<Tag> tags;
         private StudentNumber studentNumber;
+        private Telegram telegram;
 
         public EditStudentDescriptor() {}
 
@@ -165,16 +168,16 @@ public class EditCommand extends Command {
             setName(toCopy.name);
             setPhone(toCopy.phone);
             setEmail(toCopy.email);
-            setAddress(toCopy.address);
             setTags(toCopy.tags);
             setStudentNumber(toCopy.studentNumber);
+            setTelegram(toCopy.telegram);
         }
 
         /**
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(name, phone, email, address, tags, studentNumber);
+            return CollectionUtil.isAnyNonNull(name, phone, email, tags, studentNumber, telegram);
         }
 
         public void setName(Name name) {
@@ -201,20 +204,19 @@ public class EditCommand extends Command {
             return Optional.ofNullable(email);
         }
 
-        public void setAddress(Address address) {
-            this.address = address;
-        }
-
-        public Optional<Address> getAddress() {
-            return Optional.ofNullable(address);
-        }
-
         public void setStudentNumber(StudentNumber studentNumber) {
             this.studentNumber = studentNumber;
         }
 
         public Optional<StudentNumber> getStudentNumber() {
             return Optional.ofNullable(studentNumber);
+        }
+
+        public void setTelegram(Telegram telegram) {
+            this.telegram = telegram;
+        }
+        public Optional<Telegram> getTelegram() {
+            return Optional.ofNullable(telegram);
         }
 
         /**
@@ -249,20 +251,20 @@ public class EditCommand extends Command {
             return Objects.equals(name, otherEditStudentDescriptor.name)
                     && Objects.equals(phone, otherEditStudentDescriptor.phone)
                     && Objects.equals(email, otherEditStudentDescriptor.email)
-                    && Objects.equals(address, otherEditStudentDescriptor.address)
                     && Objects.equals(tags, otherEditStudentDescriptor.tags)
-                    && Objects.equals(studentNumber, otherEditStudentDescriptor.studentNumber);
+                    && Objects.equals(studentNumber, otherEditStudentDescriptor.studentNumber)
+                    && Objects.equals(telegram, otherEditStudentDescriptor.telegram);
         }
 
         @Override
         public String toString() {
             return new ToStringBuilder(this)
                     .add("name", name)
+                    .add("studentNumber", studentNumber)
                     .add("phone", phone)
                     .add("email", email)
-                    .add("address", address)
+                    .add("telegram", telegram)
                     .add("tags", tags)
-                    .add("studentNumber", studentNumber)
                     .toString();
         }
     }
