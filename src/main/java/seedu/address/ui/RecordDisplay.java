@@ -91,11 +91,9 @@ public class RecordDisplay extends HBox {
             boxPane.prefWidthProperty().bind(perBoxPref);
 
             // bind rectangle size safely (never negative)
-            DoubleBinding rectW = Bindings.createDoubleBinding(
-                    () -> Math.max(0, boxPane.getWidth() - 4),
+            DoubleBinding rectW = Bindings.createDoubleBinding(() -> Math.max(0, boxPane.getWidth() - 4),
                     boxPane.widthProperty());
-            DoubleBinding rectH = Bindings.createDoubleBinding(
-                    () -> Math.max(0, boxPane.getHeight() - 4),
+            DoubleBinding rectH = Bindings.createDoubleBinding(() -> Math.max(0, boxPane.getHeight() - 4),
                     boxPane.heightProperty());
 
             box.widthProperty().bind(rectW);
@@ -143,6 +141,7 @@ public class RecordDisplay extends HBox {
                     }
                 }
             } catch (Exception ignored) {
+                // defensive: avoid throwing during resize callbacks
             }
         });
     }
