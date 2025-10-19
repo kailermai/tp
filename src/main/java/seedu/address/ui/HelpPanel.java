@@ -8,7 +8,6 @@ import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.Region;
-
 import seedu.address.logic.commands.AddCommand;
 import seedu.address.logic.commands.ClearCommand;
 import seedu.address.logic.commands.DeleteCommand;
@@ -21,6 +20,9 @@ import seedu.address.logic.commands.RecordCommand;
 import seedu.address.logic.commands.TrendCommand;
 import seedu.address.logic.commands.ViewCommand;
 
+/**
+ * Controller for a help page
+ */
 public class HelpPanel extends UiPart<Region> {
 
     public static final String USERGUIDE_URL = "https://ay2526s1-cs2103t-t16-2.github.io/tp/UserGuide.html";
@@ -59,25 +61,37 @@ public class HelpPanel extends UiPart<Region> {
         helpMessage.setText(HELP_MESSAGE);
     }
 
+    /**
+     * Initializes the help panel.
+     */
     @FXML
     public void initialize() {
-        if(helpScrollPane != null) {
-            helpScrollPane.setFitToWidth(true);
-
-            // Speed up vertical-wheel scrolling
-            helpScrollPane.addEventFilter(ScrollEvent.SCROLL, e -> {
-                if (e.isControlDown() || e.getDeltaY() == 0) {
-                    return;
-                }
-                if (Math.abs(e.getDeltaX()) > Math.abs(e.getDeltaY())) {
-                    return;
-                }
-                double step = (e.getDeltaY() > 0 ? -0.20 : 0.20);
-                double v = Math.max(0, Math.min(1, helpScrollPane.getVvalue() + step));
-                helpScrollPane.setVvalue(v);
-                e.consume();
-            });
+        if (helpScrollPane != null) {
+            enableFastScroll(helpScrollPane, 0.2);
         }
+    }
+
+    /**
+     * Configures a ScrollPane for faster vertical-wheel scrolling.
+     * @param scrollPane the ScrollPane to be configured
+     * @param scrollStep the fraction of total height to scroll per wheel notch. (0.2 = 20%)
+     */
+    private static void enableFastScroll(ScrollPane scrollPane, double scrollStep) {
+        scrollPane.setFitToWidth(true);
+
+        // Speed up vertical-wheel scrolling
+        scrollPane.addEventFilter(ScrollEvent.SCROLL, e -> {
+            if (e.isControlDown() || e.getDeltaY() == 0) {
+                return;
+            }
+            if (Math.abs(e.getDeltaX()) > Math.abs(e.getDeltaY())) {
+                return;
+            }
+            double step = (e.getDeltaY() > 0 ? -scrollStep : scrollStep);
+            double v = Math.max(0, Math.min(1, scrollPane.getVvalue() + step));
+            scrollPane.setVvalue(v);
+            e.consume();
+        });
     }
 
     /**
