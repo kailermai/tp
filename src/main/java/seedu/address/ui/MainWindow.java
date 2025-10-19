@@ -42,6 +42,11 @@ public class MainWindow extends UiPart<Stage> {
     private ViewWindow viewWindow;
     private TrendWindow trendWindow;
 
+    // Embedded right-side panels
+    private HelpPanel helpPanel;
+    // TODO: private TrendPanel trendPanel;
+    // TODO: private ViewPanel viewPanel;
+
     @FXML
     private StackPane commandBoxPlaceholder;
 
@@ -78,7 +83,10 @@ public class MainWindow extends UiPart<Stage> {
 
         setAccelerators();
 
-        helpWindow = new HelpWindow();
+        // helpWindow = new HelpWindow();
+        helpPanel = new HelpPanel();
+        // TODO: trendPanel = new TrendPanel();
+        // TODO: viewPanel = new ViewPanel();
         viewWindow = new ViewWindow();
         trendWindow = new TrendWindow();
     }
@@ -144,6 +152,10 @@ public class MainWindow extends UiPart<Stage> {
         Platform.runLater(() -> bottomSplit.setDividerPositions(0.4));
     }
 
+    /**
+     * Displays the given node in the right-side panel.
+     * @param node to be displayed
+     */
     private void showInRight(Region node) {
         rightPanelPlaceholder.getChildren().setAll(node);
     }
@@ -161,15 +173,18 @@ public class MainWindow extends UiPart<Stage> {
     }
 
     /**
-     * Opens the help window or focuses on it if it's already opened.
+     * Displays the HelpPanel in the right-side panel.
      */
     @FXML
     public void handleHelp() {
+        /*
         if (!helpWindow.isShowing()) {
             helpWindow.show();
         } else {
             helpWindow.focus();
         }
+         */
+        showInRight(helpPanel.getRoot());
     }
 
     void show() {
@@ -184,7 +199,7 @@ public class MainWindow extends UiPart<Stage> {
         GuiSettings guiSettings = new GuiSettings(primaryStage.getWidth(), primaryStage.getHeight(),
                 (int) primaryStage.getX(), (int) primaryStage.getY());
         logic.setGuiSettings(guiSettings);
-        helpWindow.hide();
+//        helpWindow.hide();
         primaryStage.hide();
     }
     /**
@@ -199,6 +214,7 @@ public class MainWindow extends UiPart<Stage> {
         } else {
             viewWindow.focus();
         }
+        //TODO: show view panel
     }
 
     /**
@@ -212,6 +228,7 @@ public class MainWindow extends UiPart<Stage> {
         } else {
             trendWindow.focus();
         }
+        // TODO: show trend panel
     }
 
     public StudentListPanel getStudentListPanel() {
