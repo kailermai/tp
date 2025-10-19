@@ -34,7 +34,7 @@ public class SubmissionScoreTest {
         // null -> returns false
         assertFalse(submissionScore.equals(null));
 
-        // different attendance score -> returns false
+        // different submission score -> returns false
         assertFalse(submissionScore.equals(new SubmissionScore(SubmissionScore.MAX_SCORE)));
     }
 }

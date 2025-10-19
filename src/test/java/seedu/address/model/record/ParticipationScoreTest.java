@@ -34,7 +34,7 @@ public class ParticipationScoreTest {
         // null -> returns false
         assertFalse(participationScore.equals(null));
 
-        // different attendance score -> returns false
+        // different participation score -> returns false
         assertFalse(participationScore.equals(new ParticipationScore(ParticipationScore.MAX_SCORE)));
     }
 }
