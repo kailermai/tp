@@ -16,4 +16,13 @@ public abstract class Score {
         return value;
     }
 
+    @Override
+    public String toString() {
+        return String.valueOf(value);
+    }
+
+    @Override
+    public int hashCode() {
+        return value;
+    }
 }

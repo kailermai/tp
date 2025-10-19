@@ -1,5 +1,7 @@
 package seedu.address.model.recordlist;
 
+import java.util.function.Function;
+
 import seedu.address.commons.core.index.Index;
 import seedu.address.model.record.Record;
 import seedu.address.model.record.WeekNumber;
@@ -30,5 +32,24 @@ public class RecordList {
 
     public void setRecord(Index index, Record record) {
         records[index.getZeroBased()] = record;
+    }
+
+    /**
+    * Returns an array of scores for each week in the record list.
+    * The array is filled with null values if the corresponding week has no record.
+    * @param func the function to apply to each record to get the score
+    * @return an array of scores for each week in the record list
+    */
+    public Integer[] getScores(Function<Record, Integer> func) {
+        Integer[] scores = new Integer[WeekNumber.MAX_WEEK_NUMBER];
+
+        for (int i = 0; i < this.records.length; i++) {
+            if (records[i] == null) {
+                continue;
+            }
+            scores[i] = func.apply(records[i]);
+        }
+
+        return scores;
     }
 }

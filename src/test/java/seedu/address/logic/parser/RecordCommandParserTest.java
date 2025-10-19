@@ -39,7 +39,6 @@ public class RecordCommandParserTest {
         Record expectedRecord = new Record(new AttendanceScore(AttendanceScore.MAX_SCORE),
                 new SubmissionScore(SubmissionScore.MAX_SCORE), new ParticipationScore(ParticipationScore.MAX_SCORE));
         RecordCommand expectedCommand = new RecordCommand(INDEX_FIRST_STUDENT, new WeekNumber(1), expectedRecord);
-        System.out.println(userInput);
         assertParseSuccess(parser, userInput, expectedCommand);
     }
 
