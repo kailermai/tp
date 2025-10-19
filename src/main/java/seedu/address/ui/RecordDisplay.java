@@ -15,8 +15,8 @@ import seedu.address.model.record.WeekNumber;
 */
 public class RecordDisplay extends HBox {
 
-    private static final int BOX_WIDTH = 50;
-    private static final int BOX_HEIGHT = 40;
+    private static final int BOX_WIDTH = 45;
+    private static final int BOX_HEIGHT = 36;
     private static final int STROKE_WIDTH = 1;
     private static final int BORDER_RADIUS = 8;
 
