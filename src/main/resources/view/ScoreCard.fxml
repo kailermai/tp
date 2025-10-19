@@ -7,19 +7,20 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
+<?import seedu.address.ui.RecordDisplay?>
 <HBox id="cardPane" fx:id="cardPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
     <GridPane HBox.hgrow="ALWAYS">
         <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10" prefWidth="150" />
+            <ColumnConstraints percentWidth="100.0" hgrow="ALWAYS" minWidth="10" prefWidth="150" />
         </columnConstraints>
         <VBox alignment="CENTER_LEFT" minHeight="80" GridPane.columnIndex="0">
             <padding>
                 <Insets left="10" />
             </padding>
             <HBox spacing="0.5" alignment="CENTER_LEFT">
-                <Label fx:id="weekNumber" text="\$first" styleClass="cell_big_label" />
+                <Label fx:id="scoreTypeLabel" styleClass="cell_small_label" text="\$scoreName" />
             </HBox>
-            <Label fx:id="recordImage" styleClass="cell_small_label" text="\$recordImage" />
+            <RecordDisplay fx:id ="recordDisplay"/>
         </VBox>
     </GridPane>
 </HBox>
