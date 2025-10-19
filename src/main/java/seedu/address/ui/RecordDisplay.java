@@ -1,6 +1,8 @@
 package seedu.address.ui;
 
 import javafx.application.Platform;
+import javafx.beans.binding.Bindings;
+import javafx.beans.binding.DoubleBinding;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
@@ -27,6 +29,8 @@ public class RecordDisplay extends HBox {
     // maximum dimensions for each individual box
     private static final double MAX_BOX_WIDTH = 45;
     private static final double MAX_BOX_HEIGHT = 36;
+    private static final double MIN_BOX_WIDTH = 10;
+    private static final double MIN_BOX_HEIGHT = 8;
 
     private static final Color COLOR_BORDER = Color.DIMGRAY;
     private static final Color COLOR_DEFAULT = Color.DARKGRAY;
@@ -65,38 +69,54 @@ public class RecordDisplay extends HBox {
             box.setCache(false);
 
             StackPane boxPane = new StackPane(box, scoreLabel);
-            // enforce per-box limits so boxes won't grow beyond these values
+            // enforce hard min/max values
+            boxPane.setMinWidth(MIN_BOX_WIDTH);
             boxPane.setMaxWidth(MAX_BOX_WIDTH);
+            boxPane.setMinHeight(MIN_BOX_HEIGHT);
             boxPane.setMaxHeight(MAX_BOX_HEIGHT);
             StackPane.setAlignment(scoreLabel, Pos.CENTER);
             // allow each box to grow/shrink horizontally
             HBox.setHgrow(boxPane, Priority.ALWAYS);
 
-            // bind rectangle size to container so it resizes with window
-            box.widthProperty().bind(boxPane.widthProperty().subtract(4)); // leave small padding
-            box.heightProperty().bind(boxPane.heightProperty().subtract(4)); // now responsive to height
+            // compute an even per-box preferred width based on this HBox's width,
+            // respecting spacing and capping by MAX_BOX_WIDTH
+            DoubleBinding perBoxPref = Bindings.createDoubleBinding(() -> {
+                double totalSpacing = Math.max(0, (scoreBoxes.length - 1) * getSpacing());
+                double avail = Math.max(0, getWidth() - totalSpacing);
+                double per = scoreBoxes.length > 0 ? avail / scoreBoxes.length : 0;
+                per = Math.max(MIN_BOX_WIDTH, Math.min(MAX_BOX_WIDTH, per));
+                return per;
+            }, widthProperty(), spacingProperty());
+
+            boxPane.prefWidthProperty().bind(perBoxPref);
+
+            // bind rectangle size safely (never negative)
+            DoubleBinding rectW = Bindings.createDoubleBinding(
+                    () -> Math.max(0, boxPane.getWidth() - 4),
+                    boxPane.widthProperty());
+            DoubleBinding rectH = Bindings.createDoubleBinding(
+                    () -> Math.max(0, boxPane.getHeight() - 4),
+                    boxPane.heightProperty());
+
+            box.widthProperty().bind(rectW);
+            box.heightProperty().bind(rectH);
 
             scoreBoxes[i] = boxPane;
             this.getChildren().add(boxPane);
         }
 
-        // When this control changes size, force a relayout/applyCss on the UI thread
-        this.widthProperty().addListener((obs, oldV, newV) -> forceLayoutLater());
-        this.heightProperty().addListener((obs, oldV, newV) -> forceLayoutLater());
+        // request layout on resize (do not call layout()/applyCss() synchronously)
+        this.widthProperty().addListener((obs, oldV, newV) -> scheduleLayout());
+        this.heightProperty().addListener((obs, oldV, newV) -> scheduleLayout());
 
-        // Listen for scene/window changes to catch top-level resize events and force layout
         this.sceneProperty().addListener((obs, oldScene, newScene) -> {
             if (newScene == null) {
                 return;
             }
-
-            // handle when window is already set
             Window window = newScene.getWindow();
             if (window != null) {
                 attachWindowListeners(window);
             }
-
-            // handle window being set later
             newScene.windowProperty().addListener((o, oldW, newW) -> {
                 if (newW != null) {
                     attachWindowListeners(newW);
@@ -106,34 +126,23 @@ public class RecordDisplay extends HBox {
     }
 
     private void attachWindowListeners(Window window) {
-        // ensure we don't add duplicate listeners aggressively; cheap listeners are OK here
-        window.widthProperty().addListener((o, ov, nv) -> forceLayoutLater());
-        window.heightProperty().addListener((o, ov, nv) -> forceLayoutLater());
+        window.widthProperty().addListener((o, ov, nv) -> scheduleLayout());
+        window.heightProperty().addListener((o, ov, nv) -> scheduleLayout());
     }
 
-    private void forceLayoutLater() {
+    private void scheduleLayout() {
         Platform.runLater(() -> {
             try {
-                applyCss();
                 requestLayout();
-                layout();
-
                 if (getScene() != null && getScene().getRoot() != null) {
-                    getScene().getRoot().applyCss();
                     getScene().getRoot().requestLayout();
-                    getScene().getRoot().layout();
                 }
-
-                // also request layout for child panes to ensure bindings take effect immediately
                 for (StackPane sp : scoreBoxes) {
                     if (sp != null) {
-                        sp.applyCss();
                         sp.requestLayout();
-                        sp.layout();
                     }
                 }
             } catch (Exception ignored) {
-                // defensive: avoid throwing during resize callbacks
             }
         });
     }
@@ -165,7 +174,7 @@ public class RecordDisplay extends HBox {
         }
 
         // ensure updated fills/labels are rendered immediately
-        forceLayoutLater();
+        scheduleLayout();
     }
 
     private Color setBoxColor(Integer score, ScoreType scoreType) {
