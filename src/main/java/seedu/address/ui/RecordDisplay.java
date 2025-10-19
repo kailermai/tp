@@ -13,6 +13,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Window;
 import seedu.address.model.record.AttendanceScore;
 import seedu.address.model.record.ParticipationScore;
+import seedu.address.model.record.ScoreType;
 import seedu.address.model.record.SubmissionScore;
 import seedu.address.model.record.WeekNumber;
 
@@ -165,13 +166,6 @@ public class RecordDisplay extends HBox {
             }
             sp.requestLayout();
         }
-    }
-
-    /**
-     * Represents the type of score being displayed.
-     */
-    public enum ScoreType {
-        ATTENDANCE, SUBMISSION, PARTICIPATION
     }
 
     /**

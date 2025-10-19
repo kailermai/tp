@@ -9,9 +9,10 @@ import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.Region;
 import seedu.address.commons.core.LogsCenter;
+import seedu.address.model.record.ScoreType;
 import seedu.address.model.recordlist.RecordList;
 import seedu.address.model.student.Student;
-import seedu.address.ui.RecordDisplay.ScoreType;
+
 
 /**
  * Panel containing the list of scores.
@@ -23,7 +24,7 @@ public class ScoreListPanel extends UiPart<Region> {
     private final RecordList recordList;
 
     @FXML
-    private ListView<RecordDisplay.ScoreType> recordListView;
+    private ListView<ScoreType> recordListView;
 
     /**
      * Creates a {@code ScoreListPanel} with the given {@code RecordList}.
@@ -45,7 +46,7 @@ public class ScoreListPanel extends UiPart<Region> {
      * Sets the record list to be displayed.
      */
     private void setRecordList(RecordList recordList) {
-        ObservableList<RecordDisplay.ScoreType> items = FXCollections.observableArrayList();
+        ObservableList<ScoreType> items = FXCollections.observableArrayList();
         items.addAll(
                 ScoreType.ATTENDANCE,
                 ScoreType.PARTICIPATION,

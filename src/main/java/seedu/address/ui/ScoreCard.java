@@ -7,9 +7,10 @@ import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import seedu.address.model.record.Record;
+import seedu.address.model.record.ScoreType;
 import seedu.address.model.record.WeekNumber;
 import seedu.address.model.recordlist.RecordList;
-import seedu.address.ui.RecordDisplay.ScoreType;
+
 
 
 /**
