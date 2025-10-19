@@ -1,6 +1,6 @@
 package seedu.address.model.record;
 
-import static java.util.Objects.requireNonNull;
+import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 /**
  * Represents a record of student scores over a period of weeks.
@@ -20,9 +20,7 @@ public class Record {
      */
     public Record(AttendanceScore attendanceScore, SubmissionScore submissionScore,
                   ParticipationScore participationScore) {
-        requireNonNull(attendanceScore);
-        requireNonNull(submissionScore);
-        requireNonNull(participationScore);
+        requireAllNonNull(attendanceScore, submissionScore, participationScore);
         this.attendanceScore = attendanceScore;
         this.submissionScore = submissionScore;
         this.participationScore = participationScore;
