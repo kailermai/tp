@@ -30,20 +30,6 @@ public class HelpPanel extends UiPart<Region> {
     public static final String USERGUIDE_URL = "https://ay2526s1-cs2103t-t16-2.github.io/tp/UserGuide.html";
     public static final String USERGUIDE_TEXT = "More can be found in our user guide: " + USERGUIDE_URL;
 
-    public static final String HELP_MESSAGE = "Command list: \n\n"
-            + HelpCommand.MESSAGE_HELP + "\n\n"
-            + AddCommand.MESSAGE_HELP + "\n\n"
-            + ListCommand.MESSAGE_HELP + "\n\n"
-            + EditCommand.MESSAGE_HELP + "\n\n"
-            + FindCommand.MESSAGE_HELP + "\n\n"
-            + DeleteCommand.MESSAGE_HELP + "\n\n"
-            + RecordCommand.MESSAGE_HELP + "\n\n"
-            + ClearCommand.MESSAGE_HELP + "\n\n"
-            + ExitCommand.MESSAGE_HELP + "\n\n"
-            + ViewCommand.MESSAGE_HELP + "\n\n"
-            + TrendCommand.MESSAGE_HELP + "\n\n\n"
-            + USERGUIDE_TEXT;
-
     private static final String FXML = "HelpPanel.fxml";
 
     @FXML
@@ -54,8 +40,6 @@ public class HelpPanel extends UiPart<Region> {
 
     @FXML
     private Button copyButton;
-
-    private static Text newLine = new Text("\n");
 
     /**
      * Creates a HelpPanel.
@@ -88,12 +72,6 @@ public class HelpPanel extends UiPart<Region> {
         header.getStyleClass().add("help-header");
         header.setWrapText(true);
         return header;
-    }
-
-    private Text createCommand(String text) {
-        Text command = new Text(text + "\n\n");
-        command.getStyleClass().add("help-command");
-        return command;
     }
 
     private VBox createCommandTitleAndDescription(String title, String description) {
