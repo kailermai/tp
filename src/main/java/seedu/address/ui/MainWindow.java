@@ -83,7 +83,6 @@ public class MainWindow extends UiPart<Stage> {
 
         setAccelerators();
 
-        // helpWindow = new HelpWindow();
         helpPanel = new HelpPanel();
         // TODO: trendPanel = new TrendPanel();
         // TODO: viewPanel = new ViewPanel();
@@ -177,13 +176,6 @@ public class MainWindow extends UiPart<Stage> {
      */
     @FXML
     public void handleHelp() {
-        /*
-        if (!helpWindow.isShowing()) {
-            helpWindow.show();
-        } else {
-            helpWindow.focus();
-        }
-         */
         showInRight(helpPanel.getRoot());
     }
 
