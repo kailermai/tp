@@ -15,6 +15,6 @@ public class SortCommand extends Command {
 
     @Override
     public CommandResult execute(Model model) {
-        return new CommandResult(SHOWING_HELP_MESSAGE, true, false);
+        return new CommandResult(true, SHOWING_HELP_MESSAGE);
     }
 }
