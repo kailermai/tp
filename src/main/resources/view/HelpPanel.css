@@ -1,0 +1,28 @@
+/* Make the right panel use the same background as the surrounding SplitPane */
+.scroll-pane {
+  -fx-background-color: transparent;    /* area around the viewport */
+}
+.scroll-pane > .viewport {
+  -fx-background-color: transparent;    /* actual content area */
+}
+.scroll-pane .corner {
+  -fx-background-color: transparent;    /* corner when scrollbars meet */
+}
+
+/* Text on dark background */
+.label,
+#helpMessage {
+  -fx-text-fill: white;
+}
+
+/* Button styling to match dark theme */
+#copyButton {
+  -fx-background-color: #3c3f41;
+  -fx-text-fill: white;
+}
+#copyButton:hover {
+  -fx-background-color: #4c5052;
+}
+#copyButton:armed {
+  -fx-background-color: #5b5f61;
+}
