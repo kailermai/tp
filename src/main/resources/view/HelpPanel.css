@@ -20,19 +20,27 @@
     -fx-font-family: "Consolas", "Courier New", monospace;
     -fx-font-size: 16px;
     -fx-font-weight: bold;
-    -fx-fill: white;
 }
 
-.help-command {
+.help-command-title {
+    -fx-font-family: "Consolas", "Courier New", monospace;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.help-command-description {
     -fx-font-family: "Consolas", "Courier New", monospace;
     -fx-font-size: 12px;
-    -fx-fill: white;
+}
+
+.help-command-block {
+    -fx-padding: 0, 0, 20px 0; /* Bottom padding for spacing */
 }
 
 .help-footer {
     -fx-font-family: "Consolas", "Courier New", monospace;
     -fx-font-size: 12px;
-    -fx-fill: lightblue;
+    -fx-text-fill: lightblue;
 }
 
 /* Button styling to match dark theme */
