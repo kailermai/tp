@@ -7,6 +7,8 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.layout.Region;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 import seedu.address.logic.commands.AddCommand;
 import seedu.address.logic.commands.ClearCommand;
 import seedu.address.logic.commands.DeleteCommand;
@@ -27,7 +29,7 @@ public class HelpPanel extends UiPart<Region> {
     public static final String USERGUIDE_URL = "https://ay2526s1-cs2103t-t16-2.github.io/tp/UserGuide.html";
     public static final String USERGUIDE_TEXT = "More can be found in our user guide: " + USERGUIDE_URL;
 
-    public static final String HELP_MESSAGE = "Command list: \n"
+    public static final String HELP_MESSAGE = "Command list: \n\n"
             + HelpCommand.MESSAGE_HELP + "\n\n"
             + AddCommand.MESSAGE_HELP + "\n\n"
             + ListCommand.MESSAGE_HELP + "\n\n"
@@ -47,7 +49,7 @@ public class HelpPanel extends UiPart<Region> {
     private ScrollPane helpScrollPane;
 
     @FXML
-    private Label helpMessage;
+    private TextFlow helpMessage;
 
     @FXML
     private Button copyButton;
@@ -57,7 +59,45 @@ public class HelpPanel extends UiPart<Region> {
      */
     public HelpPanel() {
         super(FXML);
-        helpMessage.setText(HELP_MESSAGE);
+        buildHelpMessage();
+//        helpMessage.setText(HELP_MESSAGE);
+//        helpMessage.setWrapText(true);
+    }
+
+    private void buildHelpMessage() {
+        helpMessage.getChildren().addAll(
+            createHeader("Command list:\n\n"),
+            createCommand(HelpCommand.MESSAGE_HELP),
+            createCommand(AddCommand.MESSAGE_HELP),
+            createCommand(ListCommand.MESSAGE_HELP),
+            createCommand(EditCommand.MESSAGE_HELP),
+            createCommand(FindCommand.MESSAGE_HELP),
+            createCommand(DeleteCommand.MESSAGE_HELP),
+            createCommand(RecordCommand.MESSAGE_HELP),
+            createCommand(ClearCommand.MESSAGE_HELP),
+            createCommand(ExitCommand.MESSAGE_HELP),
+            createCommand(ViewCommand.MESSAGE_HELP),
+            createCommand(TrendCommand.MESSAGE_HELP),
+            createFooter("\n" + USERGUIDE_TEXT)
+        );
+    }
+
+    private Text createHeader(String text) {
+        Text header = new Text(text);
+        header.getStyleClass().add("help-header");
+        return header;
+    }
+
+    private Text createCommand(String text) {
+        Text command = new Text(text + "\n\n");
+        command.getStyleClass().add("help-command");
+        return command;
+    }
+
+    private Text createFooter(String text) {
+        Text footer = new Text(text);
+        footer.getStyleClass().add("help-footer");
+        return footer;
     }
 
     /**

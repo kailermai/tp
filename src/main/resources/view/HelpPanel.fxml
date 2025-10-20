@@ -5,6 +5,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.TextFlow?>
 
 <ScrollPane xmlns="http://javafx.com/javafx/17"
             xmlns:fx="http://javafx.com/fxml/1"
@@ -17,7 +18,8 @@
             stylesheets="@HelpPanel.css">
   <content>
     <VBox spacing="8" prefWidth="400">
-      <Label fx:id="helpMessage" wrapText="true" />
+<!--      <Label fx:id="helpMessage" wrapText="true" />-->
+      <TextFlow fx:id="helpMessage" />
       <HBox>
         <Region HBox.hgrow="ALWAYS" />
         <Button fx:id="copyButton" mnemonicParsing="false" text="Copy URL" onAction="#copyUrl" />
