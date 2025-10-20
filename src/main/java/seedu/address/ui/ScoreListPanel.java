@@ -9,12 +9,10 @@ import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.Region;
 import seedu.address.commons.core.LogsCenter;
-import seedu.address.model.record.AttendanceScore;
-import seedu.address.model.record.ParticipationScore;
-import seedu.address.model.record.Record;
-import seedu.address.model.record.SubmissionScore;
+import seedu.address.model.record.ScoreType;
 import seedu.address.model.recordlist.RecordList;
 import seedu.address.model.student.Student;
+
 
 /**
  * Panel containing the list of scores.
@@ -23,19 +21,17 @@ public class ScoreListPanel extends UiPart<Region> {
     private static final String FXML = "ScoreListPanel.fxml";
     private static final Logger logger = LogsCenter.getLogger(ScoreListPanel.class);
 
+    private final RecordList recordList;
+
     @FXML
-    private ListView<Record> recordListView;
-    /**
-     * Creates a {@code ScoreListPanel} with the given {@code ObservableList}.
-     */
-    public ScoreListPanel() {
-        super(FXML);
-    }
+    private ListView<ScoreType> recordListView;
+
     /**
      * Creates a {@code ScoreListPanel} with the given {@code RecordList}.
      */
     public ScoreListPanel(RecordList recordList) {
         super(FXML);
+        this.recordList = recordList;
         setRecordList(recordList);
     }
     /**
@@ -43,40 +39,35 @@ public class ScoreListPanel extends UiPart<Region> {
      */
     public ScoreListPanel(Student student) {
         super(FXML);
-        setRecordList(student.getRecordList());
+        this.recordList = student.getRecordList();
+        setRecordList(recordList);
     }
     /**
      * Sets the record list to be displayed.
      */
     private void setRecordList(RecordList recordList) {
-        ObservableList<Record> items = FXCollections.observableArrayList();
-        Record[] records = recordList.records;
-        for (int i = 0; i < records.length; i++) {
-            // Add a default record if the record is null
-            if (records[i] == null) {
-                items.add(new Record(new AttendanceScore(AttendanceScore.MIN_SCORE),
-                        new SubmissionScore(SubmissionScore.MIN_SCORE),
-                        new ParticipationScore(ParticipationScore.MIN_SCORE)));
-            } else {
-                items.add(records[i]);
-            }
-        }
+        ObservableList<ScoreType> items = FXCollections.observableArrayList();
+        items.addAll(
+                ScoreType.ATTENDANCE,
+                ScoreType.PARTICIPATION,
+                ScoreType.SUBMISSION
+        );
         recordListView.setItems(items);
         recordListView.setCellFactory(listView -> new ScoreListPanel.ScoreListViewCell());
     }
     /**
      * Custom {@code ListCell} that displays the graphics of a {@code Record} using a {@code ScoreCard}.
      */
-    class ScoreListViewCell extends ListCell<Record> {
+    class ScoreListViewCell extends ListCell<ScoreType> {
         @Override
-        protected void updateItem(Record record, boolean empty) {
-            super.updateItem(record, empty);
+        protected void updateItem(ScoreType scoreType, boolean empty) {
+            super.updateItem(scoreType, empty);
 
-            if (empty || record == null) {
+            if (empty || scoreType == null) {
                 setGraphic(null);
                 setText(null);
             } else {
-                setGraphic(new ScoreCard(record, getIndex() + 1).getRoot());
+                setGraphic(new ScoreCard(recordList, scoreType).getRoot());
             }
         }
     }

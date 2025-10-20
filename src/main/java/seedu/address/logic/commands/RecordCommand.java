@@ -50,6 +50,8 @@ public class RecordCommand extends Command {
             + "Record details: %2$s";
     public static final String MESSAGE_UPDATE_RECORDED_SUCCESS = "Record updated for student: %1$s\n\n"
             + "Record details: %2$s";
+    public static final String MESSAGE_REMOVE_RECORD_SUCCESS = "Record removed for student: %1$s\n\n";
+    public static final String MESSAGE_NO_RECORD_TO_REMOVE = "No existing record found in week %1$s for student %2$s";
 
     private final Index targetIndex;
     private final WeekNumber weekNumber;
@@ -63,7 +65,6 @@ public class RecordCommand extends Command {
     public RecordCommand(Index targetIndex, WeekNumber weekNumber, Record record) {
         requireNonNull(targetIndex);
         requireNonNull(weekNumber);
-        requireNonNull(record);
 
         this.targetIndex = targetIndex;
         this.weekNumber = weekNumber;
@@ -99,9 +100,17 @@ public class RecordCommand extends Command {
     }
 
     private String generateSuccessMessage(Student studentToEdit, boolean hasExistingRecord) {
+
+        if (record == null) {
+            return hasExistingRecord
+                    ? String.format(MESSAGE_REMOVE_RECORD_SUCCESS, Messages.format(studentToEdit))
+                    : String.format(MESSAGE_NO_RECORD_TO_REMOVE, weekNumber, Messages.format(studentToEdit));
+        }
+
         return hasExistingRecord
                 ? String.format(MESSAGE_UPDATE_RECORDED_SUCCESS, Messages.format(studentToEdit), record)
                 : String.format(MESSAGE_ADD_RECORD_SUCCESS, Messages.format(studentToEdit), record);
+
     }
 
     @Override
@@ -116,8 +125,17 @@ public class RecordCommand extends Command {
             return false;
         }
 
-        // state check
         RecordCommand e = (RecordCommand) other;
+        if (record == null && e.record == null) {
+            return targetIndex.equals(e.targetIndex)
+                    && weekNumber.equals(e.weekNumber);
+        }
+
+        if (record == null || e.record == null) {
+            return false;
+        }
+
+        // state check
         return targetIndex.equals(e.targetIndex)
                 && weekNumber.equals(e.weekNumber)
                 && record.equals(e.record);
