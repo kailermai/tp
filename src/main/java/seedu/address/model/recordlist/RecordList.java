@@ -52,4 +52,8 @@ public class RecordList {
 
         return scores;
     }
+
+    public RecordList clone() {
+        return new RecordList(this.records.clone());
+    }
 }
