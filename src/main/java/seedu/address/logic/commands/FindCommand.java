@@ -23,6 +23,9 @@ public class FindCommand extends Command {
     public static final String MESSAGE_HELP = "Find student:\n"
             + COMMAND_WORD + " KEYWORD [MORE_KEYWORDS]";
 
+    public static final String MESSAGE_HELP_TITLE = "Find student";
+    public static final String MESSAGE_HELP_DESCRIPTION = COMMAND_WORD + " KEYWORD [MORE_KEYWORDS]";
+
     private final NameContainsKeywordsPredicate predicate;
 
     public FindCommand(NameContainsKeywordsPredicate predicate) {

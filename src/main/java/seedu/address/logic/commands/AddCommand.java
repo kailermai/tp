@@ -38,6 +38,16 @@ public class AddCommand extends Command {
             + PREFIX_TAG + "friends "
             + PREFIX_TAG + "owesMoney";
 
+    public static final String MESSAGE_HELP_TITLE = "Add a student:";
+
+    public static final String MESSAGE_HELP_DESCRIPTION = COMMAND_WORD + " "
+            + PREFIX_NAME + "NAME "
+            + PREFIX_STUDENT_NUMBER + "STUDENT_NUMBER "
+            + PREFIX_PHONE + "PHONE_NUMBER "
+            + PREFIX_EMAIL + "EMAIL "
+            + PREFIX_TELEGRAM + "TELEGRAM "
+            + "[" + PREFIX_TAG + "TAG]";
+
     public static final String MESSAGE_HELP = "Add a student:\n"
             + COMMAND_WORD + " "
             + PREFIX_NAME + "NAME "

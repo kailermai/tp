@@ -46,6 +46,13 @@ public class RecordCommand extends Command {
             + PREFIX_SUBMISSION_SCORE + "SUBMISSION_SCORE "
             + PREFIX_PARTICIPATION_SCORE + "PARTICIPATION_SCORE";
 
+    public static final String MESSAGE_HELP_TITLE = "Create a data record:";
+    public static final String MESSAGE_HELP_DESCRIPTION = COMMAND_WORD + " INDEX "
+            + PREFIX_WEEK_NUMBER + "WEEK_NUMBER "
+            + PREFIX_ATTENDANCE_SCORE + "ATTENDANCE_SCORE "
+            + PREFIX_SUBMISSION_SCORE + "SUBMISSION_SCORE "
+            + PREFIX_PARTICIPATION_SCORE + "PARTICIPATION_SCORE";
+
     public static final String MESSAGE_ADD_RECORD_SUCCESS = "Record added for student: %1$s\n\n"
             + "Record details: %2$s";
     public static final String MESSAGE_UPDATE_RECORDED_SUCCESS = "Record updated for student: %1$s\n\n"

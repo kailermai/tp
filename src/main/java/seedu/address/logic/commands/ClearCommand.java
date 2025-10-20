@@ -15,6 +15,9 @@ public class ClearCommand extends Command {
     public static final String MESSAGE_HELP = "Clear all entries in TAHub:\n"
             + COMMAND_WORD;
 
+    public static final String MESSAGE_HELP_TITLE = "Clear all entries in TAHub:";
+    public static final String MESSAGE_HELP_DESCRIPTION = COMMAND_WORD;
+
     public static final String MESSAGE_SUCCESS = "Address book has been cleared!";
 
 

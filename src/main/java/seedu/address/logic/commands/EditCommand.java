@@ -61,6 +61,15 @@ public class EditCommand extends Command {
             + "[" + PREFIX_TELEGRAM + "TELEGRAM] "
             + "[" + PREFIX_TAG + "TAG]";
 
+    public static final String MESSAGE_HELP_TITLE = "Edit student entry:";
+    public static final String MESSAGE_HELP_DESCRIPTION = COMMAND_WORD + " INDEX "
+            + "[" + PREFIX_NAME + "NAME] "
+            + "[" + PREFIX_STUDENT_NUMBER + "STUDENT_NUMBER] "
+            + "[" + PREFIX_PHONE + "PHONE] "
+            + "[" + PREFIX_EMAIL + "EMAIL] "
+            + "[" + PREFIX_TELEGRAM + "TELEGRAM] "
+            + "[" + PREFIX_TAG + "TAG]";
+
     public static final String MESSAGE_EDIT_STUDENT_SUCCESS = "Edited Student: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
     public static final String MESSAGE_DUPLICATE_STUDENT = "A student with the same student number already exists in "

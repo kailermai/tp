@@ -15,6 +15,9 @@ public class ListCommand extends Command {
     public static final String MESSAGE_HELP = "List students:\n"
             + COMMAND_WORD;
 
+    public static final String MESSAGE_HELP_TITLE = "List students:";
+    public static final String MESSAGE_HELP_DESCRIPTION = COMMAND_WORD;
+
     public static final String MESSAGE_SUCCESS = "Listed all students";
 
 

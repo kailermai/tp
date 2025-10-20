@@ -16,6 +16,9 @@ public class TrendCommand extends Command {
     public static final String MESSAGE_HELP = "Shows the trend of all students:\n"
             + COMMAND_WORD;
 
+    public static final String MESSAGE_HELP_TITLE = "Shows the trend of all students:";
+    public static final String MESSAGE_HELP_DESCRIPTION = COMMAND_WORD;
+
     public static final String MESSAGE_SUCCESS = "Opened trend window";
 
     @Override
