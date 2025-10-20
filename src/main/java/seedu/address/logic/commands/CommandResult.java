@@ -29,6 +29,9 @@ public class CommandResult {
     /** Trend information should be shown to the user */
     private final boolean showTrend;
 
+    /** Sorted students should be shown to the user */
+    private final boolean showSort;
+
 
     /**
      * Constructs a {@code CommandResult} with the specified fields.
@@ -40,6 +43,7 @@ public class CommandResult {
         this.showStudent = false;
         this.student = null;
         this.showTrend = false;
+        this.showSort = false;
     }
 
     /**
@@ -52,6 +56,7 @@ public class CommandResult {
         this.showHelp = false;
         this.exit = false;
         this.showTrend = false;
+        this.showSort = false;
     }
 
     /**
@@ -64,6 +69,20 @@ public class CommandResult {
         this.showStudent = false;
         this.student = null;
         this.showTrend = showTrend;
+        this.showSort = false;
+    }
+
+    /**
+     * Constructs a {@code CommandResult} with the specified fields.
+     */
+    public CommandResult(boolean showSort, String feedbackToUser) {
+        this.feedbackToUser = requireNonNull(feedbackToUser);
+        this.showHelp = false;
+        this.exit = false;
+        this.showStudent = false;
+        this.student = null;
+        this.showTrend = false;
+        this.showSort = showSort;
     }
 
     /**
@@ -93,6 +112,8 @@ public class CommandResult {
     public boolean isShowTrend() {
         return showTrend;
     }
+
+    public boolean isShowSort() { return showSort; }
 
     public Student getStudent() {
         return student;
