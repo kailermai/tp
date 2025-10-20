@@ -51,6 +51,7 @@ public class RecordCommand extends Command {
     public static final String MESSAGE_UPDATE_RECORDED_SUCCESS = "Record updated for student: %1$s\n\n"
             + "Record details: %2$s";
     public static final String MESSAGE_REMOVE_RECORD_SUCCESS = "Record removed for student: %1$s\n\n";
+    public static final String MESSAGE_NO_RECORD_TO_REMOVE = "No existing record found in week %1$s for student %2$s";
 
     private final Index targetIndex;
     private final WeekNumber weekNumber;
@@ -101,7 +102,9 @@ public class RecordCommand extends Command {
     private String generateSuccessMessage(Student studentToEdit, boolean hasExistingRecord) {
 
         if (record == null) {
-            return String.format(MESSAGE_REMOVE_RECORD_SUCCESS, Messages.format(studentToEdit));
+            return hasExistingRecord
+                    ? String.format(MESSAGE_REMOVE_RECORD_SUCCESS, Messages.format(studentToEdit))
+                    : String.format(MESSAGE_NO_RECORD_TO_REMOVE, weekNumber, Messages.format(studentToEdit));
         }
 
         return hasExistingRecord

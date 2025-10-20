@@ -50,11 +50,9 @@ public class RecordCommandParser implements Parser<RecordCommand> {
 
         WeekNumber weekNumber = ParserUtil.parseWeekNumber(argMultimap.getValue(PREFIX_WEEK_NUMBER).orElse(""));
 
-        if (!argMultimap.getValue(PREFIX_ATTENDANCE_SCORE).isPresent()) {
-            assert !argMultimap.getValue(PREFIX_PARTICIPATION_SCORE).isPresent() : "Participation score should not be "
-                    + "present if attendance score is not present";
-            assert !argMultimap.getValue(PREFIX_SUBMISSION_SCORE).isPresent() : "Submission score should not be "
-                    + "present if attendance score is not present";
+        // isValidPrefixCombination ensures that if the attendance score is not present,
+        // then participation and submission score will not be present either.
+        if (argMultimap.getValue(PREFIX_ATTENDANCE_SCORE).isEmpty()) {
             return new RecordCommand(index, weekNumber, null);
         }
 

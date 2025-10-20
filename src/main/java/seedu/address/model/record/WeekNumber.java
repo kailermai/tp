@@ -47,4 +47,9 @@ public class WeekNumber {
 
         return otherWeekNumber.weekNumber == this.weekNumber;
     }
+
+    @Override
+    public String toString() {
+        return Integer.toString(weekNumber);
+    }
 }
