@@ -20,7 +20,6 @@ public class TrendCommand extends Command {
 
     @Override
     public CommandResult execute(Model model) throws CommandException {
-        model.updateFilteredStudentList(Model.PREDICATE_SHOW_ALL_STUDENTS);
         return new CommandResult(MESSAGE_SUCCESS, true);
     }
 
