@@ -515,7 +515,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **Use case: UC11 Delete student record**
 
 **Preconditions:**
-* The TA has already added the student to the class. T
+* The TA has already added the student to the class.
 
 **Guarantees:** The record in the specified week is deleted for the correct student in the class.
 
