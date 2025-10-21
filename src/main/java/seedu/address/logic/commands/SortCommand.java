@@ -2,20 +2,28 @@ package seedu.address.logic.commands;
 
 import seedu.address.model.Model;
 
+import static seedu.address.logic.parser.CliSyntax.PREFIX_SORT_ATTENDANCE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_SORT_BY;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_SORT_PARTICIPATION;
+
 /**
- * Sorts all students in TAHub base on their attendance or participation scores
+ * Sorts all students in TAHub based on their attendance or participation scores
  */
 public class SortCommand extends Command {
     public static final String COMMAND_WORD = "sort";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
-            + ": Sort all students base on attendance or participation.\n"
-            + "Example: " + COMMAND_WORD + " /a , " + COMMAND_WORD + " /p";
+            + ": Sort all students based on attendance or participation.\n"
+            + "Parameters: /a for attendance or /p for participation\n"
+            + "Example: " + COMMAND_WORD + " " + PREFIX_SORT_BY + PREFIX_SORT_ATTENDANCE
+            + " " + COMMAND_WORD + " " + PREFIX_SORT_BY + PREFIX_SORT_PARTICIPATION;
 
-    public static final String MESSAGE_HELP = "Sort all students base on attendance or participation:\n"
+    public static final String MESSAGE_HELP = "Sort all students based on attendance or participation:\n"
             + COMMAND_WORD;
 
-    public static final String SHOWING_HELP_MESSAGE = "Sorted all students base on ";
+    public static final String MESSAGE_SUCCESS_ATTENDANCE = "Sorted all students based on attendance";
+
+    public static final String MESSAGE_SUCCESS_PARTICIPATION = "Sorted all students based on participation";
 
     private boolean byAttendance;
 
@@ -31,14 +39,22 @@ public class SortCommand extends Command {
         this.byParticipation = byParticipation;
     }
 
+    public static SortCommand SortCommandAttendance() {
+        return new SortCommand(true, false);
+    }
+
+    public static SortCommand SortCommandParticipation() {
+        return new SortCommand(false, true);
+    }
+
     @Override
     public CommandResult execute(Model model) {
         if (byAttendance) {
             model.sortStudentByAttendance();
-            return new CommandResult(SHOWING_HELP_MESSAGE + "attendance");
+            return new CommandResult(MESSAGE_SUCCESS_ATTENDANCE + "attendance");
         } else {
             model.sortStudentByParticipation();
-            return new CommandResult(SHOWING_HELP_MESSAGE + "participation");
+            return new CommandResult(MESSAGE_SUCCESS_PARTICIPATION + "participation");
         }
     }
 }

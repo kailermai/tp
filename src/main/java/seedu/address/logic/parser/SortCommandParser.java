@@ -2,6 +2,7 @@ package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_SORT_ATTENDANCE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_SORT_BY;
 
 import seedu.address.logic.commands.SortCommand;
@@ -22,6 +23,7 @@ public class SortCommandParser implements Parser<SortCommand> {
         requireNonNull(args);
         ArgumentMultimap argumentMultimap = ArgumentTokenizer.tokenize(
                 args, PREFIX_SORT_BY);
+        argumentMultimap.verifyNoDuplicatePrefixesFor(PREFIX_SORT_BY);
         if (!argumentMultimap.getValue(PREFIX_SORT_BY).isPresent()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, SortCommand.MESSAGE_USAGE));
         }
@@ -32,10 +34,10 @@ public class SortCommandParser implements Parser<SortCommand> {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, SortCommand.MESSAGE_USAGE), pe);
         }
 
-        if (sortType.equals("a")) {
-            return new SortCommand(true, false);
+        if (sortType.equals(PREFIX_SORT_ATTENDANCE.toString())) {
+            return SortCommand.SortCommandAttendance();
         } else {
-            return new SortCommand(false, true);
+            return SortCommand.SortCommandParticipation();
         }
     }
 }

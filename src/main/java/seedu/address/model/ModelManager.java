@@ -171,10 +171,7 @@ public class ModelManager implements Model {
      * Returns 0 if the student or their record list is null.
      */
     private int getTotalAttendance(Student student) {
-        if (student == null || student.getRecordList() == null || student.getRecordList().getRecords() == null) {
-            return 0;
-        }
-        seedu.address.model.record.Record[] records = student.getRecordList().getRecords();
+        seedu.address.model.record.Record[] records = student.getRecordList().records;
         return Arrays.stream(records)
                 .filter(Objects::nonNull)
                 .mapToInt(record -> {
@@ -184,7 +181,6 @@ public class ModelManager implements Model {
                         return 0;
                     }
                 })
-                .filter(Objects::nonNull)
                 .sum();
     }
 
@@ -193,10 +189,7 @@ public class ModelManager implements Model {
      * Returns 0 if the student or their record list is null.
      */
     private int getTotalParticipation(Student student) {
-        if (student == null || student.getRecordList() == null || student.getRecordList().getRecords() == null) {
-            return 0;
-        }
-        seedu.address.model.record.Record[] records = student.getRecordList().getRecords();
+        seedu.address.model.record.Record[] records = student.getRecordList().records;
         return Arrays.stream(records)
                 .filter(Objects::nonNull)
                 .mapToInt(record -> {
@@ -206,7 +199,6 @@ public class ModelManager implements Model {
                         return 0;
                     }
                 })
-                .filter(Objects::nonNull)
                 .sum();
     }
 

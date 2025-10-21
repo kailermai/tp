@@ -34,10 +34,6 @@ public class RecordList {
         records[index.getZeroBased()] = record;
     }
 
-    public Record[] getRecords() {
-        return this.records;
-    }
-
     /**
     * Returns an array of scores for each week in the record list.
     * The array is filled with null values if the corresponding week has no record.
