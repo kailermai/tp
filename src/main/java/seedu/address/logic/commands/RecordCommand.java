@@ -39,17 +39,23 @@ public class RecordCommand extends Command {
             + PREFIX_PARTICIPATION_SCORE + "5 "
             + PREFIX_SUBMISSION_SCORE + "1 ";
 
-    public static final String MESSAGE_HELP = "Create a data record:\n"
-            + COMMAND_WORD + " INDEX "
+    public static final String MESSAGE_HELP_TITLE = "Create a data record:";
+    public static final String MESSAGE_HELP_DESCRIPTION = COMMAND_WORD + " INDEX "
             + PREFIX_WEEK_NUMBER + "WEEK_NUMBER "
             + PREFIX_ATTENDANCE_SCORE + "ATTENDANCE_SCORE "
             + PREFIX_SUBMISSION_SCORE + "SUBMISSION_SCORE "
             + PREFIX_PARTICIPATION_SCORE + "PARTICIPATION_SCORE";
 
+    public static final String MESSAGE_HELP_REMOVE_RECORD_TITLE = "Remove a data record:";
+    public static final String MESSAGE_HELP_REMOVE_RECORD_DESCRIPTION = COMMAND_WORD + " INDEX "
+            + PREFIX_WEEK_NUMBER + "WEEK_NUMBER";
+
     public static final String MESSAGE_ADD_RECORD_SUCCESS = "Record added for student: %1$s\n\n"
             + "Record details: %2$s";
     public static final String MESSAGE_UPDATE_RECORDED_SUCCESS = "Record updated for student: %1$s\n\n"
             + "Record details: %2$s";
+    public static final String MESSAGE_REMOVE_RECORD_SUCCESS = "Record removed for student: %1$s\n\n";
+    public static final String MESSAGE_NO_RECORD_TO_REMOVE = "No existing record found in week %1$s for student %2$s";
 
     private final Index targetIndex;
     private final WeekNumber weekNumber;
@@ -63,7 +69,6 @@ public class RecordCommand extends Command {
     public RecordCommand(Index targetIndex, WeekNumber weekNumber, Record record) {
         requireNonNull(targetIndex);
         requireNonNull(weekNumber);
-        requireNonNull(record);
 
         this.targetIndex = targetIndex;
         this.weekNumber = weekNumber;
@@ -99,9 +104,17 @@ public class RecordCommand extends Command {
     }
 
     private String generateSuccessMessage(Student studentToEdit, boolean hasExistingRecord) {
+
+        if (record == null) {
+            return hasExistingRecord
+                    ? String.format(MESSAGE_REMOVE_RECORD_SUCCESS, Messages.format(studentToEdit))
+                    : String.format(MESSAGE_NO_RECORD_TO_REMOVE, weekNumber, Messages.format(studentToEdit));
+        }
+
         return hasExistingRecord
                 ? String.format(MESSAGE_UPDATE_RECORDED_SUCCESS, Messages.format(studentToEdit), record)
                 : String.format(MESSAGE_ADD_RECORD_SUCCESS, Messages.format(studentToEdit), record);
+
     }
 
     @Override
@@ -116,8 +129,17 @@ public class RecordCommand extends Command {
             return false;
         }
 
-        // state check
         RecordCommand e = (RecordCommand) other;
+        if (record == null && e.record == null) {
+            return targetIndex.equals(e.targetIndex)
+                    && weekNumber.equals(e.weekNumber);
+        }
+
+        if (record == null || e.record == null) {
+            return false;
+        }
+
+        // state check
         return targetIndex.equals(e.targetIndex)
                 && weekNumber.equals(e.weekNumber)
                 && record.equals(e.record);

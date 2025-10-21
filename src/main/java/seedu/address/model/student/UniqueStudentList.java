@@ -103,6 +103,10 @@ public class UniqueStudentList implements Iterable<Student> {
         return internalUnmodifiableList;
     }
 
+    public ObservableList<Student> asModifiableObservableList() {
+        return internalList;
+    }
+
     @Override
     public Iterator<Student> iterator() {
         return internalList.iterator();

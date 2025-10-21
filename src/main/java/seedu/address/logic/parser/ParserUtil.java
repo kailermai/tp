@@ -1,6 +1,8 @@
 package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_SORT_ATTENDANCE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_SORT_PARTICIPATION;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -220,6 +222,19 @@ public class ParserUtil {
             tagSet.add(parseTag(tagName));
         }
         return tagSet;
+    }
+
+    /**
+     * Parses {@code String type} into a {@code String}.
+     */
+    public static String parseSortType(String type) throws ParseException {
+        requireNonNull(type);
+        String res = type.trim();
+        if (!res.equals(PREFIX_SORT_ATTENDANCE.toString()) && !res.equals(PREFIX_SORT_PARTICIPATION.toString())) {
+            throw new ParseException("Invalid sorting type, valid types are " + PREFIX_SORT_ATTENDANCE
+                    + " and " + PREFIX_SORT_PARTICIPATION);
+        }
+        return res;
     }
 
 

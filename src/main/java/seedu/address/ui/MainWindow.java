@@ -2,12 +2,16 @@ package seedu.address.ui;
 
 import java.util.logging.Logger;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.SplitPane;
 import javafx.scene.control.TextInputControl;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import seedu.address.commons.core.GuiSettings;
@@ -17,6 +21,9 @@ import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.student.Student;
+import seedu.address.ui.panel.HelpPanel;
+import seedu.address.ui.panel.StudentListPanel;
+import seedu.address.ui.panel.ViewPanel;
 
 /**
  * The Main Window. Provides the basic application layout containing
@@ -35,8 +42,13 @@ public class MainWindow extends UiPart<Stage> {
     private StudentListPanel studentListPanel;
     private ResultDisplay resultDisplay;
     private HelpWindow helpWindow;
-    private ViewWindow viewWindow;
     private TrendWindow trendWindow;
+
+    // Embedded right-side panels
+    private HelpPanel helpPanel;
+    // TODO: private TrendPanel trendPanel;
+    // TODO: private ViewPanel viewPanel;
+    private ViewPanel viewPanel;
 
     @FXML
     private StackPane commandBoxPlaceholder;
@@ -53,6 +65,12 @@ public class MainWindow extends UiPart<Stage> {
     @FXML
     private StackPane statusbarPlaceholder;
 
+    @FXML
+    private SplitPane bottomSplit;
+
+    @FXML
+    private StackPane rightPanelPlaceholder;
+
     /**
      * Creates a {@code MainWindow} with the given {@code Stage} and {@code Logic}.
      */
@@ -68,8 +86,9 @@ public class MainWindow extends UiPart<Stage> {
 
         setAccelerators();
 
-        helpWindow = new HelpWindow();
-        viewWindow = new ViewWindow();
+        helpPanel = new HelpPanel();
+        viewPanel = new ViewPanel();
+        // TODO: trendPanel = new TrendPanel();
         trendWindow = new TrendWindow();
     }
 
@@ -126,6 +145,20 @@ public class MainWindow extends UiPart<Stage> {
 
         CommandBox commandBox = new CommandBox(this::executeCommand);
         commandBoxPlaceholder.getChildren().add(commandBox.getRoot());
+
+        //Default right-side content
+        showInRight(new Label("No information currently!"));
+
+        // Enforce 40-60 split after the first layout
+        Platform.runLater(() -> bottomSplit.setDividerPositions(0.4));
+    }
+
+    /**
+     * Displays the given node in the right-side panel.
+     * @param node to be displayed
+     */
+    private void showInRight(Region node) {
+        rightPanelPlaceholder.getChildren().setAll(node);
     }
 
     /**
@@ -141,15 +174,11 @@ public class MainWindow extends UiPart<Stage> {
     }
 
     /**
-     * Opens the help window or focuses on it if it's already opened.
+     * Displays the HelpPanel in the right-side panel.
      */
     @FXML
     public void handleHelp() {
-        if (!helpWindow.isShowing()) {
-            helpWindow.show();
-        } else {
-            helpWindow.focus();
-        }
+        showInRight(helpPanel.getRoot());
     }
 
     void show() {
@@ -164,7 +193,6 @@ public class MainWindow extends UiPart<Stage> {
         GuiSettings guiSettings = new GuiSettings(primaryStage.getWidth(), primaryStage.getHeight(),
                 (int) primaryStage.getX(), (int) primaryStage.getY());
         logic.setGuiSettings(guiSettings);
-        helpWindow.hide();
         primaryStage.hide();
     }
     /**
@@ -172,13 +200,10 @@ public class MainWindow extends UiPart<Stage> {
      */
     @FXML
     private void handleViewStudent(Student student) {
-        if (!viewWindow.isShowing()) {
-            viewWindow.setStudent(student);
-            viewWindow.fillInnerPart();
-            viewWindow.show();
-        } else {
-            viewWindow.focus();
-        }
+        //TODO: show view panel
+        viewPanel.setStudent(student);
+        viewPanel.fillInnerPart();
+        showInRight(viewPanel.getRoot());
     }
 
     /**
@@ -192,6 +217,7 @@ public class MainWindow extends UiPart<Stage> {
         } else {
             trendWindow.focus();
         }
+        // TODO: show trend panel
     }
 
     public StudentListPanel getStudentListPanel() {

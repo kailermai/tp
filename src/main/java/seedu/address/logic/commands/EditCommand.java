@@ -52,8 +52,8 @@ public class EditCommand extends Command {
             + PREFIX_PHONE + "91234567 "
             + PREFIX_EMAIL + "johndoe@example.com";
 
-    public static final String MESSAGE_HELP = "Edit student entry:\n"
-            + COMMAND_WORD + " INDEX "
+    public static final String MESSAGE_HELP_TITLE = "Edit student entry:";
+    public static final String MESSAGE_HELP_DESCRIPTION = COMMAND_WORD + " INDEX "
             + "[" + PREFIX_NAME + "NAME] "
             + "[" + PREFIX_STUDENT_NUMBER + "STUDENT_NUMBER] "
             + "[" + PREFIX_PHONE + "PHONE] "
