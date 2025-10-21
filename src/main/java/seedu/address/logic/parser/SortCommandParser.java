@@ -1,0 +1,41 @@
+package seedu.address.logic.parser;
+
+import seedu.address.logic.commands.SortCommand;
+import seedu.address.logic.parser.exceptions.ParseException;
+
+import static java.util.Objects.requireNonNull;
+import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_SORT_BY;
+
+/**
+ * Parses input arguments and creates a new SortCommand object
+ */
+public class SortCommandParser implements Parser<SortCommand> {
+
+    /**
+     * Parse the given {@code String} of arguments in the context of the {@code SortCommand}
+     *       and returns an {@code SortCommand} object for execution.
+     * @return {@code SortCommand}
+     * @throws ParseException if the user input does not conform to the expected format
+     */
+    public SortCommand parse(String args) throws ParseException {
+        requireNonNull(args);
+        ArgumentMultimap argumentMultimap = ArgumentTokenizer.tokenize(
+                args, PREFIX_SORT_BY);
+        if (!argumentMultimap.getValue(PREFIX_SORT_BY).isPresent()) {
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, SortCommand.MESSAGE_USAGE));
+        }
+        String sortType;
+        try {
+            sortType = ParserUtil.parseSortType(argumentMultimap.getValue(PREFIX_SORT_BY).get());
+        } catch (ParseException pe) {
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, SortCommand.MESSAGE_USAGE), pe);
+        }
+
+        if (sortType.equals("a")) {
+            return new SortCommand(true, false);
+        } else {
+            return new SortCommand(false, true);
+        }
+    }
+}

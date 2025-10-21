@@ -222,5 +222,14 @@ public class ParserUtil {
         return tagSet;
     }
 
+    public static String parseSortType(String type) throws ParseException {
+        requireNonNull(type);
+        String res = type.trim();
+        if (!res.equals("a") && !res.equals("p")) {
+            throw new ParseException("Invalid sorting type, valid types are 'a' and 'p'");
+        }
+        return res;
+    }
+
 
 }
