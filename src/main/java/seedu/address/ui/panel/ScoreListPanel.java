@@ -69,7 +69,9 @@ public class ScoreListPanel extends UiPart<Region> {
                 setGraphic(null);
                 setText(null);
             } else {
-                setGraphic(new ScoreCard(recordList, scoreType).getRoot());
+                Region scoreCardRoot = new ScoreCard(recordList, scoreType).getRoot();
+                scoreCardRoot.getStyleClass().add("scorecard");
+                setGraphic(scoreCardRoot);
             }
         }
     }
