@@ -66,7 +66,6 @@ public class HelpPanel extends UiPart<Region> {
             createCommandTitleAndDescription(SortCommand.MESSAGE_HELP_TITLE, SortCommand.MESSAGE_HELP_DESCRIPTION),
             createCommandTitleAndDescription(ViewCommand.MESSAGE_HELP_TITLE, ViewCommand.MESSAGE_HELP_DESCRIPTION),
             createCommandTitleAndDescription(TrendCommand.MESSAGE_HELP_TITLE, TrendCommand.MESSAGE_HELP_DESCRIPTION),
-            createCommandTitleAndDescription(SortCommand.MESSAGE_HELP_TITLE, SortCommand.MESSAGE_HELP_DESCRIPTION),
             createFooter("\n" + USERGUIDE_TEXT)
         );
     }
