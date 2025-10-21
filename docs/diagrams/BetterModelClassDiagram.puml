@@ -4,6 +4,8 @@ skinparam arrowThickness 1.1
 skinparam arrowColor MODEL_COLOR
 skinparam classBackgroundColor MODEL_COLOR
 
+abstract class Score
+
 AddressBook *-right-> "1" UniquePersonList
 AddressBook *-right-> "1" UniqueTagList
 UniqueTagList -[hidden]down- UniquePersonList
@@ -18,4 +20,14 @@ Person *--> Name
 Person *--> Phone
 Person *--> Email
 Person *--> Address
+Person *--> RecordList
+
+Score <|-up- AttendanceScore
+Score <|-up- ParticipationScore
+Score <|-up- SubmissionScore
+Record *--> "1" AttendanceScore
+Record *--> "1" SubmissionScore
+Record *--> "1" ParticipationScore
+
+RecordList --> "0..13" Record
 @enduml
