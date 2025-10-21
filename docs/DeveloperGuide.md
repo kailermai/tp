@@ -508,8 +508,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 2a1. TAHub displays an error message.
       <br>Use case ends.
 * 3a. TA decides to scrape record entirely.
-  * 3a1. TA requests to <u>delete student record UC11</u>.
-    <br>Use case ends.
+    * 3a1. TA requests to <u>delete student record UC11</u>.
+      <br>Use case ends.
 
 <br>
 **Use case: UC11 Delete student record**
