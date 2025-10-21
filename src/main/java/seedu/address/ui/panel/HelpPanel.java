@@ -17,6 +17,7 @@ import seedu.address.logic.commands.FindCommand;
 import seedu.address.logic.commands.HelpCommand;
 import seedu.address.logic.commands.ListCommand;
 import seedu.address.logic.commands.RecordCommand;
+import seedu.address.logic.commands.SortCommand;
 import seedu.address.logic.commands.TrendCommand;
 import seedu.address.logic.commands.ViewCommand;
 import seedu.address.ui.UiPart;
@@ -62,6 +63,7 @@ public class HelpPanel extends UiPart<Region> {
                     RecordCommand.MESSAGE_HELP_REMOVE_RECORD_DESCRIPTION),
             createCommandTitleAndDescription(ClearCommand.MESSAGE_HELP_TITLE, ClearCommand.MESSAGE_HELP_DESCRIPTION),
             createCommandTitleAndDescription(ExitCommand.MESSAGE_HELP_TITLE, ExitCommand.MESSAGE_HELP_DESCRIPTION),
+            createCommandTitleAndDescription(SortCommand.MESSAGE_HELP_TITLE, SortCommand.MESSAGE_HELP_DESCRIPTION),
             createCommandTitleAndDescription(ViewCommand.MESSAGE_HELP_TITLE, ViewCommand.MESSAGE_HELP_DESCRIPTION),
             createCommandTitleAndDescription(TrendCommand.MESSAGE_HELP_TITLE, TrendCommand.MESSAGE_HELP_DESCRIPTION),
             createFooter("\n" + USERGUIDE_TEXT)
