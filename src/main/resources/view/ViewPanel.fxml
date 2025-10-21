@@ -15,7 +15,7 @@
             vbarPolicy="AS_NEEDED">
     <stylesheets>
         <URL value="@DarkTheme.css" />
-        <URL value="@ViewWindow.css" />
+        <URL value="@ViewPanel.css" />
     </stylesheets>
     <content>
         <VBox>
