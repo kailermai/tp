@@ -1,10 +1,11 @@
 package seedu.address.logic.commands;
 
-import seedu.address.model.Model;
-
 import static seedu.address.logic.parser.CliSyntax.PREFIX_SORT_ATTENDANCE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_SORT_BY;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_SORT_PARTICIPATION;
+
+import seedu.address.model.Model;
+
 
 /**
  * Sorts all students in TAHub based on their attendance or participation scores
@@ -39,11 +40,11 @@ public class SortCommand extends Command {
         this.byParticipation = byParticipation;
     }
 
-    public static SortCommand SortCommandAttendance() {
+    public static SortCommand sortCommandAttendance() {
         return new SortCommand(true, false);
     }
 
-    public static SortCommand SortCommandParticipation() {
+    public static SortCommand sortCommandParticipation() {
         return new SortCommand(false, true);
     }
 

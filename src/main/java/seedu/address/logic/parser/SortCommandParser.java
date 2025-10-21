@@ -35,9 +35,9 @@ public class SortCommandParser implements Parser<SortCommand> {
         }
 
         if (sortType.equals(PREFIX_SORT_ATTENDANCE.toString())) {
-            return SortCommand.SortCommandAttendance();
+            return SortCommand.sortCommandAttendance();
         } else {
-            return SortCommand.SortCommandParticipation();
+            return SortCommand.sortCommandParticipation();
         }
     }
 }
