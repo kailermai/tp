@@ -22,10 +22,7 @@ public class ViewCommand extends Command {
             + "INDEX (must be a positive integer) \n"
             + "Example: " + COMMAND_WORD + " 1 ";
 
-    public static final String MESSAGE_HELP = "Shows a student's performance over weeks:\n"
-            + COMMAND_WORD + " INDEX";
-
-    public static final String MESSAGE_HELP_TITLE = "Shows a student's performance over weeks:";
+    public static final String MESSAGE_HELP_TITLE = "Shows/Displays a student's records over the semester:";
     public static final String MESSAGE_HELP_DESCRIPTION = COMMAND_WORD + " INDEX";
 
     public static final String MESSAGE_VIEW_STUDENT_SUCCESS = "Showing records for student: %1$s";
