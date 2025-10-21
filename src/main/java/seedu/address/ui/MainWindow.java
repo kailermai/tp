@@ -22,6 +22,8 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.student.Student;
 import seedu.address.ui.panel.HelpPanel;
+import seedu.address.ui.panel.StudentListPanel;
+import seedu.address.ui.panel.ViewPanel;
 
 /**
  * The Main Window. Provides the basic application layout containing
@@ -40,13 +42,13 @@ public class MainWindow extends UiPart<Stage> {
     private StudentListPanel studentListPanel;
     private ResultDisplay resultDisplay;
     private HelpWindow helpWindow;
-    private ViewWindow viewWindow;
     private TrendWindow trendWindow;
 
     // Embedded right-side panels
     private HelpPanel helpPanel;
     // TODO: private TrendPanel trendPanel;
     // TODO: private ViewPanel viewPanel;
+    private ViewPanel viewPanel;
 
     @FXML
     private StackPane commandBoxPlaceholder;
@@ -85,9 +87,8 @@ public class MainWindow extends UiPart<Stage> {
         setAccelerators();
 
         helpPanel = new HelpPanel();
+        viewPanel = new ViewPanel();
         // TODO: trendPanel = new TrendPanel();
-        // TODO: viewPanel = new ViewPanel();
-        viewWindow = new ViewWindow();
         trendWindow = new TrendWindow();
     }
 
@@ -199,14 +200,10 @@ public class MainWindow extends UiPart<Stage> {
      */
     @FXML
     private void handleViewStudent(Student student) {
-        if (!viewWindow.isShowing()) {
-            viewWindow.setStudent(student);
-            viewWindow.fillInnerPart();
-            viewWindow.show();
-        } else {
-            viewWindow.focus();
-        }
         //TODO: show view panel
+        viewPanel.setStudent(student);
+        viewPanel.fillInnerPart();
+        showInRight(viewPanel.getRoot());
     }
 
     /**
