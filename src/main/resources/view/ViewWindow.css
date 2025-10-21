@@ -5,3 +5,7 @@
 .studentReportContainer {
     -fx-background-color: derive(#1d1d1d, 20%);
 }
+
+.scorecard {
+    -fx-padding: 12px 0 0 4px;
+}

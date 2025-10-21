@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.HBox?>
+
+<?import javafx.geometry.Insets?>
+<?import java.net.URL?>
+<ScrollPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:id="viewScrollPane"
+            fitToWidth="true"
+            hbarPolicy="NEVER"
+            vbarPolicy="AS_NEEDED">
+    <stylesheets>
+        <URL value="@DarkTheme.css" />
+        <URL value="@ViewWindow.css" />
+    </stylesheets>
+    <content>
+        <VBox>
+            <StackPane fx:id="studentCardPlaceholder"
+                       styleClass="pane-with-border" VBox.vgrow="NEVER">
+                <padding>
+                    <Insets bottom="5" left="10" right="10" top="5" />
+                </padding>
+            </StackPane>
+            <HBox fx:id="studentReportContainer" alignment="TOP_CENTER" VBox.vgrow="ALWAYS">
+                <children>
+                    <!-- Placeholder for score list panel -->
+                    <StackPane fx:id="scoreListPanelPlaceholder" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS" />
+                </children>
+            </HBox>
+        </VBox>
+    </content>
+</ScrollPane>
