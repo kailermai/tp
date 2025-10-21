@@ -492,7 +492,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **Use case: UC10 Edit student record**
 
 **Preconditions:** 
-* The TA has already added the student to the class. T
+* The TA has already added the student to the class.
 * The student has an existing record for the specified week.
 
 **Guarantees:** The record in the specified week is updated for the correct student in the class.
