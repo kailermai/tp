@@ -169,7 +169,7 @@ Removes a record on a particular week for a specific student.
 Format: `record INDEX week/WEEK_NUMBER`
 
 - Removes the record on the specified `WEEK_NUMBER` for the student at the specified `INDEX`.
-- The `INDEX` and `WEEK_NUMBER` parameters have the same constraints as [adding a record](#adding-a-student-record-record).
+- The `INDEX` and `WEEK_NUMBER` parameters have the same constraints as [adding a record](#addingediting-a-student-record-record).
 - All of `ATTENDANCE_SCORE`, `SUBMISSION_SCORE` and `PARTICIPATION_SCORE` are not required and should not be specified.
 
 Examples:
