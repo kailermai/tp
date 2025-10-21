@@ -13,9 +13,7 @@
             fx:id="viewScrollPane"
             fitToWidth="true"
             hbarPolicy="NEVER"
-            vbarPolicy="AS_NEEDED"
-            prefWidth="400.0"
-            prefHeight="300.0">
+            vbarPolicy="AS_NEEDED">
     <stylesheets>
         <URL value="@DarkTheme.css" />
         <URL value="@Extensions.css" />
