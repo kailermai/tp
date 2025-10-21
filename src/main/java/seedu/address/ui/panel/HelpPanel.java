@@ -1,4 +1,4 @@
-package seedu.address.ui;
+package seedu.address.ui.panel;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -19,6 +19,7 @@ import seedu.address.logic.commands.ListCommand;
 import seedu.address.logic.commands.RecordCommand;
 import seedu.address.logic.commands.TrendCommand;
 import seedu.address.logic.commands.ViewCommand;
+import seedu.address.ui.UiPart;
 
 /**
  * Controller for a help page
