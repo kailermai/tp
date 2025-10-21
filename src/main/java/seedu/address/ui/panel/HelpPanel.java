@@ -63,6 +63,7 @@ public class HelpPanel extends UiPart<Region> {
                     RecordCommand.MESSAGE_HELP_REMOVE_RECORD_DESCRIPTION),
             createCommandTitleAndDescription(ClearCommand.MESSAGE_HELP_TITLE, ClearCommand.MESSAGE_HELP_DESCRIPTION),
             createCommandTitleAndDescription(ExitCommand.MESSAGE_HELP_TITLE, ExitCommand.MESSAGE_HELP_DESCRIPTION),
+            createCommandTitleAndDescription(SortCommand.MESSAGE_HELP_TITLE, SortCommand.MESSAGE_HELP_DESCRIPTION),
             createCommandTitleAndDescription(ViewCommand.MESSAGE_HELP_TITLE, ViewCommand.MESSAGE_HELP_DESCRIPTION),
             createCommandTitleAndDescription(TrendCommand.MESSAGE_HELP_TITLE, TrendCommand.MESSAGE_HELP_DESCRIPTION),
             createCommandTitleAndDescription(SortCommand.MESSAGE_HELP_TITLE, SortCommand.MESSAGE_HELP_DESCRIPTION),
