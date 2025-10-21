@@ -16,4 +16,9 @@ public class CliSyntax {
     public static final Prefix PREFIX_SUBMISSION_SCORE = new Prefix("sub/");
     public static final Prefix PREFIX_STUDENT_NUMBER = new Prefix("sn/");
     public static final Prefix PREFIX_TELEGRAM = new Prefix("tele/");
+    public static final Prefix PREFIX_SORT_BY = new Prefix("/");
+    public static final Prefix PREFIX_SORT_ATTENDANCE = new Prefix("a");
+    public static final Prefix PREFIX_SORT_PARTICIPATION = new Prefix("p");
+
+
 }

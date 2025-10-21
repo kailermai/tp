@@ -179,6 +179,13 @@ Displays the trend overview of records for all students.
 
 Format: `trend`
 
+### Sort students: `sort`
+
+Sort students base on their attendance score or participation score
+
+Format: Sort by attendance score: `Sort /a` 
+        Sort by participation score: `Sort /p`
+
 ### Clearing all entries : `clear`
 
 Clears all entries from TAHub.
