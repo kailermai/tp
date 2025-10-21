@@ -10,12 +10,10 @@ import java.util.Objects;
 import java.util.function.Predicate;
 import java.util.logging.Logger;
 
-
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
-import seedu.address.model.record.Record;
 import seedu.address.model.student.Student;
 
 /**

@@ -8,8 +8,9 @@ import seedu.address.model.Model;
 public class SortCommand extends Command {
     public static final String COMMAND_WORD = "sort";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Sort all students base on attendance or participation.\n"
-            + "Example: " + COMMAND_WORD + " /a , " +  COMMAND_WORD + " /p";
+    public static final String MESSAGE_USAGE = COMMAND_WORD
+            + ": Sort all students base on attendance or participation.\n"
+            + "Example: " + COMMAND_WORD + " /a , " + COMMAND_WORD + " /p";
 
     public static final String MESSAGE_HELP = "Sort all students base on attendance or participation:\n"
             + COMMAND_WORD;

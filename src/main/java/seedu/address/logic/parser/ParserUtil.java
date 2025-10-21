@@ -222,6 +222,9 @@ public class ParserUtil {
         return tagSet;
     }
 
+    /**
+     *Parses {@code String type} into a {@code String}.
+     */
     public static String parseSortType(String type) throws ParseException {
         requireNonNull(type);
         String res = type.trim();
