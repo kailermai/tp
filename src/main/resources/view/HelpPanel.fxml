@@ -13,7 +13,6 @@
             fitToWidth="true"
             hbarPolicy="NEVER"
             vbarPolicy="AS_NEEDED"
-            minWidth="0.0"
             prefWidth="400.0"
             prefHeight="300.0"
             stylesheets="@HelpPanel.css">
