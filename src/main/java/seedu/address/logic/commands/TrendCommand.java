@@ -22,10 +22,4 @@ public class TrendCommand extends Command {
     public CommandResult execute(Model model) throws CommandException {
         return new CommandResult(MESSAGE_SUCCESS, true);
     }
-
-    @Override
-    public boolean equals(Object other) {
-        return other instanceof TrendCommand;
-    }
-
 }
