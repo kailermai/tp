@@ -142,7 +142,7 @@ Examples:
 * `list` followed by `delete 2` deletes the 2nd student in TAHub.
 * `find Betsy` followed by `delete 1` deletes the 1st student in the results of the `find` command.
 
-### Adding a student record: `record`
+### Adding/Editing a student record: `record`
 Creates or updates the weekly record for a specific student.
 
 Format: `record INDEX week/WEEK_NUMBER att/ATTENDANCE_SCORE sub/SUBMISSION_SCORE part/PARTICIPATION_SCORE`
@@ -162,6 +162,19 @@ Running the command again for the same WEEK_NUMBER overwrites that week’s reco
 Examples:
 * `record 1 week/1 att/1 sub/0 part/4`
 * `record 2 week/5 att/0 sub/1 part/5`
+
+### Removing a student record: `record`
+Removes a record on a particular week for a specific student.
+
+Format: `record INDEX week/WEEK_NUMBER`
+
+- Removes the record on the specified `WEEK_NUMBER` for the student at the specified `INDEX`.
+- The `INDEX` and `WEEK_NUMBER` parameters have the same constraints as [adding a record](#adding-a-student-record-record).
+- All of `ATTENDANCE_SCORE`, `SUBMISSION_SCORE` and `PARTICIPATION_SCORE` are not required and should not be specified.
+
+Examples:
+* `record 1 week/1`
+* `record 2 week/5`
 
 ### View student record: `view`
 
@@ -232,7 +245,8 @@ Action | Format, Examples
 **Clear** | `clear`
 **Delete** | `delete INDEX`<br> e.g., `delete 3`
 **Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [sn/STUDENT_NUMBER] [tele/TELEGRAM] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
-**Record** | `record INDEX week/WEEK_NUMBER att/ATTENDANCE_SCORE sub/SUBMISSION_SCORE part/PARTICIPATION_SCORE`<br> e.g., `record 1 att/1 sub/0 part/4`
+**Record** (Add/Edit)| `record INDEX week/WEEK_NUMBER att/ATTENDANCE_SCORE sub/SUBMISSION_SCORE part/PARTICIPATION_SCORE`<br> e.g., `record 1 week/1 att/1 sub/0 part/4`
+**Record** (Remove)| `record INDEX week/WEEK_NUMBER` <br> e.g., `record 1 week/1`
 **Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
 **List** | `list`
 **View** | `view INDEX`<br> e.g., `view 2`
