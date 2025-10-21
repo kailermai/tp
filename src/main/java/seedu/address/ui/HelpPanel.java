@@ -67,6 +67,11 @@ public class HelpPanel extends UiPart<Region> {
         );
     }
 
+    /**
+     * Creates a header label.
+     * @param text The text to be displayed in the header.
+     * @return A Label object containing the header text.
+     */
     private Label createHeader(String text) {
         Label header = new Label(text);
         header.getStyleClass().add("help-header");
@@ -74,9 +79,14 @@ public class HelpPanel extends UiPart<Region> {
         return header;
     }
 
+    /**
+     * Creates a command title and description block.
+     * @param title The title of the command.
+     * @param description The description of the command.
+     * @return A VBox object containing the command title and description.
+     */
     private VBox createCommandTitleAndDescription(String title, String description) {
         Label titleLabel = createCommandTitle(title);
-
         Label descriptionLabel = createCommandDescription(description);
 
         VBox command = new VBox(2, titleLabel, descriptionLabel);
@@ -84,6 +94,11 @@ public class HelpPanel extends UiPart<Region> {
         return command;
     }
 
+    /**
+     * Creates a command title label.
+     * @param text The text to be displayed in the title.
+     * @return A Label object containing the command title.
+     */
     private Label createCommandTitle(String text) {
         Label command = new Label(text);
         command.getStyleClass().add("help-command-title");
@@ -91,6 +106,11 @@ public class HelpPanel extends UiPart<Region> {
         return command;
     }
 
+    /**
+     * Creates a command description label.
+     * @param text The text to be displayed in the description.
+     * @return A Label object containing the command description.
+     */
     private Label createCommandDescription(String text) {
         Label command = new Label(text);
         command.getStyleClass().add("help-command-description");
@@ -98,6 +118,11 @@ public class HelpPanel extends UiPart<Region> {
         return command;
     }
 
+    /**
+     * Creates a footer label.
+     * @param text The text to be displayed in the footer.
+     * @return A Label object containing the footer text.
+     */
     private Label createFooter(String text) {
         Label footer = new Label(text);
         footer.getStyleClass().add("help-footer");
