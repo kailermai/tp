@@ -2,10 +2,17 @@
     -fx-text-fill: white;
 }
 
-.studentReportContainer {
-    -fx-background-color: derive(#1d1d1d, 20%);
+.scorecard {
+    -fx-padding: 20px 0 0 4px;
 }
 
-.scorecard {
-    -fx-padding: 12px 0 0 4px;
+/* Make the right panel use the same background as the surrounding SplitPane */
+.scroll-pane {
+    -fx-background-color: transparent;    /* area around the viewport */
+}
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;    /* actual content area */
+}
+.scroll-pane .corner {
+    -fx-background-color: transparent;    /* corner when scrollbars meet */
 }
