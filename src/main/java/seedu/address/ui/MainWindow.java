@@ -22,6 +22,8 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.student.Student;
 import seedu.address.ui.panel.HelpPanel;
+import seedu.address.ui.panel.StudentListPanel;
+import seedu.address.ui.panel.ViewPanel;
 
 /**
  * The Main Window. Provides the basic application layout containing

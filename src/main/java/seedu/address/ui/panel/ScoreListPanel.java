@@ -1,4 +1,4 @@
-package seedu.address.ui;
+package seedu.address.ui.panel;
 
 import java.util.logging.Logger;
 
@@ -12,6 +12,8 @@ import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.record.ScoreType;
 import seedu.address.model.recordlist.RecordList;
 import seedu.address.model.student.Student;
+import seedu.address.ui.ScoreCard;
+import seedu.address.ui.UiPart;
 
 
 /**
