@@ -46,6 +46,7 @@ public class MainWindow extends UiPart<Stage> {
     private HelpPanel helpPanel;
     // TODO: private TrendPanel trendPanel;
     // TODO: private ViewPanel viewPanel;
+    private ViewPanel viewPanel;
 
     @FXML
     private StackPane commandBoxPlaceholder;
@@ -84,9 +85,8 @@ public class MainWindow extends UiPart<Stage> {
         setAccelerators();
 
         helpPanel = new HelpPanel();
+        viewPanel = new ViewPanel();
         // TODO: trendPanel = new TrendPanel();
-        // TODO: viewPanel = new ViewPanel();
-        viewWindow = new ViewWindow();
         trendWindow = new TrendWindow();
     }
 
@@ -198,14 +198,10 @@ public class MainWindow extends UiPart<Stage> {
      */
     @FXML
     private void handleViewStudent(Student student) {
-        if (!viewWindow.isShowing()) {
-            viewWindow.setStudent(student);
-            viewWindow.fillInnerPart();
-            viewWindow.show();
-        } else {
-            viewWindow.focus();
-        }
         //TODO: show view panel
+        viewPanel.setStudent(student);
+        viewPanel.fillInnerPart();
+        showInRight(viewPanel.getRoot());
     }
 
     /**
