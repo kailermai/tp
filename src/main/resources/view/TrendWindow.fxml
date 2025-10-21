@@ -18,7 +18,7 @@
             <stylesheets>
                 <URL value="@DarkTheme.css" />
                 <URL value="@Extensions.css" />
-                <URL value="@ViewWindow.css" />
+                <URL value="@ViewPanel.css" />
             </stylesheets>
             <VBox>
                 <HBox fx:id="trendContainer" alignment="TOP_CENTER" VBox.vgrow="ALWAYS">
