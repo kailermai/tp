@@ -469,25 +469,72 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **Preconditions:** The TA has already added the student to the class.
 
-**Guarantees:** The record is updated for the correct student in the class.
+**Guarantees:** The record in the specified week is created for the correct student in the class.
 
 **MSS**
 1. TA <u>list entries UC03</u>.
 2. TA requests to add a student record.
-3. TAHub adds the record. 
-4. TAHub displays a success message. 
+3. TAHub adds the record and displays a success message. 
 <br>Use case ends.
 
 **Extensions**
 * 2a. TAHub detects an error in the entered command.
     * 2a1. TAHub displays an error message.
     <br>Use case ends.
-* 2b. Student record already exists.
-    * 2b1. TAHub overwrites the existing record.
-    <br>Use case resumes from step 4.
+* 3a. TA realizes that he made an error in the added record.
+    * 3a1. TA requests to <u>edit student record UC10</u>.
+      <br>Use case ends.
+* 3b. TA decides to scrape record entirely.
+    * 3b1. TA requests to <u>delete student record UC11</u>.
+      <br>Use case ends.
 
 <br>
-**Use case: UC10 Generate individual student record report**
+**Use case: UC10 Edit student record**
+
+**Preconditions:** 
+* The TA has already added the student to the class. T
+* The student has an existing record for the specified week.
+
+**Guarantees:** The record in the specified week is updated for the correct student in the class.
+
+**MSS**
+1. TA <u>list entries UC03</u>.
+2. TA requests to edit a student record.
+3. TAHub updates the record and displays a success message.
+   <br>Use case ends.
+
+**Extensions**
+* 2a. TAHub detects an error in the entered command.
+    * 2a1. TAHub displays an error message.
+      <br>Use case ends.
+* 3a. TA decides to scrape record entirely.
+  * 3a1. TA requests to <u>delete student record UC11</u>.
+    <br>Use case ends.
+
+<br>
+**Use case: UC11 Delete student record**
+
+**Preconditions:**
+* The TA has already added the student to the class. T
+
+**Guarantees:** The record in the specified week is deleted for the correct student in the class.
+
+**MSS**
+1. TA <u>list entries UC03</u>.
+2. TA requests to delete a student record.
+3. TAHub deletes the record and displays a success message.
+   <br>Use case ends.
+
+**Extensions**
+* 2a. TAHub detects an error in the entered command.
+    * 2a1. TAHub displays an error message.
+      <br>Use case ends.
+* 2b. The student has no existing record in the specified week.
+    * 2b1. TAHub displays an error message.
+      <br>Use case ends.
+
+<br>
+**Use case: UC12 Generate individual student record report**
 
 **Preconditions:** The TA has already added the student into the class.
 
@@ -508,7 +555,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
       <br>Use case ends.
 
 <br>
-**Use case: UC11 Generate class record report**
+**Use case: UC13 Generate class record report**
 
 **Preconditions:** The TA has students with existing records in the class.
 
