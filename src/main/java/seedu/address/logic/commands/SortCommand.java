@@ -15,12 +15,16 @@ public class SortCommand extends Command {
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Sort all students based on attendance or participation.\n"
-            + "Parameters: /a for attendance or /p for participation\n"
+            + "Parameters: " + PREFIX_SORT_BY + PREFIX_SORT_ATTENDANCE
+            + " for attendance or "+ PREFIX_SORT_BY + PREFIX_SORT_PARTICIPATION
+            + " for participation\n"
             + "Example: " + COMMAND_WORD + " " + PREFIX_SORT_BY + PREFIX_SORT_ATTENDANCE
             + " " + COMMAND_WORD + " " + PREFIX_SORT_BY + PREFIX_SORT_PARTICIPATION;
 
-    public static final String MESSAGE_HELP = "Sort all students based on attendance or participation:\n"
-            + COMMAND_WORD;
+    public static final String MESSAGE_HELP_TITLE = "Sort all students based on attendance or participation.\n";
+
+    public static final String MESSAGE_HELP_DESCRIPTION = COMMAND_WORD + " /a for attendance or "
+            + COMMAND_WORD + " /p for participation";
 
     public static final String MESSAGE_SUCCESS_ATTENDANCE = "Sorted all students based on attendance";
 
