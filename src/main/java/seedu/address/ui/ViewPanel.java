@@ -15,7 +15,7 @@ import seedu.address.model.student.Student;
 public class ViewPanel extends UiPart<Region> {
     private static final String FXML = "ViewPanel.fxml";
 
-    private static final Logger logger = LogsCenter.getLogger(ViewWindow.class);
+    private static final Logger logger = LogsCenter.getLogger(ViewPanel.class);
     private static final double HEIGHT = 500;
     private static final double WIDTH = 400;
 

@@ -39,7 +39,6 @@ public class MainWindow extends UiPart<Stage> {
     private StudentListPanel studentListPanel;
     private ResultDisplay resultDisplay;
     private HelpWindow helpWindow;
-    private ViewWindow viewWindow;
     private TrendWindow trendWindow;
 
     // Embedded right-side panels
