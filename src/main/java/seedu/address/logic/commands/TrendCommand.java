@@ -16,7 +16,7 @@ public class TrendCommand extends Command {
     public static final String MESSAGE_HELP_TITLE = "Shows the trend of the entire class:";
     public static final String MESSAGE_HELP_DESCRIPTION = COMMAND_WORD;
 
-    public static final String MESSAGE_SUCCESS = "Opened trend window";
+    public static final String MESSAGE_SUCCESS = "Opened trend window.";
 
     @Override
     public CommandResult execute(Model model) throws CommandException {
