@@ -19,7 +19,14 @@
             <HBox spacing="0.5" alignment="CENTER_LEFT">
                 <Label fx:id="studentName" styleClass="cell_big_label" />
             </HBox>
-            <Label fx:id="trend" styleClass="cell_small_label" />
+            <HBox spacing="5" alignment="CENTER_LEFT">
+                <Label text="Attendance:" styleClass="cell_small_label" />
+                <Label fx:id="attendanceLabel" styleClass="cell_small_label" />
+                <Label text=" Average participation:" styleClass="cell_small_label" />
+                <Label fx:id="participationLabel" styleClass="cell_small_label" />
+                <Label text=" Submission:" styleClass="cell_small_label" />
+                <Label fx:id="submissionLabel" styleClass="cell_small_label" />
+            </HBox>
         </VBox>
     </GridPane>
 </HBox>

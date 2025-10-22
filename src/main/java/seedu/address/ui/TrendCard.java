@@ -15,13 +15,24 @@ import seedu.address.model.student.Student;
  */
 public class TrendCard extends UiPart<Region> {
     private static final String FXML = "TrendCard.fxml";
+    private static final double SCORE_THRESHOLD_LOW = 0.5;
+    private static final double SCORE_THRESHOLD_MEDIUM = 0.8;
+    private static final String COLOR_SCORE_HIGH = "#00e676";
+    private static final String COLOR_SCORE_MEDIUM = "#fbc531";
+    private static final String COLOR_SCORE_LOW = "#ff6b6b";
     private final RecordList recordList;
+
     @FXML
     private HBox cardPane;
     @FXML
     private Label studentName;
     @FXML
-    private Label trend;
+    private Label attendanceLabel;
+    @FXML
+    private Label participationLabel;
+    @FXML
+    private Label submissionLabel;
+
 
     /**
      * Creates a {@code TrendCard} with the given {@code student} to display.
@@ -30,10 +41,10 @@ public class TrendCard extends UiPart<Region> {
         super(FXML);
         recordList = student.getRecordList();
         studentName.setText(student.getName().toString());
-        trend.setText(getOverallRecord(student));
+        setOverallRecord(student);
     }
 
-    private String getOverallRecord(Student student) {
+    private void setOverallRecord(Student student) {
         int totalNumberOfScores = 0;
         int attendanceTotal = 0;
         double participationTotal = 0;
@@ -53,8 +64,29 @@ public class TrendCard extends UiPart<Region> {
 
         double participationAverage = totalNumberOfScores == 0 ? 0 : participationTotal / totalNumberOfScores;
 
-        return "Attendance: " + attendanceTotal + "/" + totalNumberOfScores + " | Average participation: "
-                + String.format("%.2f", participationAverage) + "/5 | Submission: " + submissionTotal + "/"
-                + totalNumberOfScores;
+        // Set text
+        attendanceLabel.setText(attendanceTotal + "/" + totalNumberOfScores);
+        participationLabel.setText(String.format("%.2f/5", participationAverage));
+        submissionLabel.setText(submissionTotal + "/" + totalNumberOfScores);
+
+        // Apply color based on percentage
+        setColorByPercentage(attendanceLabel, attendanceTotal, totalNumberOfScores);
+        setColorByPercentage(participationLabel, participationAverage, 5.0);
+        setColorByPercentage(submissionLabel, submissionTotal, totalNumberOfScores);
+    }
+
+    private void setColorByPercentage(Label label, double score, double total) {
+        double percent = (total == 0) ? 0 : score / total;
+
+        String color;
+        if (percent < SCORE_THRESHOLD_LOW) {
+            color = COLOR_SCORE_LOW;
+        } else if (percent < SCORE_THRESHOLD_MEDIUM) {
+            color = COLOR_SCORE_MEDIUM;
+        } else {
+            color = COLOR_SCORE_HIGH;
+        }
+
+        label.setStyle("-fx-text-fill: " + color + ";");
     }
 }
