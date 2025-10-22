@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.ScrollPane?>
+
+<ScrollPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:id="helpScrollPane"
+            fitToWidth="true"
+            hbarPolicy="NEVER"
+            vbarPolicy="AS_NEEDED"
+            stylesheets="@HelpPanel.css">
+        <stylesheets>
+            <URL value="@DarkTheme.css" />
+            <URL value="@ViewPanel.css" />
+        </stylesheets>
+        <content>
+            <VBox>
+                <HBox fx:id="trendContainer" alignment="TOP_CENTER" VBox.vgrow="ALWAYS">
+                    <children>
+                        <StackPane fx:id="trendListPanelPlaceholder" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS" />
+                    </children>
+                </HBox>
+            </VBox>
+        </content>
+</ScrollPane>
