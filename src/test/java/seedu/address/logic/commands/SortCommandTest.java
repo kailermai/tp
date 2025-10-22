@@ -2,10 +2,12 @@ package seedu.address.logic.commands;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.testutil.TypicalStudents.getTypicalAddressBook;
 
 import org.junit.jupiter.api.Test;
 
+import seedu.address.model.AddressBook;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
@@ -38,24 +40,18 @@ public class SortCommandTest {
     public void execute_sortByAttendance_returnsAttendanceMessage() {
 
         SortCommand cmd = SortCommand.sortCommandAttendance();
-        CommandResult result = cmd.execute(model);
 
-        // Verify user feedback
-        String feedback = result.getFeedbackToUser();
-        assertEquals(true, feedback != null && feedback.endsWith("attendance"),
-                "Expected feedback to end with 'attendance', but was: " + feedback);
+        Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
+        assertCommandSuccess(cmd, model, SortCommand.MESSAGE_SUCCESS_ATTENDANCE, expectedModel);
     }
 
     @Test
     public void execute_sortByParticipation_returnsParticipationMessage() {
 
         SortCommand cmd = SortCommand.sortCommandParticipation();
-        CommandResult result = cmd.execute(model);
 
-        // Verify user feedback
-        String feedback = result.getFeedbackToUser();
-        assertEquals(true, feedback != null && feedback.endsWith("participation"),
-                "Expected feedback to end with 'participation', but was: " + feedback);
+        Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
+        assertCommandSuccess(cmd, model, SortCommand.MESSAGE_SUCCESS_PARTICIPATION, expectedModel);
     }
 
 
