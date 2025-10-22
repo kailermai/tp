@@ -62,4 +62,17 @@ public class SortCommand extends Command {
             return new CommandResult(MESSAGE_SUCCESS_PARTICIPATION + "participation");
         }
     }
+
+    @Override
+    public boolean equals(Object other) {
+        if (other == this) {
+            return true;
+        }
+        if (!(other instanceof SortCommand)) {
+            return false;
+        }
+        SortCommand otherCommand = (SortCommand) other;
+        return this.byAttendance == otherCommand.byAttendance &&
+                this.byParticipation == otherCommand.byParticipation;
+    }
 }
