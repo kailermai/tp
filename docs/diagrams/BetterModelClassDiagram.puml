@@ -12,22 +12,22 @@ Class "Record" {
 
 show "Record" attributes
 
-AddressBook *-right-> "1" UniquePersonList
+AddressBook *-right-> "1" UniqueStudentList
 AddressBook *-right-> "1" UniqueTagList
-UniqueTagList -[hidden]down- UniquePersonList
-UniqueTagList -[hidden]down- UniquePersonList
+UniqueTagList -[hidden]down- UniqueStudentList
+UniqueTagList -[hidden]down- UniqueStudentList
 
 UniqueTagList -right-> "*" Tag
-UniquePersonList -right-> Person
+UniqueStudentList -right-> Student
 
-Person -up-> "*" Tag
+Student -up-> "*" Tag
 
-Person *--> Name
-Person *--> StudentNumber
-Person *--> Phone
-Person *--> Email
-Person *--> Telegram
-Person *--> RecordList
+Student *--> Name
+Student *--> StudentNumber
+Student *--> Phone
+Student *--> Email
+Student *--> Telegram
+Student *--> RecordList
 
 RecordList --> "0..13" "Record"
 @enduml
