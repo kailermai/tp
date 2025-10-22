@@ -41,13 +41,11 @@ public class MainWindow extends UiPart<Stage> {
     // Independent Ui parts residing in this Ui container
     private StudentListPanel studentListPanel;
     private ResultDisplay resultDisplay;
-    private HelpWindow helpWindow;
     private TrendWindow trendWindow;
 
     // Embedded right-side panels
     private HelpPanel helpPanel;
     // TODO: private TrendPanel trendPanel;
-    // TODO: private ViewPanel viewPanel;
     private ViewPanel viewPanel;
 
     @FXML
