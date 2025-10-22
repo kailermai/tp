@@ -42,6 +42,7 @@ public class SortCommandTest {
         SortCommand cmd = SortCommand.sortCommandAttendance();
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
+        expectedModel.sortStudentByAttendance();
         assertCommandSuccess(cmd, model, SortCommand.MESSAGE_SUCCESS_ATTENDANCE, expectedModel);
     }
 
@@ -51,6 +52,7 @@ public class SortCommandTest {
         SortCommand cmd = SortCommand.sortCommandParticipation();
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
+        expectedModel.sortStudentByParticipation();
         assertCommandSuccess(cmd, model, SortCommand.MESSAGE_SUCCESS_PARTICIPATION, expectedModel);
     }
 
