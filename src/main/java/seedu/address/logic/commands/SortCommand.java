@@ -74,7 +74,7 @@ public class SortCommand extends Command {
         } else if (byParticipation) {
             model.sortStudentByParticipation();
             return new CommandResult(MESSAGE_SUCCESS_PARTICIPATION);
-        } else  {
+        } else {
             model.sortStudentBySubmission();
             return new CommandResult(MESSAGE_SUCCESS_SUBMISSION);
         }
