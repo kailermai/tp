@@ -20,6 +20,7 @@ public class TrendCommand extends Command {
 
     @Override
     public CommandResult execute(Model model) throws CommandException {
+        assert model != null : "Model cannot be null";
         return new CommandResult(MESSAGE_SUCCESS, true);
     }
 }
