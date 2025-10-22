@@ -43,7 +43,8 @@ public class TrendListPanel extends UiPart<Region> {
                 setGraphic(null);
                 setText(null);
             } else {
-                setGraphic(new TrendCard(student).getRoot());
+                Region trendCardRoot = new TrendCard(student).getRoot();
+                setGraphic(trendCardRoot);
             }
         }
     }
