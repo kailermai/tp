@@ -34,7 +34,7 @@ public class TrendCard extends UiPart<Region> {
     }
 
     private String getOverallRecord(Student student) {
-        int maxWeek = 0;
+        int totalNumberOfScores = 0;
         int attendanceTotal = 0;
         double participationTotal = 0;
         int submissionTotal = 0;
@@ -45,15 +45,16 @@ public class TrendCard extends UiPart<Region> {
             if (record == null) {
                 continue;
             }
-            maxWeek = i + 1;
+            totalNumberOfScores += 1;
             attendanceTotal += record.getAttendanceScore();
             participationTotal += record.getParticipationScore();
             submissionTotal += record.getSubmissionScore();
         }
 
-        double participationAverage = maxWeek == 0 ? 0 : participationTotal / maxWeek;
+        double participationAverage = totalNumberOfScores == 0 ? 0 : participationTotal / totalNumberOfScores;
 
-        return "Attendance: " + attendanceTotal + "/" + maxWeek + " | Average participation: "
-                + String.format("%.2f", participationAverage) + "/5 | Submission: " + submissionTotal + "/" + maxWeek;
+        return "Attendance: " + attendanceTotal + "/" + totalNumberOfScores + " | Average participation: "
+                + String.format("%.2f", participationAverage) + "/5 | Submission: " + submissionTotal + "/"
+                + totalNumberOfScores;
     }
 }
