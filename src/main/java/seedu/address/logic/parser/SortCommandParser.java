@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_SORT_ATTENDANCE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_SORT_BY;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_SORT_PARTICIPATION;
 
 import seedu.address.logic.commands.SortCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
@@ -36,8 +37,10 @@ public class SortCommandParser implements Parser<SortCommand> {
 
         if (sortType.equals(PREFIX_SORT_ATTENDANCE.toString())) {
             return SortCommand.sortCommandAttendance();
-        } else {
+        } else if (sortType.equals(PREFIX_SORT_PARTICIPATION.toString())) {
             return SortCommand.sortCommandParticipation();
+        } else {
+            return SortCommand.sortCommandSubmission();
         }
     }
 }

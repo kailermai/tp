@@ -19,6 +19,7 @@ public class CliSyntax {
     public static final Prefix PREFIX_SORT_BY = new Prefix("/");
     public static final Prefix PREFIX_SORT_ATTENDANCE = new Prefix("a");
     public static final Prefix PREFIX_SORT_PARTICIPATION = new Prefix("p");
+    public static final Prefix PREFIX_SORT_SUBMISSION = new Prefix("s");
 
 
 }

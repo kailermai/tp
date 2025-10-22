@@ -95,4 +95,9 @@ public interface Model {
      * Sort all students by their participation record
      */
     void sortStudentByParticipation();
+
+    /**
+     * Sort all students by their submission record
+     */
+    void sortStudentBySubmission();
 }
