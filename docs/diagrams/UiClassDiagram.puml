@@ -11,18 +11,18 @@ Class UiManager
 Class MainWindow
 Class ResultDisplay
 Class StudentListPanel
-Class StudentCard
 Class StatusBarFooter
 Class CommandBox
-Class ViewPanel
 Class RightSidePanel
 Class HelpPanel
-Class ScoreListPanel
-Class ScoreCard
-Class RecordDisplay
 Class TrendPanel
 Class TrendListPanel
 Class TrendCard
+Class ViewPanel
+Class ScoreListPanel
+Class ScoreCard
+Class RecordDisplay
+Class StudentCard
 }
 
 package Model <<Rectangle>> {
@@ -43,39 +43,36 @@ MainWindow *-down-> "1" ResultDisplay
 MainWindow *-down-> "1" StudentListPanel
 MainWindow *-down-> "1" StatusBarFooter
 MainWindow *-down-> "1" RightSidePanel
-RightSidePanel --> "0..1" HelpPanel
-RightSidePanel --> "0..1" ViewPanel
-RightSidePanel --> "0..1" TrendPanel
-
-StudentListPanel -down-> "*" StudentCard
-
-ViewPanel -down-> "1" ScoreListPanel
-
-ScoreListPanel -down-> "1" StudentCard
-ScoreListPanel -down-> "3" ScoreCard
-ScoreCard -down-> "1" RecordDisplay
-
-TrendPanel -down-> "1"TrendListPanel
-TrendListPanel -down-> "*"TrendCard
-
 MainWindow -left-|> UiPart
+RightSidePanel --> "0..1" HelpPanel
+
+RightSidePanel -right-> "0..1" TrendPanel
+TrendPanel -down--> "1"TrendListPanel
+TrendListPanel -down--> "*"TrendCard
+
+RightSidePanel -left-> "0..1" ViewPanel
+ViewPanel -down--> "1" ScoreListPanel
+ScoreListPanel -down--> "1" StudentCard
+ScoreListPanel -down--> "3" ScoreCard
+ScoreCard -down-> "1" RecordDisplay
+StudentListPanel -down-> "*" StudentCard
 
 ResultDisplay --|> UiPart
 CommandBox --|> UiPart
 StudentListPanel --|> UiPart
-StudentCard --|> UiPart
-StatusBarFooter --|> UiPart
+StudentCard ---|> UiPart
+StatusBarFooter ---|> UiPart
 HelpPanel --|> UiPart
 ViewPanel --|> UiPart
 ScoreListPanel --|> UiPart
 ScoreCard --|> UiPart
 TrendPanel --|> UiPart
 TrendListPanel --|> UiPart
-TrendCard --|> UiPart
+TrendCard ---|> UiPart
 
 StudentCard ..> Model
 UiManager -right-> Logic
-MainWindow -left-> Logic
+MainWindow -right-> Logic
 
 StudentListPanel -[hidden]left- RightSidePanel
 RightSidePanel -[hidden]left- CommandBox
