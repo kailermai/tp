@@ -56,10 +56,23 @@ public class SortCommand extends Command {
     public CommandResult execute(Model model) {
         if (byAttendance) {
             model.sortStudentByAttendance();
-            return new CommandResult(MESSAGE_SUCCESS_ATTENDANCE + "attendance");
+            return new CommandResult(MESSAGE_SUCCESS_ATTENDANCE);
         } else {
             model.sortStudentByParticipation();
-            return new CommandResult(MESSAGE_SUCCESS_PARTICIPATION + "participation");
+            return new CommandResult(MESSAGE_SUCCESS_PARTICIPATION);
         }
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        if (other == this) {
+            return true;
+        }
+        if (!(other instanceof SortCommand)) {
+            return false;
+        }
+        SortCommand otherCommand = (SortCommand) other;
+        return this.byAttendance == otherCommand.byAttendance
+                && this.byParticipation == otherCommand.byParticipation;
     }
 }
