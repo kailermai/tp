@@ -18,6 +18,7 @@ Class CommandBox
 Class ViewPanel
 Class ScoreListPanel
 Class ScoreCard
+Class RecordDisplay
 }
 
 package Model <<Rectangle>> {
@@ -44,8 +45,9 @@ StudentListPanel -down-> "*" StudentCard
 
 ViewPanel -down-> "1" ScoreListPanel
 
-ScoreListPanel -right-> "1" StudentCard
+ScoreListPanel -left-> "1" StudentCard
 ScoreListPanel -down-> "3" ScoreCard
+ScoreCard -down-> "1" RecordDisplay
 
 MainWindow -left-|> UiPart
 
