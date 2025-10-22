@@ -72,7 +72,7 @@ public class SortCommand extends Command {
             return false;
         }
         SortCommand otherCommand = (SortCommand) other;
-        return this.byAttendance == otherCommand.byAttendance &&
-                this.byParticipation == otherCommand.byParticipation;
+        return this.byAttendance == otherCommand.byAttendance
+                && this.byParticipation == otherCommand.byParticipation;
     }
 }
