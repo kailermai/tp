@@ -42,7 +42,7 @@ MainWindow *-down->  "1" CommandBox
 MainWindow *-down-> "1" ResultDisplay
 MainWindow *-down-> "1" StudentListPanel
 MainWindow *-down-> "1" StatusBarFooter
-MainWindow --> "*" RightSidePanel
+MainWindow *-down-> "1" RightSidePanel
 RightSidePanel --> "0..1" HelpPanel
 RightSidePanel --> "0..1" ViewPanel
 RightSidePanel --> "0..1" TrendPanel
