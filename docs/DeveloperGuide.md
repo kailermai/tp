@@ -574,6 +574,26 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 1b1. TAHub displays an empty report with a note.
       <br>Use case ends.
 
+<br>
+**Use case: UC14 Sort students**
+
+**Preconditions:** The TA has students in the class.
+
+**Guarantees:** A sorted student list is generated.
+
+**MSS**
+1. TA requests to sort the students based on attendance / participation / submission.
+2. TAHub displays the sorted student list.
+   <br>Use case ends.
+
+**Extensions**
+* 1a. TAHub detects an error in the entered command.
+    * 1a1. TAHub displays an error message.
+      <br>Use case ends.
+* 1b. The class has no existing students.
+    * 1b1. TAHub displays an empty student list.
+      <br>Use case ends.
+
 ### Non-Functional Requirements
 
 1.  Should work on any _mainstream OS_ as long as it has Java `17` or above installed.
