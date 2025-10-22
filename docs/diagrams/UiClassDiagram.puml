@@ -20,6 +20,9 @@ Class HelpPanel
 Class ScoreListPanel
 Class ScoreCard
 Class RecordDisplay
+Class TrendPanel
+Class TrendListPanel
+Class TrendCard
 }
 
 package Model <<Rectangle>> {
@@ -42,6 +45,7 @@ MainWindow *-down-> "1" StatusBarFooter
 MainWindow --> "*" RightSidePanel
 RightSidePanel --> "0..1" HelpPanel
 RightSidePanel --> "0..1" ViewPanel
+RightSidePanel --> "0..1" TrendPanel
 
 StudentListPanel -down-> "*" StudentCard
 
@@ -50,6 +54,9 @@ ViewPanel -down-> "1" ScoreListPanel
 ScoreListPanel -down-> "1" StudentCard
 ScoreListPanel -down-> "3" ScoreCard
 ScoreCard -down-> "1" RecordDisplay
+
+TrendPanel -down-> "1"TrendListPanel
+TrendListPanel -down-> "*"TrendCard
 
 MainWindow -left-|> UiPart
 
@@ -62,6 +69,9 @@ HelpPanel --|> UiPart
 ViewPanel --|> UiPart
 ScoreListPanel --|> UiPart
 ScoreCard --|> UiPart
+TrendPanel --|> UiPart
+TrendListPanel --|> UiPart
+TrendCard --|> UiPart
 
 StudentCard ..> Model
 UiManager -right-> Logic
