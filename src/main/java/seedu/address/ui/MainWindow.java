@@ -23,6 +23,7 @@ import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.student.Student;
 import seedu.address.ui.panel.HelpPanel;
 import seedu.address.ui.panel.StudentListPanel;
+import seedu.address.ui.panel.TrendPanel;
 import seedu.address.ui.panel.ViewPanel;
 
 /**
@@ -42,11 +43,10 @@ public class MainWindow extends UiPart<Stage> {
     private StudentListPanel studentListPanel;
     private ResultDisplay resultDisplay;
     private HelpWindow helpWindow;
-    private TrendWindow trendWindow;
 
     // Embedded right-side panels
     private HelpPanel helpPanel;
-    // TODO: private TrendPanel trendPanel;
+    private TrendPanel trendPanel;
     // TODO: private ViewPanel viewPanel;
     private ViewPanel viewPanel;
 
@@ -88,8 +88,7 @@ public class MainWindow extends UiPart<Stage> {
 
         helpPanel = new HelpPanel();
         viewPanel = new ViewPanel();
-        // TODO: trendPanel = new TrendPanel();
-        trendWindow = new TrendWindow();
+        trendPanel = new TrendPanel();
     }
 
     public Stage getPrimaryStage() {
@@ -211,13 +210,9 @@ public class MainWindow extends UiPart<Stage> {
      */
     @FXML
     private void handleTrend() {
-        if (!trendWindow.isShowing()) {
-            trendWindow.fillInnerPart(logic.getFilteredStudentList());
-            trendWindow.show();
-        } else {
-            trendWindow.focus();
-        }
-        // TODO: show trend panel
+        logger.info("Showing trend window on right-side panel");
+        trendPanel.fillInnerPart(logic.getFilteredStudentList());
+        showInRight(trendPanel.getRoot());
     }
 
     public StudentListPanel getStudentListPanel() {

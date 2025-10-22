@@ -104,7 +104,9 @@ public class AddressBookTest {
         }
 
         @Override
-        public ObservableList<Student> getModifiableStudentList() { return students; }
+        public ObservableList<Student> getModifiableStudentList() {
+            return students;
+        }
     }
 
 }
