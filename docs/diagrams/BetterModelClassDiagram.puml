@@ -17,9 +17,10 @@ UniquePersonList -right-> Person
 Person -up-> "*" Tag
 
 Person *--> Name
+Person *--> StudentNumber
 Person *--> Phone
 Person *--> Email
-Person *--> Address
+Person *--> Telegram
 Person *--> RecordList
 
 Score <|-up- AttendanceScore
