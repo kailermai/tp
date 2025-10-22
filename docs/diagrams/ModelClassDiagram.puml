@@ -20,9 +20,15 @@ Class Name
 Class Phone
 Class Tag
 Class RecordList
-Class Record
+Class "Record" {
+    - attendanceScore: AttendanceScore
+    - participationScore: ParticipationScore
+    - submissionScore: SubmissionScore
+}
 Class I #FFFFFF
 }
+
+show "Record" attributes
 
 Class HiddenOutside #FFFFFF
 HiddenOutside ..> Model
@@ -45,7 +51,7 @@ Person *--> Address
 Person *--> "*" Tag
 Person *--> RecordList
 
-RecordList --> "0..13" Record
+RecordList --> "0..13" "Record"
 
 Person -[hidden]up--> I
 UniquePersonList -[hidden]right-> I
