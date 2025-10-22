@@ -20,14 +20,15 @@ Class Name
 Class Phone
 Class Tag
 Class RecordList
-Class Record
-abstract Class Score
-Class AttendanceScore
-Class ParticipationScore
-Class SubmissionScore
-
+Class "Record" {
+    - attendanceScore: AttendanceScore
+    - participationScore: ParticipationScore
+    - submissionScore: SubmissionScore
+}
 Class I #FFFFFF
 }
+
+show "Record" attributes
 
 Class HiddenOutside #FFFFFF
 HiddenOutside ..> Model
@@ -50,14 +51,7 @@ Person *--> Address
 Person *--> "*" Tag
 Person *--> RecordList
 
-Score <|-up- AttendanceScore
-Score <|-up- ParticipationScore
-Score <|-up- SubmissionScore
-Record *--> "1" AttendanceScore
-Record *--> "1" SubmissionScore
-Record *--> "1" ParticipationScore
-
-RecordList --> "0..13" Record
+RecordList --> "0..13" "Record"
 
 Person -[hidden]up--> I
 UniquePersonList -[hidden]right-> I
