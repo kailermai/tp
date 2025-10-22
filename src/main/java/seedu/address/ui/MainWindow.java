@@ -42,7 +42,6 @@ public class MainWindow extends UiPart<Stage> {
     // Independent Ui parts residing in this Ui container
     private StudentListPanel studentListPanel;
     private ResultDisplay resultDisplay;
-    private HelpWindow helpWindow;
 
     // Embedded right-side panels
     private HelpPanel helpPanel;
@@ -176,6 +175,7 @@ public class MainWindow extends UiPart<Stage> {
      */
     @FXML
     public void handleHelp() {
+        logger.info("Showing help window on right-side panel");
         showInRight(helpPanel.getRoot());
     }
 
@@ -198,7 +198,7 @@ public class MainWindow extends UiPart<Stage> {
      */
     @FXML
     private void handleViewStudent(Student student) {
-        //TODO: show view panel
+        logger.info("Showing view window on right-side panel");
         viewPanel.setStudent(student);
         viewPanel.fillInnerPart();
         showInRight(viewPanel.getRoot());
