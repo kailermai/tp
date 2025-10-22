@@ -23,6 +23,8 @@ public class TelegramTest {
     public void isValidTelegram() {
         String tooLongTelegram = "thisTelegramHandleIsWayTooLongAndShouldDefinitelyNotBeAcceptedByTheValidationCheck"
                 + "BecauseItExceedsTheMaximumLengthOfOneHundredCharacters";
+        String hundredCharacterTelegram = "A".repeat(100);
+        String hundredAndOneCharacterTelegram = "A".repeat(101);
 
         // null telegram
         assertThrows(NullPointerException.class, () -> Telegram.isValidTelegram(null));
@@ -32,7 +34,8 @@ public class TelegramTest {
         assertFalse(Telegram.isValidTelegram(" ")); // spaces only
         assertFalse(Telegram.isValidTelegram("@")); // only non-alphanumeric characters
         assertFalse(Telegram.isValidTelegram("peter*")); // contains non-alphanumeric characters
-        assertFalse(Telegram.isValidTelegram(tooLongTelegram)); // telegram handle is too long
+        assertFalse(Telegram.isValidTelegram(tooLongTelegram)); // telegram is too long
+        assertFalse(Telegram.isValidTelegram(hundredAndOneCharacterTelegram)); // telegram is exactly 101 characters
 
         // valid telegram
         assertTrue(Telegram.isValidTelegram("peterjack")); // alphabets only
@@ -41,6 +44,8 @@ public class TelegramTest {
         assertTrue(Telegram.isValidTelegram("Peter_2_")); // with capital letters
         assertTrue(Telegram.isValidTelegram("_____")); // underscores only
         assertTrue(Telegram.isValidTelegram("peterjack123")); // alphanumeric characters
+        assertTrue(Telegram.isValidTelegram(hundredCharacterTelegram)); // telegram is 100 characters
+        assertTrue(Telegram.isValidTelegram("A")); // one character telegram
     }
 
     @Test
