@@ -210,6 +210,7 @@ public class MainWindow extends UiPart<Stage> {
      */
     @FXML
     private void handleTrend() {
+        logger.info("Showing trend window on right-side panel");
         trendPanel.fillInnerPart(logic.getFilteredStudentList());
         showInRight(trendPanel.getRoot());
     }
