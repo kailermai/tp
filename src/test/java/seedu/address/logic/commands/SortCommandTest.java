@@ -21,10 +21,13 @@ public class SortCommandTest {
         SortCommand attendance2 = SortCommand.sortCommandAttendance();
         SortCommand participation1 = SortCommand.sortCommandParticipation();
         SortCommand participation2 = SortCommand.sortCommandParticipation();
+        SortCommand submission1 = SortCommand.sortCommandSubmission();
+        SortCommand submission2 = SortCommand.sortCommandSubmission();
 
         // same values -> equal
         assertEquals(attendance1, attendance2);
         assertEquals(participation1, participation2);
+        assertEquals(submission1, submission2);
 
         // different values -> not equal
         assertNotEquals(attendance1, participation1);
@@ -54,6 +57,16 @@ public class SortCommandTest {
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
         expectedModel.sortStudentByParticipation();
         assertCommandSuccess(cmd, model, SortCommand.MESSAGE_SUCCESS_PARTICIPATION, expectedModel);
+    }
+
+    @Test
+    public void execute_sortByParticipation_returnsSubmissionMessage() {
+
+        SortCommand cmd = SortCommand.sortCommandSubmission();
+
+        Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
+        expectedModel.sortStudentBySubmission();
+        assertCommandSuccess(cmd, model, SortCommand.MESSAGE_SUCCESS_SUBMISSION, expectedModel);
     }
 
 

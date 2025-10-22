@@ -131,6 +131,7 @@ public class ModelManager implements Model {
         filteredStudents.setPredicate(predicate);
     }
 
+    //=========== Sorting students =============================================================
     @Override
     public void sortStudentByAttendance() {
         ObservableList<Student> studentList = addressBook.getModifiableStudentList();
@@ -139,12 +140,19 @@ public class ModelManager implements Model {
                 .reversed());
     }
 
-    //=========== Sorting students =============================================================
     @Override
     public void sortStudentByParticipation() {
         ObservableList<Student> studentList = addressBook.getModifiableStudentList();
         studentList.sort(Comparator
                 .comparingInt(this::getTotalParticipation)
+                .reversed());
+    }
+
+    @Override
+    public void sortStudentBySubmission() {
+        ObservableList<Student> studentList = addressBook.getModifiableStudentList();
+        studentList.sort(Comparator
+                .comparingInt(this::getTotalSubmission)
                 .reversed());
     }
 
@@ -195,6 +203,24 @@ public class ModelManager implements Model {
                 .mapToInt(record -> {
                     try {
                         return record.getParticipationScore();
+                    } catch (NullPointerException e) {
+                        return 0;
+                    }
+                })
+                .sum();
+    }
+
+    /**
+     * Calculates the sum of all submission scores for a given student.
+     * Returns 0 if the student or their record list is null.
+     */
+    private int getTotalSubmission(Student student) {
+        seedu.address.model.record.Record[] records = student.getRecordList().records;
+        return Arrays.stream(records)
+                .filter(Objects::nonNull)
+                .mapToInt(record -> {
+                    try {
+                        return record.getSubmissionScore();
                     } catch (NullPointerException e) {
                         return 0;
                     }
