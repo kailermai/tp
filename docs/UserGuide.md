@@ -194,9 +194,9 @@ Format: `trend`
 
 ### Sort students: `sort`
 
-Sort students based on their attendance score or participation score.
+Sort students based on their attendance score or participation score or submission score.
 
-Format: By attendance: `sort /a` By participation: `sort /p`
+Format: By attendance: `sort /a` By participation: `sort /p` By submission: `sort /s`
 
 ### Clearing all entries : `clear`
 
