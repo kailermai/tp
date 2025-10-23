@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 
 <fx:root type="javafx.stage.Stage" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
-         title="Address App" minWidth="700" minHeight="600" onCloseRequest="#handleExit">
+         title="TAHub" minWidth="900" minHeight="600" onCloseRequest="#handleExit">
   <icons>
     <Image url="@/images/address_book_32.png" />
   </icons>
@@ -50,7 +50,7 @@
           <items>
 
             <!-- Left: Student List Panel -->
-            <VBox fx:id="studentList" styleClass="pane-with-border" minWidth="280" VBox.vgrow="ALWAYS">
+            <VBox fx:id="studentList" styleClass="pane-with-border" minWidth="360" VBox.vgrow="ALWAYS">
               <padding>
                 <Insets top="10" right="10" bottom="10" left="10" />
               </padding>
@@ -58,7 +58,7 @@
             </VBox>
 
             <!-- Right: Placeholder for other commands -->
-            <VBox fx:id="detailsPane" styleClass="pane-with-border" minWidth="400" VBox.vgrow="ALWAYS">
+            <VBox fx:id="detailsPane" styleClass="pane-with-border" minWidth="540" VBox.vgrow="ALWAYS">
               <padding>
                 <Insets top="10" right="10" bottom="10" left="10" />
               </padding>

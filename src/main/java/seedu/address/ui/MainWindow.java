@@ -23,6 +23,7 @@ import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.student.Student;
 import seedu.address.ui.panel.HelpPanel;
 import seedu.address.ui.panel.StudentListPanel;
+import seedu.address.ui.panel.TrendPanel;
 import seedu.address.ui.panel.ViewPanel;
 
 /**
@@ -41,13 +42,10 @@ public class MainWindow extends UiPart<Stage> {
     // Independent Ui parts residing in this Ui container
     private StudentListPanel studentListPanel;
     private ResultDisplay resultDisplay;
-    private HelpWindow helpWindow;
-    private TrendWindow trendWindow;
 
     // Embedded right-side panels
     private HelpPanel helpPanel;
-    // TODO: private TrendPanel trendPanel;
-    // TODO: private ViewPanel viewPanel;
+    private TrendPanel trendPanel;
     private ViewPanel viewPanel;
 
     @FXML
@@ -88,8 +86,7 @@ public class MainWindow extends UiPart<Stage> {
 
         helpPanel = new HelpPanel();
         viewPanel = new ViewPanel();
-        // TODO: trendPanel = new TrendPanel();
-        trendWindow = new TrendWindow();
+        trendPanel = new TrendPanel();
     }
 
     public Stage getPrimaryStage() {
@@ -178,6 +175,7 @@ public class MainWindow extends UiPart<Stage> {
      */
     @FXML
     public void handleHelp() {
+        logger.info("Showing help window on right-side panel");
         showInRight(helpPanel.getRoot());
     }
 
@@ -200,7 +198,7 @@ public class MainWindow extends UiPart<Stage> {
      */
     @FXML
     private void handleViewStudent(Student student) {
-        //TODO: show view panel
+        logger.info("Showing view window on right-side panel");
         viewPanel.setStudent(student);
         viewPanel.fillInnerPart();
         showInRight(viewPanel.getRoot());
@@ -211,13 +209,9 @@ public class MainWindow extends UiPart<Stage> {
      */
     @FXML
     private void handleTrend() {
-        if (!trendWindow.isShowing()) {
-            trendWindow.fillInnerPart(logic.getFilteredStudentList());
-            trendWindow.show();
-        } else {
-            trendWindow.focus();
-        }
-        // TODO: show trend panel
+        logger.info("Showing trend window on right-side panel");
+        trendPanel.fillInnerPart(logic.getFilteredStudentList());
+        showInRight(trendPanel.getRoot());
     }
 
     public StudentListPanel getStudentListPanel() {

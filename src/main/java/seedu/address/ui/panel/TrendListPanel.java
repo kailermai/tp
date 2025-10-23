@@ -1,13 +1,10 @@
 package seedu.address.ui.panel;
 
-import java.util.logging.Logger;
-
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.Region;
-import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.student.Student;
 import seedu.address.ui.TrendCard;
 import seedu.address.ui.UiPart;
@@ -17,7 +14,6 @@ import seedu.address.ui.UiPart;
  */
 public class TrendListPanel extends UiPart<Region> {
     private static final String FXML = "TrendListPanel.fxml";
-    private final Logger logger = LogsCenter.getLogger(TrendListPanel.class);
 
     @FXML
     private ListView<Student> recordsListView;
@@ -43,7 +39,8 @@ public class TrendListPanel extends UiPart<Region> {
                 setGraphic(null);
                 setText(null);
             } else {
-                setGraphic(new TrendCard(student).getRoot());
+                Region trendCardRoot = new TrendCard(student).getRoot();
+                setGraphic(trendCardRoot);
             }
         }
     }

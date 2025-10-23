@@ -72,7 +72,7 @@ The **API** of this component is specified in [`Ui.java`](https://github.com/se-
 
 ![Structure of the UI Component](images/UiClassDiagram.png)
 
-The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `PersonListPanel`, `StatusBarFooter` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class which captures the commonalities between classes that represent parts of the visible GUI.
+The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `StudentListPanel`, `StatusBarFooter` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class which captures the commonalities between classes that represent parts of the visible GUI.
 
 The `UI` component uses the JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the [`MainWindow`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/MainWindow.java) is specified in [`MainWindow.fxml`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/resources/view/MainWindow.fxml)
 
@@ -81,7 +81,7 @@ The `UI` component,
 * executes user commands using the `Logic` component.
 * listens for changes to `Model` data so that the UI can be updated with the modified data.
 * keeps a reference to the `Logic` component, because the `UI` relies on the `Logic` to execute commands.
-* depends on some classes in the `Model` component, as it displays `Person` object residing in the `Model`.
+* depends on some classes in the `Model` component, as it displays `Student` object residing in the `Model`.
 
 ### Logic component
 
@@ -122,12 +122,12 @@ How the parsing works:
 
 The `Model` component,
 
-* stores the address book data i.e., all `Person` objects (which are contained in a `UniquePersonList` object).
-* stores the currently 'selected' `Person` objects (e.g., results of a search query) as a separate _filtered_ list which is exposed to outsiders as an unmodifiable `ObservableList<Person>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
+* stores the address book data i.e., all `Student` objects (which are contained in a `UniqueStudentList` object).
+* stores the currently 'selected' `Student` objects (e.g., results of a search query) as a separate _filtered_ list which is exposed to outsiders as an unmodifiable `ObservableList<Student>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
 * stores a `UserPref` object that represents the user’s preferences. This is exposed to the outside as a `ReadOnlyUserPref` objects.
 * does not depend on any of the other three components (as the `Model` represents data entities of the domain, they should make sense on their own without depending on other components)
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:** An alternative (arguably, a more OOP) model is given below. It has a `Tag` list in the `AddressBook`, which `Person` references. This allows `AddressBook` to only require one `Tag` object per unique tag, instead of each `Person` needing their own `Tag` objects.<br>
+<div markdown="span" class="alert alert-info">:information_source: **Note:** An alternative (arguably, a more OOP) model is given below. It has a `Tag` list in the `AddressBook`, which `Student` references. This allows `AddressBook` to only require one `Tag` object per unique tag, instead of each `Student` needing their own `Tag` objects.<br>
 
 <img src="images/BetterModelClassDiagram.png" width="450" />
 
@@ -295,7 +295,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* *`    | TA                                          | view trends                                                            | identify students who need extra support                          |
 | `* *`    | TA                                          | redo/undo recent actions                                               | correct mistakes easily                                           |
 | `* *`    | TA                                          | sort the students displayed by attendance/participation record         | see who are the students who need the most assistance             |
-| `* *`    | TA                                          | search for students by partial name or email                           | quickly find the right person                                     |
+| `* *`    | TA                                          | search for students by partial name or email                           | quickly find the right Student                                     |
 | `*`      | TA                                          | export data                                                            | provide evidence of student participation for grading             |
 | `*`      | TA                                          | lock the participation records from further edits                      | accidental edits will not happen after it has been finalised      |
 | `*`      | TA                                          | filter students who have low attendance/participation records          | easily find the students who need extra guidance                  |
@@ -469,25 +469,72 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **Preconditions:** The TA has already added the student to the class.
 
-**Guarantees:** The record is updated for the correct student in the class.
+**Guarantees:** The record in the specified week is created for the correct student in the class.
 
 **MSS**
 1. TA <u>list entries UC03</u>.
 2. TA requests to add a student record.
-3. TAHub adds the record. 
-4. TAHub displays a success message. 
+3. TAHub adds the record and displays a success message. 
 <br>Use case ends.
 
 **Extensions**
 * 2a. TAHub detects an error in the entered command.
     * 2a1. TAHub displays an error message.
     <br>Use case ends.
-* 2b. Student record already exists.
-    * 2b1. TAHub overwrites the existing record.
-    <br>Use case resumes from step 4.
+* 3a. TA realizes that he made an error in the added record.
+    * 3a1. TA requests to <u>edit student record UC10</u>.
+      <br>Use case ends.
+* 3b. TA decides to scrape record entirely.
+    * 3b1. TA requests to <u>delete student record UC11</u>.
+      <br>Use case ends.
 
 <br>
-**Use case: UC10 Generate individual student record report**
+**Use case: UC10 Edit student record**
+
+**Preconditions:** 
+* The TA has already added the student to the class.
+* The student has an existing record for the specified week.
+
+**Guarantees:** The record in the specified week is updated for the correct student in the class.
+
+**MSS**
+1. TA <u>list entries UC03</u>.
+2. TA requests to edit a student record.
+3. TAHub updates the record and displays a success message.
+   <br>Use case ends.
+
+**Extensions**
+* 2a. TAHub detects an error in the entered command.
+    * 2a1. TAHub displays an error message.
+      <br>Use case ends.
+* 3a. TA decides to scrape record entirely.
+    * 3a1. TA requests to <u>delete student record UC11</u>.
+      <br>Use case ends.
+
+<br>
+**Use case: UC11 Delete student record**
+
+**Preconditions:**
+* The TA has already added the student to the class.
+
+**Guarantees:** The record in the specified week is deleted for the correct student in the class.
+
+**MSS**
+1. TA <u>list entries UC03</u>.
+2. TA requests to delete a student record.
+3. TAHub deletes the record and displays a success message.
+   <br>Use case ends.
+
+**Extensions**
+* 2a. TAHub detects an error in the entered command.
+    * 2a1. TAHub displays an error message.
+      <br>Use case ends.
+* 2b. The student has no existing record in the specified week.
+    * 2b1. TAHub displays an error message.
+      <br>Use case ends.
+
+<br>
+**Use case: UC12 Generate individual student record report**
 
 **Preconditions:** The TA has already added the student into the class.
 
@@ -508,7 +555,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
       <br>Use case ends.
 
 <br>
-**Use case: UC11 Generate class record report**
+**Use case: UC13 Generate class record report**
 
 **Preconditions:** The TA has students with existing records in the class.
 
@@ -527,10 +574,30 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 1b1. TAHub displays an empty report with a note.
       <br>Use case ends.
 
+<br>
+**Use case: UC14 Sort students**
+
+**Preconditions:** The TA has students in the class.
+
+**Guarantees:** A sorted student list is generated.
+
+**MSS**
+1. TA requests to sort the students based on attendance / participation / submission.
+2. TAHub displays the sorted student list.
+   <br>Use case ends.
+
+**Extensions**
+* 1a. TAHub detects an error in the entered command.
+    * 1a1. TAHub displays an error message.
+      <br>Use case ends.
+* 1b. The class has no existing students.
+    * 1b1. TAHub displays an empty student list.
+      <br>Use case ends.
+
 ### Non-Functional Requirements
 
 1.  Should work on any _mainstream OS_ as long as it has Java `17` or above installed.
-2.  Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
+2.  Should be able to hold up to 1000 Students without a noticeable sluggishness in performance for typical usage.
 3.  A user with above-average typing speed for regular English text (i.e. not code, not system admin commands) should 
 be able to accomplish most of the tasks faster using commands than using the mouse.
 4.  Should be usable by a novice who has never used admin tracking platforms.
@@ -579,17 +646,17 @@ testers are expected to do more *exploratory* testing.
 
 1. _{ more test cases …​ }_
 
-### Deleting a person
+### Deleting a Student
 
-1. Deleting a person while all persons are being shown
+1. Deleting a Student while all Students are being shown
 
-   1. Prerequisites: List all persons using the `list` command. Multiple persons in the list.
+   1. Prerequisites: List all Students using the `list` command. Multiple Students in the list.
 
    1. Test case: `delete 1`<br>
       Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.
 
    1. Test case: `delete 0`<br>
-      Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.
+      Expected: No Student is deleted. Error details shown in the status message. Status bar remains the same.
 
    1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
       Expected: Similar to previous.
