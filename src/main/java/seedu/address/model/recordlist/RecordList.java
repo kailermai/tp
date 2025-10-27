@@ -1,5 +1,7 @@
 package seedu.address.model.recordlist;
 
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.util.function.Function;
 
 import seedu.address.commons.core.index.Index;
@@ -11,6 +13,8 @@ import seedu.address.model.record.WeekNumber;
  */
 public class RecordList {
     public final Record[] records;
+
+    private final PropertyChangeSupport propertyChangeSupport = new PropertyChangeSupport(this);
 
     /**
      * Constructs a {@code RecordList} object with an empty list of records.
@@ -31,7 +35,10 @@ public class RecordList {
     }
 
     public void setRecord(Index index, Record record) {
-        records[index.getZeroBased()] = record;
+        int idx = index.getZeroBased();
+        records[idx] = record;
+        // notify listeners that a record changed (payload is the index)
+        propertyChangeSupport.firePropertyChange("recordChanged", null, idx);
     }
 
     /**
@@ -55,5 +62,13 @@ public class RecordList {
 
     public RecordList clone() {
         return new RecordList(this.records.clone());
+    }
+
+    public void addChangeListener(PropertyChangeListener listener) {
+        propertyChangeSupport.addPropertyChangeListener(listener);
+    }
+
+    public void removeChangeListener(PropertyChangeListener listener) {
+        propertyChangeSupport.removePropertyChangeListener(listener);
     }
 }

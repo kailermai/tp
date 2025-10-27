@@ -1,5 +1,9 @@
 package seedu.address.ui;
 
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
@@ -10,7 +14,6 @@ import seedu.address.model.record.Record;
 import seedu.address.model.record.ScoreType;
 import seedu.address.model.record.WeekNumber;
 import seedu.address.model.recordlist.RecordList;
-
 
 
 /**
@@ -25,6 +28,7 @@ public class ScoreCard extends UiPart<Region> {
 
     private RecordList recordList;
     private ScoreType scoreType;
+    private final PropertyChangeListener recordListListener;
 
     @FXML
     private HBox cardPane;
@@ -51,6 +55,12 @@ public class ScoreCard extends UiPart<Region> {
         // allow the card root to expand if placed in resizable containers
         cardPane.setMaxWidth(Double.MAX_VALUE);
         cardPane.setMaxHeight(Double.MAX_VALUE);
+
+        // listener that updates UI on the JavaFX thread when RecordList changes
+        this.recordListListener = (PropertyChangeEvent event) -> {
+            Platform.runLater(() -> setRecordDisplay(this.scoreType));
+        };
+        this.recordList.addChangeListener(this.recordListListener);
     }
 
     public void setRecordDisplay(ScoreType scoreType) {
