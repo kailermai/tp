@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NON_STANDARD_NAME;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_NON_STANDARD_PHONE;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalStudents.ALICE;
 
@@ -62,6 +63,18 @@ public class AddCommandTest {
         CommandResult commandResult = new AddCommand(nonStandardStudent).execute(modelStub);
 
         assertEquals(String.format(AddCommand.MESSAGE_SUCCESS_NON_STANDARD_NAME, Messages.format(nonStandardStudent)),
+                commandResult.getFeedbackToUser());
+        assertEquals(Arrays.asList(nonStandardStudent), modelStub.studentsAdded);
+    }
+
+    @Test
+    public void execute_nonStandardPhoneStudent_addSuccessful() throws Exception {
+        Student nonStandardStudent = new StudentBuilder().withPhone(VALID_NON_STANDARD_PHONE).build();
+        ModelStubAcceptingStudentAdded modelStub = new ModelStubAcceptingStudentAdded();
+
+        CommandResult commandResult = new AddCommand(nonStandardStudent).execute(modelStub);
+
+        assertEquals(String.format(AddCommand.MESSAGE_SUCCESS_NON_STANDARD_PHONE, Messages.format(nonStandardStudent)),
                 commandResult.getFeedbackToUser());
         assertEquals(Arrays.asList(nonStandardStudent), modelStub.studentsAdded);
     }

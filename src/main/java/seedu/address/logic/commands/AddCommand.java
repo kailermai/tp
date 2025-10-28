@@ -51,8 +51,10 @@ public class AddCommand extends Command {
     public static final String MESSAGE_SUCCESS = "New student added: %1$s";
     public static final String MESSAGE_DUPLICATE_STUDENT = "A student with the same student number already exists in "
             + "TAHub.";
-    public static final String MESSAGE_SUCCESS_NON_STANDARD_NAME = "New student added: %1$s" +
+    public static final String MESSAGE_SUCCESS_NON_STANDARD_NAME = MESSAGE_SUCCESS +
             "\nWarning: The student's name contains non-standard characters.";
+    public static final String MESSAGE_SUCCESS_NON_STANDARD_PHONE = MESSAGE_SUCCESS +
+            "\nWarning: The student's phone number contains non-standard characters.";
 
     private final Student toAdd;
 
@@ -76,6 +78,10 @@ public class AddCommand extends Command {
 
         if (toAdd.getHasNonStandardName()) {
             return new CommandResult(String.format(MESSAGE_SUCCESS_NON_STANDARD_NAME, Messages.format(toAdd)));
+        }
+
+        if (toAdd.getHasNonStandardPhone()) {
+            return new CommandResult(String.format(MESSAGE_SUCCESS_NON_STANDARD_PHONE, Messages.format(toAdd)));
         }
         return new CommandResult(String.format(MESSAGE_SUCCESS, Messages.format(toAdd)));
     }

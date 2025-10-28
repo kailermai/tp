@@ -7,6 +7,7 @@ import static seedu.address.logic.commands.CommandTestUtil.DESC_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.DESC_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NON_STANDARD_NAME;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_NON_STANDARD_PHONE;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
@@ -86,6 +87,24 @@ public class EditCommandTest {
         EditCommand editCommand = new EditCommand(indexLastStudent, descriptor);
 
         String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_STUDENT_NON_STANDARD_NAME_SUCCESS,
+                Messages.format(editedStudent));
+
+        assertCommandSuccess(editCommand, model, expectedMessage, model);
+    }
+
+    @Test
+    public void execute_nonStandardPhoneStudent_success() {
+        Index indexLastStudent = Index.fromOneBased(model.getFilteredStudentList().size());
+        Student lastStudent = model.getFilteredStudentList().get(indexLastStudent.getZeroBased());
+
+        StudentBuilder studentInList = new StudentBuilder(lastStudent);
+        Student editedStudent = studentInList.withPhone(VALID_NON_STANDARD_PHONE).build();
+
+        EditCommand.EditStudentDescriptor descriptor =
+                new EditStudentDescriptorBuilder().withPhone(VALID_NON_STANDARD_PHONE).build();
+        EditCommand editCommand = new EditCommand(indexLastStudent, descriptor);
+
+        String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_STUDENT_NON_STANDARD_PHONE_SUCCESS,
                 Messages.format(editedStudent));
 
         assertCommandSuccess(editCommand, model, expectedMessage, model);
