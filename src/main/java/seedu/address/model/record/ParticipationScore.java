@@ -15,8 +15,9 @@ public class ParticipationScore extends Score {
      * Constructs a ParticipationScore object with the given score.
      *
      * @param participationScore The participation score to be assigned.
+     * @throws IllegalArgumentException If the provided participation score is not within the valid range.
      */
-    public ParticipationScore(int participationScore) {
+    public ParticipationScore(int participationScore) throws IllegalArgumentException {
         super(participationScore);
         checkArgument(isValidParticipationScore(participationScore), MESSAGE_CONSTRAINTS);
     }

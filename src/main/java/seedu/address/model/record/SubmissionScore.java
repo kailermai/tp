@@ -17,7 +17,7 @@ public class SubmissionScore extends Score {
      * @param submissionScore The score to be assigned.
      * @throws IllegalArgumentException If the provided submission score is not within the valid range.
      */
-    public SubmissionScore(int submissionScore) {
+    public SubmissionScore(int submissionScore) throws IllegalArgumentException {
         super(submissionScore);
         checkArgument(isValidSubmissionScore(submissionScore), MESSAGE_CONSTRAINTS);
     }

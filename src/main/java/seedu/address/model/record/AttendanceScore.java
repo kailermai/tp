@@ -17,7 +17,7 @@ public class AttendanceScore extends Score {
      * @param attendanceScore The score to be assigned.
      * @throws IllegalArgumentException If the provided attendance score is not within the valid range.
      */
-    public AttendanceScore(int attendanceScore) {
+    public AttendanceScore(int attendanceScore) throws IllegalArgumentException {
         super(attendanceScore);
         checkArgument(isValidAttendanceScore(attendanceScore), MESSAGE_CONSTRAINTS);
     }
