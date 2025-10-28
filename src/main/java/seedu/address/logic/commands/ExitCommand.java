@@ -9,8 +9,8 @@ public class ExitCommand extends Command {
 
     public static final String COMMAND_WORD = "exit";
 
-    public static final String MESSAGE_HELP = "Exit the program:\n"
-            + COMMAND_WORD;
+    public static final String MESSAGE_HELP_TITLE = "Exit the program:";
+    public static final String MESSAGE_HELP_DESCRIPTION = COMMAND_WORD;
 
     public static final String MESSAGE_EXIT_ACKNOWLEDGEMENT = "Exiting Address Book as requested ...";
 

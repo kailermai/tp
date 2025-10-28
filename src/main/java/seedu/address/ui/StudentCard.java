@@ -50,28 +50,29 @@ public class StudentCard extends UiPart<Region> {
         super(FXML);
         this.student = student;
         id.setText(displayedIndex + ". ");
-        name.setText(student.getName().fullName);
-        phone.setText(student.getPhone().value);
-        email.setText(student.getEmail().value);
+        name.setText(student.getName().toString());
+        phone.setText("Phone: " + student.getPhone().toString());
+        email.setText("Email: " + student.getEmail().toString());
         student.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
                 .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
-        studentNumber.setText(student.getStudentNumber().toString());
-        telegram.setText(student.getTelegram().toString());
+        studentNumber.setText("SN: " + student.getStudentNumber().toString());
+        telegram.setText("Tele: " + student.getTelegram().toString());
     }
+
     /**
      * Creates a {@code StudentCode} with the given {@code Student} to display.
      */
     public StudentCard(Student student) {
         super(FXML);
         this.student = student;
-        name.setText(student.getName().fullName);
-        phone.setText(student.getPhone().value);
-        email.setText(student.getEmail().value);
+        name.setText(student.getName().toString());
+        phone.setText("Phone: " + student.getPhone().toString());
+        email.setText("Email: " + student.getEmail().toString());
         student.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
                 .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
-        studentNumber.setText(student.getStudentNumber().toString());
-        telegram.setText(student.getTelegram().toString());
+        studentNumber.setText("SN: " + student.getStudentNumber().toString());
+        telegram.setText("Tele: " + student.getTelegram().toString());
     }
 }

@@ -13,20 +13,14 @@ public class TrendCommand extends Command {
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Shows trend of all students.\n"
             + "Example: " + COMMAND_WORD;
 
-    public static final String MESSAGE_HELP = "Shows the trend of all students:\n"
-            + COMMAND_WORD;
+    public static final String MESSAGE_HELP_TITLE = "Shows the trend of the entire class:";
+    public static final String MESSAGE_HELP_DESCRIPTION = COMMAND_WORD;
 
-    public static final String MESSAGE_SUCCESS = "Opened trend window";
+    public static final String MESSAGE_SUCCESS = "Opened trend window.";
 
     @Override
     public CommandResult execute(Model model) throws CommandException {
-        model.updateFilteredStudentList(Model.PREDICATE_SHOW_ALL_STUDENTS);
+        assert model != null : "Model cannot be null";
         return new CommandResult(MESSAGE_SUCCESS, true);
     }
-
-    @Override
-    public boolean equals(Object other) {
-        return other instanceof TrendCommand;
-    }
-
 }

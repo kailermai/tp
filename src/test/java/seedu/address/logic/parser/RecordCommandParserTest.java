@@ -39,7 +39,6 @@ public class RecordCommandParserTest {
         Record expectedRecord = new Record(new AttendanceScore(AttendanceScore.MAX_SCORE),
                 new SubmissionScore(SubmissionScore.MAX_SCORE), new ParticipationScore(ParticipationScore.MAX_SCORE));
         RecordCommand expectedCommand = new RecordCommand(INDEX_FIRST_STUDENT, new WeekNumber(1), expectedRecord);
-        System.out.println(userInput);
         assertParseSuccess(parser, userInput, expectedCommand);
     }
 
@@ -49,7 +48,7 @@ public class RecordCommandParserTest {
         String expectedMessageDuplicateWeekNumber = Messages.getErrorMessageForDuplicatePrefixes(PREFIX_WEEK_NUMBER);
         String inputWithDuplicateWeekNumber = INDEX_FIRST_STUDENT.getOneBased() + WEEK_NUMBER_DESC + WEEK_NUMBER_DESC
                 + RECORD_DESC;
-        System.out.println(inputWithDuplicateWeekNumber);
+
         assertParseFailure(parser, inputWithDuplicateWeekNumber, expectedMessageDuplicateWeekNumber);
 
         String expectedMessageDuplicateRecord = Messages.getErrorMessageForDuplicatePrefixes(PREFIX_ATTENDANCE_SCORE,
@@ -61,11 +60,25 @@ public class RecordCommandParserTest {
     }
 
     @Test
-    public void parse_missingCompulsoryField_failure() {
+    public void parse_noScoresProvided_success() {
+        RecordCommand expectedCommand = new RecordCommand(
+                INDEX_FIRST_STUDENT, new WeekNumber(WeekNumber.MIN_WEEK_NUMBER), null);
+        String inputWithoutRecord = INDEX_FIRST_STUDENT.getOneBased() + WEEK_NUMBER_DESC;
+
+        assertParseSuccess(parser, inputWithoutRecord, expectedCommand);
+    }
+
+    @Test
+    public void parse_missingCompulsoryFields_failure() {
         String expectedMessage = String.format(MESSAGE_INVALID_COMMAND_FORMAT, RecordCommand.MESSAGE_USAGE);
         String inputWithoutIndex = WEEK_NUMBER_DESC + RECORD_DESC;
-        String inputWithoutWeekNumber = INDEX_FIRST_STUDENT.getOneBased() + " ";
-        String inputWithoutRecord = INDEX_FIRST_STUDENT.getOneBased() + WEEK_NUMBER_DESC;
+        String inputWithoutWeekNumber = INDEX_FIRST_STUDENT.getOneBased() + RECORD_DESC;
+        String inputOneAttendanceScore = INDEX_FIRST_STUDENT.getOneBased() + WEEK_NUMBER_DESC + ATTENDANCE_SCORE_DESC;
+        String inputOneSubmissionScore = INDEX_FIRST_STUDENT.getOneBased() + WEEK_NUMBER_DESC + SUBMISSION_SCORE_DESC;
+        String inputOneParticipationScore = INDEX_FIRST_STUDENT.getOneBased() + WEEK_NUMBER_DESC
+                + PARTICIPATION_SCORE_DESC;
+        String inputWithTwoScores = INDEX_FIRST_STUDENT.getOneBased() + WEEK_NUMBER_DESC + ATTENDANCE_SCORE_DESC
+                + SUBMISSION_SCORE_DESC;
 
         // missing index
         assertParseFailure(parser, inputWithoutIndex, expectedMessage);
@@ -73,8 +86,11 @@ public class RecordCommandParserTest {
         // missing week number
         assertParseFailure(parser, inputWithoutWeekNumber, expectedMessage);
 
-        // missing record
-        assertParseFailure(parser, inputWithoutRecord, expectedMessage);
+        // some records provided
+        assertParseFailure(parser, inputOneSubmissionScore, expectedMessage);
+        assertParseFailure(parser, inputOneAttendanceScore, expectedMessage);
+        assertParseFailure(parser, inputOneParticipationScore, expectedMessage);
+        assertParseFailure(parser, inputWithTwoScores, expectedMessage);
     }
 
     @Test

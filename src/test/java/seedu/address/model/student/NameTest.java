@@ -23,6 +23,8 @@ public class NameTest {
     public void isValidName() {
         String tooLongName = "This name is way too long and should definitely not be accepted by the validation check "
                 + "because it exceeds the maximum length of one hundred characters which is quite a lot for a name";
+        String hundredCharacterName = "A".repeat(100);
+        String hundredAndOneCharacterName = "A".repeat(101);
 
         // null name
         assertThrows(NullPointerException.class, () -> Name.isValidName(null));
@@ -35,6 +37,7 @@ public class NameTest {
         assertFalse(Name.isValidName(tooLongName)); // name is too long
         assertFalse(Name.isValidName("/peter")); // name starts with a slash
         assertFalse(Name.isValidName("/")); // name is just a slash
+        assertFalse(Name.isValidName(hundredAndOneCharacterName)); // name is exactly 101 characters
 
         // valid name
         assertTrue(Name.isValidName("peter jack")); // alphabets only
@@ -44,6 +47,8 @@ public class NameTest {
         assertTrue(Name.isValidName("David Roger Jackson Ray Jr 2nd")); // long names
         assertTrue(Name.isValidName("David s/o Jackson")); // name with slash
         assertTrue(Name.isValidName("David s/o Jackson s/o ")); // name with multiple slashes
+        assertTrue(Name.isValidName(hundredCharacterName)); // name with exactly 100 characters
+        assertTrue(Name.isValidName("a")); // one character name
     }
 
     @Test

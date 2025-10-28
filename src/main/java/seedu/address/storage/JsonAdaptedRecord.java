@@ -44,9 +44,9 @@ public class JsonAdaptedRecord {
             return;
         }
 
-        this.attendanceScore = source.getAttendanceScore().getScore();
-        this.submissionScore = source.getSubmissionScore().getScore();
-        this.participationScore = source.getParticipationScore().getScore();
+        this.attendanceScore = source.getAttendanceScore();
+        this.submissionScore = source.getSubmissionScore();
+        this.participationScore = source.getParticipationScore();
     }
 
     /**
@@ -64,13 +64,7 @@ public class JsonAdaptedRecord {
             return null;
         }
 
-        Record targetRecord = new Record(new AttendanceScore(attendanceScore),
-                new SubmissionScore(submissionScore), new ParticipationScore(participationScore));
-
-        if (!Record.isValidRecord(targetRecord)) {
-            throw new IllegalValueException(Record.MESSAGE_CONSTRAINTS);
-        }
-
-        return targetRecord;
+        return new Record(new AttendanceScore(attendanceScore), new SubmissionScore(submissionScore),
+                new ParticipationScore(participationScore));
     }
 }

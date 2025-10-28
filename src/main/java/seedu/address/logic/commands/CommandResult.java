@@ -29,7 +29,6 @@ public class CommandResult {
     /** Trend information should be shown to the user */
     private final boolean showTrend;
 
-
     /**
      * Constructs a {@code CommandResult} with the specified fields.
      */

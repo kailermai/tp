@@ -11,7 +11,7 @@ public class Phone {
 
 
     public static final String MESSAGE_CONSTRAINTS =
-            "Phone numbers may start with '+', contrain numbers with optional '-' seperators, "
+            "Phone numbers may start with '+', contain numbers with optional '-' separators, "
                     + "and should contain at least 3 digits.";
     public static final String VALIDATION_REGEX = "\\+?\\d(?:-?\\d){2,}";
     public final String value;

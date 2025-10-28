@@ -1,0 +1,56 @@
+/* Make the right panel use the same background as the surrounding SplitPane */
+.scroll-pane {
+  -fx-background-color: transparent;    /* area around the viewport */
+}
+.scroll-pane > .viewport {
+  -fx-background-color: transparent;    /* actual content area */
+}
+.scroll-pane .corner {
+  -fx-background-color: transparent;    /* corner when scrollbars meet */
+}
+
+/* Text on dark background */
+.label,
+#helpMessage {
+  -fx-text-fill: white;
+  -fx-font-family: "Consolas", "Courier New", monospace;
+}
+
+.help-header {
+    -fx-font-family: "Consolas", "Courier New", monospace;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.help-command-title {
+    -fx-font-family: "Consolas", "Courier New", monospace;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.help-command-description {
+    -fx-font-family: "Consolas", "Courier New", monospace;
+    -fx-font-size: 12px;
+}
+
+.help-command-block {
+    -fx-padding: 0, 0, 20px 0; /* Bottom padding for spacing */
+}
+
+.help-footer {
+    -fx-font-family: "Consolas", "Courier New", monospace;
+    -fx-font-size: 12px;
+    -fx-text-fill: lightblue;
+}
+
+/* Button styling to match dark theme */
+#copyButton {
+  -fx-background-color: #3c3f41;
+  -fx-text-fill: white;
+}
+#copyButton:hover {
+  -fx-background-color: #4c5052;
+}
+#copyButton:armed {
+  -fx-background-color: #5b5f61;
+}

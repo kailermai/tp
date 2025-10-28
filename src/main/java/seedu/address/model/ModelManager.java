@@ -4,6 +4,9 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.nio.file.Path;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.Objects;
 import java.util.function.Predicate;
 import java.util.logging.Logger;
 
@@ -128,6 +131,32 @@ public class ModelManager implements Model {
         filteredStudents.setPredicate(predicate);
     }
 
+    //=========== Sorting students =============================================================
+    @Override
+    public void sortStudentByAttendance() {
+        ObservableList<Student> studentList = addressBook.getModifiableStudentList();
+        studentList.sort(Comparator
+                .comparingInt(this::getTotalAttendance)
+                .reversed());
+    }
+
+    @Override
+    public void sortStudentByParticipation() {
+        ObservableList<Student> studentList = addressBook.getModifiableStudentList();
+        studentList.sort(Comparator
+                .comparingInt(this::getTotalParticipation)
+                .reversed());
+    }
+
+    @Override
+    public void sortStudentBySubmission() {
+        ObservableList<Student> studentList = addressBook.getModifiableStudentList();
+        studentList.sort(Comparator
+                .comparingInt(this::getTotalSubmission)
+                .reversed());
+    }
+
+
     @Override
     public boolean equals(Object other) {
         if (other == this) {
@@ -143,6 +172,60 @@ public class ModelManager implements Model {
         return addressBook.equals(otherModelManager.addressBook)
                 && userPrefs.equals(otherModelManager.userPrefs)
                 && filteredStudents.equals(otherModelManager.filteredStudents);
+    }
+
+    /**
+     * Calculates the sum of all attendance scores for a given student.
+     * Returns 0 if the student or their record list is null.
+     */
+    private int getTotalAttendance(Student student) {
+        seedu.address.model.record.Record[] records = student.getRecordList().records;
+        return Arrays.stream(records)
+                .filter(Objects::nonNull)
+                .mapToInt(record -> {
+                    try {
+                        return record.getAttendanceScore();
+                    } catch (NullPointerException e) {
+                        return 0;
+                    }
+                })
+                .sum();
+    }
+
+    /**
+     * Calculates the sum of all participation scores for a given student.
+     * Returns 0 if the student or their record list is null.
+     */
+    private int getTotalParticipation(Student student) {
+        seedu.address.model.record.Record[] records = student.getRecordList().records;
+        return Arrays.stream(records)
+                .filter(Objects::nonNull)
+                .mapToInt(record -> {
+                    try {
+                        return record.getParticipationScore();
+                    } catch (NullPointerException e) {
+                        return 0;
+                    }
+                })
+                .sum();
+    }
+
+    /**
+     * Calculates the sum of all submission scores for a given student.
+     * Returns 0 if the student or their record list is null.
+     */
+    private int getTotalSubmission(Student student) {
+        seedu.address.model.record.Record[] records = student.getRecordList().records;
+        return Arrays.stream(records)
+                .filter(Objects::nonNull)
+                .mapToInt(record -> {
+                    try {
+                        return record.getSubmissionScore();
+                    } catch (NullPointerException e) {
+                        return 0;
+                    }
+                })
+                .sum();
     }
 
 }
