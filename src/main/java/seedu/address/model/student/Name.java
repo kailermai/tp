@@ -11,12 +11,9 @@ public class Name {
 
     public static final String MESSAGE_CONSTRAINTS =
             "Names should only contain alphanumeric characters and spaces, should not be blank "
-                    + "and should be no more than 100 characters long";
+                    + "and should be no more than 100 characters long.\nNames can also contain special character "
+                    + "'/', as long as it is not preceded by an input prefix, eg. sn/";
 
-    /*
-     * The first character of the address must not be a whitespace,
-     * otherwise " " (a blank string) becomes a valid input.
-     */
     public static final String VALIDATION_REGEX = "(?=.{1,100}$)[\\p{Alnum}][\\p{Alnum} '/']*";
 
     public final String fullName;
