@@ -25,17 +25,4 @@ public class SubmissionScore extends Score {
     public static boolean isValidSubmissionScore(int score) {
         return score >= MIN_SCORE && score <= MAX_SCORE;
     }
-
-    @Override
-    public boolean equals(Object other) {
-        if (other == this) {
-            return true;
-        }
-
-        if (!(other instanceof SubmissionScore otherScore)) {
-            return false;
-        }
-
-        return otherScore.value == this.value;
-    }
 }

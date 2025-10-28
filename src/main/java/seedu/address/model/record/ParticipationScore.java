@@ -24,17 +24,4 @@ public class ParticipationScore extends Score {
     public static boolean isValidParticipationScore(int score) {
         return score >= MIN_SCORE && score <= MAX_SCORE;
     }
-
-    @Override
-    public boolean equals(Object other) {
-        if (other == this) {
-            return true;
-        }
-
-        if (!(other instanceof ParticipationScore otherParticipationScore)) {
-            return false;
-        }
-
-        return otherParticipationScore.value == this.value;
-    }
 }

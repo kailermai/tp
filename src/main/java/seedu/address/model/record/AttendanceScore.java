@@ -25,17 +25,4 @@ public class AttendanceScore extends Score {
     public static boolean isValidAttendanceScore(int attendanceScore) {
         return attendanceScore >= MIN_SCORE && attendanceScore <= MAX_SCORE;
     }
-
-    @Override
-    public boolean equals(Object other) {
-        if (other == this) {
-            return true;
-        }
-
-        if (!(other instanceof AttendanceScore otherScore)) {
-            return false;
-        }
-
-        return otherScore.value == this.value;
-    }
 }
