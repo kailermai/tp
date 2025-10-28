@@ -40,8 +40,8 @@ public class Record {
 
     @Override
     public String toString() {
-        return String.format("Attendance: %s, Submission: %s, Participation: %s",
-                attendanceScore, submissionScore, participationScore);
+        return String.format("Attendance: %s, Participation: %s, Submission: %s",
+                attendanceScore, participationScore, submissionScore);
     }
 
     @Override

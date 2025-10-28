@@ -46,8 +46,8 @@ public class RecordCommand extends Command {
     public static final String MESSAGE_HELP_DESCRIPTION = COMMAND_WORD + " INDEX "
             + PREFIX_WEEK_NUMBER + "WEEK_NUMBER "
             + PREFIX_ATTENDANCE_SCORE + "ATTENDANCE_SCORE "
-            + PREFIX_SUBMISSION_SCORE + "SUBMISSION_SCORE "
-            + PREFIX_PARTICIPATION_SCORE + "PARTICIPATION_SCORE";
+            + PREFIX_PARTICIPATION_SCORE + "PARTICIPATION_SCORE"
+            + PREFIX_SUBMISSION_SCORE + "SUBMISSION_SCORE ";
 
     public static final String MESSAGE_HELP_REMOVE_RECORD_TITLE = "Remove a data record:";
     public static final String MESSAGE_HELP_REMOVE_RECORD_DESCRIPTION = COMMAND_WORD + " INDEX "
