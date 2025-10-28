@@ -12,7 +12,10 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.logic.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
+import seedu.address.model.record.AttendanceScore;
+import seedu.address.model.record.ParticipationScore;
 import seedu.address.model.record.Record;
+import seedu.address.model.record.SubmissionScore;
 import seedu.address.model.record.WeekNumber;
 import seedu.address.model.recordlist.RecordList;
 import seedu.address.model.student.Student;
@@ -25,19 +28,19 @@ public class RecordCommand extends Command {
 
     public static final String COMMAND_WORD = "record";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Records the attendance of the student identified "
-            + "by the index number used in the displayed student list. "
-            + "Existing values will be overwritten by the input values.\n"
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Add, update or remove a student's weekly record. \n"
             + "Parameters: INDEX (must be a positive integer) "
-            + "[" + PREFIX_WEEK_NUMBER + "WEEK NUMBER] "
-            + "[" + PREFIX_ATTENDANCE_SCORE + "ATTENDANCE] "
-            + "[" + PREFIX_PARTICIPATION_SCORE + "PARTICIPATION] "
-            + "[" + PREFIX_SUBMISSION_SCORE + "SUBMISSION] \n"
-            + "Example: " + COMMAND_WORD + " 1 "
-            + PREFIX_WEEK_NUMBER + "3 "
-            + PREFIX_ATTENDANCE_SCORE + "0 "
-            + PREFIX_PARTICIPATION_SCORE + "5 "
-            + PREFIX_SUBMISSION_SCORE + "1 ";
+            + PREFIX_WEEK_NUMBER + "WEEK NUMBER "
+            + PREFIX_ATTENDANCE_SCORE + "ATTENDANCE "
+            + PREFIX_PARTICIPATION_SCORE + "PARTICIPATION "
+            + PREFIX_SUBMISSION_SCORE + "SUBMISSION \n"
+            + "Note: Omit all score prefixes to remove the record for the given week.\n"
+            + "Example add/update: " + COMMAND_WORD + " 1 "
+            + PREFIX_WEEK_NUMBER + WeekNumber.MIN_WEEK_NUMBER + " "
+            + PREFIX_ATTENDANCE_SCORE + AttendanceScore.MIN_SCORE + " "
+            + PREFIX_PARTICIPATION_SCORE + ParticipationScore.MAX_SCORE + " "
+            + PREFIX_SUBMISSION_SCORE + SubmissionScore.MAX_SCORE + " \n"
+            + "Example remove: " + COMMAND_WORD + " 1 " + PREFIX_WEEK_NUMBER + "3";
 
     public static final String MESSAGE_HELP_TITLE = "Create a data record:";
     public static final String MESSAGE_HELP_DESCRIPTION = COMMAND_WORD + " INDEX "
