@@ -32,7 +32,7 @@ public class Name {
         requireNonNull(name);
         checkArgument(isValidName(name), MESSAGE_CONSTRAINTS);
         fullName = name;
-        hasNonStandardCharacters = !name.matches(VALIDATION_REGEX_STRICT) & name.matches(VALIDATION_REGEX_LENIENT);
+        hasNonStandardCharacters = !name.matches(VALIDATION_REGEX_STRICT) && name.matches(VALIDATION_REGEX_LENIENT);
     }
 
     /**

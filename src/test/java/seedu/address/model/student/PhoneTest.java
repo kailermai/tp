@@ -31,13 +31,7 @@ public class PhoneTest {
         assertFalse(Phone.isValidPhone("+92")); // less than 3 numbers with plus sign
         assertFalse(Phone.isValidPhone("phone")); // non-numeric
         assertFalse(Phone.isValidPhone("9011p041")); // alphabets within digits
-        assertFalse(Phone.isValidPhone("9312 1534")); // spaces within digits
         assertFalse(Phone.isValidPhone("+")); // only plus sign
-        assertFalse(Phone.isValidPhone("++6512345678")); // multiple plus signs
-        assertFalse(Phone.isValidPhone("123-456-7890-")); // ends with a hyphen
-        assertFalse(Phone.isValidPhone("-9222")); // starts with a hyphen
-        assertFalse(Phone.isValidPhone("65+1234")); // plus sign in middle
-        assertFalse(Phone.isValidPhone("+-6512345678")); // plus sign followed by hyphen
 
         // valid phone numbers
         assertTrue(Phone.isValidPhone("911")); // exactly 3 numbers
@@ -46,6 +40,34 @@ public class PhoneTest {
         assertTrue(Phone.isValidPhone("+6512345678")); // with plus sign
         assertTrue(Phone.isValidPhone("123-456-7890")); // with hyphens
         assertTrue(Phone.isValidPhone("+65-1234-5678")); // with plus sign and hyphens
+
+        // valid phone numbers with non-standard characters
+        assertTrue(Phone.isValidPhone("9312 1534")); // spaces within digits
+        assertTrue(Phone.isValidPhone("++6512345678")); // multiple plus signs
+        assertTrue(Phone.isValidPhone("123-456-7890-")); // ends with a hyphen
+        assertTrue(Phone.isValidPhone("-9222")); // starts with a hyphen
+        assertTrue(Phone.isValidPhone("65+1234")); // plus sign in middle
+        assertTrue(Phone.isValidPhone("+-6512345678")); // plus sign followed by hyphen
+        assertTrue(Phone.isValidPhone("123.456.7890")); // dots within digits
+        assertTrue(Phone.isValidPhone("123 (65) 7890")); // brackets within digits
+    }
+
+    @Test
+    public void hasNonStandardCharacters() {
+        Phone phone1 = new Phone("9999");
+        Phone phone2 = new Phone("+999-999");
+        Phone phone3 = new Phone("9999-");
+        Phone phone4 = new Phone("99 99");
+        Phone phone5 = new Phone("999.999");
+        Phone phone6 = new Phone("999(999)");
+
+        assertFalse(phone1.hasNonStandardCharacters());
+        assertFalse(phone2.hasNonStandardCharacters());
+
+        assertTrue(phone3.hasNonStandardCharacters());
+        assertTrue(phone4.hasNonStandardCharacters());
+        assertTrue(phone5.hasNonStandardCharacters());
+        assertTrue(phone6.hasNonStandardCharacters());
     }
 
     @Test
