@@ -13,7 +13,7 @@ public class TrendCommand extends Command {
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Shows trend of all students.\n"
             + "Example: " + COMMAND_WORD;
 
-    public static final String MESSAGE_HELP_TITLE = "Shows the trend of the entire class:";
+    public static final String MESSAGE_HELP_TITLE = "Show the trend of the entire class:";
     public static final String MESSAGE_HELP_DESCRIPTION = COMMAND_WORD;
 
     public static final String MESSAGE_SUCCESS = "Opened trend window.";
