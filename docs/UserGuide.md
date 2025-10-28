@@ -80,19 +80,26 @@ Adds a person to TAHub.
 Format: `add n/NAME sn/STUDENT_NUMBER p/PHONE_NUMBER e/EMAIL tele/TELEGRAM [t/TAG]…​`
 
 * Adds a student with the specified `NAME`, `STUDENT_NUMBER`, `PHONE_NUMBER`, `EMAIL`, `TELEGRAM` and `TAG`
+
 * `NAME` should only contain alphanumeric characters and spaces, should not be blank, and should not be longer than 100 characters. Names can also contain special character '/', as long as it is not preceded by an input prefix (e.g. `n/`, `sn/`, `p/`, `e/`, `tele/`).
+
 * `STUDENT_NUMBER` should be in the following format `AXXXXXXXZ`, where A is the letter A, X is any digit 0–9, and Z is any letter.
+
 * `PHONE_NUMBER` can start with '+' character, should contain only digits, with optional '-' separators, and should be at least three digits long.
-* `EMAIL` should be of the format `local-part@domain` and adhere to the followign constraints:
-  * The `local-part` should only contain alphanumeric charcters and these special characters: `+`, `_`, `.`, `-`.
+
+* `EMAIL` should be of the format `local-part@domain` and adhere to the following constraints:
+  * The `local-part` should only contain alphanumeric characters and these special characters: `+`, `_`, `.`, `-`.
     * The local-part may not start or end with any of the special characters.
-  * The local part is followed by a '@' and then a domain name.
+  * The local part is followed by an '@' and then a domain name.
   * The domain name is made up of domain labels separated by periods `.`.
   * The domain must:
     * Consist of one or more domain labels separated by a single period `.`.
-      * Each domain label must start and end with alphanumeric characters, seperated only by hyphens `-`, if any.
-      * The final domain label must be at least 2 characters long.
+      * Each domain label must start and end with alphanumeric characters, separated only by hyphens `-`, if any.
+      * The final domain label must be at least two characters long.
+  * Example: `example@gmail.com`, `test@u.nus.edu.sg`.
+
 * `TELEGRAM` should contain only alphanumeric characters and underscores, should not be blank, and should be at most 100 characters long.
+
 * `TAG` should only contain alphanumeric characters.
 * All the fields are required except for `TAG`.
 
@@ -118,7 +125,7 @@ Format: `edit INDEX [n/NAME] [sn/STUDENT_NUMBER] [p/PHONE] [e/EMAIL] [tele/TELEG
 
 * Edits the student at the specified `INDEX`. The index refers to the index number shown in the displayed student list. The index **must be a positive integer** 1, 2, 3, …​
 * At least one of the optional fields must be provided.
-* Refer to [Adding a person](#adding-a-person-add) for the constraints on the fields.
+* Refer to [Adding a person](#adding-a-person-add) for the parameter constraints.
 * Existing values will be updated to the input values.
 * When editing tags, the existing tags of the student will be removed i.e adding of tags is not cumulative.
 * You can remove all the student’s tags by typing `t/` without
