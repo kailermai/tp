@@ -72,7 +72,6 @@ public class ParserUtil {
      * Leading and trailing whitespaces will be trimmed.
      * @throws ParseException if the specified number is invalid (negative/NaN/out of range)
      */
-    @SuppressWarnings("unchecked")
     public static <T extends Score> T parseScore(String score, ScoreType scoreType) throws ParseException {
         String messageConstraint;
         IntPredicate predicate;
@@ -114,7 +113,9 @@ public class ParserUtil {
 
         //The unchecked cast to T is safe as the switch on scoreType ensures that the correct Score subclass
         // is constructed and returned.
-        return (T) parsedScore;
+        @SuppressWarnings("unchecked")
+        T result = (T) parsedScore;
+        return result;
     }
 
     /**
