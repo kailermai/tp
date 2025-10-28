@@ -11,8 +11,8 @@ public class WeekNumber {
     public static final int MIN_WEEK_NUMBER = 1;
     public static final int MAX_WEEK_NUMBER = 13;
 
-    public static final String MESSAGE_CONSTRAINTS = "Week number should be a positive integer within the range "
-            + "[" + MIN_WEEK_NUMBER + "," + MAX_WEEK_NUMBER + "].";
+    public static final String MESSAGE_CONSTRAINTS = "Week number should be a positive integer between "
+            + MIN_WEEK_NUMBER + " to " + MAX_WEEK_NUMBER + " inclusive.";
 
     public final int weekNumber;
 
