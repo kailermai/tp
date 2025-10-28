@@ -62,6 +62,7 @@ public class NameTest {
         assertTrue(Name.isValidName("Beyoncé Giselle Knowles-Carter")); // Unicode letter.
         assertTrue(Name.isValidName("María José")); // Unicode letter.
         assertTrue(Name.isValidName("/")); // name is just a slash
+        assertTrue(Name.isValidName("contains.character"));
     }
 
     @Test

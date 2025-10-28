@@ -18,7 +18,7 @@ public class Name {
     public static final String VALIDATION_REGEX_STRICT = "(?=.{1,100}$)[\\p{Alnum}][\\p{Alnum} '/']*";
 
     // Lenient regex: allows accented characters, hyphens, apostrophes
-    public static final String VALIDATION_REGEX_LENIENT = "(?=.{1,100}$)[\\p{L}\\p{N}'/\\-][\\p{L}\\p{N} '/\\-]*";
+    public static final String VALIDATION_REGEX_LENIENT = "(?=.{1,100}$)[\\p{L}\\p{N}'/\\-][\\p{L}\\p{N} './\\-]*";
 
     public final String fullName;
     private final boolean hasNonStandardCharacters;
