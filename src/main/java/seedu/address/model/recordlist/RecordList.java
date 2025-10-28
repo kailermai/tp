@@ -51,10 +51,9 @@ public class RecordList {
         Integer[] scores = new Integer[WeekNumber.MAX_WEEK_NUMBER];
 
         for (int i = 0; i < this.records.length; i++) {
-            if (records[i] == null) {
-                continue;
+            if (records[i] != null) {
+                scores[i] = func.apply(records[i]);
             }
-            scores[i] = func.apply(records[i]);
         }
 
         return scores;
