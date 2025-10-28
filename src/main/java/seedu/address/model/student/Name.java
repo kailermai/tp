@@ -14,9 +14,14 @@ public class Name {
                     + "and should be no more than 100 characters long.\nNames can also contain special character "
                     + "'/', as long as it is not preceded by an input prefix, eg. sn/";
 
-    public static final String VALIDATION_REGEX = "(?=.{1,100}$)[\\p{Alnum}][\\p{Alnum} '/']*";
+    // Strict regex: alphanumeric, names, spaces, '/' only.
+    public static final String VALIDATION_REGEX_STRICT = "(?=.{1,100}$)[\\p{Alnum}][\\p{Alnum} '/']*";
+
+    // Lenient regex: allows accented characters, hyphens, apostrophes
+    public static final String VALIDATION_REGEX_LENIENT = "(?=.{1,100}$)[\\p{L}\\p{N}'/\\-][\\p{L}\\p{N} '/\\-]*";
 
     public final String fullName;
+    private final boolean hasNonStandardCharacters;
 
     /**
      * Constructs a {@code Name}.
@@ -27,15 +32,19 @@ public class Name {
         requireNonNull(name);
         checkArgument(isValidName(name), MESSAGE_CONSTRAINTS);
         fullName = name;
+        hasNonStandardCharacters = !name.matches(VALIDATION_REGEX_STRICT) & name.matches(VALIDATION_REGEX_LENIENT);
     }
 
     /**
      * Returns true if a given string is a valid name.
      */
     public static boolean isValidName(String test) {
-        return test.matches(VALIDATION_REGEX);
+        return test.matches(VALIDATION_REGEX_STRICT) || test.matches(VALIDATION_REGEX_LENIENT);
     }
 
+    public boolean hasNonStandardCharacters() {
+        return hasNonStandardCharacters;
+    }
 
     @Override
     public String toString() {
