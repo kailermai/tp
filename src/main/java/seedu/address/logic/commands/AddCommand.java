@@ -51,10 +51,10 @@ public class AddCommand extends Command {
     public static final String MESSAGE_SUCCESS = "New student added: %1$s";
     public static final String MESSAGE_DUPLICATE_STUDENT = "A student with the same student number already exists in "
             + "TAHub.";
-    public static final String MESSAGE_SUCCESS_NON_STANDARD_NAME = MESSAGE_SUCCESS +
-            "\nWarning: The student's name contains non-standard characters.";
-    public static final String MESSAGE_SUCCESS_NON_STANDARD_PHONE = MESSAGE_SUCCESS +
-            "\nWarning: The student's phone number contains non-standard characters.";
+    public static final String MESSAGE_SUCCESS_NON_STANDARD_NAME =
+            "Warning: The student's name contains non-standard characters.";
+    public static final String MESSAGE_SUCCESS_NON_STANDARD_PHONE =
+            "Warning: The student's phone number contains non-standard characters.";
 
     private final Student toAdd;
 
@@ -76,14 +76,16 @@ public class AddCommand extends Command {
 
         model.addStudent(toAdd);
 
+        String successMessage = String.format(MESSAGE_SUCCESS, Messages.format(toAdd));
+
         if (toAdd.getHasNonStandardName()) {
-            return new CommandResult(String.format(MESSAGE_SUCCESS_NON_STANDARD_NAME, Messages.format(toAdd)));
+            successMessage = successMessage + "\n" + MESSAGE_SUCCESS_NON_STANDARD_NAME;
         }
 
         if (toAdd.getHasNonStandardPhone()) {
-            return new CommandResult(String.format(MESSAGE_SUCCESS_NON_STANDARD_PHONE, Messages.format(toAdd)));
+            successMessage = successMessage + "\n" + MESSAGE_SUCCESS_NON_STANDARD_PHONE;
         }
-        return new CommandResult(String.format(MESSAGE_SUCCESS, Messages.format(toAdd)));
+        return new CommandResult(String.format(successMessage, Messages.format(toAdd)));
     }
 
     @Override

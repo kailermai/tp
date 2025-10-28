@@ -65,10 +65,10 @@ public class EditCommand extends Command {
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
     public static final String MESSAGE_DUPLICATE_STUDENT = "A student with the same student number already exists in "
             + "TAHub.";
-    public static final String MESSAGE_EDIT_STUDENT_NON_STANDARD_NAME_SUCCESS = MESSAGE_EDIT_STUDENT_SUCCESS +
-            "\nWarning: The student's name contains non-standard characters.";
-    public static final String MESSAGE_EDIT_STUDENT_NON_STANDARD_PHONE_SUCCESS = MESSAGE_EDIT_STUDENT_SUCCESS +
-            "\nWarning: The student's phone number contains non-standard characters.";
+    public static final String MESSAGE_EDIT_STUDENT_NON_STANDARD_NAME_SUCCESS = MESSAGE_EDIT_STUDENT_SUCCESS
+            + "\nWarning: The student's name contains non-standard characters.";
+    public static final String MESSAGE_EDIT_STUDENT_NON_STANDARD_PHONE_SUCCESS = MESSAGE_EDIT_STUDENT_SUCCESS
+            + "\nWarning: The student's phone number contains non-standard characters.";
 
     private final Index index;
     private final EditStudentDescriptor editStudentDescriptor;

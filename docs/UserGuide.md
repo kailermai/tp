@@ -122,6 +122,8 @@ A person can have any number of tags (including 0)
 Examples:
 * `add n/John Doe sn/A0123456Z p/98765432 e/johnd@example.com tele/john_doe`
 * `add n/Betsy Crowe t/friend e/betsycrowe@example.com tele/betsy_crowe sn/A1234567G p/1234567 t/criminal`
+* `add n/jean-grey sn/A2222222R p/(65) 9494 e/jean@example tele/jean_grey`
+    ![result for 'add n/jean-grey sn/A2222222R p/(65) 9494 e/jean@example tele/jean_grey'](images/AddJeanGreySuccess.png)
 
 ### Listing all students : `list`
 

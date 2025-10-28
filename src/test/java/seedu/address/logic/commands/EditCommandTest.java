@@ -82,8 +82,8 @@ public class EditCommandTest {
         StudentBuilder studentInList = new StudentBuilder(lastStudent);
         Student editedStudent = studentInList.withName(VALID_NON_STANDARD_NAME).build();
 
-        EditCommand.EditStudentDescriptor descriptor = new EditStudentDescriptorBuilder().withName(VALID_NON_STANDARD_NAME)
-                .build();
+        EditCommand.EditStudentDescriptor descriptor =
+                new EditStudentDescriptorBuilder().withName(VALID_NON_STANDARD_NAME).build();
         EditCommand editCommand = new EditCommand(indexLastStudent, descriptor);
 
         String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_STUDENT_NON_STANDARD_NAME_SUCCESS,

@@ -62,8 +62,10 @@ public class AddCommandTest {
 
         CommandResult commandResult = new AddCommand(nonStandardStudent).execute(modelStub);
 
-        assertEquals(String.format(AddCommand.MESSAGE_SUCCESS_NON_STANDARD_NAME, Messages.format(nonStandardStudent)),
-                commandResult.getFeedbackToUser());
+        String expectedString = String.format(AddCommand.MESSAGE_SUCCESS + "\n"
+                        + AddCommand.MESSAGE_SUCCESS_NON_STANDARD_NAME, Messages.format(nonStandardStudent));
+
+        assertEquals(expectedString, commandResult.getFeedbackToUser());
         assertEquals(Arrays.asList(nonStandardStudent), modelStub.studentsAdded);
     }
 
@@ -74,8 +76,28 @@ public class AddCommandTest {
 
         CommandResult commandResult = new AddCommand(nonStandardStudent).execute(modelStub);
 
-        assertEquals(String.format(AddCommand.MESSAGE_SUCCESS_NON_STANDARD_PHONE, Messages.format(nonStandardStudent)),
-                commandResult.getFeedbackToUser());
+        String expectedString = String.format(AddCommand.MESSAGE_SUCCESS + "\n"
+                        + AddCommand.MESSAGE_SUCCESS_NON_STANDARD_PHONE, Messages.format(nonStandardStudent));
+
+        assertEquals(expectedString, commandResult.getFeedbackToUser());
+        assertEquals(Arrays.asList(nonStandardStudent), modelStub.studentsAdded);
+    }
+
+    @Test
+    public void execute_nonStandardNameAndPhoneStudent_addSuccessful() throws Exception {
+        Student nonStandardStudent = new StudentBuilder()
+                .withName(VALID_NON_STANDARD_NAME)
+                .withPhone(VALID_NON_STANDARD_PHONE)
+                .build();
+        ModelStubAcceptingStudentAdded modelStub = new ModelStubAcceptingStudentAdded();
+
+        CommandResult commandResult = new AddCommand(nonStandardStudent).execute(modelStub);
+
+        String expectedString = String.format(AddCommand.MESSAGE_SUCCESS + "\n"
+                        + AddCommand.MESSAGE_SUCCESS_NON_STANDARD_NAME + "\n"
+                        + AddCommand.MESSAGE_SUCCESS_NON_STANDARD_PHONE, Messages.format(nonStandardStudent));
+
+        assertEquals(expectedString, commandResult.getFeedbackToUser());
         assertEquals(Arrays.asList(nonStandardStudent), modelStub.studentsAdded);
     }
 
