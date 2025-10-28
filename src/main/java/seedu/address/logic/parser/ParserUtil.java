@@ -8,12 +8,16 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_SORT_SUBMISSION;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.function.IntFunction;
+import java.util.function.IntPredicate;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.record.AttendanceScore;
 import seedu.address.model.record.ParticipationScore;
+import seedu.address.model.record.Score;
+import seedu.address.model.record.ScoreType;
 import seedu.address.model.record.SubmissionScore;
 import seedu.address.model.record.WeekNumber;
 import seedu.address.model.student.Email;
@@ -64,63 +68,54 @@ public class ParserUtil {
     }
 
     /**
-     * Parses {@code attendanceScore} into an {@code AttendanceScore} and returns it.
+     * Parses the given String into a concrete {@code Score} object of the specified {@code ScoreType}.
      * Leading and trailing whitespaces will be trimmed.
      * @throws ParseException if the specified number is invalid (negative/NaN/out of range)
      */
-    public static AttendanceScore parseAttendanceScore(String attendanceScore) throws ParseException {
-        String trimmedScore = attendanceScore.trim();
+    public static <T extends Score> T parseScore(String score, ScoreType scoreType) throws ParseException {
+        String messageConstraint;
+        IntPredicate predicate;
+        IntFunction<Score> constructor;
+
+        switch (scoreType) {
+        case ATTENDANCE:
+            messageConstraint = AttendanceScore.MESSAGE_CONSTRAINTS;
+            predicate = AttendanceScore::isValidAttendanceScore;
+            constructor = AttendanceScore::new;
+            break;
+        case PARTICIPATION:
+            messageConstraint = ParticipationScore.MESSAGE_CONSTRAINTS;
+            predicate = ParticipationScore::isValidParticipationScore;
+            constructor = ParticipationScore::new;
+            break;
+        case SUBMISSION:
+            messageConstraint = SubmissionScore.MESSAGE_CONSTRAINTS;
+            predicate = SubmissionScore::isValidSubmissionScore;
+            constructor = SubmissionScore::new;
+            break;
+        default:
+            throw new ParseException("Unknown score type.");
+        }
+
+        String trimmedScore = score.trim();
         int parsedInt;
         try {
             parsedInt = Integer.parseInt(trimmedScore);
-        } catch (NumberFormatException nfe) {
-            throw new ParseException(AttendanceScore.MESSAGE_CONSTRAINTS);
+        } catch (NumberFormatException e) {
+            throw new ParseException(messageConstraint);
         }
 
-        if (!AttendanceScore.isValidAttendanceScore(parsedInt)) {
-            throw new ParseException(AttendanceScore.MESSAGE_CONSTRAINTS);
-        }
-        return new AttendanceScore(parsedInt);
-    }
-
-    /**
-     * Parses {@code participationScore} into an {@code ParticipationScore} and returns it.
-     * Leading and trailing whitespaces will be trimmed.
-     * @throws ParseException if the specified number is invalid (negative/NaN/out of range)
-     */
-    public static ParticipationScore parseParticipationScore(String participationScore) throws ParseException {
-        String trimmedScore = participationScore.trim();
-        int parsedInt;
-        try {
-            parsedInt = Integer.parseInt(trimmedScore);
-        } catch (NumberFormatException nfe) {
-            throw new ParseException(ParticipationScore.MESSAGE_CONSTRAINTS);
+        if (!predicate.test(parsedInt)) {
+            throw new ParseException(messageConstraint);
         }
 
-        if (!ParticipationScore.isValidParticipationScore(parsedInt)) {
-            throw new ParseException(ParticipationScore.MESSAGE_CONSTRAINTS);
-        }
-        return new ParticipationScore(parsedInt);
-    }
+        Score parsedScore = constructor.apply(parsedInt);
 
-    /**
-     * Parses {@code submissionScore} into an {@code SubmissionScore} and returns it.
-     * Leading and trailing whitespaces will be trimmed.
-     * @throws ParseException if the specified number is invalid (negative/NaN/out of range)
-     */
-    public static SubmissionScore parseSubmissionScore(String submissionScore) throws ParseException {
-        String trimmedScore = submissionScore.trim();
-        int parsedInt;
-        try {
-            parsedInt = Integer.parseInt(trimmedScore);
-        } catch (NumberFormatException nfe) {
-            throw new ParseException(SubmissionScore.MESSAGE_CONSTRAINTS);
-        }
-
-        if (!SubmissionScore.isValidSubmissionScore(parsedInt)) {
-            throw new ParseException(SubmissionScore.MESSAGE_CONSTRAINTS);
-        }
-        return new SubmissionScore(parsedInt);
+        //The unchecked cast to T is safe as the switch on scoreType ensures that the correct Score subclass
+        // is constructed and returned.
+        @SuppressWarnings("unchecked")
+        T result = (T) parsedScore;
+        return result;
     }
 
     /**

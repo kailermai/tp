@@ -3,8 +3,8 @@ package seedu.address.model.record;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
 /**
- * Represents an attendance score for an attendance record.
- * A valid week number is a positive integer between {@value MIN_SCORE} and {@value MAX_SCORE}, inclusive.
+ * Represents an attendance score in a student record.
+ * A valid attendance score is a positive integer between {@value MIN_SCORE} and {@value MAX_SCORE}, inclusive.
  */
 public class AttendanceScore extends Score {
     public static final int MAX_SCORE = 1;
@@ -15,27 +15,14 @@ public class AttendanceScore extends Score {
      * Constructs an {@code AttendanceScore} object with the given score.
      *
      * @param attendanceScore The score to be assigned.
-     * @throws IllegalArgumentException If the provided week number is not within the valid range.
+     * @throws IllegalArgumentException If the provided attendance score is not within the valid range.
      */
-    public AttendanceScore(int attendanceScore) {
+    public AttendanceScore(int attendanceScore) throws IllegalArgumentException {
         super(attendanceScore);
         checkArgument(isValidAttendanceScore(attendanceScore), MESSAGE_CONSTRAINTS);
     }
 
     public static boolean isValidAttendanceScore(int attendanceScore) {
         return attendanceScore >= MIN_SCORE && attendanceScore <= MAX_SCORE;
-    }
-
-    @Override
-    public boolean equals(Object other) {
-        if (other == this) {
-            return true;
-        }
-
-        if (!(other instanceof AttendanceScore otherScore)) {
-            return false;
-        }
-
-        return otherScore.value == this.value;
     }
 }

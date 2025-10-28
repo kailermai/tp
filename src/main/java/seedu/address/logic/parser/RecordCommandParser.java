@@ -14,6 +14,7 @@ import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.record.AttendanceScore;
 import seedu.address.model.record.ParticipationScore;
 import seedu.address.model.record.Record;
+import seedu.address.model.record.ScoreType;
 import seedu.address.model.record.SubmissionScore;
 import seedu.address.model.record.WeekNumber;
 
@@ -50,18 +51,18 @@ public class RecordCommandParser implements Parser<RecordCommand> {
 
         WeekNumber weekNumber = ParserUtil.parseWeekNumber(argMultimap.getValue(PREFIX_WEEK_NUMBER).orElse(""));
 
-        // isValidPrefixCombination ensures that if the attendance score is not present,
-        // then participation and submission score will not be present either.
-        if (argMultimap.getValue(PREFIX_ATTENDANCE_SCORE).isEmpty()) {
+        // isValidPrefixCombination ensures that if one score is not present, all other scores are not present as well
+        boolean noScoresProvided = argMultimap.getValue(PREFIX_ATTENDANCE_SCORE).isEmpty();
+        if (noScoresProvided) {
             return new RecordCommand(index, weekNumber, null);
         }
 
-        AttendanceScore attendanceScore = ParserUtil.parseAttendanceScore(
-                argMultimap.getValue(PREFIX_ATTENDANCE_SCORE).orElse(""));
-        SubmissionScore submissionScore = ParserUtil.parseSubmissionScore(
-                argMultimap.getValue(PREFIX_SUBMISSION_SCORE).orElse(""));
-        ParticipationScore participationScore = ParserUtil.parseParticipationScore(
-                argMultimap.getValue(PREFIX_PARTICIPATION_SCORE).orElse(""));
+        AttendanceScore attendanceScore = ParserUtil.parseScore(
+                argMultimap.getValue(PREFIX_ATTENDANCE_SCORE).orElse(""), ScoreType.ATTENDANCE);
+        SubmissionScore submissionScore = ParserUtil.parseScore(
+                argMultimap.getValue(PREFIX_SUBMISSION_SCORE).orElse(""), ScoreType.SUBMISSION);
+        ParticipationScore participationScore = ParserUtil.parseScore(
+                argMultimap.getValue(PREFIX_PARTICIPATION_SCORE).orElse(""), ScoreType.PARTICIPATION);
 
         return new RecordCommand(index, weekNumber, new Record(attendanceScore, submissionScore, participationScore));
     }

@@ -6,7 +6,7 @@ package seedu.address.model.record;
 public abstract class Score {
     public static final int MIN_SCORE = 0;
 
-    protected final int value;
+    private final int value;
 
     public Score(int value) {
         this.value = value;
@@ -19,6 +19,24 @@ public abstract class Score {
     @Override
     public String toString() {
         return String.valueOf(value);
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        if (other == this) {
+            return true;
+        }
+
+        if (other == null) {
+            return false;
+        }
+
+        if (this.getClass() != other.getClass()) {
+            return false;
+        }
+
+        Score otherScore = (Score) other;
+        return this.value == otherScore.value;
     }
 
     @Override
