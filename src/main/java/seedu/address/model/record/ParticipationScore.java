@@ -3,7 +3,7 @@ package seedu.address.model.record;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
 /**
- * Represents a participation score for a participation record.
+ * Represents a participation score in a student record.
  * A valid participation score is an integer between {@value MIN_SCORE} and {@value MAX_SCORE}, inclusive.
  */
 public class ParticipationScore extends Score {
