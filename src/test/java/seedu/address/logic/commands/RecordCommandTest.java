@@ -20,6 +20,7 @@ import seedu.address.model.AddressBook;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
+import seedu.address.model.record.Record;
 import seedu.address.model.record.WeekNumber;
 import seedu.address.model.recordlist.RecordList;
 import seedu.address.model.student.Student;
@@ -39,8 +40,8 @@ public class RecordCommandTest {
 
         RecordCommand recordCommand = new RecordCommand(INDEX_FIRST_STUDENT, WEEK_NUMBER_STUB, VALID_RECORD_AMY);
 
-        String expectedMessage = String.format(
-                RecordCommand.MESSAGE_ADD_RECORD_SUCCESS, Messages.format(editedStudent), VALID_RECORD_AMY);
+        String expectedMessage = String.format(RecordCommand.MESSAGE_ADD_RECORD_SUCCESS, WEEK_NUMBER_STUB,
+                Messages.format(editedStudent), VALID_RECORD_AMY);
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
         expectedModel.setStudent(firstStudent, editedStudent);
@@ -59,8 +60,8 @@ public class RecordCommandTest {
 
         RecordCommand recordCommand = new RecordCommand(INDEX_FIRST_STUDENT, WEEK_NUMBER_STUB, VALID_RECORD_AMY);
 
-        String expectedMessage = String.format(
-                RecordCommand.MESSAGE_ADD_RECORD_SUCCESS, Messages.format(editedStudent), VALID_RECORD_AMY);
+        String expectedMessage = String.format(RecordCommand.MESSAGE_ADD_RECORD_SUCCESS, WEEK_NUMBER_STUB,
+                Messages.format(editedStudent), VALID_RECORD_AMY);
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
         expectedModel.setStudent(firstStudent, editedStudent);
@@ -97,8 +98,8 @@ public class RecordCommandTest {
 
         RecordCommand recordCommand = new RecordCommand(INDEX_FIRST_STUDENT, WEEK_NUMBER_STUB, VALID_RECORD_BOB);
 
-        String expectedMessage = String.format(
-                RecordCommand.MESSAGE_UPDATE_RECORDED_SUCCESS, Messages.format(editedStudent), VALID_RECORD_BOB);
+        String expectedMessage = String.format(RecordCommand.MESSAGE_UPDATE_RECORDED_SUCCESS, WEEK_NUMBER_STUB,
+                Messages.format(editedStudent), VALID_RECORD_BOB);
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
         expectedModel.setStudent(firstStudent, editedStudent);
@@ -116,8 +117,8 @@ public class RecordCommandTest {
 
         RecordCommand recordCommand = new RecordCommand(INDEX_FIRST_STUDENT, WEEK_NUMBER_STUB, VALID_RECORD_BOB);
 
-        String expectedMessage = String.format(
-                RecordCommand.MESSAGE_UPDATE_RECORDED_SUCCESS, Messages.format(editedStudent), VALID_RECORD_BOB);
+        String expectedMessage = String.format(RecordCommand.MESSAGE_UPDATE_RECORDED_SUCCESS, WEEK_NUMBER_STUB,
+                Messages.format(editedStudent), VALID_RECORD_BOB);
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
         expectedModel.setStudent(firstStudent, editedStudent);
@@ -163,14 +164,18 @@ public class RecordCommandTest {
 
     @Test
     public void execute_removeExistingRecordUnfilteredList_success() {
+
+        RecordList mockRecordList = VALID_RECORD_LIST_AMY.clone();
+        Record recordToRemove = mockRecordList.getRecord(Index.fromOneBased(WEEK_NUMBER_STUB.getWeekNumber()));
+
         Student firstStudent = model.getFilteredStudentList().get(INDEX_FIRST_STUDENT.getZeroBased());
-        Student editedStudent = new StudentBuilder(firstStudent).withRecordList(VALID_RECORD_LIST_AMY.clone()).build();
+        Student editedStudent = new StudentBuilder(firstStudent).withRecordList(mockRecordList).build();
         model.setStudent(firstStudent, editedStudent);
 
         RecordCommand recordCommand = new RecordCommand(INDEX_FIRST_STUDENT, WEEK_NUMBER_STUB, null);
 
-        String expectedMessage = String.format(
-                RecordCommand.MESSAGE_REMOVE_RECORD_SUCCESS, Messages.format(editedStudent));
+        String expectedMessage = String.format(RecordCommand.MESSAGE_REMOVE_RECORD_SUCCESS, WEEK_NUMBER_STUB,
+                Messages.format(editedStudent), recordToRemove);
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
         expectedModel.setStudent(firstStudent, editedStudent);
@@ -180,16 +185,20 @@ public class RecordCommandTest {
 
     @Test
     public void execute_removeExistingRecordFilteredList_success() {
+
+        RecordList mockRecordList = VALID_RECORD_LIST_AMY.clone();
+        Record recordToRemove = mockRecordList.getRecord(Index.fromOneBased(WEEK_NUMBER_STUB.getWeekNumber()));
+
         showStudentAtIndex(model, INDEX_FIRST_STUDENT);
         Student firstStudent = model.getFilteredStudentList().get(INDEX_FIRST_STUDENT.getZeroBased());
         Student editedStudent = new StudentBuilder(model.getFilteredStudentList()
-                .get(INDEX_FIRST_STUDENT.getZeroBased())).withRecordList(VALID_RECORD_LIST_AMY.clone()).build();
+                .get(INDEX_FIRST_STUDENT.getZeroBased())).withRecordList(mockRecordList).build();
         model.setStudent(firstStudent, editedStudent);
 
         RecordCommand recordCommand = new RecordCommand(INDEX_FIRST_STUDENT, WEEK_NUMBER_STUB, null);
 
-        String expectedMessage = String.format(
-                RecordCommand.MESSAGE_REMOVE_RECORD_SUCCESS, Messages.format(editedStudent));
+        String expectedMessage = String.format(RecordCommand.MESSAGE_REMOVE_RECORD_SUCCESS, WEEK_NUMBER_STUB,
+                Messages.format(editedStudent), recordToRemove);
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
         expectedModel.setStudent(firstStudent, editedStudent);
