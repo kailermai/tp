@@ -81,7 +81,9 @@ Format: `add n/NAME sn/STUDENT_NUMBER p/PHONE_NUMBER e/EMAIL tele/TELEGRAM [t/TA
 
 * Adds a student with the specified `NAME`, `STUDENT_NUMBER`, `PHONE_NUMBER`, `EMAIL`, `TELEGRAM` and `TAG`
 
-* `NAME` should only contain alphanumeric characters and spaces, should not be blank, and should not be longer than 100 characters. Names can also contain special character '/', as long as it is not preceded by an input prefix (e.g. `n/`, `sn/`, `p/`, `e/`, `tele/`).
+* `NAME` should only contain alphanumeric characters and spaces, should not be blank, and should not be longer than 100 characters.
+  * `NAME` can also contain special character '/', as long as it is not preceded by an input prefix (e.g. `n/`, `sn/`, `p/`, `e/`, `tele/`).
+  * A warning will be displayed if `NAME` contains non-standard characters, such as accented characters, apostrophes, or hyphens. However, the student will still be added with the non-standard name.
 
 * `STUDENT_NUMBER` should be in the following format `AXXXXXXXZ`, where A is the letter A, X is any digit 0–9, and Z is any letter.
 
