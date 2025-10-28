@@ -68,12 +68,10 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a String representation of a score into a {@code Score} object and returns it.
+     * Parses the given String into a concrete {@code Score} object of the specified {@code ScoreType}.
      * Leading and trailing whitespaces will be trimmed.
      * @throws ParseException if the specified number is invalid (negative/NaN/out of range)
      */
-    //The unchecked cast to T is safe as the switch on scoreType ensures that the correct Score subclass
-    // is constructed and returned.
     @SuppressWarnings("unchecked")
     public static <T extends Score> T parseScore(String score, ScoreType scoreType) throws ParseException {
         String messageConstraint;
@@ -113,6 +111,9 @@ public class ParserUtil {
         }
 
         Score parsedScore = constructor.apply(parsedInt);
+
+        //The unchecked cast to T is safe as the switch on scoreType ensures that the correct Score subclass
+        // is constructed and returned.
         return (T) parsedScore;
     }
 
