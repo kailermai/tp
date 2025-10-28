@@ -30,6 +30,7 @@ public class Student {
 
     // boolean fields
     private boolean hasNonStandardName;
+    private boolean hasNonStandardPhone;
 
     /**
      * Every field must be present and not null.
@@ -45,6 +46,7 @@ public class Student {
         this.recordList = recordlist;
         this.telegram = telegram;
         this.hasNonStandardName = this.name.hasNonStandardCharacters();
+        this.hasNonStandardPhone = this.phone.hasNonStandardCharacters();
     }
 
     public Name getName() {
@@ -69,6 +71,10 @@ public class Student {
 
     public boolean getHasNonStandardName() {
         return hasNonStandardName;
+    }
+
+    public boolean getHasNonStandardPhone() {
+        return hasNonStandardPhone;
     }
 
     /**

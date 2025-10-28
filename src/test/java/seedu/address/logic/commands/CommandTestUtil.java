@@ -54,6 +54,7 @@ public class CommandTestUtil {
     public static final String VALID_SUBMISSION_SCORE = Integer.toString(SubmissionScore.MAX_SCORE);
     public static final String VALID_PARTICIPATION_SCORE = Integer.toString(ParticipationScore.MAX_SCORE);
     public static final String VALID_NON_STANDARD_NAME = "'O'Brien";
+    public static final String VALID_NON_STANDARD_PHONE = "(99) 9999-9999";
 
     public static final Record VALID_RECORD_AMY = new Record(new AttendanceScore(AttendanceScore.MIN_SCORE),
             new SubmissionScore(SubmissionScore.MIN_SCORE), new ParticipationScore(ParticipationScore.MIN_SCORE));

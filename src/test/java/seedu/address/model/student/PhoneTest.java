@@ -50,6 +50,7 @@ public class PhoneTest {
         assertTrue(Phone.isValidPhone("+-6512345678")); // plus sign followed by hyphen
         assertTrue(Phone.isValidPhone("123.456.7890")); // dots within digits
         assertTrue(Phone.isValidPhone("123 (65) 7890")); // brackets within digits
+        assertTrue(Phone.isValidPhone("(99) 9999.9999"));
     }
 
     @Test
@@ -60,6 +61,7 @@ public class PhoneTest {
         Phone phone4 = new Phone("99 99");
         Phone phone5 = new Phone("999.999");
         Phone phone6 = new Phone("999(999)");
+        Phone phone7 = new Phone("(99) 9999.9999");
 
         assertFalse(phone1.hasNonStandardCharacters());
         assertFalse(phone2.hasNonStandardCharacters());
@@ -68,6 +70,7 @@ public class PhoneTest {
         assertTrue(phone4.hasNonStandardCharacters());
         assertTrue(phone5.hasNonStandardCharacters());
         assertTrue(phone6.hasNonStandardCharacters());
+        assertTrue(phone7.hasNonStandardCharacters());
     }
 
     @Test
