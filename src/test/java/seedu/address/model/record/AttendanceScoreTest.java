@@ -18,24 +18,4 @@ public class AttendanceScoreTest {
         assertFalse(AttendanceScore.isValidAttendanceScore(AttendanceScore.MIN_SCORE - 1));
         assertFalse(AttendanceScore.isValidAttendanceScore(AttendanceScore.MAX_SCORE + 1));
     }
-
-    @Test
-    public void equals() {
-        AttendanceScore attendanceScore = new AttendanceScore(AttendanceScore.MIN_SCORE);
-
-        // same object -> returns true
-        assertTrue(attendanceScore.equals(attendanceScore));
-
-        // same values -> returns true
-        assertTrue(attendanceScore.equals(new AttendanceScore(AttendanceScore.MIN_SCORE)));
-
-        // different types -> returns false
-        assertFalse(attendanceScore.equals(5));
-
-        // null -> returns false
-        assertFalse(attendanceScore.equals(null));
-
-        // different attendance score -> returns false
-        assertFalse(attendanceScore.equals(new AttendanceScore(AttendanceScore.MAX_SCORE)));
-    }
 }

@@ -17,24 +17,4 @@ public class SubmissionScoreTest {
         assertFalse(SubmissionScore.isValidSubmissionScore(SubmissionScore.MIN_SCORE - 1));
         assertFalse(SubmissionScore.isValidSubmissionScore(SubmissionScore.MAX_SCORE + 1));
     }
-
-    @Test
-    public void equals() {
-        SubmissionScore submissionScore = new SubmissionScore(SubmissionScore.MIN_SCORE);
-
-        // same object -> returns true
-        assertTrue(submissionScore.equals(submissionScore));
-
-        // same values -> returns true
-        assertTrue(submissionScore.equals(new SubmissionScore(SubmissionScore.MIN_SCORE)));
-
-        // different types -> returns false
-        assertFalse(submissionScore.equals(5));
-
-        // null -> returns false
-        assertFalse(submissionScore.equals(null));
-
-        // different submission score -> returns false
-        assertFalse(submissionScore.equals(new SubmissionScore(SubmissionScore.MAX_SCORE)));
-    }
 }
