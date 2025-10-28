@@ -13,9 +13,9 @@ public class SortCommandParserTest {
 
     @Test
     public void parse_validArgs_returnsSortCommand() {
-        assertParseSuccess(parser, "sort /a", new SortCommand(true, false, false));
-        assertParseSuccess(parser, "sort /p", new SortCommand(false, true, false));
-        assertParseSuccess(parser, "sort /s", new SortCommand(false, false, true));
+        assertParseSuccess(parser, " /a", new SortCommand(true, false, false));
+        assertParseSuccess(parser, " /p", new SortCommand(false, true, false));
+        assertParseSuccess(parser, " /s", new SortCommand(false, false, true));
     }
 
     @Test
