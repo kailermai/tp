@@ -57,6 +57,18 @@ public class StudentTest {
     }
 
     @Test
+    public void hasNonStandardName() {
+        Name standardName = new Name("test");
+        Name nonStandardName = new Name("John-Doe");
+
+        Student studentWithStandardName = new StudentBuilder().withName(standardName.toString()).build();
+        Student studentWithNonStandardName = new StudentBuilder().withName(nonStandardName.toString()).build();
+
+        assertFalse(studentWithStandardName.getHasNonStandardName());
+        assertTrue(studentWithNonStandardName.getHasNonStandardName());
+    }
+
+    @Test
     public void equals() {
         // same values -> returns true
         Student aliceCopy = new StudentBuilder(ALICE).build();
