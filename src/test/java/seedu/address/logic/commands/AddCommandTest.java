@@ -63,7 +63,7 @@ public class AddCommandTest {
         CommandResult commandResult = new AddCommand(nonStandardStudent).execute(modelStub);
 
         String expectedString = String.format(AddCommand.MESSAGE_SUCCESS + "\n"
-                        + AddCommand.MESSAGE_SUCCESS_NON_STANDARD_NAME, Messages.format(nonStandardStudent));
+                        + AddCommand.MESSAGE_NON_STANDARD_NAME_WARNING, Messages.format(nonStandardStudent));
 
         assertEquals(expectedString, commandResult.getFeedbackToUser());
         assertEquals(Arrays.asList(nonStandardStudent), modelStub.studentsAdded);
@@ -77,7 +77,7 @@ public class AddCommandTest {
         CommandResult commandResult = new AddCommand(nonStandardStudent).execute(modelStub);
 
         String expectedString = String.format(AddCommand.MESSAGE_SUCCESS + "\n"
-                        + AddCommand.MESSAGE_SUCCESS_NON_STANDARD_PHONE, Messages.format(nonStandardStudent));
+                        + AddCommand.MESSAGE_NON_STANDARD_PHONE_WARNING, Messages.format(nonStandardStudent));
 
         assertEquals(expectedString, commandResult.getFeedbackToUser());
         assertEquals(Arrays.asList(nonStandardStudent), modelStub.studentsAdded);
@@ -94,8 +94,8 @@ public class AddCommandTest {
         CommandResult commandResult = new AddCommand(nonStandardStudent).execute(modelStub);
 
         String expectedString = String.format(AddCommand.MESSAGE_SUCCESS + "\n"
-                        + AddCommand.MESSAGE_SUCCESS_NON_STANDARD_NAME + "\n"
-                        + AddCommand.MESSAGE_SUCCESS_NON_STANDARD_PHONE, Messages.format(nonStandardStudent));
+                        + AddCommand.MESSAGE_NON_STANDARD_NAME_WARNING + "\n"
+                        + AddCommand.MESSAGE_NON_STANDARD_PHONE_WARNING, Messages.format(nonStandardStudent));
 
         assertEquals(expectedString, commandResult.getFeedbackToUser());
         assertEquals(Arrays.asList(nonStandardStudent), modelStub.studentsAdded);

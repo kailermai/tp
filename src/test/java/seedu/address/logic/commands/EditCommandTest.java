@@ -86,8 +86,8 @@ public class EditCommandTest {
                 new EditStudentDescriptorBuilder().withName(VALID_NON_STANDARD_NAME).build();
         EditCommand editCommand = new EditCommand(indexLastStudent, descriptor);
 
-        String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_STUDENT_NON_STANDARD_NAME_SUCCESS,
-                Messages.format(editedStudent));
+        String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_STUDENT_SUCCESS + "\n"
+                        + EditCommand.MESSAGE_NON_STANDARD_NAME_WARNING, Messages.format(editedStudent));
 
         assertCommandSuccess(editCommand, model, expectedMessage, model);
     }
@@ -104,8 +104,29 @@ public class EditCommandTest {
                 new EditStudentDescriptorBuilder().withPhone(VALID_NON_STANDARD_PHONE).build();
         EditCommand editCommand = new EditCommand(indexLastStudent, descriptor);
 
-        String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_STUDENT_NON_STANDARD_PHONE_SUCCESS,
-                Messages.format(editedStudent));
+        String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_STUDENT_SUCCESS + "\n"
+                + EditCommand.MESSAGE_NON_STANDARD_PHONE_WARNING, Messages.format(editedStudent));
+
+        assertCommandSuccess(editCommand, model, expectedMessage, model);
+    }
+
+    @Test
+    public void execute_nonStandardNameAndPhoneStudent_success() {
+        Index indexLastStudent = Index.fromOneBased(model.getFilteredStudentList().size());
+        Student lastStudent = model.getFilteredStudentList().get(indexLastStudent.getZeroBased());
+
+        StudentBuilder studentInList = new StudentBuilder(lastStudent);
+        Student editedStudent = studentInList.withName(VALID_NON_STANDARD_NAME).withPhone(VALID_NON_STANDARD_PHONE)
+                .build();
+
+        EditCommand.EditStudentDescriptor descriptor =
+                new EditStudentDescriptorBuilder().withName(VALID_NON_STANDARD_NAME)
+                        .withPhone(VALID_NON_STANDARD_PHONE).build();
+        EditCommand editCommand = new EditCommand(indexLastStudent, descriptor);
+
+        String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_STUDENT_SUCCESS + "\n"
+                + EditCommand.MESSAGE_NON_STANDARD_NAME_WARNING + "\n"
+                + EditCommand.MESSAGE_NON_STANDARD_PHONE_WARNING, Messages.format(editedStudent));
 
         assertCommandSuccess(editCommand, model, expectedMessage, model);
     }
