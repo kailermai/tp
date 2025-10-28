@@ -40,13 +40,13 @@ public class RecordCommand extends Command {
             + PREFIX_ATTENDANCE_SCORE + AttendanceScore.MIN_SCORE + " "
             + PREFIX_PARTICIPATION_SCORE + ParticipationScore.MAX_SCORE + " "
             + PREFIX_SUBMISSION_SCORE + SubmissionScore.MAX_SCORE + " \n"
-            + "Example remove: " + COMMAND_WORD + " 1 " + PREFIX_WEEK_NUMBER + "3";
+            + "Example remove: " + COMMAND_WORD + " 1 " + PREFIX_WEEK_NUMBER + WeekNumber.MIN_WEEK_NUMBER;
 
     public static final String MESSAGE_HELP_TITLE = "Create a data record:";
     public static final String MESSAGE_HELP_DESCRIPTION = COMMAND_WORD + " INDEX "
             + PREFIX_WEEK_NUMBER + "WEEK_NUMBER "
             + PREFIX_ATTENDANCE_SCORE + "ATTENDANCE_SCORE "
-            + PREFIX_PARTICIPATION_SCORE + "PARTICIPATION_SCORE"
+            + PREFIX_PARTICIPATION_SCORE + "PARTICIPATION_SCORE "
             + PREFIX_SUBMISSION_SCORE + "SUBMISSION_SCORE ";
 
     public static final String MESSAGE_HELP_REMOVE_RECORD_TITLE = "Remove a data record:";
@@ -64,7 +64,6 @@ public class RecordCommand extends Command {
     private final Index targetIndex;
     private final WeekNumber weekNumber;
     private final Record recordToAdd;
-    private Record recordToRemove = null;
 
     /**
      * Creates a {@code RecordCommand} to add, update or remove a record for the specified {@code Student}
@@ -84,6 +83,7 @@ public class RecordCommand extends Command {
 
     @Override
     public CommandResult execute(Model model) throws CommandException {
+        requireNonNull(model);
 
         List<Student> lastShownList = model.getFilteredStudentList();
 
@@ -100,7 +100,7 @@ public class RecordCommand extends Command {
         Record currentRecord = studentRecords.getRecord(weekIdx);
         hasExistingRecord = currentRecord != null;
 
-        this.recordToRemove = currentRecord;
+        Record recordToRemove = currentRecord;
         studentRecords.setRecord(weekIdx, recordToAdd);
 
         Student editedStudent = new Student(studentToEdit.getName(), studentToEdit.getPhone(), studentToEdit.getEmail(),
@@ -109,15 +109,15 @@ public class RecordCommand extends Command {
         model.setStudent(studentToEdit, editedStudent);
         model.updateFilteredStudentList(Model.PREDICATE_SHOW_ALL_STUDENTS);
 
-        return new CommandResult(generateSuccessMessage(editedStudent, hasExistingRecord));
+        return new CommandResult(generateSuccessMessage(editedStudent, hasExistingRecord, recordToRemove));
     }
 
-    private String generateSuccessMessage(Student studentToEdit, boolean hasExistingRecord) {
+    private String generateSuccessMessage(Student studentToEdit, boolean hasExistingRecord, Record removedRecord) {
 
         if (recordToAdd == null) {
             return hasExistingRecord
                     ? String.format(MESSAGE_REMOVE_RECORD_SUCCESS, weekNumber, Messages.format(studentToEdit),
-                            recordToRemove)
+                            removedRecord)
                     : String.format(MESSAGE_NO_RECORD_TO_REMOVE, weekNumber, Messages.format(studentToEdit));
         }
 
