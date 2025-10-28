@@ -6,7 +6,6 @@ import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.Objects;
 import java.util.function.Predicate;
 import java.util.logging.Logger;
 
@@ -136,7 +135,7 @@ public class ModelManager implements Model {
     public void sortStudentByAttendance() {
         ObservableList<Student> studentList = addressBook.getModifiableStudentList();
         studentList.sort(Comparator
-                .comparingInt(this::getTotalAttendance)
+                .comparingDouble(this::getTotalAttendance)
                 .reversed());
     }
 
@@ -144,7 +143,7 @@ public class ModelManager implements Model {
     public void sortStudentByParticipation() {
         ObservableList<Student> studentList = addressBook.getModifiableStudentList();
         studentList.sort(Comparator
-                .comparingInt(this::getTotalParticipation)
+                .comparingDouble(this::getTotalParticipation)
                 .reversed());
     }
 
@@ -152,7 +151,7 @@ public class ModelManager implements Model {
     public void sortStudentBySubmission() {
         ObservableList<Student> studentList = addressBook.getModifiableStudentList();
         studentList.sort(Comparator
-                .comparingInt(this::getTotalSubmission)
+                .comparingDouble(this::getTotalSubmission)
                 .reversed());
     }
 
@@ -176,17 +175,16 @@ public class ModelManager implements Model {
 
     /**
      * Calculates the sum of all attendance scores for a given student.
-     * Returns 0 if the student or their record list is null.
+     * Returns -Double.MIN_VALUE if the student or their record list is null.
      */
-    private int getTotalAttendance(Student student) {
+    private double getTotalAttendance(Student student) {
         seedu.address.model.record.Record[] records = student.getRecordList().records;
         return Arrays.stream(records)
-                .filter(Objects::nonNull)
-                .mapToInt(record -> {
+                .mapToDouble(record -> {
                     try {
                         return record.getAttendanceScore();
                     } catch (NullPointerException e) {
-                        return 0;
+                        return -Double.MIN_VALUE;
                     }
                 })
                 .sum();
@@ -194,17 +192,16 @@ public class ModelManager implements Model {
 
     /**
      * Calculates the sum of all participation scores for a given student.
-     * Returns 0 if the student or their record list is null.
+     * Returns -Double.MIN_VALUE if the student or their record list is null.
      */
-    private int getTotalParticipation(Student student) {
+    private double getTotalParticipation(Student student) {
         seedu.address.model.record.Record[] records = student.getRecordList().records;
         return Arrays.stream(records)
-                .filter(Objects::nonNull)
-                .mapToInt(record -> {
+                .mapToDouble(record -> {
                     try {
                         return record.getParticipationScore();
                     } catch (NullPointerException e) {
-                        return 0;
+                        return -Double.MIN_VALUE;
                     }
                 })
                 .sum();
@@ -212,17 +209,16 @@ public class ModelManager implements Model {
 
     /**
      * Calculates the sum of all submission scores for a given student.
-     * Returns 0 if the student or their record list is null.
+     * Returns -Double.MIN_VALUE if the student or their record list is null.
      */
-    private int getTotalSubmission(Student student) {
+    private double getTotalSubmission(Student student) {
         seedu.address.model.record.Record[] records = student.getRecordList().records;
         return Arrays.stream(records)
-                .filter(Objects::nonNull)
-                .mapToInt(record -> {
+                .mapToDouble(record -> {
                     try {
                         return record.getSubmissionScore();
                     } catch (NullPointerException e) {
-                        return 0;
+                        return -Double.MIN_VALUE;
                     }
                 })
                 .sum();

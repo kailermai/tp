@@ -21,14 +21,14 @@ public class SortCommand extends Command {
             + " for participation or " + PREFIX_SORT_BY + PREFIX_SORT_SUBMISSION
             + " for submission\n"
             + "Example: " + COMMAND_WORD + " " + PREFIX_SORT_BY + PREFIX_SORT_ATTENDANCE
-            + " " + COMMAND_WORD + " " + PREFIX_SORT_BY + PREFIX_SORT_PARTICIPATION
-            + " " + COMMAND_WORD + " " + PREFIX_SORT_BY + PREFIX_SORT_SUBMISSION;
+            + ", " + COMMAND_WORD + " " + PREFIX_SORT_BY + PREFIX_SORT_PARTICIPATION
+            + ", " + COMMAND_WORD + " " + PREFIX_SORT_BY + PREFIX_SORT_SUBMISSION;
 
-    public static final String MESSAGE_HELP_TITLE = "Sort all students based on attendance or participation.\n";
+    public static final String MESSAGE_HELP_TITLE = "Sort all students based on attendance or participation:\n";
 
     public static final String MESSAGE_HELP_DESCRIPTION =
-            COMMAND_WORD + " " + PREFIX_SORT_BY + PREFIX_SORT_ATTENDANCE + " for attendance or "
-            + COMMAND_WORD + " " + PREFIX_SORT_BY + PREFIX_SORT_PARTICIPATION + " for participation or "
+            COMMAND_WORD + " " + PREFIX_SORT_BY + PREFIX_SORT_ATTENDANCE + " for attendance,\n"
+            + COMMAND_WORD + " " + PREFIX_SORT_BY + PREFIX_SORT_PARTICIPATION + " for participation,\n"
             + COMMAND_WORD + " " + PREFIX_SORT_BY + PREFIX_SORT_SUBMISSION + " for submission";
 
     public static final String MESSAGE_SUCCESS_ATTENDANCE = "Sorted all students based on attendance";
