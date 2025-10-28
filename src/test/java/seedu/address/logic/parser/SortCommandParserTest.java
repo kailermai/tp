@@ -17,9 +17,12 @@ public class SortCommandParserTest {
 
     @Test
     public void parse_validArgs_returnsSortCommand() {
-        assertParseSuccess(parser, " " + PREFIX_SORT_BY + PREFIX_SORT_ATTENDANCE, new SortCommand(true, false, false));
-        assertParseSuccess(parser, " " + PREFIX_SORT_BY + PREFIX_SORT_PARTICIPATION, new SortCommand(false, true, false));
-        assertParseSuccess(parser, " " + PREFIX_SORT_BY + PREFIX_SORT_SUBMISSION, new SortCommand(false, false, true));
+        assertParseSuccess(parser, " " + PREFIX_SORT_BY + PREFIX_SORT_ATTENDANCE,
+                new SortCommand(true, false, false));
+        assertParseSuccess(parser, " " + PREFIX_SORT_BY + PREFIX_SORT_PARTICIPATION,
+                new SortCommand(false, true, false));
+        assertParseSuccess(parser, " " + PREFIX_SORT_BY + PREFIX_SORT_SUBMISSION,
+                new SortCommand(false, false, true));
     }
 
     @Test
