@@ -17,7 +17,7 @@ public class Phone {
     // Standard validation: +, digits, spaces, hyphens only.
     public static final String VALIDATION_REGEX_STRICT = "\\+?\\d(?:-?\\d){2,}";
 
-    // Lenient validation: allows parentheses, spaces, dots, and other common phone seperators.
+    // Lenient validation: allows parentheses, spaces, dots, and other common phone separators.
     public static final String VALIDATION_REGEX_LENIENT = "(?=.*\\d.*\\d.*\\d)[\\d +\\-() .]{3,20}";
 
     public final String value;
