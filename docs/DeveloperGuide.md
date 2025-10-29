@@ -83,6 +83,22 @@ The `UI` component,
 * keeps a reference to the `Logic` component, because the `UI` relies on the `Logic` to execute commands.
 * depends on some classes in the `Model` component, as it displays `Student` object residing in the `Model`.
 
+#### ViewPanel Component
+![Structure of the ViewPanel Component](images/ViewPanelClassDiagram.png)
+
+The View Panel consists of a `ScoreListPanel` that is made up of parts e.g.`ScoreCard`, `StudentCard`, etc. All these, including the `ScoreListPanel`, inherit from the abstract `UiPart`.
+
+The `ViewPanel` component,
+* displays the scores of the students in the `Model`
+
+#### TrendPanel Component
+![Structure of the TrendPanel Component](images/TrendPanelClassDiagram.png)
+
+The Trend Panel consists of a `TrendPanel` that is made up of parts e.g.`TrendCard`, etc. All these, including the `TrendChart`, inherit from the abstract `UiPart`.
+
+The `TrendPanel` component,
+* displays the trends of the class in the `Model`
+
 ### Logic component
 
 **API** : [`Logic.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/logic/Logic.java)
