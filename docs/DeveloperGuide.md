@@ -310,7 +310,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* *`    | TA                                          | view trends                                                            | identify students who need extra support                          |
 | `* *`    | TA                                          | redo/undo recent actions                                               | correct mistakes easily                                           |
 | `* *`    | TA                                          | sort the students displayed by attendance/participation record         | see who are the students who need the most assistance             |
-| `* *`    | TA                                          | search for students by partial name or email                           | quickly find the right Student                                     |
+| `* *`    | TA                                          | search for students by partial name or email                           | quickly find the right student                                    |
 | `*`      | TA                                          | export data                                                            | provide evidence of student participation for grading             |
 | `*`      | TA                                          | lock the participation records from further edits                      | accidental edits will not happen after it has been finalised      |
 | `*`      | TA                                          | filter students who have low attendance/participation records          | easily find the students who need extra guidance                  |
@@ -661,6 +661,7 @@ score, attendance, and task submission history.
 * **Class**: A class refers to all student entries and their associated records in TAHub.
 * **Parameter-like sequence**: A sequence of characters that is used to specify a parameter of a command. For example, in the command 
 `add n/John Doe e/...`, `n/John Doe` is a parameter-like sequence.
+* **Non-standard characters**: Characters that fall outside the defined parameter constraints but are still accepted by the system.
 
 
 --------------------------------------------------------------------------------------------------------------------
@@ -680,28 +681,66 @@ testers are expected to do more *exploratory* testing.
 
    1. Download the jar file and copy into an empty folder
 
-   1. Double-click the jar file Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
+   2. Double-click the jar file Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
 
-1. Saving window preferences
+2. Saving window preferences
 
    1. Resize the window to an optimum size. Move the window to a different location. Close the window.
 
-   1. Re-launch the app by double-clicking the jar file.<br>
+   2. Re-launch the app by double-clicking the jar file.<br>
        Expected: The most recent window size and location is retained.
 
-1. _{ more test cases …​ }_
+3. _{ more test cases …​ }_
 
 ### Viewing help
+1. **Viewing help**
+
+   1. **Prerequisites**: NA
+
+   2. **Test case**: `help`<br>
+          **Expected**: A help window is shown displaying the user guide.
+
+   3. **Test case**: Click on the help menu item.<br>
+          **Expected**: A help window is shown displaying the user guide.
+
+   4. **Test case**: Close the help window.<br>
+          **Expected**: The help window is closed.
 
 
+### Adding a student
+1. **Adding a student**
 
-### Adding a person
+   1. **Prerequisites**: NA
+   
+   2. **Test case**: `add n/John Doe sn/A654321Z p/98765432 e/johnd@example.com tele/john_doe`<br>
+      **Expected**: A new student named John Doe is added to the student list. Details of the added student are shown in the result display.
 
+   3. **Test case**: `add n/john.doe sn/A654321Y p/99998888 e/john@example.com tele/doe_john`<br>
+      **Expected**: A new student named john.doe is added to the student list. A warning message about the non-standard name format is displayed. Details of the added student are shown in student card.
 
+   4. **Test case**: `add n/John Doe sn/A654321Z`<br>
+      **Expected**: No student is added. An error message highlighting the missing parameters is shown in the result display.
+
+2. **Adding a student with duplicate Student Number**
+
+   1. **Prerequisites**: Ensure there is at least one student in the student list.
+
+   2. **Test case**: `add n/John Doe sn/x p/98765432 e/johnd@example.com tele/john_doe` (where x is the student number of an existing student in the student list).<br>
+      **Expected**: Student is not added. An error message highlighting the duplicate student is shown in the command box.
 
 ### Editing a student
+1. **Editing a student while all students are being shown**
 
+   1. **Prerequisites**: List all students using the `list` command. Multiple students in the list.
 
+   2. **Test case**: `edit 1 n/Jane Doe p/91234567`<br>
+      **Expected**: The student at index 1 is edited to have the new name and phone number. Details of the edited student are shown in the result display.
+      
+   3. **Test case**: `edit 1 n/jane'doe`<br>
+      **Expected**: The student at index 1 is edited to have the new name. An warning message highlighting the non-standard name format is shown in the result display.
+
+   4. **Test case**: `edit x n/jane'doe p/91234567`<br>
+      **Expected**: No student is edited. An error message highlighting invalid index is shown in the result display.
 
 ### Adding/Editing a Student Record
 1. Adding a Student Record while all Students are being shown
@@ -711,7 +750,7 @@ testers are expected to do more *exploratory* testing.
    b. Test case: `record 1 week/1 att/1 sub/1 part/1`
       Expected: The record in week 1 for the student at index 1 is created with the given attendance, participation, and submission scores. Details of the added record is shown in the result display.
    
-   c.Test case: `record 1 week/3 att/5 sub/1 part/1`
+   c. Test case: `record 1 week/3 att/5 sub/1 part/1`
       Expected: No record is created. An error message highlighting `ATTENDANCE_SCORE` constraints is shown in the result display.
    
    d. Other incorrect record commands to try: `record x week/1 att/1 sub/1 part/1` (where x is larger than list size), `record 1 week/1 sub/1 part/1` (missing `ATTENDANCE_SCORE`), `record 1 week/1 att/x sub/y part/z` where `x`, `y` and `z` are variations of invalid scores.
