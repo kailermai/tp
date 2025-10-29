@@ -581,7 +581,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 <br>
 **Use case: UC13 Generate class record report**
 
-**Preconditions:** The TA has students with existing records in the class.
+**Preconditions:** The TA has already added the student into the class.
 
 **Guarantees:** A summary of student records is generated.
 
@@ -595,7 +595,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 1a1. TAHub displays an error message.
       <br>Use case ends.
 * 1b. The class has no existing records.
-    * 1b1. TAHub displays an empty report.
+    * 1b1. TAHub displays a report with scores defaulted to zero.
       <br>Use case ends.
 
 <br>
