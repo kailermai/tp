@@ -8,9 +8,10 @@ package TP as "TrendPanel"{
 Class TrendPanel
 Class TrendListPanel
 Class TrendCard
-Class "{abstract}\nUiPart" as UiPart
 Class Spacer #FFFFFF
 }
+
+Class "{abstract}\nUiPart" as UiPart
 
 Class RightSidePanel #FFFFFF
 RightSidePanel --> TrendPanel
@@ -19,5 +20,5 @@ TrendListPanel -down--> "*"TrendCard
 
 TrendPanel -|> UiPart
 TrendListPanel -|> UiPart
-TrendCard -|> UiPart
+TrendCard --|> UiPart
 @enduml
