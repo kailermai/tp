@@ -780,15 +780,15 @@ testers are expected to do more *exploratory* testing.
 
 1. Successful sorting of students based on their attendance/participation/submission score
 
-   a. Prerequisites: List all Students using the list command. Multiple Students in the list.
+   a. **Prerequisites**: List all Students using the list command. Multiple Students in the list.
    
-   b. Test case: `sort /a` <br>
+   b. **Test case**: `sort /a` <br>
       Expected: Students in the left hand panel are updated by their attendance score in descending order. Students without records will be listed on the bottom of the panel.
 
-   c. Test case: `sort /p` <br>
+   c. **Test case**: `sort /p` <br>
    Expected: Students in the left hand panel are updated by their participation score in descending order. Students without records will be listed on the bottom of the panel. 
 
-   d. Test case: `sort /s` <br>
+   d. **Test case**: `sort /s` <br>
    Expected: Students in the left hand panel are updated by their submission score in descending order. Students without records will be listed on the bottom of the panel. 
 
 ### Saving data
