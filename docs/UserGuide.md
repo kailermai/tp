@@ -179,28 +179,32 @@ Creates or updates the weekly record for a specific student.
 
 Format: `record INDEX week/WEEK_NUMBER att/ATTENDANCE_SCORE sub/SUBMISSION_SCORE part/PARTICIPATION_SCORE`
 
-- Creates a record for the student at the specified `INDEX`. The index refers to the index number shown in the displayed
-student list. The index **must be a positive integer** 1, 2, 3, …​
-- `WEEK_NUMBER` is an integer from **1** to **13** (inclusive).
-- `ATTENDANCE_SCORE` is **0** (absent) or **1** (present).
-- `SUBMISSION_SCORE` is **0** (not submitted) or **1** (submitted).
-- `PARTICIPATION_SCORE` is an integer from **0** to **5** (inclusive).
-- All fields are required.
 
-<div markdown="span" class="alert alert-primary">:bulb: **Note:**
-Running the command again for the same WEEK_NUMBER overwrites that week’s record for the selected student.
-</div>
+**Parameter constraints**
+
+|Parameter| Constraints                                |
+|---------|:-------------------------------------------|
+|`INDEX`| Positive integer 1, 2, 3, …​               |
+|`WEEK_NUMBER`| Integer from **1** to **13** (inclusive)   |
+|`ATTENDANCE_SCORE`| **0** (absent) or **1** (present)          |
+|`SUBMISSION_SCORE`| **0** (not submitted) or **1** (submitted) |
+|`PARTICIPATION_SCORE`| Integer from **0** to **5**                |
+
+<div markdown="span" class="alert alert-danger">:information_source: **Note:** All fields are required.</div>
 
 Examples:
 * `record 1 week/1 att/1 sub/0 part/4`
 * `record 2 week/5 att/0 sub/1 part/5`
+
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+Running the command again for the same WEEK_NUMBER overwrites that week’s record for the selected student.
+</div>
 
 ### Removing a student record: `record`
 Removes a record on a particular week for a specific student.
 
 Format: `record INDEX week/WEEK_NUMBER`
 
-- Removes the record on the specified `WEEK_NUMBER` for the student at the specified `INDEX`.
 - The `INDEX` and `WEEK_NUMBER` parameters have the same constraints as [adding a record](#addingediting-a-student-record-record).
 - All of `ATTENDANCE_SCORE`, `SUBMISSION_SCORE` and `PARTICIPATION_SCORE` are not required and should not be specified.
 
