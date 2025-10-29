@@ -678,15 +678,15 @@ testers are expected to do more *exploratory* testing.
 
 1. Initial launch
 
-   a. Download the jar file and copy into an empty folder
+   1. Download the jar file and copy into an empty folder
 
-   b. Double-click the jar file Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
+   2. Double-click the jar file Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
 
-1. Saving window preferences
+2. Saving window preferences
 
-   a. Resize the window to an optimum size. Move the window to a different location. Close the window.
+   1. Resize the window to an optimum size. Move the window to a different location. Close the window.
 
-   b. Re-launch the app by double-clicking the jar file.<br>
+   2. Re-launch the app by double-clicking the jar file.<br>
        Expected: The most recent window size and location is retained.
 
 
@@ -705,26 +705,26 @@ testers are expected to do more *exploratory* testing.
 ### Adding/Editing a Student Record
 1. Adding a Student Record while all Students are being shown
 
-   a. Prerequisites: List all Students using the `list` command. Multiple Students in the list.
+   a. **Prerequisites**: List all Students using the `list` command. Multiple Students in the list.
    
-   b. Test case: `record 1 week/1 att/1 sub/1 part/1` <br>
-      Expected: The record in week 1 for the student at index 1 is created with the given attendance, participation, and submission scores. Details of the added record is shown in the result display.
+   b. **Test case**: `record 1 week/1 att/1 sub/1 part/1` <br>
+      **Expected**: The record in week 1 for the student at index 1 is created with the given attendance, participation, and submission scores. Details of the added record is shown in the result display.
    
-   c.Test case: `record 1 week/3 att/5 sub/1 part/1` <br>
-      Expected: No record is created. An error message highlighting `ATTENDANCE_SCORE` constraints is shown in the result display.
+   c. **Test case**: `record 1 week/3 att/5 sub/1 part/1` <br>
+      **Expected**: No record is created. An error message highlighting `ATTENDANCE_SCORE` constraints is shown in the result display.
    
    d. Other incorrect record commands to try: `record x week/1 att/1 sub/1 part/1` (where x is larger than list size), `record 1 week/1 sub/1 part/1` (missing `ATTENDANCE_SCORE`), `record 1 week/1 att/x sub/y part/z` where `x`, `y` and `z` are variations of invalid scores.<br>
-    Expected: No record is created. Appropriate error message is shown in the result display.
+      **Expected**: No record is created. Appropriate error message is shown in the result display.
 
 2. Editing a Student Record while all Students are being shown
 
-   a. Prerequisites: There exists a student with existing record(s) in the class.
+   a. **Prerequisites**: There exists a student with existing record(s) in the class.
    
-   b. Test case: `record x week/y att/1 sub/1 part/5` (where x is the index of the student and y is the index of the record to be edited) <br>
-      Expected: The record in week y for the student at index x is edited with the given attendance, participation, and submission scores. Details of the edited record is shown in the result display.
+   b. **Test case**: `record x week/y att/1 sub/1 part/5` (where x is the index of the student and y is the index of the record to be edited) <br>
+      **Expected**: The record in week y for the student at index x is edited with the given attendance, participation, and submission scores. Details of the edited record is shown in the result display.
 
    c. Other incorrect record commands to try: Refer to 1c and 1d <br>
-      Expected: Similar to 1c and 1d
+      **Expected**: Similar to 1c and 1d
 <br>
 
 ### Deleting a Student Record
@@ -743,16 +743,16 @@ testers are expected to do more *exploratory* testing.
 
 1. Deleting a Student while all Students are being shown
 
-   a. Prerequisites: List all Students using the `list` command. Multiple Students in the list.
+   1. **Prerequisites**: List all Students using the `list` command. Multiple Students in the list.
 
-   b. Test case: `delete 1`<br>
-      Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.
+   2. **Test case**: `delete 1`<br>
+      **Expected**: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.
 
-   c. Test case: `delete 0`<br>
-      Expected: No Student is deleted. Error details shown in the status message. Status bar remains the same.
+   3. **Test case**: `delete 0`<br>
+      **Expected**: No Student is deleted. Error details shown in the status message. Status bar remains the same.
 
-   d. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
-      Expected: Similar to previous.
+   4. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
+      **Expected**: Similar to previous.
 
 
 
@@ -780,16 +780,16 @@ testers are expected to do more *exploratory* testing.
 
 1. Successful sorting of students based on their attendance/participation/submission score
 
-   a. **Prerequisites**: List all Students using the list command. Multiple Students in the list.
+   1. **Prerequisites**: List all Students using the list command. Multiple Students in the list.
    
-   b. **Test case**: `sort /a` <br>
-      Expected: Students in the left hand panel are updated by their attendance score in descending order. Students without records will be listed on the bottom of the panel.
+   2. **Test case**: `sort /a` <br>
+      **Expected**: Students in the left hand panel are updated by their attendance score in descending order. Students without records will be listed on the bottom of the panel.
 
-   c. **Test case**: `sort /p` <br>
-   Expected: Students in the left hand panel are updated by their participation score in descending order. Students without records will be listed on the bottom of the panel. 
+   3. **Test case**: `sort /p` <br>
+      **Expected**: Students in the left hand panel are updated by their participation score in descending order. Students without records will be listed on the bottom of the panel. 
 
-   d. **Test case**: `sort /s` <br>
-   Expected: Students in the left hand panel are updated by their submission score in descending order. Students without records will be listed on the bottom of the panel. 
+   4. **Test case**: `sort /s` <br>
+      **Expected**: Students in the left hand panel are updated by their submission score in descending order. Students without records will be listed on the bottom of the panel. 
 
 ### Saving data
 
