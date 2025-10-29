@@ -662,6 +662,18 @@ testers are expected to do more *exploratory* testing.
 
 1. _{ more test cases …​ }_
 
+### Viewing help
+
+
+
+### Adding a person
+
+
+
+### Editing a student
+
+
+
 ### Adding/Editing a Student Record
 1. Adding a Student Record while all Students are being shown
 
@@ -714,18 +726,6 @@ testers are expected to do more *exploratory* testing.
       Expected: Similar to previous.
 
 1. _{ more test cases …​ }_
-
-### Viewing help
-
-
-
-### Adding a person
-
-
-
-### Editing a student
-
-
 
 ### Viewing student record
 
