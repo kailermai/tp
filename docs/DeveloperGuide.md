@@ -581,7 +581,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 <br>
 **Use case: UC13 Generate class record report**
 
-**Preconditions:** The TA has already added the student into the class.
+**Preconditions:** The TA has already added at least one student into the class.
 
 **Guarantees:** A summary of student records is generated.
 
