@@ -227,7 +227,6 @@ Examples:
 * `list` followed by `view 2` views the 2nd student in TAHub.<br>
   ![result for 'list' then 'view 2'](images/ViewResult.png)
 
-
 ### Viewing overall trend of all student records: `trend`
 
 Displays the trend overview of records for all students.
