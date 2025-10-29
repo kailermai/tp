@@ -180,7 +180,7 @@ Creates or updates the weekly record for a specific student.
 Format: `record INDEX week/WEEK_NUMBER att/ATTENDANCE_SCORE sub/SUBMISSION_SCORE part/PARTICIPATION_SCORE`
 
 
-**Parameter constraints**
+#### **Record Parameter Constraints**
 
 |Parameter| Constraints                                |
 |---------|:-------------------------------------------|
@@ -205,7 +205,7 @@ Removes a record on a particular week for a specific student.
 
 Format: `record INDEX week/WEEK_NUMBER`
 
-- The `INDEX` and `WEEK_NUMBER` parameters have the same constraints as [adding a record](#addingediting-a-student-record-record).
+- The `INDEX` and `WEEK_NUMBER` parameters have the same constraints as [adding a record](#record-parameter-constraints).
 - All of `ATTENDANCE_SCORE`, `SUBMISSION_SCORE` and `PARTICIPATION_SCORE` are not required and should not be specified.
 
 Examples:
