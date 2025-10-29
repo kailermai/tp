@@ -310,7 +310,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* *`    | TA                                          | view trends                                                            | identify students who need extra support                          |
 | `* *`    | TA                                          | redo/undo recent actions                                               | correct mistakes easily                                           |
 | `* *`    | TA                                          | sort the students displayed by attendance/participation record         | see who are the students who need the most assistance             |
-| `* *`    | TA                                          | search for students by partial name or email                           | quickly find the right Student                                     |
+| `* *`    | TA                                          | search for students by partial name or email                           | quickly find the right student                                    |
 | `*`      | TA                                          | export data                                                            | provide evidence of student participation for grading             |
 | `*`      | TA                                          | lock the participation records from further edits                      | accidental edits will not happen after it has been finalised      |
 | `*`      | TA                                          | filter students who have low attendance/participation records          | easily find the students who need extra guidance                  |
@@ -691,16 +691,51 @@ testers are expected to do more *exploratory* testing.
 
 
 ### Viewing help
+1. **Viewing help**
+
+   1. **Prerequisites**: NA
+
+   2. **Test case**: `help`<br>
+          **Expected**: A help panel is shown displaying the user guide.
+
+   3. **Test case**: Click on the help menu item.<br>
+          **Expected**: A help panel is shown displaying the user guide.
 
 
+### Adding a student
+1. **Adding a student**
 
-### Adding a person
+   1. **Prerequisites**: NA
+   
+   2. **Test case**: `add n/John Doe sn/A654321Z p/98765432 e/johnd@example.com tele/john_doe`<br>
+      **Expected**: A new student named John Doe is added to the student list. Details of the added student are shown in the result display.
 
+   3. **Test case**: `add n/john.doe sn/A654321Y p/99998888 e/john@example.com tele/doe_john`<br>
+      **Expected**: A new student named john.doe is added to the student list. A warning message about the non-standard name format is displayed. Details of the added student are shown in student card.
 
+   4. **Test case**: `add n/John Doe sn/A654321Z`<br>
+      **Expected**: No student is added. An error message highlighting the missing parameters is shown in the result display.
+
+2. **Adding a student with duplicate Student Number**
+
+   1. **Prerequisites**: Ensure there is at least one student in the student list.
+
+   2. **Test case**: `add n/John Doe sn/x p/98765432 e/johnd@example.com tele/john_doe` (where x is the student number of an existing student in the student list)<br>
+      **Expected**: Student is not added. An error message highlighting the duplicate student is shown in the command box.
 
 ### Editing a student
+1. **Editing a student while all students are being shown**
 
+   1. **Prerequisites**: List all students using the `list` command. Multiple students in the list.
 
+   2. **Test case**: `edit 1 n/Jane Doe p/91234567`<br>
+      **Expected**: The student at index 1 is edited to have the new name and phone number. Details of the edited student are shown in the result display.
+      
+   3. **Test case**: `edit 1 n/jane'doe`<br>
+      **Expected**: The student at index 1 is edited to have the new name. An warning message highlighting the non-standard name format is shown in the result display.
+
+   4. **Test case**: `edit x n/jane'doe p/91234567`<br>
+      **Expected**: No student is edited. An error message highlighting invalid index is shown in the result display.
 
 ### Adding/Editing a Student Record
 1. **Adding a Student Record while all Students are being shown**
