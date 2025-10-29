@@ -662,6 +662,52 @@ testers are expected to do more *exploratory* testing.
 
 1. _{ more test cases …​ }_
 
+### Adding/Editing a Student Record
+1. Adding a Student Record while all Students are being shown
+
+   a. Prerequisites: List all Students using the `list` command. Multiple Students in the list.
+   
+   b. Test case: `record 1 week/1 att/1 sub/1 part/1`
+      Expected: The record in week 1 for the student at index 1 is created with the given attendance, participation, and submission scores. Details of the added record is shown in the result display.
+   
+   c. Test case: `record 1 week/2 att/1 sub/0 part/5`
+      Expected: The record in week 2 for the student at index 1 is created with the given attendance, participation, and submission scores. Details of the added record is shown in the result display.
+   
+   d. Test case: `record 1 week/18 att/1 sub/1 part/1`
+      Expected: No record is created with the given attendance, participation, and submission scores. An error message highlighting `WEEK_NUMBER` constraints is shown in the result display.
+   
+   e.Test case: `record 1 week/3 att/5 sub/1 part/1`
+      Expected: No record is created. An error message highlighting `ATTENDANCE_SCORE` constraints is shown in the result display.
+   
+   f. Other incorrect record commands to try: `record x week/1 att/1 sub/1 part/1` (where x is larger than list size), `record 1 week/1 sub/1 part/1` (missing `ATTENDANCE_SCORE`), `record 1 week/1 att/x sub/y part/z` where `x`, `y` and `z` are variations of invalid scores.
+
+2. Editing a Student Record while all Students are being shown
+
+   a. Prerequisites: There exists a student with existing record(s) in the class.
+   
+   b. Test case: `record x week/y att/1 sub/1 part/5` (where x is the index of the student and y is the index of the record to be edited)
+      Expected: The record in week y for the student at index x is edited with the given attendance, participation, and submission scores. Details of the edited record is shown in the result display.
+
+   c. Other incorrect record commands to try: Refer to 1d, 1e, and 1f
+      Expected: Similar to 1d, 1e, and 1f
+
+### Deleting a Student Record
+1. Deleting a Student Record while all Students are being shown
+
+   a. Prerequisites: There exists a student with existing record(s) in the class.
+   
+   b. Test case: `record x week/y` (where x is the index of the student and y is the index of the record to be deleted)
+      Expected: The record in week y for the student at index x is deleted. Details of the deleted record is shown in the result display.
+   
+   c. Test case: `record x week/y att/1` (where x is the index of the student and y is the index of the record to be deleted)
+      Expected: No record is deleted. An error message about the incorrect command format is shown in the result display.
+   
+   d. Test case: `record x week/z` (where x is the index of the student and z is a week number where no record exists)
+      Expected: No record is deleted. A helper message indicating that no record exists for the specified week is shown in the result display.
+   
+   e. Other incorrect record commands to try: `record x week/y` (where x is larger than list size or y is not within the range of a valid week number)
+
+
 ### Deleting a Student
 
 1. Deleting a Student while all Students are being shown
