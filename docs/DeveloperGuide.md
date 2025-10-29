@@ -679,6 +679,26 @@ testers are expected to do more *exploratory* testing.
 
 1. _{ more test cases …​ }_
 
+### Viewing help
+
+
+
+### Adding a person
+
+
+
+### Editing a student
+
+
+
+### Locating students by name:
+
+
+
+### Viewing student record
+
+
+
 ### Viewing overall trend of all student records
 
 1. Successful viewing of overall trend with Student records present
@@ -694,6 +714,16 @@ testers are expected to do more *exploratory* testing.
 
    1. Test case: `trend` <br>
       Expected: Right-hand panel is updated to display an empty panel. Status message shows the success message: Opened trend window.
+
+### Sorting students
+
+
+
+### Clearing all entries
+
+
+
+### Exiting the program
 
 ### Saving data
 

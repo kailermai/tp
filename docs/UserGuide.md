@@ -216,7 +216,7 @@ Examples:
 * `record 1 week/1`
 * `record 2 week/5`
 
-### View student record: `view`
+### Viewing student record: `view`
 
 Displays the weekly records of a specific student.
 
@@ -228,14 +228,14 @@ Examples:
   ![result for 'list' then 'view 2'](images/ViewResult.png)
 
 
-### View overall trend of all student records: `trend`
+### Viewing overall trend of all student records: `trend`
 
 Displays the trend overview of records for all students.
 
 Format: `trend`<br>
 ![result for 'list' then 'view 2'](images/TrendResult.png)
 
-### Sort students: `sort`
+### Sorting students: `sort`
 
 Sort students based on their attendance score or participation score or submission score.
 
