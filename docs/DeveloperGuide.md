@@ -697,10 +697,10 @@ testers are expected to do more *exploratory* testing.
    1. **Prerequisites**: NA
 
    2. **Test case**: `help`<br>
-          **Expected**: A help window is shown displaying the user guide.
+          **Expected**: A help panel is shown displaying the user guide.
 
    3. **Test case**: Click on the help menu item.<br>
-          **Expected**: A help window is shown displaying the user guide.
+          **Expected**: A help panel is shown displaying the user guide.
 
 
 ### Adding a student
