@@ -9,8 +9,8 @@ title: Developer Guide
 
 ## **Acknowledgements**
 
-* {list here sources of all reused/adapted ideas, code, documentation, and third-party libraries -- include links to the original source as well}
-
+* This project is based on the AddressBook-Level3 project created by the [SE-EDU initiative](https://se-education.org).
+* Libraries used: [JavaFX](https://openjfx.io/), [Jackson](https://github.com/FasterXML/jackson), [JUnit5](https://github.com/junit-team/junit5)
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Setting up, getting started**
@@ -72,7 +72,9 @@ The **API** of this component is specified in [`Ui.java`](https://github.com/se-
 
 ![Structure of the UI Component](images/UiClassDiagram.png)
 
-The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `StudentListPanel`, `StatusBarFooter` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class which captures the commonalities between classes that represent parts of the visible GUI.
+The UI consists of a `MainWindow` that is made up of parts e.g.`StatusBarFooter`, `ResultDisplay`, `RightSidePanel`, `CommandBox`, `StudentListPanel`. All these, including the `MainWindow`, inherit from the abstract `UiPart` class which captures the commonalities between classes that represent parts of the visible GUI.
+
+The `RightSidePanel` displays additional information, and can hold one of three panels: `HelpPanel`, `ViewPanel`, or `TrendPanel`.
 
 The `UI` component uses the JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the [`MainWindow`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/MainWindow.java) is specified in [`MainWindow.fxml`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/resources/view/MainWindow.fxml)
 
@@ -255,9 +257,6 @@ The following activity diagram summarizes what happens when a user executes a ne
 
 _{more aspects and alternatives to be added}_
 
-### \[Proposed\] Data archiving
-
-_{Explain here how the data archiving feature will be implemented}_
 
 
 --------------------------------------------------------------------------------------------------------------------
@@ -343,6 +342,11 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * 1b. TAHub detects a duplicate entry.
     * 1b1. TAHub notifies TA of duplicate entry. 
       <br>Use case ends.
+
+
+* 1c. TAHub detects non-standard input
+  * 1c1. TAHub notifies TA of non-standard input.
+    <br>Use case continues from step 2.
 
 <br>
 **Use case: UC02 Delete a student**
@@ -445,6 +449,11 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * 2b. TAHub detects a duplicate student entry.
     * 2b1. TAHub notifies TA of duplicate entry.
       <br>Use case ends.
+
+
+* 2c. TAHub detects non-standard input
+  * 2c1. TAHub notifies TA of non-standard input.
+    <br>Use case continues from step 3.
 
 <br>
 **Use case: UC07 Show Commands**
@@ -612,13 +621,30 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ### Non-Functional Requirements
 
-1.  Should work on any _mainstream OS_ as long as it has Java `17` or above installed.
-2.  Should be able to hold up to 1000 Students without a noticeable sluggishness in performance for typical usage.
-3.  A user with above-average typing speed for regular English text (i.e. not code, not system admin commands) should 
-be able to accomplish most of the tasks faster using commands than using the mouse.
-4.  Should be usable by a novice who has never used admin tracking platforms.
-5.  The product does not cover communicating with contacts and submission/grading of assignments.
-6.  The product should not lose any data when the application crashes or exits unexpectedly.
+1. **Platform Requirements**
+   * Should work on any _mainstream OS_ as long as it has Java `17` or above installed.
+2. **Performance Requirements**
+   * Should be able to hold up to 1000 Students without a noticeable sluggishness in performance for typical usage.
+   * A user should be able to execute most commands without noticing much delay (i.e. within `1` second).
+3. **Usability Requirements**
+   * A user with above-average typing speed for regular English text (i.e. not code, not system admin commands) should 
+   be able to accomplish most of the tasks faster using commands than using the mouse.
+   * Should be usable by a novice who has never used admin tracking platforms.
+   * Error messages should be user-friendly and informative enough to help the user fix their mistake.
+4. **Scalability Requirements**
+   * The system should support additional enhancements without major changes to existing architecture.
+   * The data storage should be scalable to handle increased data size in the future.
+5. **Portability Requirements**
+   * The application should be easily downloadable, and executable, preferably a single JAR file.
+6. **Reliability and Data Requirements**
+   * The application should be reliable, ensuring that data is not lost in the event of an unexpected shutdown.
+   * The application should save data periodically, or after every change, to ensure data reliability.
+7. **Business Requirements**
+   * The application does not cover communicating with contacts and submission/grading of assignments.
+8. **Extensibility Requirements**
+    * The application should be designed in a modular way to allow for easy addition of new features (i.e. commands, scores) in the future.
+9. **Maintainability Requirements**
+    * The codebase should be well-documented and follow standard coding conventions to facilitate future maintenance and updates.
 
 
 ### Glossary
@@ -633,6 +659,9 @@ telegram handle, year of study, and major.
 * **Record**: A quantifiable piece of information linked to a student within a class. Examples include participation
 score, attendance, and task submission history.
 * **Class**: A class refers to all student entries and their associated records in TAHub.
+* **Parameter-like sequence**: A sequence of characters that is used to specify a parameter of a command. For example, in the command 
+`add n/John Doe e/...`, `n/John Doe` is a parameter-like sequence.
+
 
 --------------------------------------------------------------------------------------------------------------------
 
