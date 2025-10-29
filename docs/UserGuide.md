@@ -64,6 +64,13 @@ TAHub is a **desktop app for NUS Computer Science Teaching Assistants to manage 
 * If you are using a PDF version of this document, be careful when copying and pasting commands that span multiple lines as space characters surrounding line-breaks may be omitted when copied over to the application.
 </div>
 
+<div markdown="block" class="alert alert-info">
+
+**:desktop_computer: Note on Panel Persistence:**<br>
+
+The right-hand panel is utilised by the help, view, and trend commands to display their respective content (Command List, Student Records, Trend Overview). Once populated, the information in this panel is persistent; it will remain visible and unchanged even when executing commands that only modify the student list in the left panel (e.g., add, delete, find, list, or sort).
+</div>
+
 ### Parameter Constraints
 
 Below are the constraints for the parameters used in the commands:
@@ -80,13 +87,6 @@ Below are the constraints for the parameters used in the commands:
 | att/ATTENDANCE_SCORE     | Attendance score of a record    | Integer 0 (absent) or 1 (present).                                                                                                                                                                                                                                                                                                                                       | Binary value.                                                                                                                                                    |
 | sub/SUBMISSION_SCORE     | Submission score of a record    | Integer 0 (not submitted) or 1 (submitted).                                                                                                                                                                                                                                                                                                                              | Binary value.                                                                                                                                                    |
 | part/PARTICIPATION_SCORE | Participation score of a record | Integer from 0 to 5 (inclusive)                                                                                                                                                                                                                                                                                                                                          | Higher score indicates better participation                                                                                                                      |
-
-<div markdown="block" class="alert alert-info">
-
-**:desktop_computer: Note on Panel Persistence:**<br>
-
-The right-hand panel is utilised by the help, view, and trend commands to display their respective content (Command List, Student Records, Trend Overview). Once populated, the information in this panel is persistent; it will remain visible and unchanged even when executing commands that only modify the student list in the left panel (e.g., add, delete, find, list, or sort).
-</div>
 
 ### Viewing help : `help`
 
