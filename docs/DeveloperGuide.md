@@ -678,18 +678,17 @@ testers are expected to do more *exploratory* testing.
 
 1. Initial launch
 
-   1. Download the jar file and copy into an empty folder
+   a. Download the jar file and copy into an empty folder
 
-   1. Double-click the jar file Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
+   b. Double-click the jar file Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
 
 1. Saving window preferences
 
-   1. Resize the window to an optimum size. Move the window to a different location. Close the window.
+   a. Resize the window to an optimum size. Move the window to a different location. Close the window.
 
-   1. Re-launch the app by double-clicking the jar file.<br>
+   b. Re-launch the app by double-clicking the jar file.<br>
        Expected: The most recent window size and location is retained.
 
-1. _{ more test cases …​ }_
 
 ### Viewing help
 
@@ -744,18 +743,18 @@ testers are expected to do more *exploratory* testing.
 
 1. Deleting a Student while all Students are being shown
 
-   1. Prerequisites: List all Students using the `list` command. Multiple Students in the list.
+   a. Prerequisites: List all Students using the `list` command. Multiple Students in the list.
 
-   1. Test case: `delete 1`<br>
+   b. Test case: `delete 1`<br>
       Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.
 
-   1. Test case: `delete 0`<br>
+   c. Test case: `delete 0`<br>
       Expected: No Student is deleted. Error details shown in the status message. Status bar remains the same.
 
-   1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
+   d. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
       Expected: Similar to previous.
 
-1. _{ more test cases …​ }_
+
 
 ### Viewing student record
 
@@ -779,7 +778,18 @@ testers are expected to do more *exploratory* testing.
 
 ### Sorting students
 
+1. Successful sorting of students based on their attendance/participation/submission score
 
+   a. Prerequisites: List all Students using the list command. Multiple Students in the list.
+   
+   b. Test case: `sort /a` <br>
+      Expected: Students in the left hand panel are updated by their attendance score in descending order. Students without records will be listed on the bottom of the panel.
+
+   c. Test case: `sort /p` <br>
+   Expected: Students in the left hand panel are updated by their participation score in descending order. Students without records will be listed on the bottom of the panel. 
+
+   d. Test case: `sort /s` <br>
+   Expected: Students in the left hand panel are updated by their submission score in descending order. Students without records will be listed on the bottom of the panel. 
 
 ### Saving data
 
