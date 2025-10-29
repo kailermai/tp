@@ -509,7 +509,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 3a1. TA requests to <u>edit student record UC10</u>.
       <br>Use case ends.
 * 3b. TA decides to scrape record entirely.
-    * 3b1. TA requests to <u>delete student record UC11</u>.
+    * 3b1. TA requests to <u>delete student record (UC11)</u>.
       <br>Use case ends.
 
 <br>
@@ -532,7 +532,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 2a1. TAHub displays an error message.
       <br>Use case ends.
 * 3a. TA decides to scrape record entirely.
-    * 3a1. TA requests to <u>delete student record UC11</u>.
+    * 3a1. TA requests to <u>delete student record (UC11)</u>.
       <br>Use case ends.
 
 <br>
@@ -562,7 +562,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **Preconditions:** The TA has already added the student into the class.
 
-**Guarantees:** A graphical summary of student records is generated.
+**Guarantees:** A summary of student records is generated.
 
 **MSS**
 1. TA <u>lists entries (UC03)</u>.
