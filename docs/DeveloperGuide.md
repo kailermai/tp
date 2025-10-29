@@ -642,7 +642,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 7. **Business Requirements**
    * The application does not cover communicating with contacts and submission/grading of assignments.
 8. **Extensibility Requirements**
-    * The application should be designed in a modular way to allow for easy addition of new features (i.e. commands, tasks) in the future.
+    * The application should be designed in a modular way to allow for easy addition of new features (i.e. commands, scores) in the future.
 9. **Maintainability Requirements**
     * The codebase should be well-documented and follow standard coding conventions to facilitate future maintenance and updates.
 
@@ -659,6 +659,9 @@ telegram handle, year of study, and major.
 * **Record**: A quantifiable piece of information linked to a student within a class. Examples include participation
 score, attendance, and task submission history.
 * **Class**: A class refers to all student entries and their associated records in TAHub.
+* **Parameter-like sequence**: A sequence of characters that is used to specify a parameter of a command. For example, in the command 
+`add n/John Doe e/...`, `n/John Doe` is a parameter-like sequence.
+
 
 --------------------------------------------------------------------------------------------------------------------
 
