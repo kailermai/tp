@@ -246,7 +246,8 @@ Sort students based on their attendance, participation, or submission score, in 
 Format:
 * By attendance: `sort /a` 
 * By participation: `sort /p` 
-* By submission: `sort /s` <br>
+* By submission: `sort /s`
+
 ![result for 'sort /a'](images/SortResult.png)
 
 ### Clearing all entries : `clear`
