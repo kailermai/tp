@@ -735,16 +735,16 @@ testers are expected to do more *exploratory* testing.
 
 1. Successful viewing of overall trend with Student records present
 
-   1. Prerequisites: At least 1 Student listed in the student list panel on the left.
+   a. Prerequisites: At least 1 Student listed in the student list panel on the left.
     
-   1. Test case: `trend` <br>
+   b. Test case: `trend` <br>
       Expected: Right-hand panel is updated to display the trend overview, showing calculated record statistics for all students. Status message shows the success message: Opened trend window.
 
-1. Viewing trend with no Student records present
+2. Viewing trend with no Student records present
 
-   1. Prerequisites: No students listed in the student list panel on the left.
+   a. Prerequisites: No students listed in the student list panel on the left.
 
-   1. Test case: `trend` <br>
+   b. Test case: `trend` <br>
       Expected: Right-hand panel is updated to display an empty panel. Status message shows the success message: Opened trend window.
 
 ### Sorting students
