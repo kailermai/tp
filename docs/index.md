@@ -3,17 +3,26 @@ layout: page
 title: AddressBook Level-3
 ---
 
-[![CI Status](https://github.com/se-edu/addressbook-level3/workflows/Java%20CI/badge.svg)](https://github.com/se-edu/addressbook-level3/actions)
-[![codecov](https://codecov.io/gh/se-edu/addressbook-level3/branch/master/graph/badge.svg)](https://codecov.io/gh/se-edu/addressbook-level3)
+[![CI Status](https://github.com/AY2526S1-CS2103T-T16-2/tp/actions/workflows/gradle.yml/badge.svg)](https://github.com/AY2526S1-CS2103T-T16-2/tp/actions)
+[![codecov](https://codecov.io/gh/AY2526-CS2103T-T16-2/tp/graph/badge.svg?token=5H3SWOES1L)](https://codecov.io/gh/AY2526-CS2103T-T16-2/tp)
 
-![Ui](images/Ui.png)
+![Ui](docs/images/Ui.png)
 
-**AddressBook is a desktop application for managing your contact details.** While it has a GUI, most of the user interactions happen using a CLI (Command Line Interface).
+## About
+* TAHub is a desktop application designed to help **Teaching Assistant (TAs)** to manage small tutorial groups with many students.
+* While it comes with a GUI, most of the interactions are carried out using a **Command Line Interface**.
 
-* If you are interested in using AddressBook, head over to the [_Quick Start_ section of the **User Guide**](UserGuide.html#quick-start).
-* If you are interested about developing AddressBook, the [**Developer Guide**](DeveloperGuide.html) is a good place to start.
+## Getting Started
+* Download the latest release from the **[Releases]**
+* Run the jar file using the command `java -jar TAHub.jar`
+* For more information, refer to the **[User Guide](https://ay2526s1-cs2103t-t16-2.github.io/tp/UserGuide.html)**.
+### Example usages:
+* As a productivity tool, TAs can use TAHub to manage their students' contact detail and participation records
+* As a learning tool, students can use TAHub to learn about **OOP concepts** and **software engineering processes**.
+* As a teaching tool, instructors can use TAHub to teach students about **OOP concepts** and **software engineering processes**.
 
+For the detailed documentation of this project, see the **[TAHub Website](https://ay2526s1-cs2103t-t16-2.github.io/tp/)**.
 
-**Acknowledgements**
-
-* Libraries used: [JavaFX](https://openjfx.io/), [Jackson](https://github.com/FasterXML/jackson), [JUnit5](https://github.com/junit-team/junit5)
+## Acknowledgements
+* This project is based on the AddressBook-Level3 project created by the [SE-EDU initiative](https://se-education.org).
+* Libraries used: JavaFX, Jackson, JUnit5
