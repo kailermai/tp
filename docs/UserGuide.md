@@ -3,8 +3,7 @@ layout: page
 title: User Guide
 ---
 
-TAHub is a **desktop app for NUS Computer Science Teaching Assistants to manage students, optimised for use via a Command Line Interface** (CLI) while still providing the benefits of a Graphical User Interface (GUI). If you can type fast, TAHub can complete your student management tasks faster than traditional GUI apps.
-
+TAHub is a **desktop application designed for NUS Computer Science teaching assistants to efficiently manage their students**. It is optimised for fast use through a Command Line Interface (CLI), while still providing the convenience and clarity of a Graphical User Interface (GUI). For users who type quickly, TAHub enables student management tasks to be completed faster than with traditional GUI-based applications.
 * Table of Contents
 {:toc}
 
@@ -68,7 +67,7 @@ TAHub is a **desktop app for NUS Computer Science Teaching Assistants to manage 
 
 **:desktop_computer: Note on panel persistence:**<br>
 
-The right-hand panel is utilised by the help, view, and trend commands to display their respective content (Command List, Student Records, Trend Overview). Once populated, the information in this panel is persistent; it will remain visible and unchanged even when executing commands that only modify the student list in the left panel (e.g., `add`, `delete`, `find`, `list`, or `sort`).
+The right-hand panel is utilised by the `help`, `view`, and `trend` commands to display their respective content (Command List, Student Records, Trend Overview). Once populated, the information in this panel is persistent; it will remain visible and unchanged even when executing commands that only modify the student list in the left panel (e.g., `add`, `delete`, `find`, `list`, or `sort`).
 </div>
 
 ### Viewing help : `help`
