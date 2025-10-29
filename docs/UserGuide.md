@@ -3,7 +3,7 @@ layout: page
 title: User Guide
 ---
 
-TAHub is a **desktop app for Teaching Assistants to manage students, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, TAHub can get your student management tasks done faster than traditional GUI apps.
+TAHub is a **desktop app for NUS Computer Science Teaching Assistants to manage students, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, TAHub can get your student management tasks done faster than traditional GUI apps.
 
 * Table of Contents
 {:toc}
