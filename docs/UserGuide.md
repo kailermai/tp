@@ -93,7 +93,7 @@ Format: `add n/NAME sn/STUDENT_NUMBER p/PHONE_NUMBER e/EMAIL tele/TELEGRAM [t/TA
 * Adds a student with the specified `NAME`, `STUDENT_NUMBER`, `PHONE_NUMBER`, `EMAIL`, `TELEGRAM` and `TAG`
 * All the fields are required except for `TAG`.
 
-#### Student Parameter Constraints:
+**Student Parameter Constraints:**
 
 | Parameter Name      | Constraint                                                                                                                                                                                                                                                                                                                                                               | Notes                                                                                                                                                            |
 |---------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -184,7 +184,7 @@ Creates or updates the weekly record for a specific student.
 Format: `record INDEX week/WEEK_NUMBER att/ATTENDANCE_SCORE sub/SUBMISSION_SCORE part/PARTICIPATION_SCORE`
 
 
-#### **Record Parameter Constraints**
+**Record Parameter Constraints**
 
 |Parameter| Constraints                                |
 |---------|:-------------------------------------------|
