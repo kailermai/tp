@@ -223,14 +223,17 @@ Displays the weekly records of a specific student.
 Format: `view INDEX`
 
 Examples:
-* `list` followed by `view 2` views the 2nd student in TAHub.
-* `find Betsy` followed by `view 1` views the 1st student in the results of the `find` command.
+* `find Betsy` followed by `view 1` views the 1st student in the results of the `find` command.<br>
+* `list` followed by `view 2` views the 2nd student in TAHub.<br>
+  ![result for 'list' then 'view 2'](images/ViewResult.png)
+
 
 ### View overall trend of all student records: `trend`
 
 Displays the trend overview of records for all students.
 
-Format: `trend`
+Format: `trend`<br>
+![result for 'list' then 'view 2'](images/TrendResult.png)
 
 ### Sort students: `sort`
 
