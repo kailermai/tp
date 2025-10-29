@@ -72,7 +72,9 @@ The **API** of this component is specified in [`Ui.java`](https://github.com/se-
 
 ![Structure of the UI Component](images/UiClassDiagram.png)
 
-The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `StudentListPanel`, `StatusBarFooter` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class which captures the commonalities between classes that represent parts of the visible GUI.
+The UI consists of a `MainWindow` that is made up of parts e.g.`StatusBarFooter`, `ResultDisplay`, `RightSidePanel`, `CommandBox`, `StudentListPanel`. All these, including the `MainWindow`, inherit from the abstract `UiPart` class which captures the commonalities between classes that represent parts of the visible GUI.
+
+The `RightSidePanel` displays additional information, and can hold one of three panels: `HelpPanel`, `ViewPanel`, or `TrendPanel`.
 
 The `UI` component uses the JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the [`MainWindow`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/MainWindow.java) is specified in [`MainWindow.fxml`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/resources/view/MainWindow.fxml)
 
@@ -255,9 +257,6 @@ The following activity diagram summarizes what happens when a user executes a ne
 
 _{more aspects and alternatives to be added}_
 
-### \[Proposed\] Data archiving
-
-_{Explain here how the data archiving feature will be implemented}_
 
 
 --------------------------------------------------------------------------------------------------------------------
@@ -343,6 +342,11 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * 1b. TAHub detects a duplicate entry.
     * 1b1. TAHub notifies TA of duplicate entry. 
       <br>Use case ends.
+
+
+* 1c. TAHub detects non-standard input
+  * 1c1. TAHub notifies TA of non-standard input.
+    <br>Use case continues from step 2.
 
 <br>
 **Use case: UC02 Delete a student**
@@ -445,6 +449,11 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * 2b. TAHub detects a duplicate student entry.
     * 2b1. TAHub notifies TA of duplicate entry.
       <br>Use case ends.
+
+
+* 2c. TAHub detects non-standard input
+  * 2c1. TAHub notifies TA of non-standard input.
+    <br>Use case continues from step 3.
 
 <br>
 **Use case: UC07 Show Commands**
