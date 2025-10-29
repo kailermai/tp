@@ -12,16 +12,11 @@ Class MainWindow
 Class ResultDisplay
 Class StudentListPanel
 Class StatusBarFooter
-Class CommandBox
 Class RightSidePanel
 Class HelpPanel
 Class TrendPanel
-Class TrendListPanel
-Class TrendCard
 Class ViewPanel
-Class ScoreListPanel
-Class ScoreCard
-Class RecordDisplay
+Class CommandBox
 Class StudentCard
 }
 
@@ -38,46 +33,36 @@ HiddenOutside ..> Ui
 
 UiManager .left.|> Ui
 UiManager -down-> "1" MainWindow
-MainWindow *-down->  "1" CommandBox
-MainWindow *-down-> "1" ResultDisplay
-MainWindow *-down-> "1" StudentListPanel
-MainWindow *-down-> "1" StatusBarFooter
-MainWindow *-down-> "1" RightSidePanel
-MainWindow -left-|> UiPart
-RightSidePanel --> "0..1" HelpPanel
+MainWindow *-down--> "1" StatusBarFooter
+MainWindow *-down--> "1" ResultDisplay
+MainWindow *-down--> "1" RightSidePanel
+MainWindow *-down-->  "1" CommandBox
+MainWindow *-down--> "1" StudentListPanel
+MainWindow -left--|> UiPart
 
-RightSidePanel -right-> "0..1" TrendPanel
-TrendPanel -down--> "1"TrendListPanel
-TrendListPanel -down--> "*"TrendCard
+RightSidePanel ---> "0..1" HelpPanel
+RightSidePanel ---> "0..1" TrendPanel
+RightSidePanel ---> "0..1" ViewPanel
 
-RightSidePanel -left-> "0..1" ViewPanel
-ViewPanel -down--> "1" ScoreListPanel
-ScoreListPanel -down--> "1" StudentCard
-ScoreListPanel -down--> "3" ScoreCard
-ScoreCard -down-> "1" RecordDisplay
 StudentListPanel -down-> "*" StudentCard
 
-ResultDisplay --|> UiPart
-CommandBox --|> UiPart
-StudentListPanel --|> UiPart
+ResultDisplay ---|> UiPart
+CommandBox ---|> UiPart
+StudentListPanel ----|> UiPart
 StudentCard ---|> UiPart
-StatusBarFooter ---|> UiPart
-HelpPanel --|> UiPart
-ViewPanel --|> UiPart
-ScoreListPanel --|> UiPart
-ScoreCard --|> UiPart
-TrendPanel --|> UiPart
-TrendListPanel --|> UiPart
-TrendCard ---|> UiPart
+StatusBarFooter ----|> UiPart
+HelpPanel ----|> UiPart
+ViewPanel ----|> UiPart
+TrendPanel ----|> UiPart
 
 StudentCard ..> Model
 UiManager -right-> Logic
 MainWindow -right-> Logic
 
+StudentListPanel -[hidden]left- CommandBox
+RightSidePanel -[hidden]left- ResultDisplay
 StudentListPanel -[hidden]left- RightSidePanel
-RightSidePanel -[hidden]left- CommandBox
-StudentListPanel -[hidden]left- RightSidePanel
-CommandBox -[hidden]left- ResultDisplay
+CommandBox -[hidden]left- RightSidePanel
 ResultDisplay -[hidden]left- StatusBarFooter
 ViewPanel -[hidden]left- HelpPanel
 
