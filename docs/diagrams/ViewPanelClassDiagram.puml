@@ -4,6 +4,7 @@ skinparam arrowThickness 1.1
 skinparam arrowColor UI_COLOR_T4
 skinparam classBackgroundColor UI_COLOR
 
+
 package VP as "ViewPanel"{
 Class ViewPanel
 Class ScoreListPanel
@@ -16,24 +17,25 @@ Class Model #FFFFFF
 }
 
 Class "{abstract}\nUiPart" as UiPart
-Class StudentListPanel
-Class RightSidePanel #FFFFFF
 Class MainWindow #FFFFFF
+Class RightSidePanel #FFFFFF
 Class StudentCard
+Class StudentListPanel
 
 RightSidePanel --> ViewPanel
 
 ViewPanel -down-> "1" ScoreListPanel
-ScoreListPanel -down---> "1" StudentCard
+ScoreListPanel -right> "1" StudentCard
 ScoreListPanel -down-> "3" ScoreCard
 ScoreCard --> "1" RecordDisplay
-StudentCard ..> Model
+StudentCard .right> Model
 
-StudentListPanel ---> "*"StudentCard
-MainWindow -down-> StudentListPanel
+StudentListPanel -down--> "*" StudentCard
+MainWindow ---> StudentListPanel
 
-ViewPanel ---|> UiPart
+ViewPanel --|> UiPart
 ScoreListPanel ---|> UiPart
+StudentListPanel ---|> UiPart
 ScoreCard ----|> UiPart
-StudentCard --|> UiPart
+StudentCard --down|> UiPart
 @enduml

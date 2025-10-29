@@ -89,15 +89,15 @@ The `UI` component,
 The View Panel consists of a `ScoreListPanel` that is made up of parts e.g.`ScoreCard`, `StudentCard`, etc. All these, including the `ScoreListPanel`, inherit from the abstract `UiPart`.
 
 The `ViewPanel` component,
-* displays the scores of the students in the `Model`
+* displays the scores of a student in the `Model`.
 
 #### TrendPanel Component
 ![Structure of the TrendPanel Component](images/TrendPanelClassDiagram.png)
 
-The Trend Panel consists of a `TrendPanel` that is made up of parts e.g.`TrendCard`, etc. All these, including the `TrendChart`, inherit from the abstract `UiPart`.
+The Trend Panel consists of a `TrendListPanel` that is made up of `TrendCard`. All these, including the `TrendListPanel`, inherit from the abstract `UiPart`.
 
 The `TrendPanel` component,
-* displays the trends of the class in the `Model`
+* displays the trend of the class in the `Model`.
 
 ### Logic component
 
