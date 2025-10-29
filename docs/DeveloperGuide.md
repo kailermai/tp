@@ -496,7 +496,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **Guarantees:** The record in the specified week is created for the correct student in the class.
 
 **MSS**
-1. TA <u>list entries (UC03)</u>.
+1. TA <u>lists entries (UC03)</u>.
 2. TA requests to add a student record.
 3. TAHub adds the record and displays a success message. 
 <br>Use case ends.
@@ -522,7 +522,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **Guarantees:** The record in the specified week is updated for the correct student in the class.
 
 **MSS**
-1. TA <u>list entries (UC03)</u>.
+1. TA <u>lists entries (UC03)</u>.
 2. TA requests to edit a student record.
 3. TAHub updates the record and displays a success message.
    <br>Use case ends.
@@ -544,7 +544,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **Guarantees:** The record in the specified week is deleted for the correct student in the class.
 
 **MSS**
-1. TA <u>list entries (UC03)</u>.
+1. TA <u>lists entries (UC03)</u>.
 2. TA requests to delete a student record.
 3. TAHub deletes the record and displays a success message.
    <br>Use case ends.
@@ -565,7 +565,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **Guarantees:** A graphical summary of student records is generated.
 
 **MSS**
-1. TA <u>list entries (UC03)</u>.
+1. TA <u>lists entries (UC03)</u>.
 2. TA requests to generate an individual student record report.
 3. TAHub displays the individual student record.
    <br>Use case ends.
