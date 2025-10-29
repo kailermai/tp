@@ -68,7 +68,7 @@ TAHub is a **desktop app for NUS Computer Science Teaching Assistants to manage 
 
 **:desktop_computer: Note on panel persistence:**<br>
 
-The right-hand panel is utilised by the help, view, and trend commands to display their respective content (Command List, Student Records, Trend Overview). Once populated, the information in this panel is persistent; it will remain visible and unchanged even when executing commands that only modify the student list in the left panel (e.g., add, delete, find, list, or sort).
+The right-hand panel is utilised by the help, view, and trend commands to display their respective content (Command List, Student Records, Trend Overview). Once populated, the information in this panel is persistent; it will remain visible and unchanged even when executing commands that only modify the student list in the left panel (e.g., `add`, `delete`, `find`, `list`, or `sort`).
 </div>
 
 ### Viewing help : `help`
@@ -81,7 +81,6 @@ Format: `help`
 
 <div markdown="block" class="alert alert-info">:information_source: **Note:**
 Opening the help window using `F1`, or clicking the help button in the header, will not display a command result in the command box, as these actions do not execute a command.
-![help message](images/helpHeader.png)
 </div>
 
 ### Adding a student: `add`
