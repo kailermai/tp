@@ -510,7 +510,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 3a1. TA requests to <u>edit student record UC10</u>.
       <br>Use case ends.
 * 3b. TA decides to scrape record entirely.
-    * 3b1. TA requests to <u>delete student record UC11</u>.
+    * 3b1. TA requests to <u>delete student record (UC11)</u>.
       <br>Use case ends.
 
 <br>
@@ -533,7 +533,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 2a1. TAHub displays an error message.
       <br>Use case ends.
 * 3a. TA decides to scrape record entirely.
-    * 3a1. TA requests to <u>delete student record UC11</u>.
+    * 3a1. TA requests to <u>delete student record (UC11)</u>.
       <br>Use case ends.
 
 <br>
@@ -563,7 +563,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **Preconditions:** The TA has already added the student into the class.
 
-**Guarantees:** A graphical summary of student records is generated.
+**Guarantees:** A summary of student records is generated.
 
 **MSS**
 1. TA <u>lists entries (UC03)</u>.
@@ -672,18 +672,23 @@ testers are expected to do more *exploratory* testing.
 
 ### Launch and shutdown
 
-1. Initial launch
+1. **Initial launch**
 
    1. Download the jar file and copy into an empty folder
 
-   2. Double-click the jar file Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
+   2. Double-click the jar file <br>
+   **Expected**: Shows the GUI with a set of sample contacts. The window size may not be optimum.
 
-2. Saving window preferences
+2. **Saving window preferences**
 
    1. Resize the window to an optimum size. Move the window to a different location. Close the window.
 
    2. Re-launch the app by double-clicking the jar file.<br>
-       Expected: The most recent window size and location is retained.
+       **Expected**: The most recent window size and location is retained.
+      
+3. **Shutting down**
+    1. Enter `exit` into the command box.<br>
+         **Expected**: The app closes.
 
 
 ### Viewing help
