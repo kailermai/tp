@@ -86,7 +86,7 @@ The `UI` component,
 #### ViewPanel Component
 ![Structure of the ViewPanel Component](images/ViewPanelClassDiagram.png)
 
-The View Panel consists of a `ScoreListPanel` that is made up of parts e.g.`ScoreCard`, `StudentCard`, etc. All these, including the `ScoreListPanel`, inherit from the abstract `UiPart`.
+The `ViewPanel` consists of a `ScoreListPanel` that is made up of parts e.g.`ScoreCard`, `StudentCard`, etc. All these, including the `ScoreListPanel`, inherit from the abstract `UiPart`.
 
 The `ViewPanel` component,
 * displays the scores of a student in the `Model`.
@@ -94,7 +94,7 @@ The `ViewPanel` component,
 #### TrendPanel Component
 ![Structure of the TrendPanel Component](images/TrendPanelClassDiagram.png)
 
-The Trend Panel consists of a `TrendListPanel` that is made up of `TrendCard`. All these, including the `TrendListPanel`, inherit from the abstract `UiPart`.
+The `TrendPanel` consists of a `TrendListPanel` that is made up of `TrendCard`. All these, including the `TrendListPanel`, inherit from the abstract `UiPart`.
 
 The `TrendPanel` component,
 * displays the trend of the class in the `Model`.
@@ -662,6 +662,18 @@ testers are expected to do more *exploratory* testing.
 
 1. _{ more test cases …​ }_
 
+### Viewing help
+
+
+
+### Adding a person
+
+
+
+### Editing a student
+
+
+
 ### Adding/Editing a Student Record
 1. Adding a Student Record while all Students are being shown
 
@@ -714,6 +726,30 @@ testers are expected to do more *exploratory* testing.
       Expected: Similar to previous.
 
 1. _{ more test cases …​ }_
+
+### Viewing student record
+
+
+
+### Viewing overall trend of all student records
+
+1. Successful viewing of overall trend with Student records present
+
+   a. Prerequisites: At least 1 Student listed in the student list panel on the left.
+    
+   b. Test case: `trend` <br>
+      Expected: Right-hand panel is updated to display the trend overview, showing calculated record statistics for all students. Status message shows the success message: Opened trend window.
+
+2. Viewing trend with no Student records present
+
+   a. Prerequisites: No students listed in the student list panel on the left.
+
+   b. Test case: `trend` <br>
+      Expected: Right-hand panel is updated to display an empty panel. Status message shows the success message: Opened trend window.
+
+### Sorting students
+
+
 
 ### Saving data
 
