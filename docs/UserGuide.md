@@ -198,7 +198,9 @@ Format: `record INDEX week/WEEK_NUMBER att/ATTENDANCE_SCORE sub/SUBMISSION_SCORE
 
 Examples:
 * `record 1 week/1 att/1 sub/0 part/4`
-* `record 2 week/5 att/0 sub/1 part/5`
+* `record 2 week/5 att/0 sub/1 part/5`<br>
+  ![result for 'record 1 week/1 part/1 sub/1 att/1'](images/RecordResult.png)
+
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 Running the command again for the same WEEK_NUMBER overwrites that week’s record for the selected student.
