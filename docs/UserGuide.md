@@ -104,11 +104,11 @@ Format: `add n/NAME sn/STUDENT_NUMBER p/PHONE_NUMBER e/EMAIL tele/TELEGRAM [t/TA
 A person can have any number of tags (including 0)
 </div>
 
-<div markdown="span" class="alert alert-info">:information_source: **Note:**""
+<div markdown="span" class="alert alert-info">:information_source: **Note:**
 Each student is uniquely identified by their Student Number, meaning you cannot add multiple students with the same Student Number.
 </div>
 
-<div markdown="span" class="alert alert-warning">:exclamation: **Important:**""
+<div markdown="span" class="alert alert-warning">:exclamation: **Important:**
 While names can include `/` for valid formats, using parameter-like sequences that match parameters in the same command (e.g., `sn/` or `tele/` in an `add` command) within the name field will result in an error.
 </div>
 
