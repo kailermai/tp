@@ -680,16 +680,15 @@ testers are expected to do more *exploratory* testing.
 
    1. Download the jar file and copy into an empty folder
 
-   1. Double-click the jar file Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
+   2. Double-click the jar file Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
 
-1. Saving window preferences
+2. Saving window preferences
 
    1. Resize the window to an optimum size. Move the window to a different location. Close the window.
 
-   1. Re-launch the app by double-clicking the jar file.<br>
+   2. Re-launch the app by double-clicking the jar file.<br>
        Expected: The most recent window size and location is retained.
 
-1. _{ more test cases …​ }_
 
 ### Viewing help
 
@@ -754,7 +753,6 @@ testers are expected to do more *exploratory* testing.
    4. **Other incorrect delete commands to try**: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
       **Expected**: Similar to previous.
 
-1. _{ more test cases …​ }_
 
 ### Viewing student record
 
@@ -792,7 +790,18 @@ testers are expected to do more *exploratory* testing.
 
 ### Sorting students
 
+1. Successful sorting of students based on their attendance/participation/submission score
 
+   1. **Prerequisites**: List all Students using the list command. Multiple Students in the list.
+   
+   2. **Test case**: `sort /a` <br>
+      **Expected**: Students in the left hand panel are updated by their attendance score in descending order. Students without records will be listed on the bottom of the panel.
+
+   3. **Test case**: `sort /p` <br>
+      **Expected**: Students in the left hand panel are updated by their participation score in descending order. Students without records will be listed on the bottom of the panel. 
+
+   4. **Test case**: `sort /s` <br>
+      **Expected**: Students in the left hand panel are updated by their submission score in descending order. Students without records will be listed on the bottom of the panel. 
 
 ### Saving data
 

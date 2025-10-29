@@ -31,11 +31,11 @@ public class SortCommand extends Command {
             + COMMAND_WORD + " " + PREFIX_SORT_BY + PREFIX_SORT_PARTICIPATION + " for participation,\n"
             + COMMAND_WORD + " " + PREFIX_SORT_BY + PREFIX_SORT_SUBMISSION + " for submission";
 
-    public static final String MESSAGE_SUCCESS_ATTENDANCE = "Sorted all students based on attendance";
+    public static final String MESSAGE_SUCCESS_ATTENDANCE = "Sorted all students based on attendance.";
 
-    public static final String MESSAGE_SUCCESS_PARTICIPATION = "Sorted all students based on participation";
+    public static final String MESSAGE_SUCCESS_PARTICIPATION = "Sorted all students based on participation.";
 
-    public static final String MESSAGE_SUCCESS_SUBMISSION = "Sorted all students based on submission";
+    public static final String MESSAGE_SUCCESS_SUBMISSION = "Sorted all students based on submission.";
 
     private boolean byAttendance;
 
