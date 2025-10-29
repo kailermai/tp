@@ -1,0 +1,39 @@
+@startuml
+!include style.puml
+skinparam arrowThickness 1.1
+skinparam arrowColor UI_COLOR_T4
+skinparam classBackgroundColor UI_COLOR
+
+package VP as "ViewPanel"{
+Class ViewPanel
+Class ScoreListPanel
+Class ScoreCard
+Class RecordDisplay
+}
+
+package Model <<Rectangle>> {
+Class Model #FFFFFF
+}
+
+Class "{abstract}\nUiPart" as UiPart
+Class StudentListPanel
+Class RightSidePanel #FFFFFF
+Class MainWindow #FFFFFF
+Class StudentCard
+
+RightSidePanel --> ViewPanel
+
+ViewPanel -down-> "1" ScoreListPanel
+ScoreListPanel -down---> "1" StudentCard
+ScoreListPanel -down-> "3" ScoreCard
+ScoreCard --> "1" RecordDisplay
+StudentCard ..> Model
+
+StudentListPanel ---> "*"StudentCard
+MainWindow -down-> StudentListPanel
+
+ViewPanel ---|> UiPart
+ScoreListPanel ---|> UiPart
+ScoreCard ----|> UiPart
+StudentCard --|> UiPart
+@enduml

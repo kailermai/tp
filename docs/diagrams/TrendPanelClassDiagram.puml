@@ -1,0 +1,24 @@
+@startuml
+!include style.puml
+skinparam arrowThickness 1.1
+skinparam arrowColor UI_COLOR_T4
+skinparam classBackgroundColor UI_COLOR
+
+package TP as "TrendPanel"{
+Class TrendPanel
+Class TrendListPanel
+Class TrendCard
+Class Spacer #FFFFFF
+}
+
+Class "{abstract}\nUiPart" as UiPart
+
+Class RightSidePanel #FFFFFF
+RightSidePanel --> TrendPanel
+"TrendPanel" -down--> "1"TrendListPanel
+TrendListPanel -down--> "*"TrendCard
+
+TrendPanel -|> UiPart
+TrendListPanel -|> UiPart
+TrendCard --|> UiPart
+@enduml
