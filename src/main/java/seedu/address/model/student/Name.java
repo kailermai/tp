@@ -12,8 +12,8 @@ public class Name {
     public static final String MESSAGE_CONSTRAINTS =
             "Names should contain alphanumeric characters and spaces, not be blank "
                     + "and be no more than 100 characters long.\nMay include special character "
-                    + "'/', as long as it is not preceded by an input prefix, eg. sn/.\n"
-                    + "May also include hyphens, apostrophes, or accented characters. Non-standard formats will"
+                    + "'/', as long as it is not preceded by a parameter-like prefix, eg. sn/.\n"
+                    + "Non-standard characters (hyphens, apostrophes, or accented characters) will "
                     + " trigger a warning, but will still be accepted.";
 
     // Strict regex: alphanumeric, names, spaces, '/' only.
