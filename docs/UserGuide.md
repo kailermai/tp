@@ -83,12 +83,16 @@ Below are the constraints for the parameters used in the commands:
 
 ### Viewing help : `help`
 
-Shows a message explaining how to access the help page.
+Displays the help window on the right side panel.
 
 ![help message](images/helpMessage.png)
 
 Format: `help`
 
+<div markdown="block" class="alert alert-info">:information_source: **Note:**
+Opening the help window using `F1`, or clicking the help button in the header, will not display a command result in the command box, as these actions do not execute a command.
+![help message](images/helpHeader.png)
+</div>
 
 ### Adding a person: `add`
 
