@@ -650,7 +650,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 application.
 * **Teaching Assistant (TA)**: A TA is an educational professional who supports a certified teacher in the classroom by 
 helping to deliver lessons, provide individualised student support, and manage classroom tasks.
-* **Entry**: A student entity stored in TAHub. Each entry contains details related to the student, such as name, student number, phone number, email, telegram handle and tags.
+* **Entry**: A student entity stored in TAHub. Each entry contains details related to the student, such as name, student number, phone number, email, telegram handle and optional tags.
 * **Record**: A quantifiable piece of information linked to a student within a class. Examples include participation
 score, attendance, and task submission history.
 * **Class**: A class refers to all student entries and their associated records in TAHub.
