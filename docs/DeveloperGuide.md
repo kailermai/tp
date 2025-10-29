@@ -675,77 +675,91 @@ testers are expected to do more *exploratory* testing.
 
 
 ### Adding/Editing a Student Record
-1. Adding a Student Record while all Students are being shown
+1. **Adding a Student Record while all Students are being shown**
 
-   a. Prerequisites: List all Students using the `list` command. Multiple Students in the list.
+   1. **Prerequisites**: List all Students using the `list` command. Multiple Students in the list.
    
-   b. Test case: `record 1 week/1 att/1 sub/1 part/1`
-      Expected: The record in week 1 for the student at index 1 is created with the given attendance, participation, and submission scores. Details of the added record is shown in the result display.
+   2. **Test case**: `record 1 week/1 att/1 sub/1 part/1`<br>
+      **Expected**: The record in week 1 for the student at index 1 is created with the given attendance, participation, and submission scores. Details of the added record is shown in the result display.
    
-   c.Test case: `record 1 week/3 att/5 sub/1 part/1`
-      Expected: No record is created. An error message highlighting `ATTENDANCE_SCORE` constraints is shown in the result display.
+   3. **Test case**: `record 1 week/3 att/5 sub/1 part/1`<br>
+      **Expected**: No record is created. An error message highlighting `ATTENDANCE_SCORE` constraints is shown in the result display.
    
-   d. Other incorrect record commands to try: `record x week/1 att/1 sub/1 part/1` (where x is larger than list size), `record 1 week/1 sub/1 part/1` (missing `ATTENDANCE_SCORE`), `record 1 week/1 att/x sub/y part/z` where `x`, `y` and `z` are variations of invalid scores.
+   4. **Other incorrect record commands to try**: `record x week/1 att/1 sub/1 part/1` (where x is larger than list size), `record 1 week/1 sub/1 part/1` (missing `ATTENDANCE_SCORE`), `record 1 week/1 att/x sub/y part/z` where `x`, `y` and `z` are variations of invalid scores.
 
-2. Editing a Student Record while all Students are being shown
+2. **Editing a Student Record while all Students are being shown**
 
-   a. Prerequisites: There exists a student with existing record(s) in the class.
+   1. **Prerequisites**: There exists a student with existing record(s) in the class.
    
-   b. Test case: `record x week/y att/1 sub/1 part/5` (where x is the index of the student and y is the index of the record to be edited)
-      Expected: The record in week y for the student at index x is edited with the given attendance, participation, and submission scores. Details of the edited record is shown in the result display.
+   2. **Test case**: `record x week/y att/1 sub/1 part/5` (where x is the index of the student and y is the index of the record to be edited)<br>
+      **Expected**: The record in week y for the student at index x is edited with the given attendance, participation, and submission scores. Details of the edited record is shown in the result display.
 
-   c. Other incorrect record commands to try: Refer to 1c and 1d
-      Expected: Similar to 1c and 1d
+   3. **Other incorrect record commands to try**: Refer to 1c and 1d<br>
+      **Expected**: Similar to 1c and 1d
 <br>
 
 ### Deleting a Student Record
-1. Deleting a Student Record while all Students are being shown
 
-   a. Prerequisites: There exists a student with existing record(s) in the class.
+1. **Deleting a Student Record while all Students are being shown**
+
+   1. **Prerequisites**: There exists a student with existing record(s) in the class.
+   2. **Test case**: `record x week/y` (where x is the index of the student and y is the index of the record to be deleted)<br>
+      **Expected**: The record in week y for the student at index x is deleted. Details of the deleted record is shown in the result display.
    
-   b. Test case: `record x week/y` (where x is the index of the student and y is the index of the record to be deleted)
-      Expected: The record in week y for the student at index x is deleted. Details of the deleted record is shown in the result display.
-   
-   c. Test case: `record x week/z` (where x is the index of the student and z is a week number where no record exists)
-      Expected: No record is deleted. A helper message indicating that no record exists for the specified week is shown in the result display.
-<br>
+   3. **Test case**: `record x week/z` (where x is the index of the student and z is a week number where no record exists)<br>
+      **Expected**: No record is deleted. A helper message indicating that no record exists for the specified week is shown in the result display.
+   <br>
 
 ### Deleting a Student
 
 1. Deleting a Student while all Students are being shown
 
-   1. Prerequisites: List all Students using the `list` command. Multiple Students in the list.
+   1. **Prerequisites**: List all Students using the `list` command. Multiple Students in the list.
 
-   1. Test case: `delete 1`<br>
-      Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.
+   2. **Test case**: `delete 1`<br>
+      **Expected**: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.
 
-   1. Test case: `delete 0`<br>
-      Expected: No Student is deleted. Error details shown in the status message. Status bar remains the same.
+   3. **Test case**: `delete 0`<br>
+      **Expected**: No Student is deleted. Error details shown in the status message. Status bar remains the same.
 
-   1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
-      Expected: Similar to previous.
+   4. **Other incorrect delete commands to try**: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
+      **Expected**: Similar to previous.
 
 1. _{ more test cases …​ }_
 
 ### Viewing student record
 
+1. **Successful viewing of student record**
+
+   1. **Prerequisites**: At least 1 Student listed in the student list panel on the left.
+    
+   2. **Test case**: `view 1`
+      **Expected**: Right-hand panel is updated to display the record overview of the student at index 1, showing calculated record statistics. Status message shows the success message: Viewing record of Student: [Student].<br>
+
+2. **Viewing student record with invalid index**
+
+   1. **Prerequisites**: At least 1 Student listed in the student list panel on the left.
+    
+   2. **Test case**: `view 0` or `view x` (where x is larger than the list size)<br>
+      **Expected**: Right-hand panel remains unchanged. Error details shown in the status message.
+
 
 
 ### Viewing overall trend of all student records
 
-1. Successful viewing of overall trend with Student records present
+1. **Successful viewing of overall trend with Student records present**
 
-   a. Prerequisites: At least 1 Student listed in the student list panel on the left.
+   1. **Prerequisites**: At least 1 Student listed in the student list panel on the left.
     
-   b. Test case: `trend` <br>
-      Expected: Right-hand panel is updated to display the trend overview, showing calculated record statistics for all students. Status message shows the success message: Opened trend window.
+   2. **Test case**: `trend`<br>
+      **Expected**: Right-hand panel is updated to display the trend overview, showing calculated record statistics for all students. Status message shows the success message: Opened trend window.
 
-2. Viewing trend with no Student records present
+2. **Viewing trend with no Student records present**
 
-   a. Prerequisites: No students listed in the student list panel on the left.
+   1. **Prerequisites**: No students listed in the student list panel on the left.
 
-   b. Test case: `trend` <br>
-      Expected: Right-hand panel is updated to display an empty panel. Status message shows the success message: Opened trend window.
+   2. **Test case**: `trend`<br>
+      **Expected**: Right-hand panel is updated to display an empty panel. Status message shows the success message: Opened trend window.
 
 ### Sorting students
 
