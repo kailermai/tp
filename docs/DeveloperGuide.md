@@ -641,6 +641,10 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
    * The application should save data periodically, or after every change, to ensure data reliability.
 7. **Business Requirements**
    * The application does not cover communicating with contacts and submission/grading of assignments.
+8. **Extensibility Requirements**
+    * The application should be designed in a modular way to allow for easy addition of new features (i.e. commands, tasks) in the future.
+9. **Maintainability Requirements**
+    * The codebase should be well-documented and follow standard coding conventions to facilitate future maintenance and updates.
 
 
 ### Glossary
