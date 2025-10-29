@@ -27,7 +27,7 @@ public class ViewCommandTest {
         ViewCommand viewCommand = new ViewCommand(INDEX_FIRST_STUDENT);
 
         String expectedMessage = String.format(ViewCommand.MESSAGE_VIEW_STUDENT_SUCCESS,
-                studentToView.getName());
+                Messages.format(studentToView));
 
         ModelManager expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs());
 
@@ -51,7 +51,7 @@ public class ViewCommandTest {
         ViewCommand viewCommand = new ViewCommand(INDEX_FIRST_STUDENT);
 
         String expectedMessage = String.format(ViewCommand.MESSAGE_VIEW_STUDENT_SUCCESS,
-                studentToView.getName());
+                Messages.format(studentToView));
 
         Model expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs());
         showStudentAtIndex(expectedModel, INDEX_FIRST_STUDENT);

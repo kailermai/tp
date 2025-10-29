@@ -51,7 +51,7 @@ public class ViewCommand extends Command {
     }
 
     private String generateSuccessMessage(Student studentToShow) {
-        return String.format(MESSAGE_VIEW_STUDENT_SUCCESS, studentToShow.getName());
+        return String.format(MESSAGE_VIEW_STUDENT_SUCCESS, Messages.format(studentToShow));
     }
 
     @Override
