@@ -702,9 +702,6 @@ testers are expected to do more *exploratory* testing.
    3. **Test case**: Click on the help menu item.<br>
           **Expected**: A help window is shown displaying the user guide.
 
-   4. **Test case**: Close the help window.<br>
-          **Expected**: The help window is closed.
-
 
 ### Adding a student
 1. **Adding a student**
