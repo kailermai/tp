@@ -227,14 +227,14 @@ Format: `view INDEX`
 Examples:
 * `find Betsy` followed by `view 1` views the 1st student in the results of the `find` command.<br>
 * `list` followed by `view 2` views the 2nd student in TAHub.<br>
-  ![result for 'list' then 'view 2'](images/ViewResult.png)
+  ![result for 'list' followed by 'view 2'](images/ViewResult.png)
 
 ### Viewing overall trend of all student records: `trend`
 
 Displays the trend overview of records for all students.
 
 Format: `trend`<br>
-![result for 'list' then 'view 2'](images/TrendResult.png)
+![result for 'list' followed by 'view 2'](images/TrendResult.png)
 
 ### Sorting students: `sort`
 
