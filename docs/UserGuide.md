@@ -64,6 +64,23 @@ TAHub is a **desktop app for Teaching Assistants to manage students, optimized f
 * If you are using a PDF version of this document, be careful when copying and pasting commands that span multiple lines as space characters surrounding line-breaks may be omitted when copied over to the application.
 </div>
 
+### Parameter Constraints
+
+Below are the constraints for the parameters used in the commands:
+
+| Parameter Name           | Description                     | Constraint                                                                                                                                                                                                                                                                                                                                                               | Notes                                                                                                                                                            |
+|--------------------------|---------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| n/NAME                   | Name of the student             | Alphanumeric characters and spaces, not blank, max 100 characters. May include `/` if not preceded by a parameter-like prefix (eg. `sn/`, `tele/`).                                                                                                                                                                                                                      | Non-standard characters (hyphens `-`, apostrophes `'`, periods`.`, accents) trigger a warning, but are accepted.                                                 |
+| sn/STUDENT_NUMBER        | NUS Student Number              | Format: `AXXXXXXXZ` where `A` is the character 'A', `X` is any digit 0-9, and `Z` is any letter.                                                                                                                                                                                                                                                                         | Must follow the exact format.                                                                                                                                    |
+| p/PHONE_NUMBER           | Phone number of the student     | At least 3 digits. May start with '+', and contain optional '-' separators.                                                                                                                                                                                                                                                                                              | Non-standard characters (parentheses `()`, periods `.` spaces) trigger a warning, but are accepted.<br/>Non-standard formats trigger a warning but are accepted. |
+| e/EMAIL                  | Email of the student            | Format: `local-part@domain`.<br/>`local-part`: Alphanumeric with special characters: `+_.-` (cannot start/end with special characters).<br/>`domain`: One or more labels separated by `.`.<br/>Label: Start/end with alphanumeric characters, may contain `-` in between. Final label must be 2+ characters long.<br/>Examples: `example@gmail.com`, `test@u.nus.edu.sg` | Must follow the exact format.                                                                                                                                    |
+| tele/TELEGRAM            | Telegram of the student         | Alphanumeric and underscores only, not blank, max 100 characters.                                                                                                                                                                                                                                                                                                        | Must follow the exact format.                                                                                                                                    |
+| t/TAG                    | Tags added to the student       | Alphanumeric characters only.                                                                                                                                                                                                                                                                                                                                            | Multiple tags allowed.                                                                                                                                           |
+| week/WEEK_NUMBER         | Week number of record           | Integer from 1 to 13 (inclusive).                                                                                                                                                                                                                                                                                                                                        | Represents tutorial week.                                                                                                                                        |
+| att/ATTENDANCE_SCORE     | Attendance score of a record    | Integer 0 (absent) or 1 (present).                                                                                                                                                                                                                                                                                                                                       | Binary value.                                                                                                                                                    |
+| sub/SUBMISSION_SCORE     | Submission score of a record    | Integer 0 (not submitted) or 1 (submitted).                                                                                                                                                                                                                                                                                                                              | Binary value.                                                                                                                                                    |
+| part/PARTICIPATION_SCORE | Participation score of a record | Integer from 0 to 5 (inclusive)                                                                                                                                                                                                                                                                                                                                          | Higher score indicates better participation                                                                                                                      |
+
 ### Viewing help : `help`
 
 Shows a message explaining how to access the help page.
@@ -80,43 +97,19 @@ Adds a person to TAHub.
 Format: `add n/NAME sn/STUDENT_NUMBER p/PHONE_NUMBER e/EMAIL tele/TELEGRAM [t/TAG]…​`
 
 * Adds a student with the specified `NAME`, `STUDENT_NUMBER`, `PHONE_NUMBER`, `EMAIL`, `TELEGRAM` and `TAG`
-
-* `NAME` should only contain alphanumeric characters and spaces, should not be blank, and should not be longer than 100 characters.
-  * `NAME` can also contain special character '/', as long as it is not preceded by an input prefix (e.g. `n/`, `sn/`, `p/`, `e/`, `tele/`).
-  * A warning will be displayed if `NAME` is a non-standard name, containing non-standard characters, including:
-    * Accented characters
-    * Apostrophes `'`
-    * Hyphens `-`
-    * Full-stops `.` 
-  * However, the student will still be added with the non-standard name.
-
-* `STUDENT_NUMBER` should be in the following format `AXXXXXXXZ`, where A is the letter A, X is any digit 0–9, and Z is any letter.
-
-* `PHONE_NUMBER` should start with '+' character, should contain only digits, with optional '-' separators, and should be at least three digits long.
-  * A warning will be displayed if `PHONE_NUMBER` is a non-standard phone number, containing non-standard characters, including:
-    * Parentheses `()`
-    * Spaces ` `
-    * Full-stops `.`
-  * However, the student will still be added with the non-standard phone number.
-
-* `EMAIL` should be of the format `local-part@domain` and adhere to the following constraints:
-  * The `local-part` should only contain alphanumeric characters and these special characters: `+`, `_`, `.`, `-`.
-    * The local-part may not start or end with any of the special characters.
-  * The local part is followed by an '@' and then a domain name.
-  * The domain name is made up of domain labels separated by periods `.`.
-  * The domain must:
-    * Consist of one or more domain labels separated by a single period `.`.
-      * Each domain label must start and end with alphanumeric characters, separated only by hyphens `-`, if any.
-      * The final domain label must be at least two characters long.
-  * Example: `example@gmail.com`, `test@u.nus.edu.sg`.
-
-* `TELEGRAM` should contain only alphanumeric characters and underscores, should not be blank, and should be at most 100 characters long.
-
-* `TAG` should only contain alphanumeric characters.
+* Refer to [Parameter Constraints](#parameter-constraints) for the individual parameter constraints.
 * All the fields are required except for `TAG`.
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 A person can have any number of tags (including 0)
+</div>
+
+<div markdown="span" class="alert alert-info">:information_source: **Note:**""
+Each student is uniquely identified by their Student Number, meaning you cannot add multiple students with the same Student Number.
+</div>
+
+<div markdown="span" class="alert alert-warning">:exclamation: **Important:**""
+While names can include `/` for valid formats, using parameter-like sequences that match parameters in the same command (e.g., `sn/` or `tele/` in an `add` command) within the name field will result in an error.
 </div>
 
 Examples:
@@ -139,7 +132,7 @@ Format: `edit INDEX [n/NAME] [sn/STUDENT_NUMBER] [p/PHONE] [e/EMAIL] [tele/TELEG
 
 * Edits the student at the specified `INDEX`. The index refers to the index number shown in the displayed student list. The index **must be a positive integer** 1, 2, 3, …​
 * At least one of the optional fields must be provided.
-* Refer to [Adding a person](#adding-a-person-add) for the parameter constraints.
+* Refer to [Parameter Constraints](#parameter-constraints) for the individual parameter constraints.
 * Existing values will be updated to the input values.
 * When editing tags, the existing tags of the student will be removed i.e adding of tags is not cumulative.
 * You can remove all the student’s tags by typing `t/` without

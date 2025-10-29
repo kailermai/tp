@@ -1,6 +1,8 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.logic.Messages.MESSAGE_NON_STANDARD_NAME_WARNING;
+import static seedu.address.logic.Messages.MESSAGE_NON_STANDARD_PHONE_WARNING;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
@@ -65,10 +67,6 @@ public class EditCommand extends Command {
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
     public static final String MESSAGE_DUPLICATE_STUDENT = "A student with the same student number already exists in "
             + "TAHub.";
-    public static final String MESSAGE_NON_STANDARD_NAME_WARNING =
-            "Warning: The student's name contains non-standard characters.";
-    public static final String MESSAGE_NON_STANDARD_PHONE_WARNING =
-            "Warning: The student's phone number contains non-standard characters.";
 
     private final Index index;
     private final EditStudentDescriptor editStudentDescriptor;

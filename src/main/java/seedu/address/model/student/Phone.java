@@ -11,8 +11,8 @@ public class Phone {
 
 
     public static final String MESSAGE_CONSTRAINTS =
-            "Phone numbers may start with '+', contain numbers with optional '-' separators, "
-                    + "and should contain at least 3 digits.";
+            "Phone numbers should contain at least 3 digits. May include '+', '-', spaces, parentheses, or dots. "
+                    + "Non-standard formats will trigger a warning, but will still be accepted.";
 
     // Standard validation: +, digits, spaces, hyphens only.
     public static final String VALIDATION_REGEX_STRICT = "\\+?\\d(?:-?\\d){2,}";

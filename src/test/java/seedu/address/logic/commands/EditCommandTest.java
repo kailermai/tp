@@ -87,7 +87,7 @@ public class EditCommandTest {
         EditCommand editCommand = new EditCommand(indexLastStudent, descriptor);
 
         String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_STUDENT_SUCCESS + "\n"
-                        + EditCommand.MESSAGE_NON_STANDARD_NAME_WARNING, Messages.format(editedStudent));
+                        + Messages.MESSAGE_NON_STANDARD_NAME_WARNING, Messages.format(editedStudent));
 
         assertCommandSuccess(editCommand, model, expectedMessage, model);
     }
@@ -105,7 +105,7 @@ public class EditCommandTest {
         EditCommand editCommand = new EditCommand(indexLastStudent, descriptor);
 
         String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_STUDENT_SUCCESS + "\n"
-                + EditCommand.MESSAGE_NON_STANDARD_PHONE_WARNING, Messages.format(editedStudent));
+                + Messages.MESSAGE_NON_STANDARD_PHONE_WARNING, Messages.format(editedStudent));
 
         assertCommandSuccess(editCommand, model, expectedMessage, model);
     }
@@ -125,8 +125,8 @@ public class EditCommandTest {
         EditCommand editCommand = new EditCommand(indexLastStudent, descriptor);
 
         String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_STUDENT_SUCCESS + "\n"
-                + EditCommand.MESSAGE_NON_STANDARD_NAME_WARNING + "\n"
-                + EditCommand.MESSAGE_NON_STANDARD_PHONE_WARNING, Messages.format(editedStudent));
+                + Messages.MESSAGE_NON_STANDARD_NAME_WARNING + "\n"
+                + Messages.MESSAGE_NON_STANDARD_PHONE_WARNING, Messages.format(editedStudent));
 
         assertCommandSuccess(editCommand, model, expectedMessage, model);
     }
