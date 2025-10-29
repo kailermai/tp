@@ -3,7 +3,7 @@ layout: page
 title: User Guide
 ---
 
-TAHub is a **desktop app for NUS Computer Science Teaching Assistants to manage students, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, TAHub can get your student management tasks done faster than traditional GUI apps.
+TAHub is a **desktop app for NUS Computer Science Teaching Assistants to manage students, optimised for use via a Command Line Interface** (CLI) while still providing the benefits of a Graphical User Interface (GUI). If you can type fast, TAHub can complete your student management tasks faster than traditional GUI apps.
 
 * Table of Contents
 {:toc}
@@ -15,15 +15,15 @@ TAHub is a **desktop app for NUS Computer Science Teaching Assistants to manage 
 1. Ensure you have Java `17` or above installed in your Computer.<br>
    **Mac users:** Ensure you have the precise JDK version prescribed [here](https://se-education.org/guides/tutorials/javaInstallationMac.html).
 
-1. Download the latest `.jar` file from [here](https://github.com/AY2526S1-CS2103T-T16-2/tp/releases).
+2. Download the latest `.jar` file from [here](https://github.com/AY2526S1-CS2103T-T16-2/tp/releases).
 
-1. Copy the file to the folder you want to use as the _home folder_ for your TAHub.
+3. Copy the file to the folder you want to use as the _home folder_ for your TAHub.
 
-1. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar tahub.jar` command to run the application.<br>
+4. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar tahub.jar` command to run the application.<br>
    A GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
    ![Ui](images/Ui.png)
 
-1. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
+5. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
    Some example commands you can try:
 
    * `list` : Lists all students.
@@ -36,7 +36,7 @@ TAHub is a **desktop app for NUS Computer Science Teaching Assistants to manage 
 
    * `exit` : Exits the app.
 
-1. Refer to the [Features](#features) below for details of each command.
+6. Refer to the [Features](#features) below for details of each command.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -94,17 +94,17 @@ Format: `add n/NAME sn/STUDENT_NUMBER p/PHONE_NUMBER e/EMAIL tele/TELEGRAM [t/TA
 
 **Student Parameter Constraints:**
 
-| Parameter Name      | Constraint                                                                                                                                                                                                                                                                                                                                                               | Notes                                                                                                                                                                 |
-|---------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| NAME                | Alphanumeric characters and spaces, not blank, max 100 characters. May include `/` if not preceded by a parameter-like prefix (eg. `sn/`, `tele/`).                                                                                                                                                                                                                      | Non-standard characters (hyphens `-`, apostrophes `'`, periods`.`, accents) trigger a warning, but are accepted.                                                      |
-| STUDENT_NUMBER      | Format: `AXXXXXXXZ` where `A` is the character 'A', `X` is any digit 0-9, and `Z` is any letter.                                                                                                                                                                                                                                                                         | Must follow the exact format.                                                                                                                                         |
-| PHONE_NUMBER        | At least 3 digits. May start with '+', and contain optional '-' separators.                                                                                                                                                                                                                                                                                              | Non-standard characters (parentheses `()`, periods `.` spaces) trigger a warning, but are accepted.<br/><br/>Non-standard formats trigger a warning but are accepted. |
-| EMAIL               | Format: `local-part@domain`.<br/>`local-part`: Alphanumeric with special characters: `+_.-` (cannot start/end with special characters).<br/>`domain`: One or more labels separated by `.`.<br/>Label: Start/end with alphanumeric characters, may contain `-` in between. Final label must be 2+ characters long.<br/>Examples: `example@gmail.com`, `test@u.nus.edu.sg` | Must follow the exact format.                                                                                                                                         |
-| TELEGRAM            | Alphanumeric and underscores only, not blank, max 100 characters.                                                                                                                                                                                                                                                                                                        | Must follow the exact format.                                                                                                                                         |
-| TAG                 | Alphanumeric characters only.                                                                                                                                                                                                                                                                                                                                            | Multiple tags allowed.                                                                                                                                                |
+| Parameter Name    | Constraint                                                                                                                                                                                                                                                                                                                                                               | Notes                                                                                                                                                                 |
+|-------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `NAME`            | Alphanumeric characters and spaces, not blank, max 100 characters. May include `/` if not preceded by a parameter-like prefix (eg. `sn/`, `tele/`).                                                                                                                                                                                                                      | Non-standard characters (hyphens `-`, apostrophes `'`, periods`.`, accents) trigger a warning, but are accepted.                                                      |
+| `STUDENT_NUMBER`  | Format: `AXXXXXXXZ` where `A` is the character 'A', `X` is any digit 0-9, and `Z` is any letter.                                                                                                                                                                                                                                                                         | Must follow the exact format.                                                                                                                                         |
+| `PHONE_NUMBER`    | At least 3 digits. May start with `+`, and contain optional `-` separators.                                                                                                                                                                                                                                                                                               | Non-standard characters (parentheses `()`, periods `.` spaces) trigger a warning, but are accepted.<br/><br/>Non-standard formats trigger a warning but are accepted. |
+| `EMAIL`           | Format: `local-part@domain`.<br/>`local-part`: Alphanumeric with special characters: `+_.-` (cannot start/end with special characters).<br/>`domain`: One or more labels separated by `.`.<br/>Label: Start/end with alphanumeric characters, may contain `-` in between. Final label must be 2+ characters long.<br/>Examples: `example@gmail.com`, `test@u.nus.edu.sg` | Must follow the exact format.                                                                                                                                         |
+| `TELEGRAM`        | Alphanumeric and underscores only, not blank, max 100 characters.                                                                                                                                                                                                                                                                                                        | Must follow the exact format.                                                                                                                                         |
+| `TAG`             | Alphanumeric characters only.                                                                                                                                                                                                                                                                                                                                            | Multiple tags allowed.                                                                                                                                                |
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-A person can have any number of tags (including 0)
+A student can have any number of tags (including 0)
 </div>
 
 <div markdown="span" class="alert alert-info">:information_source: **Note:**
@@ -135,7 +135,7 @@ Format: `edit INDEX [n/NAME] [sn/STUDENT_NUMBER] [p/PHONE] [e/EMAIL] [tele/TELEG
 
 * Edits the student at the specified `INDEX`. The index refers to the index number shown in the displayed student list. The index **must be a positive integer** 1, 2, 3, …​
 * At least one of the optional fields must be provided.
-* Refer to [Student Parameter Constraints](#adding-a-person-add) for the individual parameter constraints.
+* Refer to [Student Parameter Constraints](#adding-a-student-add) for the individual parameter constraints.
 * Existing values will be updated to the input values.
 * When editing tags, the existing tags of the student will be removed i.e adding of tags is not cumulative.
 * You can remove all the student’s tags by typing `t/` without
@@ -147,7 +147,7 @@ Examples:
 
 ### Locating students by name: `find`
 
-Finds persons whose names contain any of the given keywords.
+Finds students whose names contain any of the given keywords.
 
 Format: `find KEYWORD [MORE_KEYWORDS]`
 
@@ -155,7 +155,7 @@ Format: `find KEYWORD [MORE_KEYWORDS]`
 * The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`
 * Only the name is searched.
 * Only full words will be matched e.g. `Han` will not match `Hans`
-* Persons matching at least one keyword will be returned (i.e. `OR` search).
+* Students matching at least one keyword will be returned (i.e. `OR` search).
   e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
 
 Examples:
@@ -182,6 +182,8 @@ Creates or updates the weekly record for a specific student.
 
 Format: `record INDEX week/WEEK_NUMBER att/ATTENDANCE_SCORE sub/SUBMISSION_SCORE part/PARTICIPATION_SCORE`
 
+* All fields are required.
+
 
 **Record Parameter Constraints**
 
@@ -191,9 +193,7 @@ Format: `record INDEX week/WEEK_NUMBER att/ATTENDANCE_SCORE sub/SUBMISSION_SCORE
 |`WEEK_NUMBER`| Integer from **1** to **13** (inclusive)   |
 |`ATTENDANCE_SCORE`| **0** (absent) or **1** (present)          |
 |`SUBMISSION_SCORE`| **0** (not submitted) or **1** (submitted) |
-|`PARTICIPATION_SCORE`| Integer from **0** to **5**                |
-
-<div markdown="span" class="alert alert-danger">:information_source: **Note:** All fields are required.</div>
+|`PARTICIPATION_SCORE`| Integer from **0** to **5** (inclusive)    |
 
 Examples:
 * `record 1 week/1 att/1 sub/0 part/4`
@@ -210,7 +210,7 @@ Removes a record on a particular week for a specific student.
 
 Format: `record INDEX week/WEEK_NUMBER`
 
-- The `INDEX` and `WEEK_NUMBER` parameters have the same constraints as [adding a record](#record-parameter-constraints).
+- The `INDEX` and `WEEK_NUMBER` parameters have the same constraints as [adding a record](#addingediting-a-student-record-record).
 - All of `ATTENDANCE_SCORE`, `SUBMISSION_SCORE` and `PARTICIPATION_SCORE` are not required and should not be specified.
 
 Examples:
@@ -233,11 +233,12 @@ Examples:
 Displays the trend overview of records for all students.
 
 Format: `trend`<br>
+
 ![result for 'list' followed by 'view 2'](images/TrendResult.png)
 
 ### Sorting students: `sort`
 
-Sort students based on their attendance score or participation score or submission score.
+Sort students based on their attendance, participation, or submission score, in descending order.
 
 Format:
 * By attendance: `sort /a` 
@@ -269,10 +270,6 @@ If your changes to the data file makes its format invalid, TAHub will discard al
 Furthermore, certain edits can cause the TAHub to behave in unexpected ways (e.g., if a value entered is outside of the acceptable range). Therefore, edit the data file only if you are confident that you can update it correctly.
 </div>
 
-### Archiving data files `[coming in v2.0]`
-
-_Details coming soon ..._
-
 --------------------------------------------------------------------------------------------------------------------
 
 ## FAQ
@@ -302,5 +299,6 @@ Action | Format, Examples
 **List** | `list`
 **View** | `view INDEX`<br> e.g., `view 2`
 **Trend** | `trend`
+**Sort** | `sort /a` / `sort /p` / `sort /s`
 **Exit** | `exit`
 **Help** | `help`
