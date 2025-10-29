@@ -5,6 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_NON_STANDARD_NAME;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_NON_STANDARD_PHONE;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_STUDENT_NUMBER_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_STUDENT_NUMBER_BOB;
@@ -54,6 +56,30 @@ public class StudentTest {
         Student editedAmy = new StudentBuilder(AMY).withStudentNumber(VALID_STUDENT_NUMBER_AMY.toLowerCase()).build();
         assertTrue(AMY.isSameStudent(editedAmy));
 
+    }
+
+    @Test
+    public void hasNonStandardName() {
+        Name standardName = new Name(VALID_NAME_BOB);
+        Name nonStandardName = new Name(VALID_NON_STANDARD_NAME);
+
+        Student studentWithStandardName = new StudentBuilder().withName(standardName.toString()).build();
+        Student studentWithNonStandardName = new StudentBuilder().withName(nonStandardName.toString()).build();
+
+        assertFalse(studentWithStandardName.getHasNonStandardName());
+        assertTrue(studentWithNonStandardName.getHasNonStandardName());
+    }
+
+    @Test
+    public void hasNonStandardPhone() {
+        Phone standardPhone = new Phone(VALID_PHONE_BOB);
+        Phone nonStandardPhone = new Phone(VALID_NON_STANDARD_PHONE);
+
+        Student studentWithStandardPhone = new StudentBuilder().withPhone(standardPhone.toString()).build();
+        Student studentWithNonStandardPhone = new StudentBuilder().withPhone(nonStandardPhone.toString()).build();
+
+        assertFalse(studentWithStandardPhone.getHasNonStandardPhone());
+        assertTrue(studentWithNonStandardPhone.getHasNonStandardPhone());
     }
 
     @Test

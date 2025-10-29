@@ -6,6 +6,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.DESC_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.DESC_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_NON_STANDARD_NAME;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_NON_STANDARD_PHONE;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
@@ -70,6 +72,63 @@ public class EditCommandTest {
         expectedModel.setStudent(lastStudent, editedStudent);
 
         assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
+    }
+
+    @Test
+    public void execute_nonStandardNameStudent_success() {
+        Index indexLastStudent = Index.fromOneBased(model.getFilteredStudentList().size());
+        Student lastStudent = model.getFilteredStudentList().get(indexLastStudent.getZeroBased());
+
+        StudentBuilder studentInList = new StudentBuilder(lastStudent);
+        Student editedStudent = studentInList.withName(VALID_NON_STANDARD_NAME).build();
+
+        EditCommand.EditStudentDescriptor descriptor =
+                new EditStudentDescriptorBuilder().withName(VALID_NON_STANDARD_NAME).build();
+        EditCommand editCommand = new EditCommand(indexLastStudent, descriptor);
+
+        String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_STUDENT_SUCCESS + "\n"
+                        + EditCommand.MESSAGE_NON_STANDARD_NAME_WARNING, Messages.format(editedStudent));
+
+        assertCommandSuccess(editCommand, model, expectedMessage, model);
+    }
+
+    @Test
+    public void execute_nonStandardPhoneStudent_success() {
+        Index indexLastStudent = Index.fromOneBased(model.getFilteredStudentList().size());
+        Student lastStudent = model.getFilteredStudentList().get(indexLastStudent.getZeroBased());
+
+        StudentBuilder studentInList = new StudentBuilder(lastStudent);
+        Student editedStudent = studentInList.withPhone(VALID_NON_STANDARD_PHONE).build();
+
+        EditCommand.EditStudentDescriptor descriptor =
+                new EditStudentDescriptorBuilder().withPhone(VALID_NON_STANDARD_PHONE).build();
+        EditCommand editCommand = new EditCommand(indexLastStudent, descriptor);
+
+        String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_STUDENT_SUCCESS + "\n"
+                + EditCommand.MESSAGE_NON_STANDARD_PHONE_WARNING, Messages.format(editedStudent));
+
+        assertCommandSuccess(editCommand, model, expectedMessage, model);
+    }
+
+    @Test
+    public void execute_nonStandardNameAndPhoneStudent_success() {
+        Index indexLastStudent = Index.fromOneBased(model.getFilteredStudentList().size());
+        Student lastStudent = model.getFilteredStudentList().get(indexLastStudent.getZeroBased());
+
+        StudentBuilder studentInList = new StudentBuilder(lastStudent);
+        Student editedStudent = studentInList.withName(VALID_NON_STANDARD_NAME).withPhone(VALID_NON_STANDARD_PHONE)
+                .build();
+
+        EditCommand.EditStudentDescriptor descriptor =
+                new EditStudentDescriptorBuilder().withName(VALID_NON_STANDARD_NAME)
+                        .withPhone(VALID_NON_STANDARD_PHONE).build();
+        EditCommand editCommand = new EditCommand(indexLastStudent, descriptor);
+
+        String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_STUDENT_SUCCESS + "\n"
+                + EditCommand.MESSAGE_NON_STANDARD_NAME_WARNING + "\n"
+                + EditCommand.MESSAGE_NON_STANDARD_PHONE_WARNING, Messages.format(editedStudent));
+
+        assertCommandSuccess(editCommand, model, expectedMessage, model);
     }
 
     @Test

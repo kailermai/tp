@@ -13,8 +13,15 @@ public class Phone {
     public static final String MESSAGE_CONSTRAINTS =
             "Phone numbers may start with '+', contain numbers with optional '-' separators, "
                     + "and should contain at least 3 digits.";
-    public static final String VALIDATION_REGEX = "\\+?\\d(?:-?\\d){2,}";
+
+    // Standard validation: +, digits, spaces, hyphens only.
+    public static final String VALIDATION_REGEX_STRICT = "\\+?\\d(?:-?\\d){2,}";
+
+    // Lenient validation: allows parentheses, spaces, dots, and other common phone separators.
+    public static final String VALIDATION_REGEX_LENIENT = "(?=.*\\d.*\\d.*\\d)[\\d +\\-() .]{3,20}";
+
     public final String value;
+    private boolean hasNonStandardCharacters;
 
     /**
      * Constructs a {@code Phone}.
@@ -25,13 +32,18 @@ public class Phone {
         requireNonNull(phone);
         checkArgument(isValidPhone(phone), MESSAGE_CONSTRAINTS);
         value = phone;
+        hasNonStandardCharacters = !phone.matches(VALIDATION_REGEX_STRICT) && phone.matches(VALIDATION_REGEX_LENIENT);
     }
 
     /**
      * Returns true if a given string is a valid phone number.
      */
     public static boolean isValidPhone(String test) {
-        return test.matches(VALIDATION_REGEX);
+        return test.matches(VALIDATION_REGEX_STRICT) || test.matches(VALIDATION_REGEX_LENIENT);
+    }
+
+    public boolean hasNonStandardCharacters() {
+        return hasNonStandardCharacters;
     }
 
     @Override

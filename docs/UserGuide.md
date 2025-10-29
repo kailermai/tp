@@ -81,11 +81,23 @@ Format: `add n/NAME sn/STUDENT_NUMBER p/PHONE_NUMBER e/EMAIL tele/TELEGRAM [t/TA
 
 * Adds a student with the specified `NAME`, `STUDENT_NUMBER`, `PHONE_NUMBER`, `EMAIL`, `TELEGRAM` and `TAG`
 
-* `NAME` should only contain alphanumeric characters and spaces, should not be blank, and should not be longer than 100 characters. Names can also contain special character '/', as long as it is not preceded by an input prefix (e.g. `n/`, `sn/`, `p/`, `e/`, `tele/`).
+* `NAME` should only contain alphanumeric characters and spaces, should not be blank, and should not be longer than 100 characters.
+  * `NAME` can also contain special character '/', as long as it is not preceded by an input prefix (e.g. `n/`, `sn/`, `p/`, `e/`, `tele/`).
+  * A warning will be displayed if `NAME` is a non-standard name, containing non-standard characters, including:
+    * Accented characters
+    * Apostrophes `'`
+    * Hyphens `-`
+    * Full-stops `.` 
+  * However, the student will still be added with the non-standard name.
 
 * `STUDENT_NUMBER` should be in the following format `AXXXXXXXZ`, where A is the letter A, X is any digit 0–9, and Z is any letter.
 
-* `PHONE_NUMBER` can start with '+' character, should contain only digits, with optional '-' separators, and should be at least three digits long.
+* `PHONE_NUMBER` should start with '+' character, should contain only digits, with optional '-' separators, and should be at least three digits long.
+  * A warning will be displayed if `PHONE_NUMBER` is a non-standard phone number, containing non-standard characters, including:
+    * Parentheses `()`
+    * Spaces ` `
+    * Full-stops `.`
+  * However, the student will still be added with the non-standard phone number.
 
 * `EMAIL` should be of the format `local-part@domain` and adhere to the following constraints:
   * The `local-part` should only contain alphanumeric characters and these special characters: `+`, `_`, `.`, `-`.
@@ -110,6 +122,8 @@ A person can have any number of tags (including 0)
 Examples:
 * `add n/John Doe sn/A0123456Z p/98765432 e/johnd@example.com tele/john_doe`
 * `add n/Betsy Crowe t/friend e/betsycrowe@example.com tele/betsy_crowe sn/A1234567G p/1234567 t/criminal`
+* `add n/jean-grey sn/A2222222R p/(65) 9494 e/jean@example tele/jean_grey`
+    ![result for 'add n/jean-grey sn/A2222222R p/(65) 9494 e/jean@example tele/jean_grey'](images/AddJeanGreySuccess.png)
 
 ### Listing all students : `list`
 

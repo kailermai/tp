@@ -28,6 +28,10 @@ public class Student {
     private final Set<Tag> tags = new HashSet<>();
     private RecordList recordList;
 
+    // boolean fields
+    private boolean hasNonStandardName;
+    private boolean hasNonStandardPhone;
+
     /**
      * Every field must be present and not null.
      */
@@ -41,6 +45,8 @@ public class Student {
         this.studentNumber = studentNumber;
         this.recordList = recordlist;
         this.telegram = telegram;
+        this.hasNonStandardName = this.name.hasNonStandardCharacters();
+        this.hasNonStandardPhone = this.phone.hasNonStandardCharacters();
     }
 
     public Name getName() {
@@ -61,6 +67,14 @@ public class Student {
 
     public Telegram getTelegram() {
         return telegram;
+    }
+
+    public boolean getHasNonStandardName() {
+        return hasNonStandardName;
+    }
+
+    public boolean getHasNonStandardPhone() {
+        return hasNonStandardPhone;
     }
 
     /**

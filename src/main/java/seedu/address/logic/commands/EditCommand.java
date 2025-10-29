@@ -65,6 +65,10 @@ public class EditCommand extends Command {
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
     public static final String MESSAGE_DUPLICATE_STUDENT = "A student with the same student number already exists in "
             + "TAHub.";
+    public static final String MESSAGE_NON_STANDARD_NAME_WARNING =
+            "Warning: The student's name contains non-standard characters.";
+    public static final String MESSAGE_NON_STANDARD_PHONE_WARNING =
+            "Warning: The student's phone number contains non-standard characters.";
 
     private final Index index;
     private final EditStudentDescriptor editStudentDescriptor;
@@ -99,7 +103,18 @@ public class EditCommand extends Command {
 
         model.setStudent(studentToEdit, editedStudent);
         model.updateFilteredStudentList(PREDICATE_SHOW_ALL_STUDENTS);
-        return new CommandResult(String.format(MESSAGE_EDIT_STUDENT_SUCCESS, Messages.format(editedStudent)));
+
+        String expectedMessage = String.format(MESSAGE_EDIT_STUDENT_SUCCESS, Messages.format(editedStudent));
+
+        if (editedStudent.getHasNonStandardName()) {
+            expectedMessage = expectedMessage + "\n" + MESSAGE_NON_STANDARD_NAME_WARNING;
+        }
+
+        if (editedStudent.getHasNonStandardPhone()) {
+            expectedMessage = expectedMessage + "\n" + MESSAGE_NON_STANDARD_PHONE_WARNING;
+        }
+
+        return new CommandResult(String.format(expectedMessage, Messages.format(editedStudent)));
     }
 
     /**

@@ -4,6 +4,8 @@ import static java.util.Objects.requireNonNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_NON_STANDARD_NAME;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_NON_STANDARD_PHONE;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalStudents.ALICE;
 
@@ -51,6 +53,52 @@ public class AddCommandTest {
         ModelStub modelStub = new ModelStubWithStudent(validStudent);
 
         assertThrows(CommandException.class, AddCommand.MESSAGE_DUPLICATE_STUDENT, () -> addCommand.execute(modelStub));
+    }
+
+    @Test
+    public void execute_nonStandardNameStudent_addSuccesful() throws Exception {
+        Student nonStandardStudent = new StudentBuilder().withName(VALID_NON_STANDARD_NAME).build();
+        ModelStubAcceptingStudentAdded modelStub = new ModelStubAcceptingStudentAdded();
+
+        CommandResult commandResult = new AddCommand(nonStandardStudent).execute(modelStub);
+
+        String expectedString = String.format(AddCommand.MESSAGE_SUCCESS + "\n"
+                        + AddCommand.MESSAGE_NON_STANDARD_NAME_WARNING, Messages.format(nonStandardStudent));
+
+        assertEquals(expectedString, commandResult.getFeedbackToUser());
+        assertEquals(Arrays.asList(nonStandardStudent), modelStub.studentsAdded);
+    }
+
+    @Test
+    public void execute_nonStandardPhoneStudent_addSuccessful() throws Exception {
+        Student nonStandardStudent = new StudentBuilder().withPhone(VALID_NON_STANDARD_PHONE).build();
+        ModelStubAcceptingStudentAdded modelStub = new ModelStubAcceptingStudentAdded();
+
+        CommandResult commandResult = new AddCommand(nonStandardStudent).execute(modelStub);
+
+        String expectedString = String.format(AddCommand.MESSAGE_SUCCESS + "\n"
+                        + AddCommand.MESSAGE_NON_STANDARD_PHONE_WARNING, Messages.format(nonStandardStudent));
+
+        assertEquals(expectedString, commandResult.getFeedbackToUser());
+        assertEquals(Arrays.asList(nonStandardStudent), modelStub.studentsAdded);
+    }
+
+    @Test
+    public void execute_nonStandardNameAndPhoneStudent_addSuccessful() throws Exception {
+        Student nonStandardStudent = new StudentBuilder()
+                .withName(VALID_NON_STANDARD_NAME)
+                .withPhone(VALID_NON_STANDARD_PHONE)
+                .build();
+        ModelStubAcceptingStudentAdded modelStub = new ModelStubAcceptingStudentAdded();
+
+        CommandResult commandResult = new AddCommand(nonStandardStudent).execute(modelStub);
+
+        String expectedString = String.format(AddCommand.MESSAGE_SUCCESS + "\n"
+                        + AddCommand.MESSAGE_NON_STANDARD_NAME_WARNING + "\n"
+                        + AddCommand.MESSAGE_NON_STANDARD_PHONE_WARNING, Messages.format(nonStandardStudent));
+
+        assertEquals(expectedString, commandResult.getFeedbackToUser());
+        assertEquals(Arrays.asList(nonStandardStudent), modelStub.studentsAdded);
     }
 
     @Test
