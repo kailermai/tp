@@ -104,6 +104,14 @@ Format: `add n/NAME sn/STUDENT_NUMBER p/PHONE_NUMBER e/EMAIL tele/TELEGRAM [t/TA
 A person can have any number of tags (including 0)
 </div>
 
+<div markdown="span" class="alert alert-info">:information_source: **Note:**""
+Each student is uniquely identified by their Student Number, meaning you cannot add multiple students with the same Student Number.
+</div>
+
+<div markdown="span" class="alert alert-warning">:exclamation: **Important:**""
+While names can include `/` for valid formats, using parameter-like sequences that match parameters in the same command (e.g., `sn/` or `tele/` in an `add` command) within the name field will result in an error.
+</div>
+
 Examples:
 * `add n/John Doe sn/A0123456Z p/98765432 e/johnd@example.com tele/john_doe`
 * `add n/Betsy Crowe t/friend e/betsycrowe@example.com tele/betsy_crowe sn/A1234567G p/1234567 t/criminal`
@@ -124,7 +132,7 @@ Format: `edit INDEX [n/NAME] [sn/STUDENT_NUMBER] [p/PHONE] [e/EMAIL] [tele/TELEG
 
 * Edits the student at the specified `INDEX`. The index refers to the index number shown in the displayed student list. The index **must be a positive integer** 1, 2, 3, …​
 * At least one of the optional fields must be provided.
-* Refer to [Parameter Constraints](#parameter-constraints) for the parameter constraints.
+* Refer to [Parameter Constraints](#parameter-constraints) for the individual parameter constraints.
 * Existing values will be updated to the input values.
 * When editing tags, the existing tags of the student will be removed i.e adding of tags is not cumulative.
 * You can remove all the student’s tags by typing `t/` without
