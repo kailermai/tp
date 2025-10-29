@@ -344,7 +344,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
       <br>Use case ends.
 
 
-* 1c. TAHub detects non-standard input
+* 1c. TAHub detects non-standard input.
   * 1c1. TAHub notifies TA of non-standard input.
     <br>Use case continues from step 2.
 
@@ -422,7 +422,6 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     <br>Use case ends.
 
 * 1b. There are no existing entries in TAHub.
-
     * 1b1. TAHub notifies the user that there are no existing entries.
       <br>Use case ends.
 
@@ -497,7 +496,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **Guarantees:** The record in the specified week is created for the correct student in the class.
 
 **MSS**
-1. TA <u>list entries UC03</u>.
+1. TA <u>lists entries (UC03)</u>.
 2. TA requests to add a student record.
 3. TAHub adds the record and displays a success message. 
 <br>Use case ends.
@@ -506,7 +505,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * 2a. TAHub detects an error in the entered command.
     * 2a1. TAHub displays an error message.
     <br>Use case ends.
-* 3a. TA realizes that he made an error in the added record.
+* 3a. TA realises that he made an error in the added record.
     * 3a1. TA requests to <u>edit student record UC10</u>.
       <br>Use case ends.
 * 3b. TA decides to scrape record entirely.
@@ -523,7 +522,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **Guarantees:** The record in the specified week is updated for the correct student in the class.
 
 **MSS**
-1. TA <u>list entries UC03</u>.
+1. TA <u>lists entries (UC03)</u>.
 2. TA requests to edit a student record.
 3. TAHub updates the record and displays a success message.
    <br>Use case ends.
@@ -545,7 +544,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **Guarantees:** The record in the specified week is deleted for the correct student in the class.
 
 **MSS**
-1. TA <u>list entries UC03</u>.
+1. TA <u>lists entries (UC03)</u>.
 2. TA requests to delete a student record.
 3. TAHub deletes the record and displays a success message.
    <br>Use case ends.
@@ -566,7 +565,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **Guarantees:** A graphical summary of student records is generated.
 
 **MSS**
-1. TA <u>list entries UC03</u>.
+1. TA <u>lists entries (UC03)</u>.
 2. TA requests to generate an individual student record report.
 3. TAHub displays the individual student record.
    <br>Use case ends.
@@ -576,15 +575,15 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 2a1. TAHub displays an error message.
       <br>Use case ends.
 * 2b. The student has no existing records.
-    * 2b1. TAHub displays an empty report with a note.
+    * 2b1. TAHub displays an empty report.
       <br>Use case ends.
 
 <br>
 **Use case: UC13 Generate class record report**
 
-**Preconditions:** The TA has students with existing records in the class.
+**Preconditions:** The TA has already added at least one student into the class.
 
-**Guarantees:** A graphical summary of student records is generated.
+**Guarantees:** A summary of student records is generated.
 
 **MSS**
 1. TA requests to generate a class record report.
@@ -596,7 +595,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 1a1. TAHub displays an error message.
       <br>Use case ends.
 * 1b. The class has no existing records.
-    * 1b1. TAHub displays an empty report with a note.
+    * 1b1. TAHub displays a report with scores defaulted to zero.
       <br>Use case ends.
 
 <br>
@@ -615,20 +614,17 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * 1a. TAHub detects an error in the entered command.
     * 1a1. TAHub displays an error message.
       <br>Use case ends.
-* 1b. The class has no existing students.
-    * 1b1. TAHub displays an empty student list.
-      <br>Use case ends.
 
 ### Non-Functional Requirements
 
 1. **Platform Requirements**
    * Should work on any _mainstream OS_ as long as it has Java `17` or above installed.
 2. **Performance Requirements**
-   * Should be able to hold up to 1000 Students without a noticeable sluggishness in performance for typical usage.
+   * Should be able to hold up to 1000 Students without noticeable sluggishness in performance for typical usage.
    * A user should be able to execute most commands without noticing much delay (i.e. within `1` second).
 3. **Usability Requirements**
    * A user with above-average typing speed for regular English text (i.e. not code, not system admin commands) should 
-   be able to accomplish most of the tasks faster using commands than using the mouse.
+   be able to accomplish most of the tasks faster with CLI commands as compared to using a mouse.
    * Should be usable by a novice who has never used admin tracking platforms.
    * Error messages should be user-friendly and informative enough to help the user fix their mistake.
 4. **Scalability Requirements**
@@ -653,9 +649,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * **Command Line Interface (CLI)**: A CLI is a text-based user interface that allows users to interact with the 
 application.
 * **Teaching Assistant (TA)**: A TA is an educational professional who supports a certified teacher in the classroom by 
-helping to deliver lessons, provide individualized student support, and manage classroom tasks.
-* **Entry**: A student entity stored in TAHub. Each entry contains details related to the student, such as name, email,
-telegram handle, year of study, and major.
+helping to deliver lessons, provide individualised student support, and manage classroom tasks.
+* **Entry**: A student entity stored in TAHub. Each entry contains details related to the student, such as name, student number, phone number, email, telegram handle and optional tags.
 * **Record**: A quantifiable piece of information linked to a student within a class. Examples include participation
 score, attendance, and task submission history.
 * **Class**: A class refers to all student entries and their associated records in TAHub.
