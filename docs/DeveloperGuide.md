@@ -621,13 +621,26 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ### Non-Functional Requirements
 
-1.  Should work on any _mainstream OS_ as long as it has Java `17` or above installed.
-2.  Should be able to hold up to 1000 Students without a noticeable sluggishness in performance for typical usage.
-3.  A user with above-average typing speed for regular English text (i.e. not code, not system admin commands) should 
-be able to accomplish most of the tasks faster using commands than using the mouse.
-4.  Should be usable by a novice who has never used admin tracking platforms.
-5.  The product does not cover communicating with contacts and submission/grading of assignments.
-6.  The product should not lose any data when the application crashes or exits unexpectedly.
+1. **Platform Requirements**
+   * Should work on any _mainstream OS_ as long as it has Java `17` or above installed.
+2. **Performance Requirements**
+   * Should be able to hold up to 1000 Students without a noticeable sluggishness in performance for typical usage.
+   * A user should be able to execute most commands without noticing much delay (i.e. within `1` second).
+3. **Usability Requirements**
+   * A user with above-average typing speed for regular English text (i.e. not code, not system admin commands) should 
+   be able to accomplish most of the tasks faster using commands than using the mouse.
+   * Should be usable by a novice who has never used admin tracking platforms.
+   * Error messages should be user-friendly and informative enough to help the user fix their mistake.
+4. **Scalability Requirements**
+   * The system should support additional enhancements without major changes to existing architecture.
+   * The data storage should be scalable to handle increased data size in the future.
+5. **Portability Requirements**
+   * The application should be easily downloadable, and executable, preferably a single JAR file.
+6. **Reliability and Data Requirements**
+   * The application should be reliable, ensuring that data is not lost in the event of an unexpected shutdown.
+   * The application should save data periodically, or after every change, to ensure data reliability.
+7. **Business Requirements**
+   * The application does not cover communicating with contacts and submission/grading of assignments.
 
 
 ### Glossary
