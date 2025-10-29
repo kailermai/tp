@@ -661,7 +661,6 @@ score, attendance, and task submission history.
 * **Class**: A class refers to all student entries and their associated records in TAHub.
 * **Parameter-like sequence**: A sequence of characters that is used to specify a parameter of a command. For example, in the command 
 `add n/John Doe e/...`, `n/John Doe` is a parameter-like sequence.
-* **Non-standard characters**: Characters that fall outside the defined parameter constraints but are still accepted by the system.
 
 
 --------------------------------------------------------------------------------------------------------------------
@@ -747,22 +746,23 @@ testers are expected to do more *exploratory* testing.
 
    a. Prerequisites: List all Students using the `list` command. Multiple Students in the list.
    
-   b. Test case: `record 1 week/1 att/1 sub/1 part/1`
+   b. Test case: `record 1 week/1 att/1 sub/1 part/1` <br>
       Expected: The record in week 1 for the student at index 1 is created with the given attendance, participation, and submission scores. Details of the added record is shown in the result display.
    
-   c. Test case: `record 1 week/3 att/5 sub/1 part/1`
+   c.Test case: `record 1 week/3 att/5 sub/1 part/1` <br>
       Expected: No record is created. An error message highlighting `ATTENDANCE_SCORE` constraints is shown in the result display.
    
-   d. Other incorrect record commands to try: `record x week/1 att/1 sub/1 part/1` (where x is larger than list size), `record 1 week/1 sub/1 part/1` (missing `ATTENDANCE_SCORE`), `record 1 week/1 att/x sub/y part/z` where `x`, `y` and `z` are variations of invalid scores.
+   d. Other incorrect record commands to try: `record x week/1 att/1 sub/1 part/1` (where x is larger than list size), `record 1 week/1 sub/1 part/1` (missing `ATTENDANCE_SCORE`), `record 1 week/1 att/x sub/y part/z` where `x`, `y` and `z` are variations of invalid scores.<br>
+    Expected: No record is created. Appropriate error message is shown in the result display.
 
 2. Editing a Student Record while all Students are being shown
 
    a. Prerequisites: There exists a student with existing record(s) in the class.
    
-   b. Test case: `record x week/y att/1 sub/1 part/5` (where x is the index of the student and y is the index of the record to be edited)
+   b. Test case: `record x week/y att/1 sub/1 part/5` (where x is the index of the student and y is the index of the record to be edited) <br>
       Expected: The record in week y for the student at index x is edited with the given attendance, participation, and submission scores. Details of the edited record is shown in the result display.
 
-   c. Other incorrect record commands to try: Refer to 1c and 1d
+   c. Other incorrect record commands to try: Refer to 1c and 1d <br>
       Expected: Similar to 1c and 1d
 <br>
 
@@ -771,10 +771,10 @@ testers are expected to do more *exploratory* testing.
 
    a. Prerequisites: There exists a student with existing record(s) in the class.
    
-   b. Test case: `record x week/y` (where x is the index of the student and y is the index of the record to be deleted)
+   b. Test case: `record x week/y` (where x is the index of the student and y is the index of the record to be deleted) <br>
       Expected: The record in week y for the student at index x is deleted. Details of the deleted record is shown in the result display.
    
-   c. Test case: `record x week/z` (where x is the index of the student and z is a week number where no record exists)
+   c. Test case: `record x week/z` (where x is the index of the student and z is a week number where no record exists) <br>
       Expected: No record is deleted. A helper message indicating that no record exists for the specified week is shown in the result display.
 <br>
 
