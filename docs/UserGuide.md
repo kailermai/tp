@@ -184,7 +184,7 @@ Creates or updates the weekly record for a specific student.
 Format: `record INDEX week/WEEK_NUMBER att/ATTENDANCE_SCORE sub/SUBMISSION_SCORE part/PARTICIPATION_SCORE`
 
 
-#### **Record Parameter Constraints**
+**Record Parameter Constraints**
 
 |Parameter| Constraints                                |
 |---------|:-------------------------------------------|
