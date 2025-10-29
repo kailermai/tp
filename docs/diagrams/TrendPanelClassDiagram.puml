@@ -18,7 +18,7 @@ RightSidePanel --> TrendPanel
 "TrendPanel" -down--> "1"TrendListPanel
 TrendListPanel -down--> "*"TrendCard
 
-TrendPanel -|> UiPart
-TrendListPanel -|> UiPart
-TrendCard --|> UiPart
+TrendPanel -right-|> UiPart
+TrendListPanel -right|> UiPart
+TrendCard -right-|> UiPart
 @enduml
