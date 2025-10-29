@@ -9,7 +9,7 @@ title: TAHub
 ![Ui](images/Ui.png)
 
 
-**TAHub is a desktop application** designed to help NUS Computer Science **Teaching Assistant (TAs)** to manage small tutorial groups with many students. While it comes with a GUI, most of the interactions are carried out using a **Command Line Interface**.
+**TAHub is a desktop application** designed to help NUS Computer Science **Teaching Assistant (TAs)** to manage small tutorial groups with many students. While it comes with a GUI, most of the interactions are carried out using a **Command Line Interface (CLI)**.
 * If you are interested in using TAHub, head over to the [Quick Start section in **User Guide**](https://ay2526s1-cs2103t-t16-2.github.io/tp/UserGuide.html#quick-start).
 * If you are interested about developing TAHub, the **[Developer Guide](https://ay2526s1-cs2103t-t16-2.github.io/tp/DeveloperGuide.html)** is a good place to start.
 
