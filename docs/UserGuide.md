@@ -93,7 +93,7 @@ Format: `add n/NAME sn/STUDENT_NUMBER p/PHONE_NUMBER e/EMAIL tele/TELEGRAM [t/TA
 * Adds a student with the specified `NAME`, `STUDENT_NUMBER`, `PHONE_NUMBER`, `EMAIL`, `TELEGRAM` and `TAG`
 * All the fields are required except for `TAG`.
 
-#### Student Parameter Constraints:
+**Student Parameter Constraints:**
 
 | Parameter Name      | Constraint                                                                                                                                                                                                                                                                                                                                                               | Notes                                                                                                                                                                 |
 |---------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -136,7 +136,7 @@ Format: `edit INDEX [n/NAME] [sn/STUDENT_NUMBER] [p/PHONE] [e/EMAIL] [tele/TELEG
 
 * Edits the student at the specified `INDEX`. The index refers to the index number shown in the displayed student list. The index **must be a positive integer** 1, 2, 3, …​
 * At least one of the optional fields must be provided.
-* Refer to [Parameter Constraints](#student-parameter-constraints) for the individual parameter constraints.
+* Refer to [Student Parameter Constraints](#adding-a-person-add) for the individual parameter constraints.
 * Existing values will be updated to the input values.
 * When editing tags, the existing tags of the student will be removed i.e adding of tags is not cumulative.
 * You can remove all the student’s tags by typing `t/` without
