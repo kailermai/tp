@@ -33,9 +33,9 @@ StudentCard .right> Model
 StudentListPanel -down--> "*" StudentCard
 MainWindow ---> StudentListPanel
 
-ViewPanel --|> UiPart
+ViewPanel -|> UiPart
 ScoreListPanel ---|> UiPart
 StudentListPanel ---|> UiPart
-ScoreCard ----|> UiPart
+ScoreCard ---|> UiPart
 StudentCard --down|> UiPart
 @enduml
