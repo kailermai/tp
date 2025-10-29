@@ -691,10 +691,6 @@ testers are expected to do more *exploratory* testing.
 
 
 
-### Locating students by name:
-
-
-
 ### Viewing student record
 
 
@@ -718,12 +714,6 @@ testers are expected to do more *exploratory* testing.
 ### Sorting students
 
 
-
-### Clearing all entries
-
-
-
-### Exiting the program
 
 ### Saving data
 
