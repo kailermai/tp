@@ -198,7 +198,9 @@ Format: `record INDEX week/WEEK_NUMBER att/ATTENDANCE_SCORE sub/SUBMISSION_SCORE
 
 Examples:
 * `record 1 week/1 att/1 sub/0 part/4`
-* `record 2 week/5 att/0 sub/1 part/5`
+* `record 2 week/5 att/0 sub/1 part/5`<br>
+  ![result for 'record 1 week/1 part/1 sub/1 att/1'](images/RecordResult.png)
+
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 Running the command again for the same WEEK_NUMBER overwrites that week’s record for the selected student.
@@ -216,23 +218,25 @@ Examples:
 * `record 1 week/1`
 * `record 2 week/5`
 
-### View student record: `view`
+### Viewing student record: `view`
 
 Displays the weekly records of a specific student.
 
 Format: `view INDEX`
 
 Examples:
-* `list` followed by `view 2` views the 2nd student in TAHub.
-* `find Betsy` followed by `view 1` views the 1st student in the results of the `find` command.
+* `find Betsy` followed by `view 1` views the 1st student in the results of the `find` command.<br>
+* `list` followed by `view 2` views the 2nd student in TAHub.<br>
+  ![result for 'list' followed by 'view 2'](images/ViewResult.png)
 
-### View overall trend of all student records: `trend`
+### Viewing overall trend of all student records: `trend`
 
 Displays the trend overview of records for all students.
 
-Format: `trend`
+Format: `trend`<br>
+![result for 'list' followed by 'view 2'](images/TrendResult.png)
 
-### Sort students: `sort`
+### Sorting students: `sort`
 
 Sort students based on their attendance score or participation score or submission score.
 
