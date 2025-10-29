@@ -720,7 +720,7 @@ testers are expected to do more *exploratory* testing.
 
    1. **Prerequisites**: Ensure there is at least one student in the student list.
 
-   2. **Test case**: `add n/John Doe sn/x p/98765432 e/johnd@example.com tele/john_doe` (where x is the student number of an existing student in the student list).<br>
+   2. **Test case**: `add n/John Doe sn/x p/98765432 e/johnd@example.com tele/john_doe` (where x is the student number of an existing student in the student list)<br>
       **Expected**: Student is not added. An error message highlighting the duplicate student is shown in the command box.
 
 ### Editing a student

@@ -84,9 +84,9 @@ Opening the help window using `F1`, or clicking the help button in the header, w
 ![help message](images/helpHeader.png)
 </div>
 
-### Adding a person: `add`
+### Adding a student: `add`
 
-Adds a person to TAHub.
+Adds a student to TAHub.
 
 Format: `add n/NAME sn/STUDENT_NUMBER p/PHONE_NUMBER e/EMAIL tele/TELEGRAM [t/TAG]…​`
 
