@@ -6,7 +6,7 @@ title: TAHub
 [![CI Status](https://github.com/AY2526S1-CS2103T-T16-2/tp/actions/workflows/gradle.yml/badge.svg)](https://github.com/AY2526S1-CS2103T-T16-2/tp/actions)
 [![codecov](https://codecov.io/gh/AY2526S1-CS2103T-T16-2/tp/graph/badge.svg?token=5H3SWOES1L)](https://codecov.io/gh/AY2526S1-CS2103T-T16-2/tp)
 
-![Ui](/docs/images/Ui.png)
+![Ui](images/Ui.png)
 
 
 **TAHub is a desktop application** designed to help NUS Computer Science **Teaching Assistant (TAs)** to manage small tutorial groups with many students. While it comes with a GUI, most of the interactions are carried out using a **Command Line Interface**.
