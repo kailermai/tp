@@ -251,7 +251,7 @@ Step 5. The user then decides to execute the command `list`. Commands that do no
 Step 6. The user executes `clear`, which calls `Model#commitAddressBook()`. Since the `currentStatePointer` is not pointing at the end of the `addressBookStateList`, all address book states after the `currentStatePointer` will be purged. Reason: It no longer makes sense to redo the `add n/David …​` command. This is the behavior that most modern desktop applications follow.
 
 ![UndoRedoState5](images/UndoRedoState5.png)
-
+<div style="page-break-after: always;"></div>
 The following activity diagram summarizes what happens when a user executes a new command:
 
 <img src="images/CommitActivityDiagram.png" width="250" />
@@ -384,7 +384,6 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 2a1. TAHub displays an error message.
       <br>Use case ends.
 
-<br>
 <div style="page-break-after: always;"></div>
 
 **Use case: UC03 List entries**
@@ -423,6 +422,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
       <br>Use case ends.
 
 <br>
+<div style="page-break-after: always;"></div>
 **Use case: UC05 Clear Entries**
 
 **Guarantees:** All student entries will be deleted.
@@ -444,7 +444,6 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
       <br>Use case ends.
 
 <br>
-<div style="page-break-after: always;"></div>
 
 **Use case: UC06 Edit Student**
 
@@ -475,6 +474,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     <br>Use case continues from step 3.
 
 <br>
+<div style="page-break-after: always;"></div>
 **Use case: UC07 Show Commands**
 
 **Guarantees**: TAHub displays command guide.
@@ -492,7 +492,6 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
       <br>Use case ends.
 
 <br>
-<div style="page-break-after: always;"></div>
 
 **Use case: UC08 Exit TAHub**
 
@@ -511,6 +510,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     <br>Use case ends.
 
 <br>
+<div style="page-break-after: always;"></div>
 **Use case: UC09 Add student record**
 
 **Preconditions:** The TA has already added the student to the class.
@@ -535,7 +535,6 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
       <br>Use case ends.
 
 <br>
-<div style="page-break-after: always;"></div>
 
 **Use case: UC10 Edit student record**
 
@@ -560,6 +559,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
       <br>Use case ends.
 
 <br>
+<div style="page-break-after: always;"></div>
 **Use case: UC11 Delete student record**
 
 **Preconditions:**
@@ -582,7 +582,6 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
       <br>Use case ends.
 
 <br>
-<div style="page-break-after: always;"></div>
 
 **Use case: UC12 Generate individual student record report**
 
@@ -605,6 +604,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
       <br>Use case ends.
 
 <br>
+<div style="page-break-after: always;"></div>
 **Use case: UC13 Generate class record report**
 
 **Preconditions:** The TA has already added at least one student into the class.
@@ -625,7 +625,6 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
       <br>Use case ends.
 
 <br>
-<div style="page-break-after: always;"></div>
 
 **Use case: UC14 Sort students**
 
@@ -771,6 +770,8 @@ testers are expected to do more *exploratory* testing.
 
    4. **Test case**: `edit x n/jane'doe p/91234567`<br>
       **Expected**: No student is edited. An error message highlighting invalid index is shown in the result display.
+
+<div style="page-break-after: always;"></div>
 
 ### Adding/Editing a student record
 1. **Adding a student record while all students are being shown**
