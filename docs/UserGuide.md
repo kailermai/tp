@@ -75,9 +75,9 @@ The right-hand panel is utilised by the `help`, `view`, and `trend` commands to 
 
 Displays the help window on the right side panel.
 
-![help message](images/helpMessage.png)
-
 Format: `help`
+
+![help message](images/helpMessage.png)
 
 <div markdown="block" class="alert alert-info">:information_source: **Note:**
 Opening the help window using `F1`, or clicking the help button in the header, will not display a command result in the command box, as these actions do not execute a command.
@@ -88,6 +88,9 @@ Opening the help window using `F1`, or clicking the help button in the header, w
 Adds a student to TAHub.
 
 Format: `add n/NAME sn/STUDENT_NUMBER p/PHONE_NUMBER e/EMAIL tele/TELEGRAM [t/TAG]…​`
+
+![result for 'add n/jean-grey sn/A2222222R p/(65) 9494 e/jean@example tele/jean_grey'](images/AddJeanGreySuccess.png)
+
 
 * Adds a student with the specified `NAME`, `STUDENT_NUMBER`, `PHONE_NUMBER`, `EMAIL`, `TELEGRAM` and `TAG`
 * All the fields are required except for `TAG`.
@@ -119,7 +122,6 @@ Examples:
 * `add n/John Doe sn/A0123456Z p/98765432 e/johnd@example.com tele/john_doe`
 * `add n/Betsy Crowe t/friend e/betsycrowe@example.com tele/betsy_crowe sn/A1234567G p/1234567 t/criminal`
 * `add n/jean-grey sn/A2222222R p/(65) 9494 e/jean@example tele/jean_grey`
-    ![result for 'add n/jean-grey sn/A2222222R p/(65) 9494 e/jean@example tele/jean_grey'](images/AddJeanGreySuccess.png)
 
 ### Listing all students : `list`
 
@@ -151,6 +153,8 @@ Finds students whose names contain any of the given keywords.
 
 Format: `find KEYWORD [MORE_KEYWORDS]`
 
+![result for 'find alex david'](images/findAlexDavidResult.png)
+
 * The search is case-insensitive. e.g `hans` will match `Hans`
 * The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`
 * Only the name is searched.
@@ -161,7 +165,6 @@ Format: `find KEYWORD [MORE_KEYWORDS]`
 Examples:
 * `find John` returns `john` and `John Doe`
 * `find alex david` returns `Alex Yeoh`, `David Li`<br>
-  ![result for 'find alex david'](images/findAlexDavidResult.png)
 
 ### Deleting a student : `delete`
 
@@ -182,8 +185,9 @@ Creates or updates the weekly record for a specific student.
 
 Format: `record INDEX week/WEEK_NUMBER att/ATTENDANCE_SCORE sub/SUBMISSION_SCORE part/PARTICIPATION_SCORE`
 
-* All fields are required.
+![result for 'record 1 week/1 part/1 sub/1 att/1'](images/RecordResult.png)
 
+* All fields are required.
 
 **Record Parameter Constraints**
 
@@ -198,8 +202,6 @@ Format: `record INDEX week/WEEK_NUMBER att/ATTENDANCE_SCORE sub/SUBMISSION_SCORE
 Examples:
 * `record 1 week/1 att/1 sub/0 part/4`
 * `record 2 week/5 att/0 sub/1 part/5`<br>
-  ![result for 'record 1 week/1 part/1 sub/1 att/1'](images/RecordResult.png)
-
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 Running the command again for the same WEEK_NUMBER overwrites that week’s record for the selected student.
@@ -223,10 +225,11 @@ Displays the weekly records of a specific student.
 
 Format: `view INDEX`
 
+![result for 'list' followed by 'view 2'](images/ViewResult.png)
+
 Examples:
 * `find Betsy` followed by `view 1` views the 1st student in the results of the `find` command.<br>
 * `list` followed by `view 2` views the 2nd student in TAHub.<br>
-  ![result for 'list' followed by 'view 2'](images/ViewResult.png)
 
 ### Viewing overall trend of all student records: `trend`
 
@@ -243,7 +246,8 @@ Sort students based on their attendance, participation, or submission score, in 
 Format:
 * By attendance: `sort /a` 
 * By participation: `sort /p` 
-* By submission: `sort /s` <br>
+* By submission: `sort /s`
+
 ![result for 'sort /a'](images/SortResult.png)
 
 ### Clearing all entries : `clear`
