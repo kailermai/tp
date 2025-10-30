@@ -282,6 +282,10 @@ Furthermore, certain edits can cause the TAHub to behave in unexpected ways (e.g
 **Q**: How do I transfer my data to another Computer?<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous TAHub home folder.
 
+**Q**: When double-clicking on the jar file, I get an error message from the Java Virtual Machine Launcher.<br>
+![error message](images/javaVMLError.jpg)<br>
+**A**: Instead of double-clicking on the jar file, run the jar file using the command `java -jar tahub.jar` in the terminal. Refer to the [Quick Start](#quick-start) section for details.
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## Known issues
