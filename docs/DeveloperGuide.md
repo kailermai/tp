@@ -163,6 +163,7 @@ The `Model` component,
 
 </div>
 
+<div style="page-break-after: always;"></div>
 
 ### Storage component
 
@@ -330,6 +331,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `*`      | TA                                          | filter students who have low attendance/participation records          | easily find the students who need extra guidance                  |
 | `*`      | TA                                          | view my students in alphabetical order                                 | browse the list more easily                                       |
 
+<div style="page-break-after: always;"></div>
 
 ### Use cases
 
@@ -383,6 +385,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
       <br>Use case ends.
 
 <br>
+<div style="page-break-after: always;"></div>
+
 **Use case: UC03 List entries**
 
 **Guarantees:** All student entries will be displayed.
@@ -440,6 +444,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
       <br>Use case ends.
 
 <br>
+<div style="page-break-after: always;"></div>
+
 **Use case: UC06 Edit Student**
 
 **Preconditions:** The student to be edited has an existing entry in TAHub.
@@ -486,6 +492,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
       <br>Use case ends.
 
 <br>
+<div style="page-break-after: always;"></div>
+
 **Use case: UC08 Exit TAHub**
 
 **Preconditions:** TAHub is currently running.
@@ -527,6 +535,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
       <br>Use case ends.
 
 <br>
+<div style="page-break-after: always;"></div>
+
 **Use case: UC10 Edit student record**
 
 **Preconditions:** 
@@ -572,6 +582,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
       <br>Use case ends.
 
 <br>
+<div style="page-break-after: always;"></div>
+
 **Use case: UC12 Generate individual student record report**
 
 **Preconditions:** The TA has already added the student into the class.
@@ -613,6 +625,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
       <br>Use case ends.
 
 <br>
+<div style="page-break-after: always;"></div>
+
 **Use case: UC14 Sort students**
 
 **Preconditions:** The TA has students in the class.
@@ -707,6 +721,7 @@ testers are expected to do more *exploratory* testing.
     1. Enter `exit` into the command box.<br>
          **Expected**: The app closes.
 
+<div style="page-break-after: always;"></div>
 
 ### Viewing help
 1. **Viewing help**
@@ -740,6 +755,8 @@ testers are expected to do more *exploratory* testing.
 
    2. **Test case**: `add n/John Doe sn/x p/98765432 e/johnd@example.com tele/john_doe` (where x is the student number of an existing student in the student list)<br>
       **Expected**: Student is not added. An error message highlighting the duplicate student is shown in the command box.
+
+<div style="page-break-after: always;"></div>
 
 ### Editing a student
 1. **Editing a student while all students are being shown**
@@ -779,6 +796,8 @@ testers are expected to do more *exploratory* testing.
       **Expected**: Similar to 1.3 and 1.4.
 <br>
 
+<div style="page-break-after: always;"></div>
+
 ### Deleting a student Record
 
 1. **Deleting a student record while all students are being shown**
@@ -808,7 +827,7 @@ testers are expected to do more *exploratory* testing.
    2. **Test case**: `view 0` or `view x` (where x is larger than the list size)<br>
       **Expected**: Right-hand panel remains unchanged. Error details shown in the status message.
 
-
+<div style="page-break-after: always;"></div>
 
 ### Viewing overall trend of all student records
 
@@ -840,6 +859,8 @@ testers are expected to do more *exploratory* testing.
 
    4. **Test case**: `sort /s` <br>
       **Expected**: Students in the left hand panel are sorted by their submission score in descending order. Students without records will be listed on the bottom of the panel. 
+
+<div style="page-break-after: always;"></div>
 
 ### Saving data
 
