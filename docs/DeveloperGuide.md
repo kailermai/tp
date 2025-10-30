@@ -60,7 +60,7 @@ The *Sequence Diagram* below shows how the components interact with each other f
 Each of the four main components (also shown in the diagram above),
 
 * defines its *API* in an `interface` with the same name as the Component.
-* implements its functionality using a concrete `{Component Name}Manager` class (which follows the corresponding API `interface` mentioned in the previous point.
+* implements its functionality using a concrete `{Component Name}Manager` class which follows the corresponding API `interface` mentioned in the previous point.
 
 For example, the `Logic` component defines its API in the `Logic.java` interface and implements its functionality using the `LogicManager.java` class which follows the `Logic` interface. Other components interact with a given component through its interface rather than the concrete class (reason: to prevent outside component's being coupled to the implementation of a component), as illustrated in the (partial) class diagram below.
 
@@ -647,7 +647,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ### Glossary
 
-* **Mainstream OS**: Windows, Linux, Unix, MacOS
+* **Mainstream OS**: Windows, Linux, Unix, macOS
 * **Command Line Interface (CLI)**: A CLI is a text-based user interface that allows users to interact with the 
 application.
 * **Teaching Assistant (TA)**: A TA is an educational professional who supports a certified teacher in the classroom by 
@@ -840,3 +840,4 @@ testers are expected to do more *exploratory* testing.
 
    2.  Launch the app by double-clicking the jar file. <br>
        **Expected**: The app is launched successfully. A new valid empty TAHub.json file is created under /data. The left hand panel is empty.
+   
