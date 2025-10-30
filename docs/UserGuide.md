@@ -198,6 +198,8 @@ Format: `record INDEX week/WEEK_NUMBER att/ATTENDANCE_SCORE sub/SUBMISSION_SCORE
 
 * All fields are required.
 
+<div style="page-break-after: always;"></div>
+
 **Record Parameter Constraints**
 
 |Parameter| Constraints                                |
