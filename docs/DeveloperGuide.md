@@ -252,6 +252,7 @@ Step 6. The user executes `clear`, which calls `Model#commitAddressBook()`. Sinc
 
 ![UndoRedoState5](images/UndoRedoState5.png)
 <div style="page-break-after: always;"></div>
+<br>
 The following activity diagram summarizes what happens when a user executes a new command:
 
 <img src="images/CommitActivityDiagram.png" width="250" />
@@ -476,7 +477,6 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     <br>Use case continues from step 3.
 
 <br>
-<div style="page-break-after: always;"></div>
 <br>
 
 **Use case: UC07 Show Commands**
@@ -613,7 +613,6 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
       <br>Use case ends.
 
 <br>
-<div style="page-break-after: always;"></div>
 <br>
 
 **Use case: UC13 Generate class record report**
