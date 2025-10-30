@@ -760,7 +760,7 @@ testers are expected to do more *exploratory* testing.
       **Expected**: The record in week y for the student at index x is edited with the given attendance, participation, and submission scores. Details of the edited record is shown in the result display.
 
    3. **Other incorrect record commands to try**: Refer to 1.3 and 1.4<br>
-      **Expected**: Refer to 1.3 and 1.4.
+      **Expected**: Similar to 1.3 and 1.4.
 <br>
 
 ### Deleting a student Record
