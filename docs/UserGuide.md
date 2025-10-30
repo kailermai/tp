@@ -40,7 +40,6 @@ TAHub is a **desktop application designed for NUS Computer Science teaching assi
 6. Refer to the [Features](#features) below for details of each command.
 
 --------------------------------------------------------------------------------------------------------------------
-<div style="page-break-after: always;"></div>
 
 ## Features
 
@@ -131,8 +130,6 @@ Examples:
 * `add n/Betsy Crowe t/friend e/betsycrowe@example.com tele/betsy_crowe sn/A1234567G p/1234567 t/criminal`
 * `add n/jean-grey sn/A2222222R p/(65) 9494 e/jean@example tele/jean_grey`
 
-<div style="page-break-after: always;"></div>
-
 ### Listing all students : `list`
 
 Shows a list of all students in TAHub.
@@ -192,8 +189,6 @@ Examples:
 * `list` followed by `delete 2` deletes the 2nd student in TAHub.
 * `find Betsy` followed by `delete 1` deletes the 1st student in the results of the `find` command.
 
-<div style="page-break-after: always;"></div>
-
 ### Adding/Editing a student record: `record`
 Creates or updates the weekly record for a specific student.
 
@@ -220,8 +215,6 @@ Examples:
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 Running the command again for the same WEEK_NUMBER overwrites that week’s record for the selected student.
 </div>
-
-<div style="page-break-after: always;"></div>
 
 ### Removing a student record: `record`
 Removes a record on a particular week for a specific student.
@@ -258,6 +251,8 @@ Displays the trend overview of records for all students.
 Format: `trend`<br>
 
 ![result for 'list' followed by 'view 2'](images/TrendResult.png)
+
+<div style="page-break-after: always;"></div>
 
 ### Sorting students: `sort`
 
