@@ -50,7 +50,7 @@
           <items>
 
             <!-- Left: Student List Panel -->
-            <VBox fx:id="studentList" styleClass="pane-with-border" VBox.vgrow="ALWAYS">
+            <VBox fx:id="studentList" styleClass="pane-with-border" minWidth="350" VBox.vgrow="ALWAYS">
               <padding>
                 <Insets top="10" right="10" bottom="10" left="10" />
               </padding>
@@ -58,7 +58,7 @@
             </VBox>
 
             <!-- Right: Placeholder for other commands -->
-            <VBox fx:id="detailsPane" styleClass="pane-with-border" VBox.vgrow="ALWAYS">
+            <VBox fx:id="detailsPane" styleClass="pane-with-border" minWidth="540" VBox.vgrow="ALWAYS">
               <padding>
                 <Insets top="10" right="10" bottom="10" left="10" />
               </padding>
