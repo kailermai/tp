@@ -384,7 +384,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 2a1. TAHub displays an error message.
       <br>Use case ends.
 
-<div style="page-break-after: always;"></div>
+<br>
 
 **Use case: UC03 List entries**
 
@@ -534,6 +534,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 3b1. TA requests to <u>delete student record (UC11)</u>.
       <br>Use case ends.
 
+<div style="page-break-after: always;"></div>
 <br>
 
 **Use case: UC10 Edit student record**
