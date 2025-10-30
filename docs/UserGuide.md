@@ -9,6 +9,7 @@ TAHub is a **desktop application designed for NUS Computer Science teaching assi
 {:toc}
 
 --------------------------------------------------------------------------------------------------------------------
+<div style="page-break-after: always;"></div>
 
 ## Quick start
 
@@ -39,6 +40,7 @@ TAHub is a **desktop application designed for NUS Computer Science teaching assi
 6. Refer to the [Features](#features) below for details of each command.
 
 --------------------------------------------------------------------------------------------------------------------
+<div style="page-break-after: always;"></div>
 
 ## Features
 
@@ -71,6 +73,8 @@ TAHub is a **desktop application designed for NUS Computer Science teaching assi
 The right-hand panel is utilised by the `help`, `view`, and `trend` commands to display their respective content (Command List, Student Records, Trend Overview). Once populated, the information in this panel is persistent; it will remain visible and unchanged even when executing commands that only modify the student list in the left panel (e.g., `add`, `delete`, `find`, `list`, or `sort`).
 </div>
 
+<div style="page-break-after: always;"></div>
+
 ### Viewing help : `help`
 
 Displays the help window on the right side panel.
@@ -83,6 +87,8 @@ Format: `help`
 Opening the help window using `F1`, or clicking the help button in the header, will not display a command result in the command box, as these actions do not execute a command.
 </div>
 
+<div style="page-break-after: always;"></div>
+
 ### Adding a student: `add`
 
 Adds a student to TAHub.
@@ -94,6 +100,8 @@ Format: `add n/NAME sn/STUDENT_NUMBER p/PHONE_NUMBER e/EMAIL tele/TELEGRAM [t/TA
 
 * Adds a student with the specified `NAME`, `STUDENT_NUMBER`, `PHONE_NUMBER`, `EMAIL`, `TELEGRAM` and `TAG`
 * All the fields are required except for `TAG`.
+
+<div style="page-break-after: always;"></div>
 
 **Student Parameter Constraints:**
 
@@ -123,6 +131,8 @@ Examples:
 * `add n/Betsy Crowe t/friend e/betsycrowe@example.com tele/betsy_crowe sn/A1234567G p/1234567 t/criminal`
 * `add n/jean-grey sn/A2222222R p/(65) 9494 e/jean@example tele/jean_grey`
 
+<div style="page-break-after: always;"></div>
+
 ### Listing all students : `list`
 
 Shows a list of all students in TAHub.
@@ -146,6 +156,8 @@ Format: `edit INDEX [n/NAME] [sn/STUDENT_NUMBER] [p/PHONE] [e/EMAIL] [tele/TELEG
 Examples:
 *  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st student to be `91234567` and `johndoe@example.com` respectively.
 *  `edit 2 n/Betsy Crower t/` Edits the name of the 2nd student to be `Betsy Crower` and clears all existing tags.
+
+<div style="page-break-after: always;"></div>
 
 ### Locating students by name: `find`
 
@@ -180,6 +192,8 @@ Examples:
 * `list` followed by `delete 2` deletes the 2nd student in TAHub.
 * `find Betsy` followed by `delete 1` deletes the 1st student in the results of the `find` command.
 
+<div style="page-break-after: always;"></div>
+
 ### Adding/Editing a student record: `record`
 Creates or updates the weekly record for a specific student.
 
@@ -207,6 +221,8 @@ Examples:
 Running the command again for the same WEEK_NUMBER overwrites that week’s record for the selected student.
 </div>
 
+<div style="page-break-after: always;"></div>
+
 ### Removing a student record: `record`
 Removes a record on a particular week for a specific student.
 
@@ -219,6 +235,8 @@ Examples:
 * `record 1 week/1`
 * `record 2 week/5`
 
+<div style="page-break-after: always;"></div>
+
 ### Viewing student record: `view`
 
 Displays the weekly records of a specific student.
@@ -230,6 +248,8 @@ Format: `view INDEX`
 Examples:
 * `find Betsy` followed by `view 1` views the 1st student in the results of the `find` command.<br>
 * `list` followed by `view 2` views the 2nd student in TAHub.<br>
+
+<div style="page-break-after: always;"></div>
 
 ### Viewing overall trend of all student records: `trend`
 
@@ -277,6 +297,8 @@ Furthermore, certain edits can cause the TAHub to behave in unexpected ways (e.g
 
 --------------------------------------------------------------------------------------------------------------------
 
+<div style="page-break-after: always;"></div>
+
 ## FAQ
 
 **Q**: How do I transfer my data to another Computer?<br>
@@ -293,6 +315,8 @@ Furthermore, certain edits can cause the TAHub to behave in unexpected ways (e.g
 1. **When using multiple screens**, if you move the application to a secondary screen, and later switch to using only the primary screen, the GUI will open off-screen. The remedy is to delete the `preferences.json` file created by the application before running the application again.
 
 --------------------------------------------------------------------------------------------------------------------
+
+<div style="page-break-after: always;"></div>
 
 ## Command summary
 
