@@ -423,6 +423,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 <br>
 <div style="page-break-after: always;"></div>
+<br>
+
 **Use case: UC05 Clear Entries**
 
 **Guarantees:** All student entries will be deleted.
@@ -475,6 +477,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 <br>
 <div style="page-break-after: always;"></div>
+<br>
+
 **Use case: UC07 Show Commands**
 
 **Guarantees**: TAHub displays command guide.
@@ -511,6 +515,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 <br>
 <div style="page-break-after: always;"></div>
+<br>
+
 **Use case: UC09 Add student record**
 
 **Preconditions:** The TA has already added the student to the class.
@@ -561,6 +567,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 <br>
 <div style="page-break-after: always;"></div>
+<br>
+
 **Use case: UC11 Delete student record**
 
 **Preconditions:**
@@ -606,6 +614,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 <br>
 <div style="page-break-after: always;"></div>
+<br>
+
 **Use case: UC13 Generate class record report**
 
 **Preconditions:** The TA has already added at least one student into the class.
