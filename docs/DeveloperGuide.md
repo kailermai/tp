@@ -718,7 +718,7 @@ testers are expected to do more *exploratory* testing.
    4. **Test case**: `add n/John Doe sn/A654321Z`<br>
       **Expected**: No student is added. An error message highlighting the missing parameters is shown in the result display.
 
-2. **Adding a student with duplicate Student Number**
+2. **Adding a student with duplicate student number**
 
    1. **Prerequisites**: Ensure there is at least one student in the student list.
 
@@ -734,15 +734,15 @@ testers are expected to do more *exploratory* testing.
       **Expected**: The student at index 1 is edited to have the new name and phone number. Details of the edited student are shown in the result display.
       
    3. **Test case**: `edit 1 n/jane'doe`<br>
-      **Expected**: The student at index 1 is edited to have the new name. An warning message highlighting the non-standard name format is shown in the result display.
+      **Expected**: The student at index 1 is edited to have the new name. A warning message highlighting the non-standard name format is shown in the result display.
 
    4. **Test case**: `edit x n/jane'doe p/91234567`<br>
       **Expected**: No student is edited. An error message highlighting invalid index is shown in the result display.
 
-### Adding/Editing a Student Record
-1. **Adding a Student Record while all Students are being shown**
+### Adding/Editing a student record
+1. **Adding a student record while all students are being shown**
 
-   1. **Prerequisites**: List all Students using the `list` command. Multiple Students in the list.
+   1. **Prerequisites**: List all students using the `list` command. Multiple students in the list.
    
    2. **Test case**: `record 1 week/1 att/1 sub/1 part/1`<br>
       **Expected**: The record in week 1 for the student at index 1 is created with the given attendance, participation, and submission scores. Details of the added record is shown in the result display.
@@ -752,7 +752,7 @@ testers are expected to do more *exploratory* testing.
    
    4. **Other incorrect record commands to try**: `record x week/1 att/1 sub/1 part/1` (where x is larger than list size), `record 1 week/1 sub/1 part/1` (missing `ATTENDANCE_SCORE`), `record 1 week/1 att/x sub/y part/z` where `x`, `y` and `z` are variations of invalid scores.
 
-2. **Editing a Student Record while all Students are being shown**
+2. **Editing a student record while all students are being shown**
 
    1. **Prerequisites**: There exists a student with existing record(s) in the class.
    
@@ -760,12 +760,12 @@ testers are expected to do more *exploratory* testing.
       **Expected**: The record in week y for the student at index x is edited with the given attendance, participation, and submission scores. Details of the edited record is shown in the result display.
 
    3. **Other incorrect record commands to try**: Refer to 1c and 1d<br>
-      **Expected**: Similar to 1c and 1d
+      **Expected**: Refer to 1.3 and 1.4. Likewise in expected
 <br>
 
-### Deleting a Student Record
+### Deleting a student Record
 
-1. **Deleting a Student Record while all Students are being shown**
+1. **Deleting a student record while all students are being shown**
 
    1. **Prerequisites**: There exists a student with existing record(s) in the class.
    2. **Test case**: `record x week/y` (where x is the index of the student and y is the index of the record to be deleted)<br>
@@ -775,30 +775,15 @@ testers are expected to do more *exploratory* testing.
       **Expected**: No record is deleted. A helper message indicating that no record exists for the specified week is shown in the result display.
    <br>
 
-### Deleting a Student
-
-1. Deleting a Student while all Students are being shown
-
-   1. **Prerequisites**: List all Students using the `list` command. Multiple Students in the list.
-
-   2. **Test case**: `delete 1`<br>
-      **Expected**: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.
-
-   3. **Test case**: `delete 0`<br>
-      **Expected**: No Student is deleted. Error details shown in the status message. Status bar remains the same.
-
-   4. **Other incorrect delete commands to try**: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
-      **Expected**: Similar to previous.
-
 
 ### Viewing student record
 
 1. **Successful viewing of student record**
 
-   1. **Prerequisites**: At least 1 Student listed in the student list panel on the left.
+   1. **Prerequisites**: At least 1 student listed in the student list panel on the left.
     
-   2. **Test case**: `view 1`
-      **Expected**: Right-hand panel is updated to display the record overview of the student at index 1, showing calculated record statistics. Status message shows the success message: Viewing record of Student: [Student].<br>
+   2. **Test case**: `view 1`<br>
+      **Expected**: Right-hand panel is updated to display the record overview of the student at index 1, showing calculated record statistics. Status message shows the success message: Viewing record of student: [Student].<br>
 
 2. **Viewing student record with invalid index**
 
@@ -811,14 +796,14 @@ testers are expected to do more *exploratory* testing.
 
 ### Viewing overall trend of all student records
 
-1. **Successful viewing of overall trend with Student records present**
+1. **Successful viewing of overall trend with student records present**
 
-   1. **Prerequisites**: At least 1 Student listed in the student list panel on the left.
+   1. **Prerequisites**: At least 1 student listed in the student list panel on the left.
     
    2. **Test case**: `trend`<br>
       **Expected**: Right-hand panel is updated to display the trend overview, showing calculated record statistics for all students. Status message shows the success message: Opened trend window.
 
-2. **Viewing trend with no Student records present**
+2. **Viewing trend with no student records present**
 
    1. **Prerequisites**: No students listed in the student list panel on the left.
 
@@ -827,23 +812,24 @@ testers are expected to do more *exploratory* testing.
 
 ### Sorting students
 
-1. Successful sorting of students based on their attendance/participation/submission score
+1. **Successful sorting of students based on their attendance/participation/submission score**
 
-   1. **Prerequisites**: List all Students using the list command. Multiple Students in the list.
+   1. **Prerequisites**: List all students using the list command. Multiple students in the list.
    
    2. **Test case**: `sort /a` <br>
-      **Expected**: Students in the left hand panel are updated by their attendance score in descending order. Students without records will be listed on the bottom of the panel.
+      **Expected**: Students in the left hand panel are sorted by their attendance score in descending order. Students without records will be listed on the bottom of the panel.
 
    3. **Test case**: `sort /p` <br>
-      **Expected**: Students in the left hand panel are updated by their participation score in descending order. Students without records will be listed on the bottom of the panel. 
+      **Expected**: Students in the left hand panel are sorted by their participation score in descending order. Students without records will be listed on the bottom of the panel. 
 
    4. **Test case**: `sort /s` <br>
-      **Expected**: Students in the left hand panel are updated by their submission score in descending order. Students without records will be listed on the bottom of the panel. 
+      **Expected**: Students in the left hand panel are sorted by their submission score in descending order. Students without records will be listed on the bottom of the panel. 
 
 ### Saving data
 
 1. Dealing with missing/corrupted data files
 
-   1. _{explain how to simulate a missing/corrupted file, and the expected behavior}_
-
-1. _{ more test cases …​ }_
+   1. Delete the TAHub.json file or corrupt the TAHub.json file 
+   
+   2. Launch the app by double-clicking the jar file. <br>
+      **Expected**: The app is launched successfully. The left hand panel in the app is empty. A new valid TAHub.json file is created under /data.
