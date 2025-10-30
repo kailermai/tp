@@ -329,7 +329,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* *`    | TA                                          | search for students by partial name or email                                      | quickly find the right student                                    |
 | `*`      | TA                                          | export data                                                                       | provide evidence of student participation for grading             |
 | `*`      | TA                                          | lock the participation records from further edits                                 | accidental edits will not happen after it has been finalised      |
-| `*`      | TA                                          | filter students who have low attendance/participation records                     | easily find the students who need extra guidance                  |
+| `*`      | TA                                          | filter students who have low attendance/participation/submission records          | easily find the students who need extra guidance                  |
 | `*`      | TA                                          | view my students in alphabetical order                                            | browse the list more easily                                       |
 
 <div style="page-break-after: always;"></div>
