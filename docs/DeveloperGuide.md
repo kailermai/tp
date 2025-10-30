@@ -629,6 +629,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 1a1. TAHub displays an error message.
       <br>Use case ends.
 
+<div style="page-break-after: always;"></div>
+
 ### Non-Functional Requirements
 
 1. **Platform Requirements**
@@ -656,6 +658,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 9. **Maintainability Requirements**
     * The codebase should be well-documented and follow standard coding conventions to facilitate future maintenance and updates.
 
+<div style="page-break-after: always;"></div>
 
 ### Glossary
 
