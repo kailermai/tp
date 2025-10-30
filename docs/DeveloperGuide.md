@@ -759,8 +759,8 @@ testers are expected to do more *exploratory* testing.
    2. **Test case**: `record x week/y att/1 sub/1 part/5` (where x is the index of the student and y is the index of the record to be edited)<br>
       **Expected**: The record in week y for the student at index x is edited with the given attendance, participation, and submission scores. Details of the edited record is shown in the result display.
 
-   3. **Other incorrect record commands to try**: Refer to 1c and 1d<br>
-      **Expected**: Refer to 1.3 and 1.4. Likewise in expected
+   3. **Other incorrect record commands to try**: Refer to 1.3 and 1.4<br>
+      **Expected**: Refer to 1.3 and 1.4.
 <br>
 
 ### Deleting a student Record
@@ -827,9 +827,16 @@ testers are expected to do more *exploratory* testing.
 
 ### Saving data
 
-1. Dealing with missing/corrupted data files
+1. Dealing with missing data file
 
-   1. Delete the TAHub.json file or corrupt the TAHub.json file 
+   1. Delete the TAHub.json file 
    
    2. Launch the app by double-clicking the jar file. <br>
-      **Expected**: The app is launched successfully. The left hand panel in the app is empty. A new valid TAHub.json file is created under /data.
+      **Expected**: The app is launched successfully. A new valid TAHub.json file with sample data is created under /data. Sample students are listed in the left hand panel.
+
+2. Dealing with corrupted data file
+    
+   1. Corrupt the TAHub.json file
+
+   2.  Launch the app by double-clicking the jar file. <br>
+       **Expected**: The app is launched successfully. A new valid empty TAHub.json file is created under /data. The left hand panel is empty.
