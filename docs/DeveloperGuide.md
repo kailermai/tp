@@ -28,6 +28,8 @@ Refer to the guide [_Setting up and getting started_](SettingUp.md).
 :bulb: **Tip:** The `.puml` files used to create diagrams are in this document `docs/diagrams` folder. Refer to the [_PlantUML Tutorial_ at se-edu/guides](https://se-education.org/guides/tutorials/plantUml.html) to learn how to create and edit diagrams.
 </div>
 
+<div style="page-break-after: always;"></div>
+
 ### Architecture
 
 <img src="images/ArchitectureDiagram.png" width="280" />
@@ -68,6 +70,8 @@ For example, the `Logic` component defines its API in the `Logic.java` interface
 
 The sections below give more details of each component.
 
+<div style="page-break-after: always;"></div>
+
 ### UI component
 
 The **API** of this component is specified in [`Ui.java`](https://github.com/AY2526S1-CS2103T-T16-2/tp/tree/master/src/main/java/seedu/address/ui/Ui.java)
@@ -95,6 +99,8 @@ The `ViewPanel` consists of a `ScoreListPanel` that is made up of parts e.g.`Sco
 The `ViewPanel` component,
 * displays the scores of a student in the `Model`.
 
+<div style="page-break-after: always;"></div>
+
 #### TrendPanel Component
 ![Structure of the TrendPanel Component](images/TrendPanelClassDiagram.png)
 
@@ -102,6 +108,8 @@ The `TrendPanel` consists of a `TrendListPanel` that is made up of `TrendCard`. 
 
 The `TrendPanel` component,
 * displays the trend of the class in the `Model`.
+
+<div style="page-break-after: always;"></div>
 
 ### Logic component
 
@@ -133,6 +141,8 @@ Here are the other classes in `Logic` (omitted from the class diagram above) tha
 How the parsing works:
 * When called upon to parse a user command, the `AddressBookParser` class creates an `XYZCommandParser` (`XYZ` is a placeholder for the specific command name e.g., `AddCommandParser`) which uses the other classes shown above to parse the user command and create a `XYZCommand` object (e.g., `AddCommand`) which the `AddressBookParser` returns back as a `Command` object.
 * All `XYZCommandParser` classes (e.g., `AddCommandParser`, `DeleteCommandParser`, ...) inherit from the `Parser` interface so that they can be treated similarly where possible e.g, during testing.
+
+<div style="page-break-after: always;"></div>
 
 ### Model component
 **API** : [`Model.java`](https://github.com/AY2526S1-CS2103T-T16-2/tp/tree/master/src/main/java/seedu/address/model/Model.java)
@@ -170,6 +180,7 @@ The `Storage` component,
 Classes used by multiple components are in the `seedu.address.commons` package.
 
 --------------------------------------------------------------------------------------------------------------------
+<div style="page-break-after: always;"></div>
 
 ## **Implementation**
 
@@ -272,6 +283,7 @@ _{more aspects and alternatives to be added}_
 * [DevOps guide](DevOps.md)
 
 --------------------------------------------------------------------------------------------------------------------
+<div style="page-break-after: always;"></div>
 
 ## **Appendix: Requirements**
 
@@ -617,6 +629,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 1a1. TAHub displays an error message.
       <br>Use case ends.
 
+<div style="page-break-after: always;"></div>
+
 ### Non-Functional Requirements
 
 1. **Platform Requirements**
@@ -644,6 +658,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 9. **Maintainability Requirements**
     * The codebase should be well-documented and follow standard coding conventions to facilitate future maintenance and updates.
 
+<div style="page-break-after: always;"></div>
 
 ### Glossary
 
@@ -661,6 +676,7 @@ score, attendance, and task submission history.
 
 
 --------------------------------------------------------------------------------------------------------------------
+<div style="page-break-after: always;"></div>
 
 ## **Appendix: Instructions for manual testing**
 
