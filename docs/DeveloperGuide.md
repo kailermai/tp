@@ -840,4 +840,6 @@ testers are expected to do more *exploratory* testing.
 
    2.  Launch the app by double-clicking the jar file. <br>
        **Expected**: The app is launched successfully. A new valid empty TAHub.json file is created under /data. The left hand panel is empty.
-   
+
+
+
