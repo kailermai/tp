@@ -12,7 +12,6 @@ import seedu.address.model.record.WeekNumber;
  * Represents the list of student records.
  */
 public class RecordList {
-
     public final Record[] records;
 
     private final PropertyChangeSupport propertyChangeSupport = new PropertyChangeSupport(this);
