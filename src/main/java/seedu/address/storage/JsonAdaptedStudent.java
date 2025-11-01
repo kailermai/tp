@@ -85,13 +85,22 @@ class JsonAdaptedStudent {
     public Student toModelType() throws IllegalValueException {
         final List<Tag> studentTags = new ArrayList<>();
         for (JsonAdaptedTag tag : tags) {
-            studentTags.add(tag.toModelType());
+            if (tag != null) {
+                studentTags.add(tag.toModelType());
+            }
+        }
+
+        if (recordList.size() > WeekNumber.MAX_WEEK_NUMBER) {
+            throw new IllegalValueException(String.format(RecordList.MESSAGE_CONSTRAINTS,
+                    RecordList.class.getSimpleName()));
         }
 
         final Record[] studentRecords = new Record[WeekNumber.MAX_WEEK_NUMBER];
         for (int i = 0; i < recordList.size(); i++) {
             JsonAdaptedRecord record = recordList.get(i);
-            studentRecords[i] = record.toModelType();
+            if (record != null) {
+                studentRecords[i] = record.toModelType();
+            }
         }
 
         if (name == null) {

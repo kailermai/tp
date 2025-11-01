@@ -12,6 +12,9 @@ import seedu.address.model.record.WeekNumber;
  * Represents the list of student records.
  */
 public class RecordList {
+    public static final String MESSAGE_CONSTRAINTS = "Record list should contain at most "
+            + WeekNumber.MAX_WEEK_NUMBER + " records.";
+
     public final Record[] records;
 
     private final PropertyChangeSupport propertyChangeSupport = new PropertyChangeSupport(this);
