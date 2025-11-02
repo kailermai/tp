@@ -11,15 +11,15 @@ public class Phone {
 
 
     public static final String MESSAGE_CONSTRAINTS =
-            "Phone numbers should contain at least 3 digits. May start with '+', and contain optional '-' separators.\n"
-                    + "Non-standard characters (parentheses, periods, spaces), or "
-                    + "non-standard formats will trigger a warning, but will still be accepted.";
+            "Phone numbers must contain at least 3 digits, and be at most 30 characters. May start with '+', "
+                    + "and contain optional '-' separators.\nNon-standard characters (parentheses, periods, spaces), "
+                    + "or non-standard formats will trigger a warning, but will still be accepted.";
 
     // Standard validation: +, digits, spaces, hyphens only.
-    public static final String VALIDATION_REGEX_STRICT = "\\+?\\d(?:-?\\d){2,}";
+    public static final String VALIDATION_REGEX_STRICT = "^(?=.{3,30}$)\\+?\\d(?:-?\\d){2,}$";
 
     // Lenient validation: allows parentheses, spaces, dots, and other common phone separators.
-    public static final String VALIDATION_REGEX_LENIENT = "(?=.*\\d.*\\d.*\\d)[\\d +\\-() .]{3,20}";
+    public static final String VALIDATION_REGEX_LENIENT = "^(?=.{3,30}$)(?=.*\\d.*\\d.*\\d)[\\d +\\-() .]*$";
 
     public final String value;
     private boolean hasNonStandardCharacters;
