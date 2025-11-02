@@ -11,7 +11,7 @@ public class Name {
 
     public static final String MESSAGE_CONSTRAINTS =
             "Names should contain alphabetic characters and spaces, not be blank "
-                    + "and be no more than 100 characters long.\nNon-standard characters (numbers, hyphens, "
+                    + "and be at most 100 characters long.\nNon-standard characters (numbers, hyphens, "
                     + "apostrophes, slashes, or accented characters) will trigger a warning, but will still be"
                     + " accepted.\nSpecial character '/' cannot be preceded by a parameter-like prefix, eg. ` sn/`.";
 
