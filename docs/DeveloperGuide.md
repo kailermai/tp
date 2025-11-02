@@ -893,7 +893,7 @@ testers are expected to do more *exploratory* testing.
 
 Team size: 5
 
-1. **Allow optional fields for editing student records:** The current record command implementation requires TAs to re-type all score fields (`ATTENDANCE_SCORE`, `PARTICIPATION_SCORE`, and `SUBMISSION_SCORE`) even when editing only one field. We plan to enhance `record` the command to accept optional fields, allowing TAs to update only the specific score(s) they intend to modify.
+1. **Allow optional fields for editing student records:** The current record command implementation requires TAs to re-type all score fields (`ATTENDANCE_SCORE`, `PARTICIPATION_SCORE`, and `SUBMISSION_SCORE`) even when editing only one field. We plan to enhance the `record` command to accept optional fields, allowing TAs to update only the specific score(s) they intend to modify.
 
    **Example:** Edit an existing record (Student 1, Week 1) to change the `PARTICIPATION_SCORE` from 1 to 5. The initial `ATTENDANCE_SCORE` and `SUBMISSION_SCORE` were both 1.
  
