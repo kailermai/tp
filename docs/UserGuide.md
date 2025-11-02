@@ -150,7 +150,9 @@ Format: `add n/NAME sn/STUDENT_NUMBER p/PHONE_NUMBER e/EMAIL tele/TELEGRAM [t/TA
 
 
 * Adds a student with the specified `NAME`, `STUDENT_NUMBER`, `PHONE_NUMBER`, `EMAIL`, `TELEGRAM` and `TAG`
+* Each student is uniquely identified by their Student Number, meaning you cannot add multiple students with the same student number.
 * All the fields are required except for `TAG`.
+* You can have any number of tags (including 0). However, tags may not appear in the order that they are created.
 
 <div style="page-break-after: always;"></div>
 
@@ -165,12 +167,8 @@ Format: `add n/NAME sn/STUDENT_NUMBER p/PHONE_NUMBER e/EMAIL tele/TELEGRAM [t/TA
 | `TELEGRAM` | Alphanumeric and underscores only, not blank, maximum length of 100 characters.                                                                                                                                                                                                                                                                                        | Must follow the exact format.                                                                                                                                                                                                                                            |
 | `TAG` | Alphanumeric characters, spaces, special characters `+` and `#`, must not be blank, and maximum length of 30 characters.                                                                                                                                                                                                                                           | Multiple tags allowed.                                                                                                                                                                                                                                                   |
 
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-A student can have any number of tags (including 0). However, tags may not appear in the order that they are created.
-</div>
-
 <div markdown="span" class="alert alert-info">:information_source: **Note:**
-Each student is uniquely identified by their Student Number, meaning you cannot add multiple students with the same Student Number.
+Students are uniquely identified by their Student Number. Hence, they can have duplicate names, emails, phone numbers, and telegram handles. This feature was included to allow users to temporarily reuse placeholder values when certain information is unavailable (e.g., `placeholder@example.com`, `00000000`). We plan to remove this feature in future enhancements by implementing optional fields, which will provide a more robust solution for handling incomplete student information.
 </div>
 
 <div markdown="block" class="alert alert-warning">:exclamation: **Important:**
