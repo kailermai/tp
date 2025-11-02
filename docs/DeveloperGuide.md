@@ -794,7 +794,10 @@ testers are expected to do more *exploratory* testing.
    3. **Test case**: `record 1 week/3 att/5 sub/1 part/1`<br>
       **Expected**: No record is created. An error message highlighting `ATTENDANCE_SCORE` constraints is shown in the result display.
    
-   4. **Other incorrect record commands to try**: `record x week/1 att/1 sub/1 part/1` (where x is larger than the student list size), `record 1 week/1 sub/1 part/1` (missing `ATTENDANCE_SCORE`), `record 1 week/1 att/x sub/y part/z` where `x`, `y` and `z` are variations of invalid scores.
+   4. **Other incorrect record commands to try**: 
+      * `record x week/1 att/1 sub/1 part/1` (where x is an integer larger than the student list size), 
+      * `record 1 week/1 sub/1 part/1` (missing `ATTENDANCE_SCORE`), 
+      * `record 1 week/1 att/x sub/y part/z` where `x`, `y` and `z` are variations of invalid scores.
 
 2. **Editing a student record while all students are being shown**
 
@@ -946,3 +949,7 @@ Team size: 5
     **Current implementation:** Duplicate phone numbers are allowed. Student is successfully added and no error message is thrown.
 
     **Planned enhancement:** Error message highlighting duplicate phone number found. Student is not added.
+
+
+6. **Provide better visualisation for View**: The current view shown in Right Side Panel displays student records for 13 weeks, but does not provide a visual representation of the week numbers.
+    We note that this may make it difficult for TAs to quickly identify a specific week's record. We plan to include additional visualisations that provide a clear representation of week number.

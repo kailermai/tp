@@ -121,14 +121,16 @@ These are the key components of the TAHub user interface (UI):
 
 **:desktop_computer: Note on panel persistence:**<br>
 
-The right-hand panel is utilised by the `help`, `view`, and `trend` commands to display their respective content (Command List, Student Records, Trend Overview). Once populated, the information in this panel is persistent; it will remain visible even when executing commands that only modify the student list in the left panel (e.g., `add`, `delete`, `find`, `list`, or `sort`).
+The **Right Side Panel** is utilised by the `help`, `view`, and `trend` commands to display their respective content (Command List, Student Records, Trend Overview).
+Once displayed, the panel remains visible and updates in real time to reflect changes in its content. The panel only switches to a different display when a new panel-related command is executed.
+<br>Additionally, for `view`, no information will be displayed if the currently displayed student is deleted from TAHub.
 </div>
 
 <div style="page-break-after: always;"></div>
 
 ### Viewing help : `help`
 
-Displays the help window on the right side panel.
+Displays the help window on the Right Side Panel.
 
 Format: `help`
 
@@ -214,7 +216,7 @@ Examples:
 
 Finds students whose names contain any of the given keywords.
 
-Format: `find KEYWORD [MORE_KEYWORDS]`
+Format: `find KEYWORD [MORE_KEYWORDS]…​`
 
 ![result for 'find alex david'](images/findAlexDavidResult.png)
 
@@ -262,9 +264,9 @@ Format: `record INDEX week/WEEK_NUMBER att/ATTENDANCE_SCORE sub/SUBMISSION_SCORE
 
 ![result for 'record 1 week/1 part/1 sub/1 att/1'](images/RecordResult.png)
 
-* **To create a new record:** Run the command using a `WEEK_NUMBER` that currently has no associated record for the specified student.
+* **To create a new record:** Run the command with a target student's `INDEX` and a `WEEK_NUMBER` that currently has no associated record.
 * **To modify an existing record:** Run the command with a target student's `INDEX` and the record's `WEEK_NUMBER`. The existing record for that week will be replaced by the new score values provided in the command.
-* All parameters must be included when executing the record command, regardless of whether you are creating a new record or editing an existing one.
+* All parameters must be included regardless of whether you are creating a new record or editing an existing one.
 
 <div style="page-break-after: always;"></div>
 
@@ -324,7 +326,7 @@ Format: `trend`<br>
 ![result for 'list' followed by 'view 2'](images/TrendResult.png)
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-The Trend view (right panel) always reflects the students currently shown in the left panel—any sorting or filtering (e.g., via sort or list) updates the trends immediately.
+The Trend shown in Right Side Panel always reflects the students currently shown in the left panel—any sorting or filtering (e.g., via sort or list) updates the trends immediately.
 </div>
 
 <div style="page-break-after: always;"></div>
@@ -341,7 +343,7 @@ Format:
 ![result for 'sort /a'](images/SortResult.png)
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-The sort command reorders the student list (left panel). The right panel updates only if it is already showing Trend (i.e., The trend window is opened).    
+The sort command reorders the student list in the Student List Panel. The Right Side Panel updates only if it is already showing Trend (i.e., The trend window is opened).    
 </div>
 
 ### Clearing all entries : `clear`
@@ -406,7 +408,7 @@ Action | Format, Examples
 **Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [sn/STUDENT_NUMBER] [tele/TELEGRAM] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
 **Record** (Add/Edit)| `record INDEX week/WEEK_NUMBER att/ATTENDANCE_SCORE sub/SUBMISSION_SCORE part/PARTICIPATION_SCORE`<br> e.g., `record 1 week/1 att/1 sub/0 part/4`
 **Record** (Remove)| `record INDEX week/WEEK_NUMBER` <br> e.g., `record 1 week/1`
-**Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
+**Find** | `find KEYWORD [MORE_KEYWORDS]…​`<br> e.g., `find James Jake`
 **List** | `list`
 **View** | `view INDEX`<br> e.g., `view 2`
 **Trend** | `trend`
