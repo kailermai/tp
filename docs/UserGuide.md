@@ -98,14 +98,16 @@ TAHub is a **desktop application designed for NUS Computer Science teaching assi
 
 **:desktop_computer: Note on panel persistence:**<br>
 
-The right-hand panel is utilised by the `help`, `view`, and `trend` commands to display their respective content (Command List, Student Records, Trend Overview). Once populated, the information in this panel is persistent; it will remain visible even when executing commands that only modify the student list in the left panel (e.g., `add`, `delete`, `find`, `list`, or `sort`).
+The **Right Side Panel** is utilised by the `help`, `view`, and `trend` commands to display their respective content (Command List, Student Records, Trend Overview).
+Once displayed, the panel remains visible and updates in real time to reflect changes in its content. The panel only switches to a different display when a new panel-related command is executed.
+<br>Additionally, for `view`, no information will be displayed if the currently displayed student is deleted from TAHub.
 </div>
 
 <div style="page-break-after: always;"></div>
 
 ### Viewing help : `help`
 
-Displays the help window on the right side panel.
+Displays the help window on the Right Side Panel.
 
 Format: `help`
 
