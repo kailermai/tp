@@ -13,7 +13,7 @@ title: Developer Guide
 
 * Libraries used: JavaFX, Jackson, JUnit5
 
-* The guide usage section in the User Guide was reused with some changes from a current project [HealthNote](https://github.com/AY2526S1-CS2103T-F11-1/tp) ([UG](https://github.com/AY2526S1-CS2103T-F11-1/tp/releases)).
+* The guide usage section in the User Guide was reused with some changes from a current project [HealthNote](https://github.com/AY2526S1-CS2103T-F11-1/tp) ([UG](https://github.com/AY2526S1-CS2103T-F11-1/tp/blob/master/docs/UserGuide.md)).
 
 --------------------------------------------------------------------------------------------------------------------
 
