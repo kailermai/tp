@@ -39,7 +39,7 @@ public class ViewPanel extends UiPart<Region> {
     }
 
     /**
-     * Sets the student to be displayed.
+     * Sets the student to be displayed in the view window.
      */
     public void setStudent(Logic logic, Index studentIndex) {
         ObservableList<Student> filtered = logic.getFilteredStudentList();
