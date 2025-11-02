@@ -2,10 +2,15 @@ package seedu.address.ui.panel;
 
 import java.util.logging.Logger;
 
+import javafx.application.Platform;
+import javafx.collections.ListChangeListener;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 import seedu.address.commons.core.LogsCenter;
+import seedu.address.commons.core.index.Index;
+import seedu.address.logic.Logic;
 import seedu.address.model.student.Student;
 import seedu.address.ui.StudentCard;
 import seedu.address.ui.UiPart;
@@ -21,7 +26,7 @@ public class ViewPanel extends UiPart<Region> {
     private ScoreListPanel scoreListPanel;
     private StudentCard studentCard;
     private Student student;
-
+    private ListChangeListener<Student> filteredListener;
 
     @FXML
     private StackPane scoreListPanelPlaceholder;
@@ -34,15 +39,41 @@ public class ViewPanel extends UiPart<Region> {
     }
 
     /**
-     * Sets the student to be displayed in the view window.
+     * Sets the student to be displayed.
      */
-    public void setStudent(Student student) {
-        this.student = student;
+    public void setStudent(Logic logic, Index studentIndex) {
+        ObservableList<Student> filtered = logic.getFilteredStudentList();
+        this.student = filtered.get(studentIndex.getZeroBased());
+        if (filteredListener != null) {
+            filtered.removeListener(filteredListener);
+        }
+        filteredListener = change -> Platform.runLater(() -> {
+            while (change.next()) {
+                // Handle replacement (edit)
+                if (change.wasReplaced()) {
+                    for (Student oldS : change.getRemoved()) {
+                        if (oldS.equals(student)) {
+                            student = change.getAddedSubList().get(0);
+                            fillInnerPart();
+                            return;
+                        }
+                    }
+                }
+            }
+
+            // Handle deletion or disappearance
+            if (!filtered.contains(student)) {
+                showPlaceholders(false);
+            }
+        });
+
+        filtered.addListener(filteredListener);
     }
     /**
      * Fills the inner parts of the view window.
      */
     public void fillInnerPart() {
+        showPlaceholders(true);
         // Clear previous content if any so no overlapping occurs
         studentCardPlaceholder.getChildren().clear();
         scoreListPanelPlaceholder.getChildren().clear();
@@ -52,5 +83,12 @@ public class ViewPanel extends UiPart<Region> {
 
         studentCard = new StudentCard(student);
         studentCardPlaceholder.getChildren().add(studentCard.getRoot());
+    }
+
+    private void showPlaceholders(boolean show) {
+        studentCardPlaceholder.setVisible(show);
+        scoreListPanelPlaceholder.setVisible(show);
+        studentCardPlaceholder.setManaged(show);
+        scoreListPanelPlaceholder.setManaged(show);
     }
 }
