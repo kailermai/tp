@@ -902,10 +902,10 @@ Team size: 5
    **Planned enhancement:** `record 1 week/1 part/5`
     
 
-2. **Allow configurable maximum scores in a student record:** The current implementation of `SUBMISSION_SCORE` (binary 0 or 1) and `PARTICIPATION_SCORE` (range 0 to 5) are limited in supporting custom weighting of scores and more diverse grading schemes. We plan to introduce a `setMaxScore` command to allow TAs to dynamically configure the maximum score for the `SUBMISSION_SCORE` and `PARTICIPATION_SCORE` parameters in a student record. Validation logic will be implemented to safeguard existing records during a change in the maximum scores.
+2. **Allow configurable maximum scores in a student record:** The current implementation of `ATTENDANCE_SCORE` (binary 0 or 1), `SUBMISSION_SCORE` (binary 0 or 1) and `PARTICIPATION_SCORE` (range 0 to 5) are limited in supporting custom weighting of scores and more diverse grading schemes. We plan to introduce a `setMaxScore` command to allow TAs to dynamically configure the maximum score of the `ATTENDANCE_SCORE`, `SUBMISSION_SCORE` and `PARTICIPATION_SCORE` parameters of a student record in TAHub. This new configuration will apply to all existing and future student records, providing essential flexibility. Validation logic will be implemented to safeguard existing records during a change in the maximum scores.
 
    **Example:** Set max `SUBMISSION_SCORE` to 3, and max `PARTICIPATION_SCORE` to 6.
 
-   **Current implementation:** Default binary `SUBMISSION_SCORE` of 0 or 1 and `PARTICIPATION_SCORE` with range of 0 to 5.
+   **Current implementation:** Default binary `ATTENDANCE_SCORE` and `SUBMISSION_SCORE` of 0 or 1, and `PARTICIPATION_SCORE` with range of 0 to 5.
 
    **Planned enhancement:** `setMaxScore sub/3 part/6`
