@@ -889,5 +889,23 @@ testers are expected to do more *exploratory* testing.
    2.  Launch the app by double-clicking the jar file. <br>
        **Expected**: The app is launched successfully. A new valid empty TAHub.json file is created under /data. The left hand panel is empty.
 
+## **Appendix: Planned Enhancements**
 
+Team size: 5
 
+1. **Allow optional fields for editing student records:** The current record command implementation requires TAs to re-type all score fields (`ATTENDANCE_SCORE`, `PARTICIPATION_SCORE`, and `SUBMISSION_SCORE`) even when editing only one field. We plan to enhance `record` the command to accept optional fields, allowing TAs to update only the specific score(s) they intend to modify.
+
+   **Example:** Edit an existing record (Student 1, Week 1) to change the `PARTICIPATION_SCORE` from 1 to 5. The initial `ATTENDANCE_SCORE` and `SUBMISSION_SCORE` were both 1.
+ 
+   **Current implementation:** `record 1 week/1 att/1 sub/1 part/5`
+ 
+   **Planned enhancement:** `record 1 week/1 part/5`
+    
+
+2. **Allow configurable maximum scores in a student record:** The current implementation of `SUBMISSION_SCORE` (binary 0 or 1) and `PARTICIPATION_SCORE` (range 0 to 5) are limited in supporting custom weighting of scores and more diverse grading schemes. We plan to introduce a `setMaxScore` command to allow TAs to dynamically configure the maximum score for the `SUBMISSION_SCORE` and `PARTICIPATION_SCORE` parameters in a student record. Validation logic will be implemented to safeguard existing records during a change in the maximum scores.
+
+   **Example:** Set max `SUBMISSION_SCORE` to 3, and max `PARTICIPATION_SCORE` to 6.
+
+   **Current implementation:** Default binary `SUBMISSION_SCORE` of 0 or 1 and `PARTICIPATION_SCORE` with range of 0 to 5.
+
+   **Planned enhancement:** `setMaxScore sub/3 part/6`
