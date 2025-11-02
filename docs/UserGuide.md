@@ -345,7 +345,7 @@ Format:
 ![result for 'sort /a'](images/SortResult.png)
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-The sort command reorders the student list (left panel). The right panel updates only if it is already showing Trend (i.e., The trend window is opened).    
+The sort command reorders the student list in the Student List Panel. The Right Side Panel updates only if it is already showing Trend (i.e., The trend window is opened).    
 </div>
 
 ### Clearing all entries : `clear`
