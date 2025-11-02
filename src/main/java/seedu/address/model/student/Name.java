@@ -15,7 +15,7 @@ public class Name {
                     + "apostrophes, slashes, or accented characters) will trigger a warning, but will still be"
                     + " accepted.\nSpecial character '/' cannot be preceded by a parameter-like prefix, eg. ` sn/`.";
 
-    // Strict regex: letters, names, spaces only.
+    // Strict regex: letters, spaces only.
     public static final String VALIDATION_REGEX_STRICT = "^(?=.{1,100}$)\\p{L}[\\p{L} ]*$";
 
     // Lenient regex: allows numbers, accented characters, hyphens, apostrophes, dots and slashes

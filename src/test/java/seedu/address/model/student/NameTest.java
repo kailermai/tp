@@ -76,7 +76,7 @@ public class NameTest {
         Name name7 = new Name("/jean");
         Name name8 = new Name(".alice");
 
-        // Only alphanumeric characters and space
+        // Only alphabetic characters and space
         assertFalse(name1.hasNonStandardCharacters());
 
         // Contains special characters
