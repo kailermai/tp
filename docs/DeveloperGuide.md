@@ -157,7 +157,7 @@ The `Model` component,
 * stores the address book data i.e., all `Student` objects (which are contained in a `UniqueStudentList` object).
 * stores the currently 'selected' `Student` objects (e.g., results of a search query) as a separate _filtered_ list which is exposed to outsiders as an unmodifiable `ObservableList<Student>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
 * stores a `UserPref` object that represents the user’s preferences. This is exposed to the outside as a `ReadOnlyUserPref` objects.
-* does not depend on any of the other three components (as the `Model` represents data entities of the domain, they should make sense on their own without depending on other components)
+* does not depend on any of the other three components (as the `Model` represents data entities of the domain, they should make sense on their own without depending on other components).
 
 <div markdown="span" class="alert alert-info">:information_source: **Note:** An alternative (arguably, a more OOP) model is given below. It has a `Tag` list in the `AddressBook`, which `Student` references. This allows `AddressBook` to only require one `Tag` object per unique tag, instead of each `Student` needing their own `Tag` objects.<br>
 
@@ -271,8 +271,6 @@ The following activity diagram summarizes what happens when a user executes a ne
   itself.
   * Pros: Will use less memory (e.g. for `delete`, just save the student being deleted).
   * Cons: We must ensure that the implementation of each individual command are correct.
-
-_{more aspects and alternatives to be added}_
 
 
 
@@ -882,7 +880,7 @@ testers are expected to do more *exploratory* testing.
    1. Delete the TAHub.json file 
    
    2. Launch the app by double-clicking the jar file. <br>
-      **Expected**: The app is launched successfully. A new valid TAHub.json file with sample data is created under /data. Sample students are listed in the left hand panel.
+      **Expected**: The app is launched successfully. The data file is created only after you run a command that triggers a save (for example, list, add, or any other valid command). After your first command, a new valid TAHub.json file with sample data will be created under /data, and sample students will appear in the left panel.
 
 2. Dealing with corrupted data file
     
