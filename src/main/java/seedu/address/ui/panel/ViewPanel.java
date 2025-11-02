@@ -53,7 +53,7 @@ public class ViewPanel extends UiPart<Region> {
                 if (change.wasReplaced()) {
                     for (Student oldS : change.getRemoved()) {
                         if (oldS.equals(student)) {
-                            student = change.getAddedSubList().get(0);
+                            student = change.getAddedSubList().get(change.getRemoved().indexOf(oldS));
                             fillInnerPart();
                             return;
                         }
