@@ -913,7 +913,7 @@ Team size: 5
 
 3. **Enhance `find` command to support more field types**: The current implementation of the `find` command only searches by name. We plan to extend it to support additional fields, such as student number and tags. This will make it easier for TAs to quickly find relevant students based on different criteria.
 
-   **Example:** 
+   **Example:** Finding by tags.
 
    **Current implementation:** Searchable only by name (e.g. `find Alex`). 
 
