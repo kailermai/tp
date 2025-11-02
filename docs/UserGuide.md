@@ -3,9 +3,12 @@ layout: page
 title: User Guide
 ---
 
-TAHub is a **desktop application designed for NUS Computer Science teaching assistants to efficiently manage their students**. It is optimised for fast use through a Command Line Interface (CLI), while still providing the convenience and clarity of a Graphical User Interface (GUI). For users who type quickly, TAHub enables student management tasks to be completed faster than with traditional GUI-based applications.
+![Introduction UI](images/IntroductionUI.png)
+
+TAHub is a **desktop application designed for NUS Computer Science teaching assistants to efficiently manage student contacts and monitor engagement**. It is optimised for users who are familiar with Command Line Interface (CLI) applications, while still providing the convenience and clarity of a Graphical User Interface (GUI). For users who type quickly, TAHub enables student management tasks to be completed faster than with traditional GUI-based applications.
 
 ### Table of Contents
+* Table of Contents
 {:toc}
 
 ## Guide Usage
@@ -74,7 +77,7 @@ TAHub is a **desktop application designed for NUS Computer Science teaching assi
   e.g. in `add n/NAME`, `NAME` is a parameter which can be used as `add n/John Doe`.
 
 * Items in square brackets are optional.<br>
-  e.g `n/NAME [t/TAG]` can be used as `n/John Doe t/friend` or as `n/John Doe`.
+  e.g. `n/NAME [t/TAG]` can be used as `n/John Doe t/friend` or as `n/John Doe`.
 
 * Items with `…`​ after them can be used multiple times including zero times.<br>
   e.g. `[t/TAG]…​` can be used as ` ` (i.e. 0 times), `t/friend`, `t/friend t/family` etc.
@@ -92,7 +95,7 @@ TAHub is a **desktop application designed for NUS Computer Science teaching assi
 
 **:desktop_computer: Note on panel persistence:**<br>
 
-The right-hand panel is utilised by the `help`, `view`, and `trend` commands to display their respective content (Command List, Student Records, Trend Overview). Once populated, the information in this panel is persistent; it will remain visible and unchanged even when executing commands that only modify the student list in the left panel (e.g., `add`, `delete`, `find`, `list`, or `sort`).
+The right-hand panel is utilised by the `help`, `view`, and `trend` commands to display their respective content (Command List, Student Records, Trend Overview). Once populated, the information in this panel is persistent; it will remain visible even when executing commands that only modify the student list in the left panel (e.g., `add`, `delete`, `find`, `list`, or `sort`).
 </div>
 
 <div style="page-break-after: always;"></div>
@@ -185,12 +188,22 @@ Format: `find KEYWORD [MORE_KEYWORDS]`
 
 ![result for 'find alex david'](images/findAlexDavidResult.png)
 
-* The search is case-insensitive. e.g `hans` will match `Hans`
+* The search is case-insensitive. e.g. `hans` will match `Hans`
 * The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`
 * Only the name is searched.
 * Only full words will be matched e.g. `Han` will not match `Hans`
 * Students matching at least one keyword will be returned (i.e. `OR` search).
   e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
+
+<div markdown="block" class="alert alert-info">
+
+:information_source: **Note:**<br>
+
+* The `find` command updates the student list shown in the left panel. Subsequent commands that uses `INDEX` (e.g. `delete 1`, `view 2`) will refer to the index shown in this **filtered list**.
+
+* Keywords for the find command are not restricted to alphabetic characters. 
+
+</div>
 
 Examples:
 * `find John` returns `john` and `John Doe`
@@ -295,6 +308,10 @@ Format:
 Clears all entries from TAHub.
 
 Format: `clear`
+
+<div markdown="span" class="alert alert-warning">:exclamation: **Caution:**
+This command is irreversible, permanently deleting all student entries and records from TAHub.
+</div>
 
 ### Exiting the program : `exit`
 
