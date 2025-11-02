@@ -235,39 +235,42 @@ Format: `record INDEX week/WEEK_NUMBER att/ATTENDANCE_SCORE sub/SUBMISSION_SCORE
 
 ![result for 'record 1 week/1 part/1 sub/1 att/1'](images/RecordResult.png)
 
-* All fields are required.
+* **To create a new record:** Run the command using a `WEEK_NUMBER` that currently has no associated record for the specified student.
+* **To modify an existing record:** Run the command with a target student's `INDEX` and the record's `WEEK_NUMBER`. The existing record for that week will be replaced by the new score values provided in the command.
+* All parameters must be included when executing the record command, regardless of whether you are creating a new record or editing an existing one.
 
 <div style="page-break-after: always;"></div>
 
 **Record Parameter Constraints**
 
-|Parameter| Constraints                                |
-|---------|:-------------------------------------------|
-|`INDEX`| Positive integer 1, 2, 3, …​               |
-|`WEEK_NUMBER`| Integer from **1** to **13** (inclusive)   |
-|`ATTENDANCE_SCORE`| **0** (absent) or **1** (present)          |
-|`SUBMISSION_SCORE`| **0** (not submitted) or **1** (submitted) |
-|`PARTICIPATION_SCORE`| Integer from **0** to **5** (inclusive)    |
+|Parameter| Constraints                                | Notes                                                                                                                                                                |
+|---------|:-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|`INDEX`| Positive integer 1, 2, 3, …​               |                                                                                                                                                                      |
+|`WEEK_NUMBER`| Integer from **1** to **13** (inclusive)   |                                                                                                                                                                      |
+|`ATTENDANCE_SCORE`| **0** (absent) or **1** (present)          |                                                                                                                                                                      |
+|`SUBMISSION_SCORE`| **0** (not submitted) or **1** (submitted) | Indicates overall completion status of all assignments. The TA determines what constitutes 1 (e.g. all assignments submitted) and 0 (e.g. partial or no submission). |
+|`PARTICIPATION_SCORE`| Integer from **0** to **5** (inclusive)    | Serves as a personal assessment scale for the TA. Its meaning is determined by the TA and does not necessarily reflect any external, module defined score range.     |
 
 Examples:
 * `record 1 week/1 att/1 sub/0 part/4`
 * `record 2 week/5 att/0 sub/1 part/5`<br>
 
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-Running the command again for the same WEEK_NUMBER overwrites that week’s record for the selected student.
-</div>
 
 ### Removing a student record: `record`
-Removes a record on a particular week for a specific student.
+Removes an existing record on a particular week for a specific student.
 
 Format: `record INDEX week/WEEK_NUMBER`
 
 - The `INDEX` and `WEEK_NUMBER` parameters have the same constraints as [adding a record](#addingediting-a-student-record-record).
-- All of `ATTENDANCE_SCORE`, `SUBMISSION_SCORE` and `PARTICIPATION_SCORE` are not required and should not be specified.
+- All of `ATTENDANCE_SCORE`, `SUBMISSION_SCORE` and `PARTICIPATION_SCORE` are not required and should not be specified when deleting a record.
 
 Examples:
 * `record 1 week/1`
 * `record 2 week/5`
+
+<div markdown="span" class="alert alert-primary"> :bulb: **Tip:** 
+This command is useful for correcting data entry errors, such as when a record was accidentally created for the wrong week (e.g. keying a record into Week 1 when tutorials start in Week 3). Deletion removes the record completely, unlike the edit functionality, which would require replacing all values. 
+</div>
 
 <div style="page-break-after: always;"></div>
 
