@@ -10,10 +10,10 @@ title: User Guide
 If you are comfortable with the Command Line Interface (CLI) and type quickly, **TAHub** is built for you. **TAHub** allows you to complete student management tasks faster than with traditional mouse-based applications, while still providing the convenience and clarity of a Graphical User Interface (GUI).
 
 With **TAHub**, you can easily:
-* `Add` a new student with their details such as name, student number, phone number, email, telegram, and optional tags.
-* `Record` a student's attendance, participation, and submission scores for any given week.
-* `View` a specified student's records across the semester.
-* Get a `Trend` overview of all students' scores.
+* `add` a new student with their details such as name, student number, phone number, email, telegram, and optional tags.
+* `record` a student's attendance, participation, and submission scores for any given week.
+* `view` a specified student's records across the semester.
+* Get a `trend` overview of all students' scores.
 * ...and access a complete suite of tools, including `edit`, `find`, `delete`, `sort`, `list`, `help`, and `clear`, for comprehensive student management.
 
 ### Table of Contents
@@ -327,6 +327,10 @@ Format: `trend`<br>
 
 ![result for 'list' followed by 'view 2'](images/TrendResult.png)
 
+* Displays a summary of student records across the weeks for each student.
+* The summary of records is colour-coded for visual feedback based on the percentage of the total of each score.
+* Thresholds: Red (`< 50%`), Yellow (`>= 50%` but `< 80%`), Green (`>= 80%`).
+
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 The Trend shown in Right Side Panel always reflects the students currently shown in the left panel—any sorting or filtering (e.g., via sort or list) updates the trends immediately.
 </div>
@@ -373,7 +377,7 @@ TAHub data are saved in the hard disk automatically after any command that chang
 TAHub data are saved automatically as a JSON file `[JAR file location]/data/TAHub.json`. Advanced users are welcome to update data directly by editing that data file.
 
 <div markdown="span" class="alert alert-warning">:exclamation: **Caution:**
-If your changes to the data file makes its format invalid, TAHub will discard all data and start with an empty data file at the next run. Hence, it is recommended to take a backup of the file before editing it.<br>
+If your changes to the data file make its format invalid, TAHub will discard all data and start with an empty data file at the next run. For the empty data file to replace the corrupted data file, you will need to enter a command (e.g. `list`). Hence, it is recommended to take a backup of the file before editing it.<br>
 Furthermore, certain edits can cause the TAHub to behave in unexpected ways (e.g., if a value entered is outside of the acceptable range). Therefore, edit the data file only if you are confident that you can update it correctly.
 </div>
 
