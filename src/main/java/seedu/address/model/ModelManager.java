@@ -13,6 +13,8 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
+import seedu.address.commons.core.index.Index;
+import seedu.address.model.record.Record;
 import seedu.address.model.student.Student;
 
 /**
@@ -135,7 +137,7 @@ public class ModelManager implements Model {
     public void sortStudentByAttendance() {
         ObservableList<Student> studentList = addressBook.getModifiableStudentList();
         studentList.sort(Comparator
-                .comparingDouble(this::getTotalAttendance)
+                .comparingDouble(this::getAttendancePercentage)
                 .reversed());
     }
 
@@ -143,7 +145,7 @@ public class ModelManager implements Model {
     public void sortStudentByParticipation() {
         ObservableList<Student> studentList = addressBook.getModifiableStudentList();
         studentList.sort(Comparator
-                .comparingDouble(this::getTotalParticipation)
+                .comparingDouble(this::getParticipationPercentage)
                 .reversed());
     }
 
@@ -151,7 +153,7 @@ public class ModelManager implements Model {
     public void sortStudentBySubmission() {
         ObservableList<Student> studentList = addressBook.getModifiableStudentList();
         studentList.sort(Comparator
-                .comparingDouble(this::getTotalSubmission)
+                .comparingDouble(this::getSubmissionPercentage)
                 .reversed());
     }
 
@@ -177,8 +179,9 @@ public class ModelManager implements Model {
      * Calculates the sum of all attendance scores for a given student.
      * Returns -Double.MIN_VALUE if the student or their record list is null.
      */
-    private double getTotalAttendance(Student student) {
+    private double getAttendancePercentage(Student student) {
         seedu.address.model.record.Record[] records = student.getRecordList().records;
+        if (this.getTotalRecord(student) == 0) { return 0; }
         return Arrays.stream(records)
                 .mapToDouble(record -> {
                     try {
@@ -187,15 +190,16 @@ public class ModelManager implements Model {
                         return -Double.MIN_VALUE;
                     }
                 })
-                .sum();
+                .sum() / this.getTotalRecord(student);
     }
 
     /**
      * Calculates the sum of all participation scores for a given student.
      * Returns -Double.MIN_VALUE if the student or their record list is null.
      */
-    private double getTotalParticipation(Student student) {
+    private double getParticipationPercentage(Student student) {
         seedu.address.model.record.Record[] records = student.getRecordList().records;
+        if (this.getTotalRecord(student) == 0) { return 0; }
         return Arrays.stream(records)
                 .mapToDouble(record -> {
                     try {
@@ -204,15 +208,16 @@ public class ModelManager implements Model {
                         return -Double.MIN_VALUE;
                     }
                 })
-                .sum();
+                .sum() / this.getTotalRecord(student);
     }
 
     /**
      * Calculates the sum of all submission scores for a given student.
      * Returns -Double.MIN_VALUE if the student or their record list is null.
      */
-    private double getTotalSubmission(Student student) {
+    private double getSubmissionPercentage(Student student) {
         seedu.address.model.record.Record[] records = student.getRecordList().records;
+        if (this.getTotalRecord(student) == 0) { return 0; }
         return Arrays.stream(records)
                 .mapToDouble(record -> {
                     try {
@@ -221,7 +226,17 @@ public class ModelManager implements Model {
                         return -Double.MIN_VALUE;
                     }
                 })
-                .sum();
+                .sum() / this.getTotalRecord(student);
     }
 
+    private int getTotalRecord(Student student) {
+        int totalRecord = 0;
+        for (int i = 0; i < student.getRecordList().records.length; i++) {
+            Index currentIndex = Index.fromZeroBased(i);
+            Record record = student.getRecordList().getRecord(currentIndex);
+            if (record == null) { continue; }
+            totalRecord += 1;
+        }
+        return totalRecord;
+    }
 }

@@ -13,6 +13,8 @@ title: Developer Guide
 
 * Libraries used: JavaFX, Jackson, JUnit5
 
+* The guide usage section in the User Guide was reused with some changes from a current project [HealthNote](https://github.com/AY2526S1-CS2103T-F11-1/tp) ([UG](https://github.com/AY2526S1-CS2103T-F11-1/tp/blob/master/docs/UserGuide.md)).
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Setting up, getting started**
@@ -155,7 +157,7 @@ The `Model` component,
 * stores the address book data i.e., all `Student` objects (which are contained in a `UniqueStudentList` object).
 * stores the currently 'selected' `Student` objects (e.g., results of a search query) as a separate _filtered_ list which is exposed to outsiders as an unmodifiable `ObservableList<Student>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
 * stores a `UserPref` object that represents the user’s preferences. This is exposed to the outside as a `ReadOnlyUserPref` objects.
-* does not depend on any of the other three components (as the `Model` represents data entities of the domain, they should make sense on their own without depending on other components)
+* does not depend on any of the other three components (as the `Model` represents data entities of the domain, they should make sense on their own without depending on other components).
 
 <div markdown="span" class="alert alert-info">:information_source: **Note:** An alternative (arguably, a more OOP) model is given below. It has a `Tag` list in the `AddressBook`, which `Student` references. This allows `AddressBook` to only require one `Tag` object per unique tag, instead of each `Student` needing their own `Tag` objects.<br>
 
@@ -269,8 +271,6 @@ The following activity diagram summarizes what happens when a user executes a ne
   itself.
   * Pros: Will use less memory (e.g. for `delete`, just save the student being deleted).
   * Cons: We must ensure that the implementation of each individual command are correct.
-
-_{more aspects and alternatives to be added}_
 
 
 
@@ -749,13 +749,13 @@ testers are expected to do more *exploratory* testing.
 
    1. **Prerequisites**: NA
    
-   2. **Test case**: `add n/John Doe sn/A654321Z p/98765432 e/johnd@example.com tele/john_doe`<br>
+   2. **Test case**: `add n/John Doe sn/A7654321Z p/98765432 e/johnd@example.com tele/john_doe`<br>
       **Expected**: A new student named John Doe is added to the student list. Details of the added student are shown in the result display.
 
-   3. **Test case**: `add n/john.doe sn/A654321Y p/99998888 e/john@example.com tele/doe_john`<br>
+   3. **Test case**: `add n/john.doe sn/A7654321Y p/99998888 e/john@example.com tele/doe_john`<br>
       **Expected**: A new student named john.doe is added to the student list. A warning message about the non-standard name format is displayed. Details of the added student are shown in student card.
 
-   4. **Test case**: `add n/John Doe sn/A654321Z`<br>
+   4. **Test case**: `add n/John Doe sn/A7654321Z`<br>
       **Expected**: No student is added. An error message highlighting the missing parameters is shown in the result display.
 
 2. **Adding a student with duplicate student number**
@@ -880,7 +880,7 @@ testers are expected to do more *exploratory* testing.
    1. Delete the TAHub.json file 
    
    2. Launch the app by double-clicking the jar file. <br>
-      **Expected**: The app is launched successfully. A new valid TAHub.json file with sample data is created under /data. Sample students are listed in the left hand panel.
+      **Expected**: The app is launched successfully. The data file is created only after you run a command that triggers a save (for example, list, add, or any other valid command). After your first command, a new valid TAHub.json file with sample data will be created under /data, and sample students will appear in the left panel.
 
 2. Dealing with corrupted data file
     
@@ -889,5 +889,23 @@ testers are expected to do more *exploratory* testing.
    2.  Launch the app by double-clicking the jar file. <br>
        **Expected**: The app is launched successfully. A new valid empty TAHub.json file is created under /data. The left hand panel is empty.
 
+## **Appendix: Planned Enhancements**
 
+Team size: 5
 
+1. **Allow optional fields for editing student records:** The current record command implementation requires TAs to re-type all score fields (`ATTENDANCE_SCORE`, `PARTICIPATION_SCORE`, and `SUBMISSION_SCORE`) even when editing only one field. We plan to enhance the `record` command to accept optional fields, allowing TAs to update only the specific score(s) they intend to modify.
+
+   **Example:** Edit an existing record (Student 1, Week 1) to change the `PARTICIPATION_SCORE` from 1 to 5. The initial `ATTENDANCE_SCORE` and `SUBMISSION_SCORE` were both 1.
+ 
+   **Current implementation:** `record 1 week/1 att/1 sub/1 part/5`
+ 
+   **Planned enhancement:** `record 1 week/1 part/5`
+    
+
+2. **Allow configurable maximum scores in a student record:** The current implementation of `ATTENDANCE_SCORE` (binary 0 or 1), `SUBMISSION_SCORE` (binary 0 or 1) and `PARTICIPATION_SCORE` (range 0 to 5) are limited in supporting custom weighting of scores and more diverse grading schemes. We plan to introduce a `setMaxScore` command to allow TAs to dynamically configure the maximum score of the `ATTENDANCE_SCORE`, `SUBMISSION_SCORE` and `PARTICIPATION_SCORE` parameters of a student record in TAHub. This new configuration will apply to all existing and future student records, providing essential flexibility. Validation logic will be implemented to safeguard existing records during a change in the maximum scores.
+
+   **Example:** Set max `SUBMISSION_SCORE` to 3, and max `PARTICIPATION_SCORE` to 6.
+
+   **Current implementation:** Default binary `ATTENDANCE_SCORE` and `SUBMISSION_SCORE` of 0 or 1, and `PARTICIPATION_SCORE` with range of 0 to 5.
+
+   **Planned enhancement:** `setMaxScore sub/3 part/6`

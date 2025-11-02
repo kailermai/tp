@@ -3,10 +3,36 @@ layout: page
 title: User Guide
 ---
 
-TAHub is a **desktop application designed for NUS Computer Science teaching assistants to efficiently manage their students**. It is optimised for fast use through a Command Line Interface (CLI), while still providing the convenience and clarity of a Graphical User Interface (GUI). For users who type quickly, TAHub enables student management tasks to be completed faster than with traditional GUI-based applications.
+![Introduction UI](images/IntroductionUI.png)
 
+TAHub is a **desktop application designed for NUS Computer Science teaching assistants to efficiently manage student contacts and monitor engagement**. It is optimised for users who are familiar with Command Line Interface (CLI) applications, while still providing the convenience and clarity of a Graphical User Interface (GUI). For users who type quickly, TAHub enables student management tasks to be completed faster than with traditional GUI-based applications.
+
+### Table of Contents
 * Table of Contents
 {:toc}
+
+## Guide Usage
+
+<div markdown="block" class="alert alert-info">
+
+**For New Users**
+
+* New to the Command Line Interface (CLI)? Start with the [Quick Start](#quick-start) section.
+</div>
+
+<div markdown="block" class="alert alert-success">
+
+**For Amateurs**
+
+* To start navigating the guide, head to the [Table of Contents](#table-of-contents).
+</div>
+
+<div markdown="block" class="alert alert-warning">
+
+**For Experts**
+
+* Need a quick overview of the commands? See the [Command summary](#command-summary).
+</div>
 
 --------------------------------------------------------------------------------------------------------------------
 <div style="page-break-after: always;"></div>
@@ -51,7 +77,10 @@ TAHub is a **desktop application designed for NUS Computer Science teaching assi
   e.g. in `add n/NAME`, `NAME` is a parameter which can be used as `add n/John Doe`.
 
 * Items in square brackets are optional.<br>
-  e.g `n/NAME [t/TAG]` can be used as `n/John Doe t/friend` or as `n/John Doe`.
+  e.g. `n/NAME [t/TAG]` can be used as `n/John Doe t/friend` or as `n/John Doe`.
+
+* Items in curly braces mean “choose exactly one”.
+  e.g. `sort {/a|/p|/s}` can be used as `sort /a`, `sort /p` or as `sort /s`.
 
 * Items with `…`​ after them can be used multiple times including zero times.<br>
   e.g. `[t/TAG]…​` can be used as ` ` (i.e. 0 times), `t/friend`, `t/friend t/family` etc.
@@ -69,7 +98,7 @@ TAHub is a **desktop application designed for NUS Computer Science teaching assi
 
 **:desktop_computer: Note on panel persistence:**<br>
 
-The right-hand panel is utilised by the `help`, `view`, and `trend` commands to display their respective content (Command List, Student Records, Trend Overview). Once populated, the information in this panel is persistent; it will remain visible and unchanged even when executing commands that only modify the student list in the left panel (e.g., `add`, `delete`, `find`, `list`, or `sort`).
+The right-hand panel is utilised by the `help`, `view`, and `trend` commands to display their respective content (Command List, Student Records, Trend Overview). Once populated, the information in this panel is persistent; it will remain visible even when executing commands that only modify the student list in the left panel (e.g., `add`, `delete`, `find`, `list`, or `sort`).
 </div>
 
 <div style="page-break-after: always;"></div>
@@ -107,7 +136,7 @@ Format: `add n/NAME sn/STUDENT_NUMBER p/PHONE_NUMBER e/EMAIL tele/TELEGRAM [t/TA
 | Parameter Name    | Constraint                                                                                                                                                                                                                                                                                                                                                             | Notes                                                                                                                                                                                                                                   |
 |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `NAME`            | Alphabetic characters and spaces, not blank, max 100 characters.                                                                                                                                                                                                                                                                                                       | Non-standard characters (numbers `0-9`, hyphens `-`, apostrophes `'`, periods`.`, slashes `/`, accents) trigger a warning, but are accepted. <br><br>May include `/` if not preceded by a parameter-like prefix (eg. ` sn/`, ` tele/`). |
-| `STUDENT_NUMBER`  | Format: `AXXXXXXXZ` where `A` is the character 'A', `X` is any digit 0-9, and `Z` is any letter.                                                                                                                                                                                                                                                                       | Must follow the exact format.                                                                                                                                                                                                           |
+| `STUDENT_NUMBER`  | Format: `AXXXXXXXZ` where `A` is the character 'A', `X` is any digit 0-9, and `Z` is any letter.                                                                                                                                                                                                                                                                       | First and last letters are case-insensitive.                                                                                                                                                                                            |
 | `PHONE_NUMBER`    | At least 3 digits. May start with `+`, and contain optional `-` separators.                                                                                                                                                                                                                                                                                            | Non-standard characters (parentheses `()`, periods `.` spaces) trigger a warning, but are accepted.<br/><br/>Non-standard formats trigger a warning but are accepted.                                                                   |
 | `EMAIL`           | Format: `local-part@domain`.<br/>`local-part`: Alphanumeric with special characters: `+_.-` (cannot start/end with special characters).<br/>`domain`: One or more labels separated by `.`.<br/>Label: Start/end with alphanumeric characters, may contain `-` in between. Final label must be 2+ characters long.<br/>Examples: `example@gmail.com`, `test@u.nus.edu.sg` | Must follow the exact format.                                                                                                                                                                                                           |
 | `TELEGRAM`        | Alphanumeric and underscores only, not blank, max 100 characters.                                                                                                                                                                                                                                                                                                      | Must follow the exact format.                                                                                                                                                                                                           |
@@ -129,7 +158,6 @@ While names can include `/`, using parameter-like sequences that are preceded by
 *   **Accepted:** `add n/johnsn/doe sn/A1234567J ...`
     *   The parser treats `johnsn/doe` as part of the name because there is no space before `sn/`.
 </div>
-
 
 Examples:
 * `add n/John Doe sn/A0123456Z p/98765432 e/johnd@example.com tele/john_doe`
@@ -168,12 +196,22 @@ Format: `find KEYWORD [MORE_KEYWORDS]`
 
 ![result for 'find alex david'](images/findAlexDavidResult.png)
 
-* The search is case-insensitive. e.g `hans` will match `Hans`
+* The search is case-insensitive. e.g. `hans` will match `Hans`
 * The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`
 * Only the name is searched.
 * Only full words will be matched e.g. `Han` will not match `Hans`
 * Students matching at least one keyword will be returned (i.e. `OR` search).
   e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
+
+<div markdown="block" class="alert alert-info">
+
+:information_source: **Note:**<br>
+
+* The `find` command updates the student list shown in the left panel. Subsequent commands that uses `INDEX` (e.g. `delete 1`, `view 2`) will refer to the index shown in this **filtered list**.
+
+* Keywords for the find command are not restricted to alphabetic characters. 
+
+</div>
 
 Examples:
 * `find John` returns `john` and `John Doe`
@@ -202,39 +240,42 @@ Format: `record INDEX week/WEEK_NUMBER att/ATTENDANCE_SCORE sub/SUBMISSION_SCORE
 
 ![result for 'record 1 week/1 part/1 sub/1 att/1'](images/RecordResult.png)
 
-* All fields are required.
+* **To create a new record:** Run the command using a `WEEK_NUMBER` that currently has no associated record for the specified student.
+* **To modify an existing record:** Run the command with a target student's `INDEX` and the record's `WEEK_NUMBER`. The existing record for that week will be replaced by the new score values provided in the command.
+* All parameters must be included when executing the record command, regardless of whether you are creating a new record or editing an existing one.
 
 <div style="page-break-after: always;"></div>
 
 **Record Parameter Constraints**
 
-|Parameter| Constraints                                |
-|---------|:-------------------------------------------|
-|`INDEX`| Positive integer 1, 2, 3, …​               |
-|`WEEK_NUMBER`| Integer from **1** to **13** (inclusive)   |
-|`ATTENDANCE_SCORE`| **0** (absent) or **1** (present)          |
-|`SUBMISSION_SCORE`| **0** (not submitted) or **1** (submitted) |
-|`PARTICIPATION_SCORE`| Integer from **0** to **5** (inclusive)    |
+|Parameter| Constraints                                | Notes                                                                                                                                                                |
+|---------|:-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|`INDEX`| Positive integer 1, 2, 3, …​               |                                                                                                                                                                      |
+|`WEEK_NUMBER`| Integer from **1** to **13** (inclusive)   |                                                                                                                                                                      |
+|`ATTENDANCE_SCORE`| **0** (absent) or **1** (present)          |                                                                                                                                                                      |
+|`SUBMISSION_SCORE`| **0** (not submitted) or **1** (submitted) | Indicates overall completion status of all assignments. The TA determines what constitutes 1 (e.g. all assignments submitted) and 0 (e.g. partial or no submission). |
+|`PARTICIPATION_SCORE`| Integer from **0** to **5** (inclusive)    | Serves as a personal assessment scale for the TA. Its meaning is determined by the TA and does not necessarily reflect any external, module defined score range.     |
 
 Examples:
 * `record 1 week/1 att/1 sub/0 part/4`
 * `record 2 week/5 att/0 sub/1 part/5`<br>
 
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-Running the command again for the same WEEK_NUMBER overwrites that week’s record for the selected student.
-</div>
 
 ### Removing a student record: `record`
-Removes a record on a particular week for a specific student.
+Removes an existing record on a particular week for a specific student.
 
 Format: `record INDEX week/WEEK_NUMBER`
 
 - The `INDEX` and `WEEK_NUMBER` parameters have the same constraints as [adding a record](#addingediting-a-student-record-record).
-- All of `ATTENDANCE_SCORE`, `SUBMISSION_SCORE` and `PARTICIPATION_SCORE` are not required and should not be specified.
+- All of `ATTENDANCE_SCORE`, `SUBMISSION_SCORE` and `PARTICIPATION_SCORE` are not required and should not be specified when deleting a record.
 
 Examples:
 * `record 1 week/1`
 * `record 2 week/5`
+
+<div markdown="span" class="alert alert-primary"> :bulb: **Tip:** 
+This command is useful for correcting data entry errors, such as when a record was accidentally created for the wrong week (e.g. keying a record into Week 1 when tutorials start in Week 3). Deletion removes the record completely, unlike the edit functionality, which would require replacing all values. 
+</div>
 
 <div style="page-break-after: always;"></div>
 
@@ -260,11 +301,15 @@ Format: `trend`<br>
 
 ![result for 'list' followed by 'view 2'](images/TrendResult.png)
 
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+The Trend view (right panel) always reflects the students currently shown in the left panel—any sorting or filtering (e.g., via sort or list) updates the trends immediately.
+</div>
+
 <div style="page-break-after: always;"></div>
 
 ### Sorting students: `sort`
 
-Sort students based on their attendance, participation, or submission score, in descending order.
+Sort students based on their attendance, participation, or submission percentages, in descending order.
 
 Format:
 * By attendance: `sort /a` 
@@ -273,11 +318,19 @@ Format:
 
 ![result for 'sort /a'](images/SortResult.png)
 
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+The sort command reorders the student list (left panel). The right panel updates only if it is already showing Trend (i.e., The trend window is opened).    
+</div>
+
 ### Clearing all entries : `clear`
 
 Clears all entries from TAHub.
 
 Format: `clear`
+
+<div markdown="span" class="alert alert-warning">:exclamation: **Caution:**
+This command is irreversible, permanently deleting all student entries and records from TAHub.
+</div>
 
 ### Exiting the program : `exit`
 
