@@ -93,7 +93,7 @@ class JsonAdaptedStudent {
         }
 
         if (recordList.size() > WeekNumber.MAX_WEEK_NUMBER) {
-            throw new IllegalValueException(String.format(INVALID_RECORD_LIST_LENGTH_MESSAGE_FORMAT));
+            throw new IllegalValueException(INVALID_RECORD_LIST_LENGTH_MESSAGE_FORMAT);
         }
 
         final Record[] studentRecords = new Record[WeekNumber.MAX_WEEK_NUMBER];
