@@ -911,10 +911,19 @@ Team size: 5
    **Planned enhancement:** `setMaxScore sub/3 part/6`
 
 
-3. **Enhance `find` command to support more field types**: The current implementation of the `find` command only searches by name. We plan to extend it to support additional fields, such as student number and tags. This will make it easier for TAs to quickly find relevant students based on different criteria.
+3. **Enhance `find` command to support more field types:** The current implementation of the `find` command only searches by name. We plan to extend it to support additional fields, such as student number and tags. This will make it easier for TAs to quickly find relevant students based on different criteria.
 
    **Example:** Finding by tags.
 
    **Current implementation:** Searchable only by name (e.g. `find Alex`). 
 
    **Planned enhancement:** Searchable by all fields (e.g. `find t/WeakInJava`)
+
+
+4. **Enhance `add` command to support optional fields:** The current implementation of the `add` command requires TAs to provide all fields (`NAME`, `STUDENT_NUMBER`, `PHONE_NUMBER`, `EMAIL`, `TELEGRAM`) when adding a new student. We plan to extend it to support optional fields, allowing TAs to add students without providing optional fields such as `TELEGRAM`, `EMAIL`, `PHONE_NUMBER`. `NAME` and `STUDENT_NUMBER` will remain compulsory as they are used for student identification, and can be easily obtained through the canvas portal.
+
+    **Example:** Adding a student without providing `TELEGRAM`, `EMAIL`, `PHONE_NUMBER`.
+
+    **Current implementation:** All fields required except `TAG` (e.g. `add n/john sn/A1234567X p/99998888 e/john@example tele/john`).
+
+    **Planned enhancement:** `add n/john sn/A1234567X`.
