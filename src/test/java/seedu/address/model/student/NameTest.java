@@ -46,14 +46,14 @@ public class NameTest {
 
         // valid name
         assertTrue(Name.isValidName("peter jack")); // alphabets only
-        assertTrue(Name.isValidName("12345")); // numbers only
-        assertTrue(Name.isValidName("peter the 2nd")); // alphanumeric characters
         assertTrue(Name.isValidName("Capital Tan")); // with capital letters
-        assertTrue(Name.isValidName("David Roger Jackson Ray Jr 2nd")); // long names
+        assertTrue(Name.isValidName("David Roger Jackson Ray Jr second")); // long names
         assertTrue(Name.isValidName(hundredCharacterName)); // name with exactly 100 characters
         assertTrue(Name.isValidName("a")); // one character name
 
         // valid name, contains allowed special characters
+        assertTrue(Name.isValidName("12345")); // numbers only
+        assertTrue(Name.isValidName("peter the 2nd")); // alphanumeric characters
         assertTrue(Name.isValidName("contains/character")); // name with slash
         assertTrue(Name.isValidName("contains/multiple /slashes /")); // name with multiple slashes
         assertTrue(Name.isValidName("'starts with apostrophe")); // starts with an apostrophe
@@ -78,9 +78,9 @@ public class NameTest {
 
         // Only alphanumeric characters and space
         assertFalse(name1.hasNonStandardCharacters());
-        assertFalse(name2.hasNonStandardCharacters());
 
         // Contains special characters
+        assertTrue(name2.hasNonStandardCharacters());
         assertTrue(name3.hasNonStandardCharacters());
         assertTrue(name4.hasNonStandardCharacters());
         assertTrue(name5.hasNonStandardCharacters());
