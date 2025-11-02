@@ -942,7 +942,7 @@ Team size: 5
 
 5. **Enforce uniqueness constraints on contact details:**
 
-    Currently, students are uniquely identified only by their student number, allowing duplicate phone numbers, emails and telegram handles. This was intentionally designed to let users temporarily user placeholder values (e.g., `placeholder@example.com`, `00000000`) when certain information is unavailable. Once optional fields are implemented (see enhancement #4), we will enforce uniqueness constraints on `PHONE_NUMBER`, `EMAIL` and `TELEGRAM` to prevent duplicate entries. This ensures data integrity for contact information.
+    Currently, students are uniquely identified only by their student number, allowing duplicate phone numbers, emails and telegram handles. This was intentionally designed to let users temporarily use placeholder values (e.g., `placeholder@example.com`, `00000000`) when certain information is unavailable. Once optional fields are implemented (see enhancement #4), we will enforce uniqueness constraints on `PHONE_NUMBER`, `EMAIL` and `TELEGRAM` to prevent duplicate entries. This ensures data integrity for contact information.
 
     **Example:** Adding a student with a duplicate phone number.
 
