@@ -122,8 +122,14 @@ Each student is uniquely identified by their Student Number, meaning you cannot 
 </div>
 
 <div markdown="span" class="alert alert-warning">:exclamation: **Important:**
-While names can include `/` for valid formats, using parameter-like sequences that match parameters in the same command (e.g., ` sn/` or ` tele/` in an `add` command) within the name field will result in an error.<br>Example: `add n/john sn/doe sn/A1234567J p/98765432 ...` will result in an error.
+While names can include `/`, using parameter-like sequences that are preceded by a space will cause an error. The parser separates arguments by spaces, so ` sn/` will be interpreted as a new parameter.
+
+*   **Rejected:** `add n/john sn/doe sn/A1234567J ...`
+    *   The parser treats `sn/doe` as a separate (and invalid) student number argument because of the preceding space.
+*   **Accepted:** `add n/johnsn/doe sn/A1234567J ...`
+    *   The parser treats `johnsn/doe` as part of the name because there is no space before `sn/`.
 </div>
+
 
 Examples:
 * `add n/John Doe sn/A0123456Z p/98765432 e/johnd@example.com tele/john_doe`
