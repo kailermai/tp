@@ -28,6 +28,8 @@ import seedu.address.model.tag.Tag;
 class JsonAdaptedStudent {
 
     public static final String MISSING_FIELD_MESSAGE_FORMAT = "Student's %s field is missing!";
+    public static final String INVALID_RECORD_LIST_LENGTH_MESSAGE_FORMAT = "Student's record list exceeds "
+            + WeekNumber.MAX_WEEK_NUMBER + " records!";
 
     private final String name;
     private final String phone;
@@ -85,13 +87,21 @@ class JsonAdaptedStudent {
     public Student toModelType() throws IllegalValueException {
         final List<Tag> studentTags = new ArrayList<>();
         for (JsonAdaptedTag tag : tags) {
-            studentTags.add(tag.toModelType());
+            if (tag != null) {
+                studentTags.add(tag.toModelType());
+            }
+        }
+
+        if (recordList.size() > WeekNumber.MAX_WEEK_NUMBER) {
+            throw new IllegalValueException(INVALID_RECORD_LIST_LENGTH_MESSAGE_FORMAT);
         }
 
         final Record[] studentRecords = new Record[WeekNumber.MAX_WEEK_NUMBER];
         for (int i = 0; i < recordList.size(); i++) {
             JsonAdaptedRecord record = recordList.get(i);
-            studentRecords[i] = record.toModelType();
+            if (record != null) {
+                studentRecords[i] = record.toModelType();
+            }
         }
 
         if (name == null) {
