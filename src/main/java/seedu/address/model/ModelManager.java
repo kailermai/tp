@@ -179,8 +179,11 @@ public class ModelManager implements Model {
      * Calculates the sum of all attendance scores for a given student.
      * Returns -Double.MIN_VALUE if the student or their record list is null.
      */
-    private double getTotalAttendance(Student student) {
+    private double getAttendancePercentage(Student student) {
         seedu.address.model.record.Record[] records = student.getRecordList().records;
+        if (this.getTotalRecord(student) == 0) {
+            return 0;
+        }
         return Arrays.stream(records)
                 .mapToDouble(record -> {
                     try {
@@ -189,15 +192,18 @@ public class ModelManager implements Model {
                         return -Double.MIN_VALUE;
                     }
                 })
-                .sum();
+                .sum() / this.getTotalRecord(student);
     }
 
     /**
      * Calculates the sum of all participation scores for a given student.
      * Returns -Double.MIN_VALUE if the student or their record list is null.
      */
-    private double getTotalParticipation(Student student) {
+    private double getParticipationPercentage(Student student) {
         seedu.address.model.record.Record[] records = student.getRecordList().records;
+        if (this.getTotalRecord(student) == 0) {
+            return 0;
+        }
         return Arrays.stream(records)
                 .mapToDouble(record -> {
                     try {
@@ -206,15 +212,18 @@ public class ModelManager implements Model {
                         return -Double.MIN_VALUE;
                     }
                 })
-                .sum();
+                .sum() / this.getTotalRecord(student);
     }
 
     /**
      * Calculates the sum of all submission scores for a given student.
      * Returns -Double.MIN_VALUE if the student or their record list is null.
      */
-    private double getTotalSubmission(Student student) {
+    private double getSubmissionPercentage(Student student) {
         seedu.address.model.record.Record[] records = student.getRecordList().records;
+        if (this.getTotalRecord(student) == 0) {
+            return 0;
+        }
         return Arrays.stream(records)
                 .mapToDouble(record -> {
                     try {
@@ -223,12 +232,9 @@ public class ModelManager implements Model {
                         return -Double.MIN_VALUE;
                     }
                 })
-                .sum();
+                .sum() / this.getTotalRecord(student);
     }
 
-    /**
-     * Calculates the total number of valid records of a student.
-     */
     private int getTotalRecord(Student student) {
         int totalRecord = 0;
         for (int i = 0; i < student.getRecordList().records.length; i++) {
@@ -241,32 +247,4 @@ public class ModelManager implements Model {
         }
         return totalRecord;
     }
-
-    /**
-     * Calculates the attendance percentage of a student.
-     */
-    private double getAttendancePercentage(Student student) {
-        double totalAttendance = this.getTotalAttendance(student);
-        int totalRecord = this.getTotalRecord(student);
-        return totalRecord == 0 ? 0 : totalAttendance / totalRecord;
-    }
-
-    /**
-     * Calculates the participation percentage of a student.
-     */
-    private double getParticipationPercentage(Student student) {
-        double totalParticipation = this.getTotalParticipation(student);
-        int totalRecord = this.getTotalRecord(student);
-        return totalRecord == 0 ? 0 : totalParticipation / totalRecord;
-    }
-
-    /**
-     * Calculates the submission percentage of a student.
-     */
-    private double getSubmissionPercentage(Student student) {
-        double totalSubmission = this.getTotalSubmission(student);
-        int totalRecord = this.getTotalRecord(student);
-        return totalRecord == 0 ? 0 : totalSubmission / totalRecord;
-    }
-
 }
