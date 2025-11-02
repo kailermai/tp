@@ -296,7 +296,7 @@ Format: `trend`<br>
 ![result for 'list' followed by 'view 2'](images/TrendResult.png)
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-The Trend view (right panel) always reflects the students currently shown in the left panel—any sorting or filtering (e.g., via sort or list) updates the trends immediately.
+The Trend shown in Right Side Panel always reflects the students currently shown in the left panel—any sorting or filtering (e.g., via sort or list) updates the trends immediately.
 </div>
 
 <div style="page-break-after: always;"></div>
