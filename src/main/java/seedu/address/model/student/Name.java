@@ -13,14 +13,14 @@ public class Name {
             "Names should contain alphanumeric characters and spaces, not be blank "
                     + "and be no more than 100 characters long.\nMay include special character "
                     + "'/', as long as it is not preceded by a parameter-like prefix, eg. sn/.\n"
-                    + "Non-standard characters (hyphens, apostrophes, or accented characters) will "
+                    + "Non-standard characters (hyphens, apostrophes, slashes, or accented characters) will "
                     + " trigger a warning, but will still be accepted.";
 
-    // Strict regex: alphanumeric, names, spaces, '/' only.
-    public static final String VALIDATION_REGEX_STRICT = "(?=.{1,100}$)[\\p{Alnum}][\\p{Alnum} '/']*";
+    // Strict regex: alphanumeric, names, spaces only.
+    public static final String VALIDATION_REGEX_STRICT = "^(?=.{1,100}$)\\p{L}[\\p{Alnum} ]*$";
 
-    // Lenient regex: allows accented characters, hyphens, apostrophes
-    public static final String VALIDATION_REGEX_LENIENT = "(?=.{1,100}$)[\\p{L}\\p{N}'/\\-][\\p{L}\\p{N} './\\-]*";
+    // Lenient regex: allows accented characters, hyphens, apostrophes, dots and slashes
+    public static final String VALIDATION_REGEX_LENIENT = "^(?=.{1,100}$)(?! )[\\p{L}\\p{N} './\\-]+$";
 
     public final String fullName;
     private final boolean hasNonStandardCharacters;
