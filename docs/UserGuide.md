@@ -10,10 +10,10 @@ title: User Guide
 If you are comfortable with the Command Line Interface (CLI) and type quickly, **TAHub** is built for you. **TAHub** allows you to complete student management tasks faster than with traditional mouse-based applications, while still providing the convenience and clarity of a Graphical User Interface (GUI).
 
 With **TAHub**, you can easily:
-* `Add` a new student with their details such as name, student number, phone number, email, telegram, and optional tags.
-* `Record` a student's attendance, participation, and submission scores for any given week.
-* `View` a specified student's records across the semester.
-* Get a `Trend` overview of all students' scores.
+* `add` a new student with their details such as name, student number, phone number, email, telegram, and optional tags.
+* `record` a student's attendance, participation, and submission scores for any given week.
+* `view` a specified student's records across the semester.
+* Get a `trend` overview of all students' scores.
 * ...and access a complete suite of tools, including `edit`, `find`, `delete`, `sort`, `list`, `help`, and `clear`, for comprehensive student management.
 
 ### Table of Contents
