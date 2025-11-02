@@ -194,11 +194,45 @@ public class ModelManager implements Model {
     }
 
     /**
+     * Calculates the sum of all participation scores for a given student.
+     * Returns -Double.MIN_VALUE if the student or their record list is null.
+     */
+    private double getTotalParticipation(Student student) {
+        seedu.address.model.record.Record[] records = student.getRecordList().records;
+        return Arrays.stream(records)
+                .mapToDouble(record -> {
+                    try {
+                        return record.getParticipationScore();
+                    } catch (NullPointerException e) {
+                        return -Double.MIN_VALUE;
+                    }
+                })
+                .sum();
+    }
+
+    /**
+     * Calculates the sum of all submission scores for a given student.
+     * Returns -Double.MIN_VALUE if the student or their record list is null.
+     */
+    private double getTotalSubmission(Student student) {
+        seedu.address.model.record.Record[] records = student.getRecordList().records;
+        return Arrays.stream(records)
+                .mapToDouble(record -> {
+                    try {
+                        return record.getSubmissionScore();
+                    } catch (NullPointerException e) {
+                        return -Double.MIN_VALUE;
+                    }
+                })
+                .sum();
+    }
+
+    /**
      * Calculates the total number of valid records of a student.
      */
     private int getTotalRecord(Student student) {
         int totalRecord = 0;
-        for (int i = 0; i < WeekNumber.MAX_WEEK_NUMBER; i++) {
+        for (int i = 0; i < student.getRecordList().records.length; i++) {
             Index currentIndex = Index.fromZeroBased(i);
             Record record = student.getRecordList().getRecord(currentIndex);
             if (record == null) {
@@ -234,40 +268,6 @@ public class ModelManager implements Model {
         double totalSubmission = this.getTotalSubmission(student);
         int totalRecord = this.getTotalRecord(student);
         return totalRecord == 0 ? 0 : totalSubmission / totalRecord;
-    }
-
-    /**
-     * Calculates the sum of all participation scores for a given student.
-     * Returns -Double.MIN_VALUE if the student or their record list is null.
-     */
-    private double getTotalParticipation(Student student) {
-        seedu.address.model.record.Record[] records = student.getRecordList().records;
-        return Arrays.stream(records)
-                .mapToDouble(record -> {
-                    try {
-                        return record.getParticipationScore();
-                    } catch (NullPointerException e) {
-                        return -Double.MIN_VALUE;
-                    }
-                })
-                .sum();
-    }
-
-    /**
-     * Calculates the sum of all submission scores for a given student.
-     * Returns -Double.MIN_VALUE if the student or their record list is null.
-     */
-    private double getTotalSubmission(Student student) {
-        seedu.address.model.record.Record[] records = student.getRecordList().records;
-        return Arrays.stream(records)
-                .mapToDouble(record -> {
-                    try {
-                        return record.getSubmissionScore();
-                    } catch (NullPointerException e) {
-                        return -Double.MIN_VALUE;
-                    }
-                })
-                .sum();
     }
 
 }
