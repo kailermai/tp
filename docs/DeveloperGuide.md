@@ -794,7 +794,10 @@ testers are expected to do more *exploratory* testing.
    3. **Test case**: `record 1 week/3 att/5 sub/1 part/1`<br>
       **Expected**: No record is created. An error message highlighting `ATTENDANCE_SCORE` constraints is shown in the result display.
    
-   4. **Other incorrect record commands to try**: `record x week/1 att/1 sub/1 part/1` (where x is larger than list size), `record 1 week/1 sub/1 part/1` (missing `ATTENDANCE_SCORE`), `record 1 week/1 att/x sub/y part/z` where `x`, `y` and `z` are variations of invalid scores.
+   4. **Other incorrect record commands to try**: 
+      * `record x week/1 att/1 sub/1 part/1` (where x is larger than list size), 
+      * `record 1 week/1 sub/1 part/1` (missing `ATTENDANCE_SCORE`), 
+      * `record 1 week/1 att/x sub/y part/z` where `x`, `y` and `z` are variations of invalid scores.
 
 2. **Editing a student record while all students are being shown**
 

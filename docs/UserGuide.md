@@ -254,9 +254,9 @@ Format: `record INDEX week/WEEK_NUMBER att/ATTENDANCE_SCORE sub/SUBMISSION_SCORE
 
 ![result for 'record 1 week/1 part/1 sub/1 att/1'](images/RecordResult.png)
 
-* **To create a new record:** Run the command using a `WEEK_NUMBER` that currently has no associated record for the specified student.
+* **To create a new record:** Run the command with a target student's `INDEX` and ` a `WEEK_NUMBER` that currently has no associated record.
 * **To modify an existing record:** Run the command with a target student's `INDEX` and the record's `WEEK_NUMBER`. The existing record for that week will be replaced by the new score values provided in the command.
-* All parameters must be included when executing the record command, regardless of whether you are creating a new record or editing an existing one.
+* All parameters must be included regardless of whether you are creating a new record or editing an existing one.
 
 <div style="page-break-after: always;"></div>
 
