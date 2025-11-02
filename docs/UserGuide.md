@@ -220,20 +220,20 @@ Format: `record INDEX week/WEEK_NUMBER att/ATTENDANCE_SCORE sub/SUBMISSION_SCORE
 ![result for 'record 1 week/1 part/1 sub/1 att/1'](images/RecordResult.png)
 
 * **To create a new record:** Run the command using a `WEEK_NUMBER` that currently has no associated record for the specified student.
-* **To modify an exiting record:** Run the command with a target student's `INDEX` and the record's `WEEK_NUMBER`. The existing record for that week will be replaced by the new score values provided in the command.
+* **To modify an existing record:** Run the command with a target student's `INDEX` and the record's `WEEK_NUMBER`. The existing record for that week will be replaced by the new score values provided in the command.
 * All parameters must be included when executing the record command, regardless of whether you are creating a new record or editing an existing one.
 
 <div style="page-break-after: always;"></div>
 
 **Record Parameter Constraints**
 
-|Parameter| Constraints                                | Notes                                                                                                                                                                 |
-|---------|:-------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|`INDEX`| Positive integer 1, 2, 3, …​               |                                                                                                                                                                       |
-|`WEEK_NUMBER`| Integer from **1** to **13** (inclusive)   |                                                                                                                                                                       |
-|`ATTENDANCE_SCORE`| **0** (absent) or **1** (present)          |                                                                                                                                                                       |
-|`SUBMISSION_SCORE`| **0** (not submitted) or **1** (submitted) | Indicates overall completion status of all assignments. The TA determines what constitutes 1 (e.g. all assignments submitted) and 0 (e.g. partial or no submission)   |
-|`PARTICIPATION_SCORE`| Integer from **0** to **5** (inclusive)    | Serves as a personal assessment scale for the TA. Its meaning is determined by the TA and does not necessarily reflect any external, module defined score range. |
+|Parameter| Constraints                                | Notes                                                                                                                                                                |
+|---------|:-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|`INDEX`| Positive integer 1, 2, 3, …​               |                                                                                                                                                                      |
+|`WEEK_NUMBER`| Integer from **1** to **13** (inclusive)   |                                                                                                                                                                      |
+|`ATTENDANCE_SCORE`| **0** (absent) or **1** (present)          |                                                                                                                                                                      |
+|`SUBMISSION_SCORE`| **0** (not submitted) or **1** (submitted) | Indicates overall completion status of all assignments. The TA determines what constitutes 1 (e.g. all assignments submitted) and 0 (e.g. partial or no submission). |
+|`PARTICIPATION_SCORE`| Integer from **0** to **5** (inclusive)    | Serves as a personal assessment scale for the TA. Its meaning is determined by the TA and does not necessarily reflect any external, module defined score range.     |
 
 Examples:
 * `record 1 week/1 att/1 sub/0 part/4`
