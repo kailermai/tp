@@ -5,8 +5,31 @@ title: User Guide
 
 TAHub is a **desktop application designed for NUS Computer Science teaching assistants to efficiently manage their students**. It is optimised for fast use through a Command Line Interface (CLI), while still providing the convenience and clarity of a Graphical User Interface (GUI). For users who type quickly, TAHub enables student management tasks to be completed faster than with traditional GUI-based applications.
 
-* Table of Contents
+### Table of Contents
 {:toc}
+
+## Guide Usage
+
+<div markdown="block" class="alert alert-info">
+
+**For New Users**
+
+* New to the Command Line Interface (CLI)? Start with the [Quick Start](#quick-start) section.
+</div>
+
+<div markdown="block" class="alert alert-success">
+
+**For Amateurs**
+
+* To start navigating the guide, head to the [Table of Contents](#table-of-contents).
+</div>
+
+<div markdown="block" class="alert alert-warning">
+
+**For Experts**
+
+* Need a quick overview of the commands? See the [Command summary](#command-summary).
+</div>
 
 --------------------------------------------------------------------------------------------------------------------
 <div style="page-break-after: always;"></div>
