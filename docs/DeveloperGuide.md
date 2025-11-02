@@ -909,3 +909,12 @@ Team size: 5
    **Current implementation:** Default binary `ATTENDANCE_SCORE` and `SUBMISSION_SCORE` of 0 or 1, and `PARTICIPATION_SCORE` with range of 0 to 5.
 
    **Planned enhancement:** `setMaxScore sub/3 part/6`
+
+
+3. Enhance `find` command to support more field types: The current implementation of the `find` command only searches by name. We plan to extend it to support additional fields, such as student number and tags. This will make it easier for TAs to quickly find relevant students based on different criteria.
+
+   **Example:** 
+
+   **Current implementation:** Searchable only by name (e.g. `find Alex`). 
+
+   **Planned enhancement:** Searchable by all fields (e.g. `find t/WeakInJava`)
