@@ -19,7 +19,7 @@ public class SortCommand extends Command {
             + "Parameters: " + PREFIX_SORT_BY + PREFIX_SORT_ATTENDANCE
             + " for attendance or " + PREFIX_SORT_BY + PREFIX_SORT_PARTICIPATION
             + " for participation or " + PREFIX_SORT_BY + PREFIX_SORT_SUBMISSION
-            + " for submission.\n"
+            + " for submission\n"
             + "Example: " + COMMAND_WORD + " " + PREFIX_SORT_BY + PREFIX_SORT_ATTENDANCE
             + ", " + COMMAND_WORD + " " + PREFIX_SORT_BY + PREFIX_SORT_PARTICIPATION
             + ", " + COMMAND_WORD + " " + PREFIX_SORT_BY + PREFIX_SORT_SUBMISSION;
@@ -32,11 +32,11 @@ public class SortCommand extends Command {
             + PREFIX_SORT_BY + PREFIX_SORT_PARTICIPATION + "|"
             + PREFIX_SORT_BY + PREFIX_SORT_SUBMISSION + "}";
 
-    public static final String MESSAGE_SUCCESS_ATTENDANCE = "Sorted all students based on attendance percentage.";
+    public static final String MESSAGE_SUCCESS_ATTENDANCE = "Sorted all students based on attendance.";
 
-    public static final String MESSAGE_SUCCESS_PARTICIPATION = "Sorted all students based on participation percentage.";
+    public static final String MESSAGE_SUCCESS_PARTICIPATION = "Sorted all students based on participation.";
 
-    public static final String MESSAGE_SUCCESS_SUBMISSION = "Sorted all students based on submission percentage.";
+    public static final String MESSAGE_SUCCESS_SUBMISSION = "Sorted all students based on submission.";
 
     private boolean byAttendance;
 
