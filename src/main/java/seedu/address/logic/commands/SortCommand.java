@@ -9,33 +9,33 @@ import seedu.address.model.Model;
 
 
 /**
- * Sorts all students in TAHub based on their attendance or participation scores
+ * Sorts all students in TAHub based on their attendance or participation or submission scores percentage
  */
 public class SortCommand extends Command {
     public static final String COMMAND_WORD = "sort";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
-            + ": Sort all students based on attendance or participation.\n"
+            + ": Sort all students based on attendance or participation or submission percentages.\n"
             + "Parameters: " + PREFIX_SORT_BY + PREFIX_SORT_ATTENDANCE
             + " for attendance or " + PREFIX_SORT_BY + PREFIX_SORT_PARTICIPATION
             + " for participation or " + PREFIX_SORT_BY + PREFIX_SORT_SUBMISSION
-            + " for submission\n"
+            + " for submission.\n"
             + "Example: " + COMMAND_WORD + " " + PREFIX_SORT_BY + PREFIX_SORT_ATTENDANCE
             + ", " + COMMAND_WORD + " " + PREFIX_SORT_BY + PREFIX_SORT_PARTICIPATION
             + ", " + COMMAND_WORD + " " + PREFIX_SORT_BY + PREFIX_SORT_SUBMISSION;
 
-    public static final String MESSAGE_HELP_TITLE = "Sort all students based on attendance or participation:\n";
+    public static final String MESSAGE_HELP_TITLE = "Sort all students based on attendance or participation or submission percentages:\n";
 
     public static final String MESSAGE_HELP_DESCRIPTION =
-            COMMAND_WORD + " " + PREFIX_SORT_BY + PREFIX_SORT_ATTENDANCE + " for attendance,\n"
-            + COMMAND_WORD + " " + PREFIX_SORT_BY + PREFIX_SORT_PARTICIPATION + " for participation,\n"
-            + COMMAND_WORD + " " + PREFIX_SORT_BY + PREFIX_SORT_SUBMISSION + " for submission";
+            COMMAND_WORD + " {" + PREFIX_SORT_BY + PREFIX_SORT_ATTENDANCE + "|"
+            + PREFIX_SORT_BY + PREFIX_SORT_PARTICIPATION + "|"
+            + PREFIX_SORT_BY + PREFIX_SORT_SUBMISSION + "}";
 
-    public static final String MESSAGE_SUCCESS_ATTENDANCE = "Sorted all students based on attendance.";
+    public static final String MESSAGE_SUCCESS_ATTENDANCE = "Sorted all students based on attendance percentage.";
 
-    public static final String MESSAGE_SUCCESS_PARTICIPATION = "Sorted all students based on participation.";
+    public static final String MESSAGE_SUCCESS_PARTICIPATION = "Sorted all students based on participation percentage.";
 
-    public static final String MESSAGE_SUCCESS_SUBMISSION = "Sorted all students based on submission.";
+    public static final String MESSAGE_SUCCESS_SUBMISSION = "Sorted all students based on submission percentage.";
 
     private boolean byAttendance;
 
