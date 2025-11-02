@@ -921,4 +921,4 @@ Team size: 5
 
 
 4. **Provide better visualisation for View**: The current view shown in Right Side Panel displays student records for 13 weeks, but does not provide a visual representation of the week numbers.
-    We note that this may make it difficult for TAs to quickly identify a specific week in the record. We plan to include additional visualisations that provide a clear representation of week number.
+    We note that this may make it difficult for TAs to quickly identify a specific week's record. We plan to include additional visualisations that provide a clear representation of week number.
