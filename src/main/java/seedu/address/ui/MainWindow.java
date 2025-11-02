@@ -16,11 +16,11 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
+import seedu.address.commons.core.index.Index;
 import seedu.address.logic.Logic;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.student.Student;
 import seedu.address.ui.panel.HelpPanel;
 import seedu.address.ui.panel.StudentListPanel;
 import seedu.address.ui.panel.TrendPanel;
@@ -197,9 +197,9 @@ public class MainWindow extends UiPart<Stage> {
      * Opens the view window or focuses on it if it's already opened.
      */
     @FXML
-    private void handleViewStudent(Student student) {
+    private void handleViewStudent(Index studentIndex) {
         logger.info("Showing view window on right-side panel");
-        viewPanel.setStudent(student);
+        viewPanel.setStudent(logic, studentIndex);
         viewPanel.fillInnerPart();
         showInRight(viewPanel.getRoot());
     }
@@ -233,7 +233,7 @@ public class MainWindow extends UiPart<Stage> {
                 handleHelp();
             }
             if (commandResult.isShowStudent()) {
-                handleViewStudent(commandResult.getStudent());
+                handleViewStudent(commandResult.getStudentIndex());
             }
             if (commandResult.isShowTrend()) {
                 handleTrend();

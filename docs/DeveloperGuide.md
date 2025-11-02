@@ -749,13 +749,13 @@ testers are expected to do more *exploratory* testing.
 
    1. **Prerequisites**: NA
    
-   2. **Test case**: `add n/John Doe sn/A654321Z p/98765432 e/johnd@example.com tele/john_doe`<br>
+   2. **Test case**: `add n/John Doe sn/A7654321Z p/98765432 e/johnd@example.com tele/john_doe`<br>
       **Expected**: A new student named John Doe is added to the student list. Details of the added student are shown in the result display.
 
-   3. **Test case**: `add n/john.doe sn/A654321Y p/99998888 e/john@example.com tele/doe_john`<br>
+   3. **Test case**: `add n/john.doe sn/A7654321Y p/99998888 e/john@example.com tele/doe_john`<br>
       **Expected**: A new student named john.doe is added to the student list. A warning message about the non-standard name format is displayed. Details of the added student are shown in student card.
 
-   4. **Test case**: `add n/John Doe sn/A654321Z`<br>
+   4. **Test case**: `add n/John Doe sn/A7654321Z`<br>
       **Expected**: No student is added. An error message highlighting the missing parameters is shown in the result display.
 
 2. **Adding a student with duplicate student number**
@@ -778,7 +778,7 @@ testers are expected to do more *exploratory* testing.
    3. **Test case**: `edit 1 n/jane'doe`<br>
       **Expected**: The student at index 1 is edited to have the new name. A warning message highlighting the non-standard name format is shown in the result display.
 
-   4. **Test case**: `edit x n/jane'doe p/91234567`<br>
+   4. **Test case**: `edit x n/jane'doe p/91234567` (where x is an integer larger than the student list size).<br>
       **Expected**: No student is edited. An error message highlighting invalid index is shown in the result display.
 
 <div style="page-break-after: always;"></div>
@@ -794,7 +794,7 @@ testers are expected to do more *exploratory* testing.
    3. **Test case**: `record 1 week/3 att/5 sub/1 part/1`<br>
       **Expected**: No record is created. An error message highlighting `ATTENDANCE_SCORE` constraints is shown in the result display.
    
-   4. **Other incorrect record commands to try**: `record x week/1 att/1 sub/1 part/1` (where x is larger than list size), `record 1 week/1 sub/1 part/1` (missing `ATTENDANCE_SCORE`), `record 1 week/1 att/x sub/y part/z` where `x`, `y` and `z` are variations of invalid scores.
+   4. **Other incorrect record commands to try**: `record x week/1 att/1 sub/1 part/1` (where x is larger than the student list size), `record 1 week/1 sub/1 part/1` (missing `ATTENDANCE_SCORE`), `record 1 week/1 att/x sub/y part/z` where `x`, `y` and `z` are variations of invalid scores.
 
 2. **Editing a student record while all students are being shown**
 
@@ -911,5 +911,14 @@ Team size: 5
    **Planned enhancement:** `setMaxScore sub/3 part/6`
 
 
-3. **Provide better visualisation for View**: The current view shown in Right Side Panel displays student records for 13 weeks, but does not provide a visual representation of the week numbers.
+3. **Enhance `find` command to support more field types**: The current implementation of the `find` command only searches by name. We plan to extend it to support additional fields, such as student number and tags. This will make it easier for TAs to quickly find relevant students based on different criteria.
+
+   **Example:** Finding by tags.
+
+   **Current implementation:** Searchable only by name (e.g. `find Alex`). 
+
+   **Planned enhancement:** Searchable by all fields (e.g. `find t/WeakInJava`)
+
+
+4. **Provide better visualisation for View**: The current view shown in Right Side Panel displays student records for 13 weeks, but does not provide a visual representation of the week numbers.
     We note that this may make it difficult for TAs to quickly identify specific week in the record. We plan to include additional visualisations that adds in a clear representation of week number.

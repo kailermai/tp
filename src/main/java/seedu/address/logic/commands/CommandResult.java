@@ -4,8 +4,8 @@ import static java.util.Objects.requireNonNull;
 
 import java.util.Objects;
 
+import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.ToStringBuilder;
-import seedu.address.model.student.Student;
 
 /**
  * Represents the result of a command execution.
@@ -24,7 +24,7 @@ public class CommandResult {
     private final boolean showStudent;
 
     /** The student whose details are to be shown. */
-    private final Student student;
+    private final Index studentIndex;
 
     /** Trend information should be shown to the user */
     private final boolean showTrend;
@@ -37,17 +37,17 @@ public class CommandResult {
         this.showHelp = showHelp;
         this.exit = exit;
         this.showStudent = false;
-        this.student = null;
+        this.studentIndex = null;
         this.showTrend = false;
     }
 
     /**
      * Constructs a {@code CommandResult} with the specified fields.
      */
-    public CommandResult(String feedbackToUser, boolean showStudent, Student student) {
+    public CommandResult(String feedbackToUser, boolean showStudent, Index studentIndex) {
         this.feedbackToUser = requireNonNull(feedbackToUser);
         this.showStudent = showStudent;
-        this.student = student;
+        this.studentIndex = studentIndex;
         this.showHelp = false;
         this.exit = false;
         this.showTrend = false;
@@ -61,7 +61,7 @@ public class CommandResult {
         this.showHelp = false;
         this.exit = false;
         this.showStudent = false;
-        this.student = null;
+        this.studentIndex = null;
         this.showTrend = showTrend;
     }
 
@@ -93,8 +93,8 @@ public class CommandResult {
         return showTrend;
     }
 
-    public Student getStudent() {
-        return student;
+    public Index getStudentIndex() {
+        return studentIndex;
     }
 
     @Override

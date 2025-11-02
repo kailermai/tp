@@ -32,16 +32,22 @@ public class PhoneTest {
         assertFalse(Phone.isValidPhone("phone")); // non-numeric
         assertFalse(Phone.isValidPhone("9011p041")); // alphabets within digits
         assertFalse(Phone.isValidPhone("+")); // only plus sign
+        assertFalse(Phone.isValidPhone("1234567890123456789011234567890")); // 31 digits
+        assertFalse(Phone.isValidPhone("1234567890123456789011234567-90")); // 30 digits, 1 hyphen. 31 characters
+        assertFalse(Phone.isValidPhone("123_123")); // contains underscore
+
+
 
         // valid phone numbers
         assertTrue(Phone.isValidPhone("911")); // exactly 3 numbers
         assertTrue(Phone.isValidPhone("93121534"));
-        assertTrue(Phone.isValidPhone("124293842033123")); // long phone numbers
+        assertTrue(Phone.isValidPhone("12345678901234567890")); // exactly 20 numbers
         assertTrue(Phone.isValidPhone("+6512345678")); // with plus sign
         assertTrue(Phone.isValidPhone("123-456-7890")); // with hyphens
         assertTrue(Phone.isValidPhone("+65-1234-5678")); // with plus sign and hyphens
 
         // valid phone numbers with non-standard characters
+        assertTrue(Phone.isValidPhone("123()-.+ 456")); // contains all non-standard characters
         assertTrue(Phone.isValidPhone("9312 1534")); // spaces within digits
         assertTrue(Phone.isValidPhone("++6512345678")); // multiple plus signs
         assertTrue(Phone.isValidPhone("123-456-7890-")); // ends with a hyphen
@@ -51,6 +57,8 @@ public class PhoneTest {
         assertTrue(Phone.isValidPhone("123.456.7890")); // dots within digits
         assertTrue(Phone.isValidPhone("123 (65) 7890")); // brackets within digits
         assertTrue(Phone.isValidPhone("(99) 9999.9999"));
+        assertTrue(Phone.isValidPhone("123---------------------------")); // 30 characters, 3 digits
+
     }
 
     @Test

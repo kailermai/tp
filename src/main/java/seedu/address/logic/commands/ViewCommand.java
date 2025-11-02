@@ -47,7 +47,7 @@ public class ViewCommand extends Command {
         }
 
         Student studentToShow = lastShownList.get(index.getZeroBased());
-        return new CommandResult(generateSuccessMessage(studentToShow), true, studentToShow);
+        return new CommandResult(generateSuccessMessage(studentToShow), true, index);
     }
 
     private String generateSuccessMessage(Student studentToShow) {
