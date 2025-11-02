@@ -11,7 +11,7 @@ public class StudentNumber {
 
     public static final String MESSAGE_CONSTRAINTS =
             "Student numbers should be in the following format: AXXXXXXXZ, where A is the character 'A', X is a "
-                    + "digit from 0 to 9, and Z is any letter.";
+                    + "digit from 0 to 9, and Z is any letter. Letters are case-insensitive.";
     public static final String VALIDATION_REGEX = "[aA]\\d{7}[a-zA-Z]";
     public final String value;
 
