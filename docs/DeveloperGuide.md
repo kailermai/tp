@@ -909,3 +909,7 @@ Team size: 5
    **Current implementation:** Default binary `ATTENDANCE_SCORE` and `SUBMISSION_SCORE` of 0 or 1, and `PARTICIPATION_SCORE` with range of 0 to 5.
 
    **Planned enhancement:** `setMaxScore sub/3 part/6`
+
+
+3. **Provide better visualization for ViewPanel**: The current ViewPanel displays student records for 13 weeks, but does not provide a visual representation of the week numbers.
+    We note that this may make it difficult for TAs to quickly identify specific week in the record. We plan to include a visualisations that adds in a clear representation of week number in records.
