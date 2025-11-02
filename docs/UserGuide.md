@@ -297,6 +297,11 @@ Clears all entries from TAHub.
 
 Format: `clear`
 
+<div markdown="span" class="alert alert-warning">
+:exclamation: **Caution:**
+This command is irreversible. Executing `clear` will permanently delete all student entries and records from TAHub.
+</div>
+
 ### Exiting the program : `exit`
 
 Exits the program.
