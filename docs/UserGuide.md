@@ -143,7 +143,7 @@ Format: `add n/NAME sn/STUDENT_NUMBER p/PHONE_NUMBER e/EMAIL tele/TELEGRAM [t/TA
 | `TAG` | Alphanumeric characters, spaces, special characters `+` and `#`, must not be blank, max 30 characters.                                                                                                                                                                                                                                                                   | Multiple tags allowed.                                                                                                                                                                                                                                                   |
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-A student can have any number of tags (including 0). However, tags will not appear in the order that they are created.
+A student can have any number of tags (including 0). However, tags may not appear in the order that they are created.
 </div>
 
 <div markdown="span" class="alert alert-info">:information_source: **Note:**
