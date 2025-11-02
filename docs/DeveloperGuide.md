@@ -80,7 +80,8 @@ The **API** of this component is specified in [`Ui.java`](https://github.com/AY2
 
 ![Structure of the UI Component](images/UiClassDiagram.png)
 
-The UI consists of a `MainWindow` that is made up of parts e.g.`StatusBarFooter`, `ResultDisplay`, `RightSidePanel`, `CommandBox`, `StudentListPanel`. All these, including the `MainWindow`, inherit from the abstract `UiPart` class which captures the commonalities between classes that represent parts of the visible GUI.
+The UI consists of a `MainWindow` that is made up of parts e.g.`Status Bar Footer`, `Result Display`, `Right Side Panel`, `Command Box`, `Student List Panel`.
+All these, including the `MainWindow`, inherit from the abstract `UiPart` class which captures the commonalities between classes that represent parts of the visible GUI.
 
 The `RightSidePanel` displays additional information, and can hold one of three panels: `HelpPanel`, `ViewPanel`, or `TrendPanel`.
 
@@ -829,14 +830,14 @@ testers are expected to do more *exploratory* testing.
 
 1. **Successful viewing of student record**
 
-   1. **Prerequisites**: At least 1 student listed in the student list panel on the left.
+   1. **Prerequisites**: At least 1 student listed in the Student List Panel on the left.
     
    2. **Test case**: `view 1`<br>
       **Expected**: Right-hand panel is updated to display the record overview of the student at index 1, showing calculated record statistics. Status message shows the success message: Viewing record of student: [Student].<br>
 
 2. **Viewing student record with invalid index**
 
-   1. **Prerequisites**: At least 1 Student listed in the student list panel on the left.
+   1. **Prerequisites**: At least 1 Student listed in the Student List Panel on the left.
     
    2. **Test case**: `view 0` or `view x` (where x is larger than the list size)<br>
       **Expected**: Right-hand panel remains unchanged. Error details shown in the status message.
@@ -847,14 +848,14 @@ testers are expected to do more *exploratory* testing.
 
 1. **Successful viewing of overall trend with student records present**
 
-   1. **Prerequisites**: At least 1 student listed in the student list panel on the left.
+   1. **Prerequisites**: At least 1 student listed in the Student List Panel on the left.
     
    2. **Test case**: `trend`<br>
       **Expected**: Right-hand panel is updated to display the trend overview, showing calculated record statistics for all students. Status message shows the success message: Opened trend window.
 
 2. **Viewing trend with no student records present**
 
-   1. **Prerequisites**: No students listed in the student list panel on the left.
+   1. **Prerequisites**: No students listed in the Student List Panel on the left.
 
    2. **Test case**: `trend`<br>
       **Expected**: Right-hand panel is updated to display an empty panel. Status message shows the success message: Opened trend window.
@@ -866,13 +867,13 @@ testers are expected to do more *exploratory* testing.
    1. **Prerequisites**: List all students using the list command. Multiple students in the list.
    
    2. **Test case**: `sort /a` <br>
-      **Expected**: Students in the left hand panel are sorted by their attendance score in descending order. Students without records will be listed on the bottom of the panel.
+      **Expected**: Students in the Student List Panel are sorted by their attendance score in descending order. Students without records will be listed on the bottom of the panel.
 
    3. **Test case**: `sort /p` <br>
-      **Expected**: Students in the left hand panel are sorted by their participation score in descending order. Students without records will be listed on the bottom of the panel. 
+      **Expected**: Students in the Student List Panel are sorted by their participation score in descending order. Students without records will be listed on the bottom of the panel. 
 
    4. **Test case**: `sort /s` <br>
-      **Expected**: Students in the left hand panel are sorted by their submission score in descending order. Students without records will be listed on the bottom of the panel. 
+      **Expected**: Students in the Student List Panel are sorted by their submission score in descending order. Students without records will be listed on the bottom of the panel. 
 
 <div style="page-break-after: always;"></div>
 
