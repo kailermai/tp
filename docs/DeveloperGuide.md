@@ -795,7 +795,7 @@ testers are expected to do more *exploratory* testing.
       **Expected**: No record is created. An error message highlighting `ATTENDANCE_SCORE` constraints is shown in the result display.
    
    4. **Other incorrect record commands to try**: 
-      * `record x week/1 att/1 sub/1 part/1` (where x is larger than list size), 
+      * `record x week/1 att/1 sub/1 part/1` (where x is an integer larger than the student list size), 
       * `record 1 week/1 sub/1 part/1` (missing `ATTENDANCE_SCORE`), 
       * `record 1 week/1 att/x sub/y part/z` where `x`, `y` and `z` are variations of invalid scores.
 
