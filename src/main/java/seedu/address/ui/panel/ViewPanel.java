@@ -49,18 +49,11 @@ public class ViewPanel extends UiPart<Region> {
         }
         filteredListener = change -> Platform.runLater(() -> {
             while (change.next()) {
-                // Handle replacement (edit)
                 if (change.wasReplaced()) {
-                    for (Student oldS : change.getRemoved()) {
-                        if (oldS.equals(student)) {
-                            student = change.getAddedSubList().get(change.getRemoved().indexOf(oldS));
-                            fillInnerPart();
-                            return;
-                        }
-                    }
+                    checkReplacement(change);
+                    return;
                 }
             }
-
             // Handle deletion or disappearance
             if (!filtered.contains(student)) {
                 showPlaceholders(false);
@@ -90,5 +83,15 @@ public class ViewPanel extends UiPart<Region> {
         scoreListPanelPlaceholder.setVisible(show);
         studentCardPlaceholder.setManaged(show);
         scoreListPanelPlaceholder.setManaged(show);
+    }
+
+    private <T> void checkReplacement(ListChangeListener.Change<T> change) {
+        for (T oldS : change.getRemoved()) {
+            if (oldS.equals(student)) {
+                student = (Student) change.getAddedSubList().get(change.getRemoved().indexOf(oldS));
+                fillInnerPart();
+                return;
+            }
+        }
     }
 }
