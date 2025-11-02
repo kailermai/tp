@@ -79,6 +79,9 @@ TAHub is a **desktop application designed for NUS Computer Science teaching assi
 * Items in square brackets are optional.<br>
   e.g. `n/NAME [t/TAG]` can be used as `n/John Doe t/friend` or as `n/John Doe`.
 
+* Items in curly braces mean “choose exactly one”.
+  e.g. `sort {/a|/p|/s}` can be used as `sort /a`, `sort /p` or as `sort /s`.
+
 * Items with `…`​ after them can be used multiple times including zero times.<br>
   e.g. `[t/TAG]…​` can be used as ` ` (i.e. 0 times), `t/friend`, `t/friend t/family` etc.
 
@@ -290,11 +293,15 @@ Format: `trend`<br>
 
 ![result for 'list' followed by 'view 2'](images/TrendResult.png)
 
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+The Trend view (right panel) always reflects the students currently shown in the left panel—any sorting or filtering (e.g., via sort or list) updates the trends immediately.
+</div>
+
 <div style="page-break-after: always;"></div>
 
 ### Sorting students: `sort`
 
-Sort students based on their attendance, participation, or submission score, in descending order.
+Sort students based on their attendance, participation, or submission percentages, in descending order.
 
 Format:
 * By attendance: `sort /a` 
@@ -302,6 +309,10 @@ Format:
 * By submission: `sort /s`
 
 ![result for 'sort /a'](images/SortResult.png)
+
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+The sort command reorders the student list (left panel). The right panel updates only if it is already showing Trend (i.e., The trend window is opened).    
+</div>
 
 ### Clearing all entries : `clear`
 
