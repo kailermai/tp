@@ -201,7 +201,7 @@ Format: `find KEYWORD [MORE_KEYWORDS]`
 
 * The `find` command updates the student list shown in the left panel. Subsequent commands that uses `INDEX` (e.g. `delete 1`, `view 2`) will refer to the index shown in this **filtered list**.
 
-* Keywords for the find command are not restricted to alphanumerical characters. 
+* Keywords for the find command are not restricted to alphabetic characters. 
 
 </div>
 
