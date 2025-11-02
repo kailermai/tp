@@ -15,7 +15,6 @@ import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.core.index.Index;
 import seedu.address.model.record.Record;
-import seedu.address.model.record.WeekNumber;
 import seedu.address.model.student.Student;
 
 /**
