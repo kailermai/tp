@@ -931,7 +931,7 @@ Team size: 5
 
 4. **Enhance `add` command to support optional fields:** 
 
-    The current implementation of the `add` command requires TAs to provide all contact fields (`PHONE_NUMBER`, `EMAIL`, `TELEGRAM`) when adding a new student. This forces users to provide placeholder values when certain information is unavailable. We plan to make these fields optional, allowing users to leave them blank if the information is not yet known. `NAME` and `STUDENT_NUMBER` will remain compulsory as they are used for student identification, and can be easily obtained through the canvas portal.
+    The current implementation of the `add` command requires TAs to provide all contact fields (`PHONE_NUMBER`, `EMAIL`, `TELEGRAM`) when adding a new student. This forces users to provide placeholder values when certain information is unavailable. We plan to make these fields optional, allowing users to leave them blank if the information is not yet known. `NAME` and `STUDENT_NUMBER` will remain compulsory as they are used for student identification, and can be easily obtained.
 
     **Example:** Adding a student without providing `TELEGRAM`, `EMAIL`, `PHONE_NUMBER`.
 
