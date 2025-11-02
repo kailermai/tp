@@ -375,7 +375,7 @@ TAHub data are saved in the hard disk automatically after any command that chang
 TAHub data are saved automatically as a JSON file `[JAR file location]/data/TAHub.json`. Advanced users are welcome to update data directly by editing that data file.
 
 <div markdown="span" class="alert alert-warning">:exclamation: **Caution:**
-If your changes to the data file makes its format invalid, TAHub will discard all data and start with an empty data file at the next run. For the empty data file to replace the corrupted data file, you will need to enter a command (e.g. `list`). Hence, it is recommended to take a backup of the file before editing it.<br>
+If your changes to the data file make its format invalid, TAHub will discard all data and start with an empty data file at the next run. For the empty data file to replace the corrupted data file, you will need to enter a command (e.g. `list`). Hence, it is recommended to take a backup of the file before editing it.<br>
 Furthermore, certain edits can cause the TAHub to behave in unexpected ways (e.g., if a value entered is outside of the acceptable range). Therefore, edit the data file only if you are confident that you can update it correctly.
 </div>
 
