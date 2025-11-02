@@ -42,12 +42,12 @@ These are the key components of the TAHub user interface (UI):
 
 ![UI](images/UiBreakdown.jpg)
 
-|S/N| Component          | Description                                                                                                                                      |
-|---|--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
-|1| Command Box        | This is the primary input field where TAs enter commands to execute various operations in TAHub.                                                 |
-|2| Result display     | This is the primary output field where immediate feedback and the execution status of the most recently executed command is displayed to the TA. |
-|3| Student List Panel | This panel displays a list of students in TAHub.                                                                                                 |
-|4| Right Side Panel   | This is the secondary output field used to display detailed visual summaries and other additional information.                                   |
+| S/N | Component          | Description                                                                                                                                      |
+|-----|--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1   | Command Box        | This is the primary input field where TAs enter commands to execute various operations in TAHub.                                                 |
+| 2   | Result display     | This is the primary output field where immediate feedback and the execution status of the most recently executed command is displayed to the TA. |
+| 3   | Student List Panel | This panel displays a list of students in TAHub.                                                                                                 |
+| 4   | Right Side Panel   | This is the secondary output field used to display detailed visual summaries and other additional information.                                   |
 
 <div style="page-break-after: always;"></div>
 
