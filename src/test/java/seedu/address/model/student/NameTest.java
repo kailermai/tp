@@ -34,7 +34,7 @@ public class NameTest {
         assertFalse(Name.isValidName(" ")); // spaces only
         assertFalse(Name.isValidName(tooLongName)); // name is too long
 
-        // invalid name, contains special characters
+        // invalid name, contains prohibited special characters
         assertFalse(Name.isValidName(hundredAndOneCharacterName)); // name is exactly 101 characters
         assertFalse(Name.isValidName("Contains@Character"));
         assertFalse(Name.isValidName("Contains#Character"));
@@ -46,41 +46,47 @@ public class NameTest {
 
         // valid name
         assertTrue(Name.isValidName("peter jack")); // alphabets only
-        assertTrue(Name.isValidName("12345")); // numbers only
-        assertTrue(Name.isValidName("peter the 2nd")); // alphanumeric characters
         assertTrue(Name.isValidName("Capital Tan")); // with capital letters
-        assertTrue(Name.isValidName("David Roger Jackson Ray Jr 2nd")); // long names
+        assertTrue(Name.isValidName("David Roger Jackson Ray Jr second")); // long names
         assertTrue(Name.isValidName(hundredCharacterName)); // name with exactly 100 characters
         assertTrue(Name.isValidName("a")); // one character name
 
         // valid name, contains allowed special characters
-        assertTrue(Name.isValidName("David s/o Jackson")); // name with slash
-        assertTrue(Name.isValidName("David s/o Jackson s/o ")); // name with multiple slashes
-        assertTrue(Name.isValidName("'O'Brien")); // starts with an apostrophe
-        assertTrue(Name.isValidName("-Jean-Luc")); // starts with a hyphen
-        assertTrue(Name.isValidName("/Alice")); // starts with a slash
+        assertTrue(Name.isValidName("12345")); // numbers only
+        assertTrue(Name.isValidName("peter the 2nd")); // alphanumeric characters
+        assertTrue(Name.isValidName("contains/character")); // name with slash
+        assertTrue(Name.isValidName("contains/multiple /slashes /")); // name with multiple slashes
+        assertTrue(Name.isValidName("'starts with apostrophe")); // starts with an apostrophe
+        assertTrue(Name.isValidName("-starts-with hyphen")); // starts with a hyphen
+        assertTrue(Name.isValidName("/starts with slash")); // starts with a slash
+        assertTrue(Name.isValidName(".starts with dot.")); // starts with a dot
         assertTrue(Name.isValidName("Beyoncé Giselle Knowles-Carter")); // Unicode letter.
         assertTrue(Name.isValidName("María José")); // Unicode letter.
         assertTrue(Name.isValidName("/")); // name is just a slash
-        assertTrue(Name.isValidName("contains.character"));
     }
 
     @Test
     public void hasNonStandardCharacters() {
         Name name1 = new Name("Valid Name");
-        Name name2 = new Name("Alice/Bob");
-        Name name3 = new Name("Peter 123");
+        Name name2 = new Name("Peter 123");
+        Name name3 = new Name("Alice/Bob");
         Name name4 = new Name("Beyoncé Giselle Knowles-Carter");
         Name name5 = new Name("-Jean-Luc");
         Name name6 = new Name("'O'Brien");
+        Name name7 = new Name("/jean");
+        Name name8 = new Name(".alice");
 
+        // Only alphabetic characters and space
         assertFalse(name1.hasNonStandardCharacters());
-        assertFalse(name2.hasNonStandardCharacters());
-        assertFalse(name3.hasNonStandardCharacters());
 
+        // Contains special characters
+        assertTrue(name2.hasNonStandardCharacters());
+        assertTrue(name3.hasNonStandardCharacters());
         assertTrue(name4.hasNonStandardCharacters());
         assertTrue(name5.hasNonStandardCharacters());
         assertTrue(name6.hasNonStandardCharacters());
+        assertTrue(name7.hasNonStandardCharacters());
+        assertTrue(name8.hasNonStandardCharacters());
     }
 
 
