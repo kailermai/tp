@@ -778,7 +778,7 @@ testers are expected to do more *exploratory* testing.
    3. **Test case**: `edit 1 n/jane'doe`<br>
       **Expected**: The student at index 1 is edited to have the new name. A warning message highlighting the non-standard name format is shown in the result display.
 
-   4. **Test case**: `edit x n/jane'doe p/91234567`<br>
+   4. **Test case**: `edit x n/jane'doe p/91234567` (where x is an integer larger than the student list size).<br>
       **Expected**: No student is edited. An error message highlighting invalid index is shown in the result display.
 
 <div style="page-break-after: always;"></div>
@@ -794,7 +794,7 @@ testers are expected to do more *exploratory* testing.
    3. **Test case**: `record 1 week/3 att/5 sub/1 part/1`<br>
       **Expected**: No record is created. An error message highlighting `ATTENDANCE_SCORE` constraints is shown in the result display.
    
-   4. **Other incorrect record commands to try**: `record x week/1 att/1 sub/1 part/1` (where x is larger than list size), `record 1 week/1 sub/1 part/1` (missing `ATTENDANCE_SCORE`), `record 1 week/1 att/x sub/y part/z` where `x`, `y` and `z` are variations of invalid scores.
+   4. **Other incorrect record commands to try**: `record x week/1 att/1 sub/1 part/1` (where x is larger than the student list size), `record 1 week/1 sub/1 part/1` (missing `ATTENDANCE_SCORE`), `record 1 week/1 att/x sub/y part/z` where `x`, `y` and `z` are variations of invalid scores.
 
 2. **Editing a student record while all students are being shown**
 
