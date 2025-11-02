@@ -778,7 +778,7 @@ testers are expected to do more *exploratory* testing.
    3. **Test case**: `edit 1 n/jane'doe`<br>
       **Expected**: The student at index 1 is edited to have the new name. A warning message highlighting the non-standard name format is shown in the result display.
 
-   4. **Test case**: `edit x n/jane'doe p/91234567`<br>
+   4. **Test case**: `edit x n/jane'doe p/91234567` (where x is an integer larger than the student list size).<br>
       **Expected**: No student is edited. An error message highlighting invalid index is shown in the result display.
 
 <div style="page-break-after: always;"></div>
@@ -912,3 +912,12 @@ Team size: 5
    **Current implementation:** Default binary `ATTENDANCE_SCORE` and `SUBMISSION_SCORE` of 0 or 1, and `PARTICIPATION_SCORE` with range of 0 to 5.
 
    **Planned enhancement:** `setMaxScore sub/3 part/6`
+
+
+3. **Enhance `find` command to support more field types**: The current implementation of the `find` command only searches by name. We plan to extend it to support additional fields, such as student number and tags. This will make it easier for TAs to quickly find relevant students based on different criteria.
+
+   **Example:** Finding by tags.
+
+   **Current implementation:** Searchable only by name (e.g. `find Alex`). 
+
+   **Planned enhancement:** Searchable by all fields (e.g. `find t/WeakInJava`)

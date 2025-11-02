@@ -1,7 +1,9 @@
 .label {
     -fx-text-fill: white;
 }
-
+.student-card {
+    -fx-background-color: derive(#1d1d1d, 30%);
+}
 .scorecard {
     -fx-padding: 20px 0 0 4px;
 }
