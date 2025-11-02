@@ -749,13 +749,13 @@ testers are expected to do more *exploratory* testing.
 
    1. **Prerequisites**: NA
    
-   2. **Test case**: `add n/John Doe sn/A654321Z p/98765432 e/johnd@example.com tele/john_doe`<br>
+   2. **Test case**: `add n/John Doe sn/A7654321Z p/98765432 e/johnd@example.com tele/john_doe`<br>
       **Expected**: A new student named John Doe is added to the student list. Details of the added student are shown in the result display.
 
-   3. **Test case**: `add n/john.doe sn/A654321Y p/99998888 e/john@example.com tele/doe_john`<br>
+   3. **Test case**: `add n/john.doe sn/A7654321Y p/99998888 e/john@example.com tele/doe_john`<br>
       **Expected**: A new student named john.doe is added to the student list. A warning message about the non-standard name format is displayed. Details of the added student are shown in student card.
 
-   4. **Test case**: `add n/John Doe sn/A654321Z`<br>
+   4. **Test case**: `add n/John Doe sn/A7654321Z`<br>
       **Expected**: No student is added. An error message highlighting the missing parameters is shown in the result display.
 
 2. **Adding a student with duplicate student number**

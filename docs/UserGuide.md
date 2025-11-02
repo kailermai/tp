@@ -133,14 +133,14 @@ Format: `add n/NAME sn/STUDENT_NUMBER p/PHONE_NUMBER e/EMAIL tele/TELEGRAM [t/TA
 
 **Student Parameter Constraints:**
 
-| Parameter Name    | Constraint                                                                                                                                                                                                                                                                                                                                                               | Notes                                                                                                                                                                 |
-|-------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `NAME`            | Alphanumeric characters and spaces, not blank, max 100 characters. May include `/` if not preceded by a parameter-like prefix (eg. `sn/`, `tele/`).                                                                                                                                                                                                                      | Non-standard characters (hyphens `-`, apostrophes `'`, periods`.`, accents) trigger a warning, but are accepted.                                                      |
-| `STUDENT_NUMBER`  | Format: `AXXXXXXXZ` where `A` is the character 'A', `X` is any digit 0-9, and `Z` is any letter.                                                                                                                                                                                                                                                                         | Must follow the exact format.                                                                                                                                         |
-| `PHONE_NUMBER`    | At least 3 digits, max 30 characters. May start with `+`, and contain optional `-` separators.                                                                                                                                                                                                                                                                           | Non-standard characters (parentheses `()`, periods `.` spaces) trigger a warning, but are accepted.<br/><br/>Non-standard formats trigger a warning but are accepted. |
-| `EMAIL`           | Format: `local-part@domain`.<br/>`local-part`: Alphanumeric with special characters: `+_.-` (cannot start/end with special characters).<br/>`domain`: One or more labels separated by `.`.<br/>Label: Start/end with alphanumeric characters, may contain `-` in between. Final label must be 2+ characters long.<br/>Examples: `example@gmail.com`, `test@u.nus.edu.sg` | Must follow the exact format.                                                                                                                                         |
-| `TELEGRAM`        | Alphanumeric and underscores only, not blank, max 100 characters.                                                                                                                                                                                                                                                                                                        | Must follow the exact format.                                                                                                                                         |
-| `TAG`             | Alphanumeric characters only.                                                                                                                                                                                                                                                                                                                                            | Multiple tags allowed.                                                                                                                                                |
+| Parameter Name    | Constraint                                                                                                                                                                                                                                                                                                                                                               | Notes                                                                                                                                                                                                                                   |
+|-------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `NAME`            | Alphabetic characters and spaces, not blank, max 100 characters.                                                                                                                                                                                                                                                                                                         | Non-standard characters (numbers `0-9`, hyphens `-`, apostrophes `'`, periods`.`, slashes `/`, accents) trigger a warning, but are accepted. <br><br>May include `/` if not preceded by a parameter-like prefix (eg. ` sn/`, ` tele/`). |
+| `STUDENT_NUMBER`  | Format: `AXXXXXXXZ` where `A` is the character 'A', `X` is any digit 0-9, and `Z` is any letter.                                                                                                                                                                                                                                                                         | First and last letters are case-insensitive.                                                                                                                                                                                            |
+| `PHONE_NUMBER`    | At least 3 digits, max 30 characters. May start with `+`, and contain optional `-` separators.                                                                                                                                                                                                                                                                           | Non-standard characters (parentheses `()`, periods `.` spaces) trigger a warning, but are accepted.<br/><br/>Non-standard formats trigger a warning but are accepted.                                                                   |
+| `EMAIL`           | Format: `local-part@domain`.<br/>`local-part`: Alphanumeric with special characters: `+_.-` (cannot start/end with special characters).<br/>`domain`: One or more labels separated by `.`.<br/>Label: Start/end with alphanumeric characters, may contain `-` in between. Final label must be 2+ characters long.<br/>Examples: `example@gmail.com`, `test@u.nus.edu.sg` | Must follow the exact format.                                                                                                                                                                                                           |
+| `TELEGRAM`        | Alphanumeric and underscores only, not blank, max 100 characters.                                                                                                                                                                                                                                                                                                        | Must follow the exact format.                                                                                                                                                                                                           |
+| `TAG`             | Alphanumeric characters only.                                                                                                                                                                                                                                                                                                                                            | Multiple tags allowed.                                                                                                                                                                                                                  |
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 A student can have any number of tags (including 0)
@@ -151,7 +151,12 @@ Each student is uniquely identified by their Student Number, meaning you cannot 
 </div>
 
 <div markdown="span" class="alert alert-warning">:exclamation: **Important:**
-While names can include `/` for valid formats, using parameter-like sequences that match parameters in the same command (e.g., `sn/` or `tele/` in an `add` command) within the name field will result in an error.
+While names can include `/`, using parameter-like sequences that are preceded by a space will cause an error. The parser separates arguments by spaces, so ` sn/` will be interpreted as a new parameter.
+
+*   **Rejected:** `add n/john sn/doe sn/A1234567J ...`
+    *   The parser treats `sn/doe` as a separate (and invalid) student number argument because of the preceding space.
+*   **Accepted:** `add n/johnsn/doe sn/A1234567J ...`
+    *   The parser treats `johnsn/doe` as part of the name because there is no space before `sn/`.
 </div>
 
 Examples:
@@ -235,39 +240,42 @@ Format: `record INDEX week/WEEK_NUMBER att/ATTENDANCE_SCORE sub/SUBMISSION_SCORE
 
 ![result for 'record 1 week/1 part/1 sub/1 att/1'](images/RecordResult.png)
 
-* All fields are required.
+* **To create a new record:** Run the command using a `WEEK_NUMBER` that currently has no associated record for the specified student.
+* **To modify an existing record:** Run the command with a target student's `INDEX` and the record's `WEEK_NUMBER`. The existing record for that week will be replaced by the new score values provided in the command.
+* All parameters must be included when executing the record command, regardless of whether you are creating a new record or editing an existing one.
 
 <div style="page-break-after: always;"></div>
 
 **Record Parameter Constraints**
 
-|Parameter| Constraints                                |
-|---------|:-------------------------------------------|
-|`INDEX`| Positive integer 1, 2, 3, …​               |
-|`WEEK_NUMBER`| Integer from **1** to **13** (inclusive)   |
-|`ATTENDANCE_SCORE`| **0** (absent) or **1** (present)          |
-|`SUBMISSION_SCORE`| **0** (not submitted) or **1** (submitted) |
-|`PARTICIPATION_SCORE`| Integer from **0** to **5** (inclusive)    |
+|Parameter| Constraints                                | Notes                                                                                                                                                                |
+|---------|:-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|`INDEX`| Positive integer 1, 2, 3, …​               |                                                                                                                                                                      |
+|`WEEK_NUMBER`| Integer from **1** to **13** (inclusive)   |                                                                                                                                                                      |
+|`ATTENDANCE_SCORE`| **0** (absent) or **1** (present)          |                                                                                                                                                                      |
+|`SUBMISSION_SCORE`| **0** (not submitted) or **1** (submitted) | Indicates overall completion status of all assignments. The TA determines what constitutes 1 (e.g. all assignments submitted) and 0 (e.g. partial or no submission). |
+|`PARTICIPATION_SCORE`| Integer from **0** to **5** (inclusive)    | Serves as a personal assessment scale for the TA. Its meaning is determined by the TA and does not necessarily reflect any external, module defined score range.     |
 
 Examples:
 * `record 1 week/1 att/1 sub/0 part/4`
 * `record 2 week/5 att/0 sub/1 part/5`<br>
 
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-Running the command again for the same WEEK_NUMBER overwrites that week’s record for the selected student.
-</div>
 
 ### Removing a student record: `record`
-Removes a record on a particular week for a specific student.
+Removes an existing record on a particular week for a specific student.
 
 Format: `record INDEX week/WEEK_NUMBER`
 
 - The `INDEX` and `WEEK_NUMBER` parameters have the same constraints as [adding a record](#addingediting-a-student-record-record).
-- All of `ATTENDANCE_SCORE`, `SUBMISSION_SCORE` and `PARTICIPATION_SCORE` are not required and should not be specified.
+- All of `ATTENDANCE_SCORE`, `SUBMISSION_SCORE` and `PARTICIPATION_SCORE` are not required and should not be specified when deleting a record.
 
 Examples:
 * `record 1 week/1`
 * `record 2 week/5`
+
+<div markdown="span" class="alert alert-primary"> :bulb: **Tip:** 
+This command is useful for correcting data entry errors, such as when a record was accidentally created for the wrong week (e.g. keying a record into Week 1 when tutorials start in Week 3). Deletion removes the record completely, unlike the edit functionality, which would require replacing all values. 
+</div>
 
 <div style="page-break-after: always;"></div>
 
