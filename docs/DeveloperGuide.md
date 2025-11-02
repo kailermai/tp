@@ -911,7 +911,7 @@ Team size: 5
    **Planned enhancement:** `setMaxScore sub/3 part/6`
 
 
-3. Enhance `find` command to support more field types: The current implementation of the `find` command only searches by name. We plan to extend it to support additional fields, such as student number and tags. This will make it easier for TAs to quickly find relevant students based on different criteria.
+3. **Enhance `find` command to support more field types**: The current implementation of the `find` command only searches by name. We plan to extend it to support additional fields, such as student number and tags. This will make it easier for TAs to quickly find relevant students based on different criteria.
 
    **Example:** 
 
