@@ -7,7 +7,7 @@ title: User Guide
 
 **TAHub** is a desktop application designed for *NUS Computer Science Teaching Assistants (TAs)* to efficiently organise student contacts and monitor weekly engagement.
 
-If you are comfortable with the Command Line Interface (CLI) and can type fast, **TAHub** is built for you. **TAHub** allows you to complete student management tasks faster than with traditional mouse-based applications, while still providing the convenience and clarity of a Graphical User Interface (GUI).
+If you are comfortable with the Command Line Interface (CLI) and type quickly, **TAHub** is built for you. **TAHub** allows you to complete student management tasks faster than with traditional mouse-based applications, while still providing the convenience and clarity of a Graphical User Interface (GUI).
 
 With **TAHub**, you can easily:
 * `Add` a new student with their details such as name, student number, phone number, email, telegram, and optional tags.
