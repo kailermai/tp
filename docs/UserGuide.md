@@ -133,14 +133,14 @@ Format: `add n/NAME sn/STUDENT_NUMBER p/PHONE_NUMBER e/EMAIL tele/TELEGRAM [t/TA
 
 **Student Parameter Constraints:**
 
-| Parameter Name | Constraint | Notes                                                                                                                                                                                                                                                                   |
-|----------------|------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `NAME` | Alphabetic characters and spaces, not blank, max 100 characters. | Non-standard characters (numbers `0-9`, hyphens `-`, apostrophes `'`, periods `.`, slashes `/`, accents) trigger a warning, but are accepted. <br><br>May include `/` if not preceded by a parameter-like prefix (eg. <code>&nbsp;sn/</code>, <code>&nbsp;tele</code>). |
-| `STUDENT_NUMBER` | Format: `AXXXXXXXZ` where `A` is the character 'A', `X` is any digit 0-9, and `Z` is any letter. | Letters are case-insensitive.                                                                                                                                                                                                                                           |
-| `PHONE_NUMBER` | At least 3 digits. May start with `+`, and contain optional `-` separators. | Non-standard characters (parentheses `()`, periods `.` spaces) trigger a warning, but are accepted.<br/><br/>Non-standard formats trigger a warning but are accepted.                                                                                                   |
-| `EMAIL` | Format: `local-part@domain`.<br/>`local-part`: Alphanumeric with special characters: `+_.-` (cannot start/end with special characters).<br/>`domain`: One or more labels separated by `.`.<br/>Label: Start/end with alphanumeric characters, may contain `-` in between. Final label must be 2+ characters long.<br/>Examples: `example@gmail.com`, `test@u.nus.edu.sg` | Must follow the exact format.                                                                                                                                                                                                                                           |
-| `TELEGRAM` | Alphanumeric and underscores only, not blank, max 100 characters. | Must follow the exact format.                                                                                                                                                                                                                                           |
-| `TAG` | Alphanumeric characters only. | Multiple tags allowed.                                                                                                                                                                                                                                                  |
+| Parameter Name | Constraint | Notes                                                                                                                                                                                                                                                                    |
+|----------------|------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `NAME` | Alphabetic characters and spaces, not blank, max 100 characters. | Non-standard characters (numbers `0-9`, hyphens `-`, apostrophes `'`, periods `.`, slashes `/`, accents) trigger a warning, but are accepted. <br><br>May include `/` if not preceded by a parameter-like prefix (eg. <code>&nbsp;sn/</code>, <code>&nbsp;tele/</code>). |
+| `STUDENT_NUMBER` | Format: `AXXXXXXXZ` where `A` is the character 'A', `X` is any digit 0-9, and `Z` is any letter. | Letters are case-insensitive.                                                                                                                                                                                                                                            |
+| `PHONE_NUMBER` | At least 3 digits. May start with `+`, and contain optional `-` separators. | Non-standard characters (parentheses `()`, periods `.` spaces) trigger a warning, but are accepted.<br/><br/>Non-standard formats trigger a warning but are accepted.                                                                                                    |
+| `EMAIL` | Format: `local-part@domain`.<br/>`local-part`: Alphanumeric with special characters: `+_.-` (cannot start/end with special characters).<br/>`domain`: One or more labels separated by `.`.<br/>Label: Start/end with alphanumeric characters, may contain `-` in between. Final label must be 2+ characters long.<br/>Examples: `example@gmail.com`, `test@u.nus.edu.sg` | Must follow the exact format.                                                                                                                                                                                                                                            |
+| `TELEGRAM` | Alphanumeric and underscores only, not blank, max 100 characters. | Must follow the exact format.                                                                                                                                                                                                                                            |
+| `TAG` | Alphanumeric characters only. | Multiple tags allowed.                                                                                                                                                                                                                                                   |
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 A student can have any number of tags (including 0)
@@ -150,11 +150,12 @@ A student can have any number of tags (including 0)
 Each student is uniquely identified by their Student Number, meaning you cannot add multiple students with the same Student Number.
 </div>
 
-<div markdown="span" class="alert alert-warning">:exclamation: **Important:**
+<div markdown="block" class="alert alert-warning">:exclamation: **Important:**
 While names can include `/`, using parameter-like sequences that are preceded by a space will cause an error. The parser separates arguments by spaces, so <code>&nbsp;sn/</code> will be interpreted as a new parameter.
 
 *   **Rejected:** `add n/john sn/doe sn/A1234567J ...`
     *   The parser treats `sn/doe` as a separate (and invalid) student number argument because of the preceding space.
+
 *   **Accepted:** `add n/johnsn/doe sn/A1234567J ...`
     *   The parser treats `johnsn/doe` as part of the name because there is no space before `sn/`.
 </div>
