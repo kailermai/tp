@@ -422,6 +422,8 @@ Furthermore, certain edits can cause the TAHub to behave in unexpected ways (e.g
 ![error message](images/javaVMLError.jpg)<br>
 **A**: Instead of double-clicking on the jar file, run the jar file using the command `java -jar tahub.jar` in the terminal. Refer to the [Quick Start](#quick-start) section for details.
 
+[Back to Table of Contents](#table-of-contents)
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## Known issues
