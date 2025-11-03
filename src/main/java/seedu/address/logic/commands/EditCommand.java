@@ -106,7 +106,7 @@ public class EditCommand extends Command {
         String expectedMessage = String.format(MESSAGE_EDIT_STUDENT_SUCCESS, Messages.format(editedStudent));
 
         if (editedStudent.equals(studentToEdit)) {
-            expectedMessage = MESSAGE_NO_FIELDS_CHANGED;
+            expectedMessage = String.format(MESSAGE_NO_FIELDS_CHANGED, Messages.format(editedStudent));
         }
 
         if (editedStudent.getHasNonStandardName()) {
