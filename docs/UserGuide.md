@@ -373,7 +373,7 @@ The sort command reorders the student list in the Student List Panel. The Right 
 </div>
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-This command is useful for viewing the `trend` of students in order of the specified record to `sort` by. (e.g. `sort /a` followed by `trend` to view the trend of all students in order of descending attendance).
+This command is useful for viewing the `trend` of students in order of the specified record to `sort` by (e.g. `sort /a` followed by `trend` to view the trend of all students in order of descending attendance).
 </div>
 
 [Back to Table of Contents](#table-of-contents)
