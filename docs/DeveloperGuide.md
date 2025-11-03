@@ -782,6 +782,9 @@ testers are expected to do more *exploratory* testing.
    4. **Test case**: `edit x n/jane'doe p/91234567` (where x is an integer larger than the student list size).<br>
       **Expected**: No student is edited. An error message highlighting invalid index is shown in the result display.
 
+   5. **Test case**: `edit 1 n/x` (where x is the current name of the target student)<br>
+      **Expected**: No student is edited. Message displayed indicating that the student information remains unchanged.
+
 <div style="page-break-after: always;"></div>
 
 ### Adding/Editing a student record

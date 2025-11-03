@@ -67,6 +67,7 @@ public class EditCommand extends Command {
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
     public static final String MESSAGE_DUPLICATE_STUDENT = "A student with the same student number already exists in "
             + "TAHub.";
+    public static final String MESSAGE_NO_FIELDS_CHANGED = "No fields were changed for Student: %1$s";
 
     private final Index index;
     private final EditStudentDescriptor editStudentDescriptor;
@@ -103,6 +104,10 @@ public class EditCommand extends Command {
         model.updateFilteredStudentList(PREDICATE_SHOW_ALL_STUDENTS);
 
         String expectedMessage = String.format(MESSAGE_EDIT_STUDENT_SUCCESS, Messages.format(editedStudent));
+
+        if (editedStudent.equals(studentToEdit)) {
+            expectedMessage = String.format(MESSAGE_NO_FIELDS_CHANGED, Messages.format(editedStudent));
+        }
 
         if (editedStudent.getHasNonStandardName()) {
             expectedMessage = expectedMessage + "\n" + MESSAGE_NON_STANDARD_NAME_WARNING;

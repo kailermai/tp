@@ -201,12 +201,15 @@ Edits an existing student in TAHub.
 Format: `edit INDEX [n/NAME] [sn/STUDENT_NUMBER] [p/PHONE] [e/EMAIL] [tele/TELEGRAM] [t/TAG]…​`
 
 * Edits the student at the specified `INDEX`. The index refers to the index number shown in the displayed student list. The index **must be a positive integer** 1, 2, 3, …​
-* At least one of the optional fields must be provided.
-* Refer to [Student Parameter Constraints](#adding-a-student-add) for the individual parameter constraints.
 * Existing values will be updated to the input values.
-* When editing tags, the existing tags of the student will be removed i.e adding of tags is not cumulative.
-* You can remove all the student’s tags by typing `t/` without
-    specifying any tags after it.
+* At least one of the optional fields must be provided.
+* Refer to [Student Parameter Constraints in adding a student](#adding-a-student-add) for the individual parameter constraints.
+* When editing tags, the existing tags of the student will be removed i.e. adding of tags is not cumulative.
+* You can remove all the student’s tags by typing `t/` without specifying any tags after it.
+
+<div markdown="span" class="alert alert-info">:information_source: **Note:**
+If the edited student's details are identical to the existing details (i.e., no actual changes were made), a message will be displayed indicating that the student's information remains unchanged.
+</div>
 
 Examples:
 *  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st student to be `91234567` and `johndoe@example.com` respectively.
