@@ -346,7 +346,7 @@ Format: `trend`<br>
 
 ![result for 'list' followed by 'view 2'](images/TrendResult.png)
 
-* Each student's summary is colour-coded for visual feedback based on the percentage of their score calculated over all recorded weeks.
+* Each student's summary is colour-coded for visual feedback based on the percentage of each score calculated over all recorded weeks.
 * Thresholds: Red (`< 50%`), Yellow (`>= 50%` but `< 80%`), Green (`>= 80%`).
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
