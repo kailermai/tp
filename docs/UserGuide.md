@@ -349,7 +349,7 @@ Format: `trend`<br>
 * Each student's summary is colour-coded for visual feedback based on the percentage of each score calculated over all recorded weeks.
 * Thresholds: Red (`< 50%`), Yellow (`>= 50%` but `< 80%`), Green (`>= 80%`).
 
-<div markdown="block" class="alert alert-info">:information_source: **Note:**
+<div markdown="span" class="alert alert-info">:information_source: **Note:**
 The Trend shown in Right Side Panel always reflects the students currently shown in the left panel—any sorting or filtering (e.g., via sort or list) updates the trends immediately.
 </div>
 
@@ -368,7 +368,7 @@ Format:
 
 ![result for 'sort /a'](images/SortResult.png)
 
-<div markdown="block" class="alert alert-info">:information_source: **Note:**
+<div markdown="span" class="alert alert-info">:information_source: **Note:**
 The sort command reorders the student list in the Student List Panel. The Right Side Panel updates only if it is already showing Trend (i.e., The trend window is opened). 
 </div>
 
