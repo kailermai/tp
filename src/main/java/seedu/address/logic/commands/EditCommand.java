@@ -67,7 +67,7 @@ public class EditCommand extends Command {
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
     public static final String MESSAGE_DUPLICATE_STUDENT = "A student with the same student number already exists in "
             + "TAHub.";
-    public static final String MESSAGE_NO_FIELDS_CHANGED = "No fields were changed.";
+    public static final String MESSAGE_NO_FIELDS_CHANGED = "No fields were changed for Student: %1$s";
 
     private final Index index;
     private final EditStudentDescriptor editStudentDescriptor;
