@@ -373,7 +373,7 @@ The sort command reorders the student list in the Student List Panel. The Right 
 </div>
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-To view the trend of students sorted by a score type (e.g. attendance) in descending order, simply run `sort /a` followed by `trend`.
+To view the trend of students sorted by a score type (e.g. attendance) in descending order, simply run `list`, `sort /a` followed by `trend`.
 </div>
 
 [Back to Table of Contents](#table-of-contents)
