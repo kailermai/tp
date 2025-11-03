@@ -58,6 +58,7 @@ These are the key components of the TAHub user interface (UI):
 | 3   | Student List Panel | This panel displays a list of students in TAHub.                                                                                                 |
 | 4   | Right Side Panel   | This is the secondary output field used to display detailed visual summaries and other additional information.                                   |
 
+--------------------------------------------------------------------------------------------------------------------
 <div style="page-break-after: always;"></div>
 
 ## Quick start
@@ -140,6 +141,8 @@ Format: `help`
 Opening the help window using `F1`, or clicking the help button in the header, will not display a command result in the command box, as these actions do not execute a command.
 </div>
 
+[Back to Table of Contents](#table-of-contents)
+
 <div style="page-break-after: always;"></div>
 
 ### Adding a student: `add`
@@ -188,11 +191,15 @@ Examples:
 * `add n/Betsy Crowe t/friend e/betsycrowe@example.com tele/betsy_crowe sn/A1234567G p/1234567 t/criminal`
 * `add n/jean-grey sn/A2222222R p/(65) 9494 e/jean@example tele/jean_grey`
 
+[Back to Table of Contents](#table-of-contents)
+
 ### Listing all students : `list`
 
 Shows a list of all students in TAHub.
 
 Format: `list`
+
+[Back to Table of Contents](#table-of-contents)
 
 ### Editing a student : `edit`
 
@@ -214,6 +221,8 @@ If the edited student's details are identical to the existing details (i.e., no 
 Examples:
 *  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st student to be `91234567` and `johndoe@example.com` respectively.
 *  `edit 2 n/Betsy Crower t/` Edits the name of the 2nd student to be `Betsy Crower` and clears all existing tags.
+
+[Back to Table of Contents](#table-of-contents)
 
 ### Locating students by name: `find`
 
@@ -244,6 +253,8 @@ Examples:
 * `find John` returns `john` and `John Doe`
 * `find alex david` returns `Alex Yeoh`, `David Li`<br>
 
+[Back to Table of Contents](#table-of-contents)
+
 <div style="page-break-after: always;"></div>
 
 ### Deleting a student : `delete`
@@ -259,6 +270,8 @@ Format: `delete INDEX`
 Examples:
 * `list` followed by `delete 2` deletes the 2nd student in TAHub.
 * `find Betsy` followed by `delete 1` deletes the 1st student in the results of the `find` command.
+
+[Back to Table of Contents](#table-of-contents)
 
 ### Adding/Editing a student record: `record`
 Creates or updates the weekly record for a specific student.
@@ -287,6 +300,7 @@ Examples:
 * `record 1 week/1 att/1 sub/0 part/4`
 * `record 2 week/5 att/0 sub/1 part/5`<br>
 
+[Back to Table of Contents](#table-of-contents)
 
 ### Removing a student record: `record`
 Removes an existing record on a particular week for a specific student.
@@ -304,6 +318,8 @@ Examples:
 This command is useful for correcting data entry errors, such as when a record was accidentally created for the wrong week (e.g. keying a record into Week 1 when tutorials start in Week 3). Deletion removes the record completely, unlike the edit functionality, which would require replacing all values. 
 </div>
 
+[Back to Table of Contents](#table-of-contents)
+
 <div style="page-break-after: always;"></div>
 
 ### Viewing student record: `view`
@@ -317,6 +333,8 @@ Format: `view INDEX`
 Examples:
 * `find Betsy` followed by `view 1` views the 1st student in the results of the `find` command.<br>
 * `list` followed by `view 2` views the 2nd student in TAHub.<br>
+
+[Back to Table of Contents](#table-of-contents)
 
 <div style="page-break-after: always;"></div>
 
@@ -336,6 +354,8 @@ Format: `trend`<br>
 The Trend shown in Right Side Panel always reflects the students currently shown in the left panel—any sorting or filtering (e.g., via sort or list) updates the trends immediately.
 </div>
 
+[Back to Table of Contents](#table-of-contents)
+
 <div style="page-break-after: always;"></div>
 
 ### Sorting students: `sort`
@@ -353,6 +373,8 @@ Format:
 The sort command reorders the student list in the Student List Panel. The Right Side Panel updates only if it is already showing Trend (i.e., The trend window is opened).    
 </div>
 
+[Back to Table of Contents](#table-of-contents)
+
 ### Clearing all entries : `clear`
 
 Clears all entries from TAHub.
@@ -363,15 +385,21 @@ Format: `clear`
 This command is irreversible, permanently deleting all student entries and records from TAHub.
 </div>
 
+[Back to Table of Contents](#table-of-contents)
+
 ### Exiting the program : `exit`
 
 Exits the program.
 
 Format: `exit`
 
+[Back to Table of Contents](#table-of-contents)
+
 ### Saving the data
 
 TAHub data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
+
+[Back to Table of Contents](#table-of-contents)
 
 ### Editing the data file
 
@@ -381,6 +409,8 @@ TAHub data are saved automatically as a JSON file `[JAR file location]/data/TAHu
 If your changes to the data file make its format invalid, TAHub will discard all data and start with an empty data file at the next run. For the empty data file to replace the corrupted data file, you will need to enter a command (e.g. `list`). Hence, it is recommended to take a backup of the file before editing it.<br>
 Furthermore, certain edits can cause the TAHub to behave in unexpected ways (e.g., if a value entered is outside of the acceptable range). Therefore, edit the data file only if you are confident that you can update it correctly.
 </div>
+
+[Back to Table of Contents](#table-of-contents)
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -400,6 +430,8 @@ Furthermore, certain edits can cause the TAHub to behave in unexpected ways (e.g
 ## Known issues
 
 1. **When using multiple screens**, if you move the application to a secondary screen, and later switch to using only the primary screen, the GUI will open off-screen. The remedy is to delete the `preferences.json` file created by the application before running the application again.
+
+[Back to Table of Contents](#table-of-contents)
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -422,3 +454,5 @@ Action | Format, Examples
 **Sort** | `sort /a` / `sort /p` / `sort /s`
 **Exit** | `exit`
 **Help** | `help`
+
+[Back to Table of Contents](#table-of-contents)
