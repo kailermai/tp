@@ -957,3 +957,14 @@ Team size: 5
 
 6. **Provide better visualisation for View**: The current view shown in Right Side Panel displays student records for 13 weeks, but does not provide a visual representation of the week numbers.
     We note that this may make it difficult for TAs to quickly identify a specific week's record. We plan to include additional visualisations that provide a clear representation of week number.
+
+
+7. **Implement switching between multiple class data files:**
+    
+    The current implementation uses a single data file (`TAHub.json`) to store all student data. TAs managing multiple tutorial classes must manually back-up and restore different data files, or maintain multiple installations of TAHub. We plan to introduce a `switchClass` command that allows the TAs to seamlessly switch between different class data files within the same TAHub installation. 
+
+    **Example:** Switching from CS2103T Tutorial 1 to CS2103T Tutorial 2.
+
+    **Current implementation:** Single data file (`TAHub.json`). TAs must manually rename/replace files to manage multiple classes.
+
+    **Planned enhancement:** `switchClass CS2103T_T02` (switches to and loads data from `CS2103T_T02.json`).
