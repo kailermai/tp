@@ -340,14 +340,13 @@ Examples:
 
 ### Viewing overall trend of all student records: `trend`
 
-Displays the trend overview of records for all students.
+Displays an overall summary of each student's records from all recorded weeks.
 
 Format: `trend`<br>
 
 ![result for 'list' followed by 'view 2'](images/TrendResult.png)
 
-* Displays a summary of student records across the weeks for each student.
-* The summary of records is colour-coded for visual feedback based on the percentage of the total of each score.
+* Each student's summary is colour-coded for visual feedback based on the percentage of their score calculated over all recorded weeks.
 * Thresholds: Red (`< 50%`), Yellow (`>= 50%` but `< 80%`), Green (`>= 80%`).
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
